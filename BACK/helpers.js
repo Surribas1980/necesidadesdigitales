@@ -66,6 +66,7 @@ async function listarDatos(tabla,campos,search) {
 
   try {
     let results;
+    let connection;
     console.log(`${tabla} ${campos.campo2} ${campos.campo1} ${search} ${search}`)
     if (search) {
       results = await connection.query(
