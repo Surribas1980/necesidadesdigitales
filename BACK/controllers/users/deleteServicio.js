@@ -1,9 +1,19 @@
 const getDB = require("../../db");
-
+const fs = require("fs").promises;
+const path = require("path");
 const deleteServicio = async (req, res, next) => {
 
     let connection;
     try{
+        const ruta = '../../docs/servicios/97';
+        const dir = path.join(__dirname,ruta);
+
+    await fs.rmdir(dir, {
+      recursive: true, // Cuidado que lo borra aunque tenga contenidos
+    });
+
+    console.log("El directorio fue borrado");
+        /*
         connection = await getDB();
 
         //Comprobar si el servicio existe o no y devolver 404 si no existe
@@ -32,10 +42,11 @@ const deleteServicio = async (req, res, next) => {
 
         //Borrar el servicio de la tabla servicios
         await connection.query(`DELETE FROM servicios WHERE id_ser = ?`,[id]);
-
+            */
         res.send({
             status: "ok",
-            message: `El servicio con id ${id} fué borrado`,
+            message: `El servicio con id  fué borrado`,
+            directorio:dir
           });
     } catch(error){
         next(error);

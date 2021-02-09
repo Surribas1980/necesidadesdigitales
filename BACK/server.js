@@ -40,6 +40,7 @@ const {
 
 //Controladores middlewares
 const {isUser,servicioExist} = require("./middlewares");
+const userExists = require("./middlewares/userExists");
 const urls = {    
     serviciosid:"/servicios/:id",
     usersid:"/users/:id",
@@ -61,6 +62,7 @@ const urls = {
     listarcomentarios: "/comentar",
     insertcomentarios: "/comentar",
     comentarAdmin: "/comentar/admin",
+    votar:"/servicios/votar/:id_servicio/:id_solucionador",
   };
 
 //Esto es un comentario de prueba antes del nuevo push
@@ -99,15 +101,20 @@ app.delete(urls.deleteservicio, deleteServicioAdmin);
 
 //Delete - /servicios/:id
 //Borra un servicio de la BBDD
-app.delete(urls.deleteservicio, deleteServicio);
+//app.delete(urls.deleteservicio, deleteServicio);
 
 //Delete - /users/:id
 //Borra un usuario de la BBDD
 app.delete(urlsusers.deleteuser, deleteUser);
 
+
+
+app.delete("/delete",deleteServicio);
+
+
 //Put - /usuarios/:id
 //Permite al Admin modificar los datos de usuario en la BBDD
-app.put(urlsusers.updateuser,isUser, editUser);
+app.put(urlsusers.updateuser,isUser,userExists, editUser);
 
 //Get - /servicios/id
 //Devuelve un único servicio
@@ -119,11 +126,11 @@ app.get(urls.usersid, getUser);
 
 //Post - /user/solution/:id
 //Indica quien ha finalizado un servicio
-app.post("/user/solution/:id", insertSolBy);
+//app.post("/user/solution/:id", insertSolBy);
 
 //Insertar Solucion
 
-app.post(urls.usersolution,isUser,servicioExist,insertSolutions);//importante !! TENEMOS QUE INSERTAR isUser y el usuario debe ser otro al que envía la solucion
+app.post(urls.usersolution,isUser,servicioExist,insertSolutions);
 
 //GET - /comentar
 //Devuelve todos los comentarios de la tabla comentar
@@ -166,7 +173,7 @@ app.get(urls.validaregistrationCode,validateUser);
 
 //Post - /servicios
 //Añade puntuación a un servicio
-app.post("/servicios/votar/:id_servicio/:id_solucionador",isUser, voteServicio);
+app.post(urlsusers.votar,isUser, voteServicio);
 
 //Middleware de error
 app.use((error, req, res, next) => {

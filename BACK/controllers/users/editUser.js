@@ -11,7 +11,7 @@ En este end-point me surge la siguiente duda:
     siendo dicho id, el traído con el token
 
  */
-
+const {SHA512} = require("sha2"); 
 const getDB = require("../../db");
 const { savePhoto,insertFiles, generateRandomString, sendMail } = require("../../helpers");
 const uuid = require("uuid");
@@ -41,8 +41,13 @@ const editEntry = async (req, res, next) => {
             for(const campo in dateUser[dentro]){
 
                 if(datoEnviado[campo] !== "null" ){
-            
-                   dateUser[dentro][campo] = datoEnviado[campo];
+                    if(campo === "pwd"){
+                        //console.log(SHA512(datoEnviado[campo]).toString("hex"));
+                        dateUser[dentro][campo] = SHA512(datoEnviado[campo]).toString("hex");
+                    }else{
+                      dateUser[dentro][campo] = datoEnviado[campo];  
+                    }
+                   
                 }
             }
         }
@@ -66,14 +71,15 @@ const dato = {
       // Se está subiendo una foto
       dateUser[0]['nomFoto_usu'] = req.files.nomFoto_usu.name;
       console.log(`foto es bbdd ${dateUser[0].nomFoto_usu} llega ${req.files.nomFoto_usu.name}`)
-      //insertFiles(req.files,dato);
+      insertFiles(req.files,dato);
     }
     
 
     //Hacer la query del UPDATE
 
     await connection.query(
-        `UPDATE usuarios SET  
+        `UPDATE usuarios SET 
+        pwd=?, 
         nomUsuario_usu=?, 
         nom_usu=?,
         ape1_usu=?,
@@ -81,7 +87,8 @@ const dato = {
         biografia_usu=?,
         mail=?
         WHERE id_usu= ?;`,
-        [    
+        [
+            dateUser[0]['pwd'],    
             dateUser[0]['nomUsuario_usu'], 
             dateUser[0]['nom_usu'],
             dateUser[0]['ape1_usu'],

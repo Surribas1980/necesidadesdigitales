@@ -14,7 +14,8 @@
   "devDependencies": {
     "eslint": "^7.15.0",
     "nodemon": "^2.0.6",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "sha2": "^1.0.2"
   },
   "dependencies": {
     "@sendgrid/mail": "^7.4.0",
