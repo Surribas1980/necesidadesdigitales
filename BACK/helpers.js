@@ -67,23 +67,17 @@ async function listarDatos(tabla,campos,search) {
   try {
     let results;
     let connection;
-    console.log(`${tabla} ${campos.campo2} ${campos.campo1} ${search} ${search}`)
-    if (search) {
-      results = await connection.query(
-        `
-            SELECT * FROM ${tabla}
-            WHERE ${campos.campo1} LIKE ? OR ${campos.campo2} LIKE ?;
-        `,
-        [`%${search}%`, `%${search}%`]
-      );
-    } else {
-      //Leo los servicios de la BBDD
-      results = await connection.query(`
-            SELECT * FROM ${tabla};
-        `);
+    connection = await getDB();
+    console.log(`${tabla} ${campos.campo2} ${campos.campo1} ${search}`)
+    if(search){
+      results = await connection.query(`select * from ${tabla} where ${campos.campo1} like ?`,[`%${search}%`]);
+    }
+    else{
+      results = await connection.query(`select * from ${tabla}`);
     }
 
     return results;
+
   } catch (error) {
     const e = new Error('Error cargando datos de lista de busqueda');
     e.httpStatus = 500;

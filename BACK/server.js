@@ -135,7 +135,7 @@ app.get(urls.servicios, listServicios);
 
 //Get - /users
 //Devuelve todos los usuarios de la tabla usuarios
-app.get(urls.users, listUsers);
+app.get(urls.users,isUser, listUsers);
 
 //Post - /comentar
 //Añade un comentario al servicio
