@@ -47,124 +47,6 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "Listar servicios",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/servicios",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"servicios"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Buscar servicio",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/servicios?search",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"servicios"
-							],
-							"query": [
-								{
-									"key": "search",
-									"value": ""
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Buscar usuarios",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/users?search=",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"users"
-							],
-							"query": [
-								{
-									"key": "search",
-									"value": ""
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Borrar Servicio",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/servicios/11",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"servicios",
-								"11"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Borrar Comentario",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/comentar/3",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"comentar",
-								"3"
-							]
-						}
-					},
-					"response": []
 				}
 			]
 		},
@@ -254,6 +136,147 @@
 		{
 			"name": "Usuarios - logeados",
 			"item": [
+				{
+					"name": "Pestañas de busqueda",
+					"item": [
+						{
+							"name": "Listar usuarios",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjgxMDgzNywiZXhwIjoxNjEyODk3MjM3fQ.q5k3Hez_WPpQ2hX-nqnVcg3E_WCZO8qZDMRJ1crWvWI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/users?search=Hilario_Stracke",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "Hilario_Stracke",
+											"description": "nomUsuario"
+										},
+										{
+											"key": "search",
+											"value": null,
+											"description": "biografía",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar Comentarios",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjgxMDgzNywiZXhwIjoxNjEyODk3MjM3fQ.q5k3Hez_WPpQ2hX-nqnVcg3E_WCZO8qZDMRJ1crWvWI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/comentar?search=comentario1&search=",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"comentar"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "comentario1",
+											"description": "comentario"
+										},
+										{
+											"key": "search",
+											"value": "",
+											"description": "vacío"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar servicio",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/servicios?search",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"servicios"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Pagina listado peticiones",
+					"item": [
+						{
+							"name": "Listar servicios",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjgxMDgzNywiZXhwIjoxNjEyODk3MjM3fQ.q5k3Hez_WPpQ2hX-nqnVcg3E_WCZO8qZDMRJ1crWvWI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/servicios?search=ipsam",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"servicios"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "ipsam"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
 				{
 					"name": "Puntuar Servicio",
 					"request": {
@@ -389,81 +412,6 @@
 									"key": "id",
 									"value": "1",
 									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Listar usuarios",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjgxMDgzNywiZXhwIjoxNjEyODk3MjM3fQ.q5k3Hez_WPpQ2hX-nqnVcg3E_WCZO8qZDMRJ1crWvWI",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:3000/users?search=Hilario_Stracke",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"users"
-							],
-							"query": [
-								{
-									"key": "search",
-									"value": "Hilario_Stracke",
-									"description": "nomUsuario"
-								},
-								{
-									"key": "search",
-									"value": null,
-									"description": "biografía",
-									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Listar Comentarios",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjgxMDgzNywiZXhwIjoxNjEyODk3MjM3fQ.q5k3Hez_WPpQ2hX-nqnVcg3E_WCZO8qZDMRJ1crWvWI",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:3000/comentar?search=comentario1&search=",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"comentar"
-							],
-							"query": [
-								{
-									"key": "search",
-									"value": "comentario1",
-									"description": "comentario"
-								},
-								{
-									"key": "search",
-									"value": "",
-									"description": "vacío"
 								}
 							]
 						}
@@ -653,7 +601,82 @@
 		},
 		{
 			"name": "Usuario Admin",
-			"item": []
+			"item": [
+				{
+					"name": "Borrar Comentario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/comentar/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comentar",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar Servicio",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/servicios/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"servicios",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users?search=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "00 Paso 0 - Registrarte",
