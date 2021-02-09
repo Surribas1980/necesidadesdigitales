@@ -1,5 +1,5 @@
 const getDB = require("../../db");
-
+const {listarDatos} = require("../../helpers");
 const listServicios = async (req, res, next) => {
   let connection;
 
@@ -8,7 +8,13 @@ const listServicios = async (req, res, next) => {
 
     //Saco queryString
     const { search } = req.query;
+    const campos = {
+      campo1: "expli_ser"
+    };
+    const tabla = "servicios";
+    const [results] = await listarDatos(tabla,campos,search)
 
+/*
     let results;
 
     if (search) {
@@ -25,7 +31,7 @@ const listServicios = async (req, res, next) => {
             SELECT * FROM servicios;
         `);
     }
-
+*/
     //Devuelto un json con los servicios
     res.send({
       status: "ok",

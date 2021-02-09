@@ -131,7 +131,7 @@ app.get(urlsusers.listarcomentarios,isUser, listComentar);
 
 //Get - /servicios
 //Devuelve todos los elementos de la tabla servicios
-app.get(urls.servicios, listServicios);
+app.get(urls.servicios,isUser, listServicios);
 
 //Get - /users
 //Devuelve todos los usuarios de la tabla usuarios
