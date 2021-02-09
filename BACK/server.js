@@ -166,7 +166,7 @@ app.get(urls.validaregistrationCode,validateUser);
 
 //Put - /servicios
 //Añade puntuación a un servicio
-app.put("/servicios/:id", voteServicio);
+app.post("/servicios/votar/:id_servicio/:id_solucionador",isUser, voteServicio);
 
 //Middleware de error
 app.use((error, req, res, next) => {

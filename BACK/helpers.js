@@ -62,13 +62,33 @@ function insertFiles(ficheros,datos){
 }
 
 ////Funciones SQL /////
+
+async function modificarDatos(tabla,valor,valorcampo,campo){
+
+  try{
+    let results;
+    let connection;
+    let setSolucionar = `SET solucionado = ${valor} WHERE ${campo} = ${valorcampo};`;
+    connection = await getDB();
+
+    results = await connection.query(`UPDATE ${tabla} ${setSolucionar}`);
+    return results;
+  }catch(error){
+    const e = new Error('Error modificando datos');
+    e.httpStatus = 500;
+    throw e;
+  }
+
+}
+
+
 async function listarDatos(tabla,campos,search) {
 
   try {
     let results;
     let connection;
     connection = await getDB();
-    console.log(`${tabla} ${campos.campo2} ${campos.campo1} ${search}`)
+   
     if(search){
       results = await connection.query(`select * from ${tabla} where ${campos.campo1} like ?`,[`%${search}%`]);
     }
@@ -252,5 +272,6 @@ module.exports = {
   misComentarios,
   miNumSolucionados,
   insertServicio,
-  listarDatos
+  listarDatos,
+  modificarDatos
 };
