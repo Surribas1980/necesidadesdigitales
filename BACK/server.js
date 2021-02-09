@@ -164,7 +164,7 @@ app.get(urls.validaregistrationCode,validateUser);
 
 
 
-//Put - /servicios
+//Post - /servicios
 //Añade puntuación a un servicio
 app.post("/servicios/votar/:id_servicio/:id_solucionador",isUser, voteServicio);
 

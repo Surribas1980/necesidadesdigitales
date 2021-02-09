@@ -9,35 +9,6 @@
 			"name": "Fernando",
 			"item": [
 				{
-					"name": "Puntuar Servicio",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"puntuacion\":8\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/servicios/58",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"servicios",
-								"58"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Muestra un servicio",
 					"request": {
 						"method": "GET",
@@ -114,27 +85,8 @@
 							"query": [
 								{
 									"key": "search",
-									"value": null
+									"value": ""
 								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Listar usuarios",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/users",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"users"
 							]
 						}
 					},
@@ -166,63 +118,6 @@
 					"response": []
 				},
 				{
-					"name": "Nuevo Servicio",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjYyMDQzNCwiZXhwIjoxNjEyNjIwNDM0fQ.P08mRR5NBnYPAboJUvTCrMGSE6nKeKbcr9p2OB-09RI",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"nombre_fich_ser\": \"prueba 28 de enero\",\n    \"expli_ser\": \"seguimos comprobando que funciona todo ok\",\n    \"titulo_ser\": \"cambio peras por manzanas\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/servicios",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"servicios"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Nuevo Usuario",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"nomUsuario_usu\": \"fersines\",\n    \"nom_usu\": \"Fernando\",\n\t\"biografia_usu\": \"Nací un día que mi madre no estaba en casa\",\n    \"email\": \"fsinesc@gmail.com,\n    \"password\": 1234567890,\n    \"ape1_usu\": \"Sines\",\n    \"ape2_usu\": \"Crespo\",\n    \"dni_usu\": 254654\n}"
-						},
-						"url": {
-							"raw": "http://localhost:3000/insertar",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"insertar"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Borrar Servicio",
 					"request": {
 						"method": "DELETE",
@@ -237,25 +132,6 @@
 							"path": [
 								"servicios",
 								"11"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Listar Comentarios",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/comentar",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"comentar"
 							]
 						}
 					},
@@ -293,7 +169,7 @@
 			]
 		},
 		{
-			"name": "Usuarios - Primeros pasos",
+			"name": "00 - Loguearte",
 			"item": [
 				{
 					"name": "3 - Login de usuario",
@@ -302,7 +178,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"mail\": \"issupl@gmail.com\",\n    \"pwd\": \"lorempimpsum\"\n}",
+							"raw": "{\n    \"mail\": \"fsinesc@gmail.com\",\n    \"pwd\": \"lorempimpsum\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -352,33 +228,6 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "2 - validateUser",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/validar/:registrationCode",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"validar",
-								":registrationCode"
-							],
-							"variable": [
-								{
-									"key": "registrationCode",
-									"value": ""
-								}
-							]
-						},
-						"description": "Este end-point realizará lo siguiente:\r\n\r\n> Generará el token si los datos recibidos son correctos,\r\npara poder utilizarlo en la web.\r\n"
-					},
-					"response": []
 				}
 			],
 			"event": [
@@ -406,13 +255,62 @@
 			"name": "Usuarios - logeados",
 			"item": [
 				{
+					"name": "Puntuar Servicio",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjgxMDgzNywiZXhwIjoxNjEyODk3MjM3fQ.q5k3Hez_WPpQ2hX-nqnVcg3E_WCZO8qZDMRJ1crWvWI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"puntuacion\":2.7\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/servicios/votar/2/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"servicios",
+								"votar",
+								"2",
+								"2"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "adminUser",
 					"request": {
 						"method": "GET",
 						"header": [
 							{
 								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjcyMDE2OCwiZXhwIjoxNjEyODA2NTY4fQ.xPxwZN4pllG6cfkBXrZ3-1Y6b_Pjs0d9Gs_z-1HUSgk",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjgxMDgzNywiZXhwIjoxNjEyODk3MjM3fQ.q5k3Hez_WPpQ2hX-nqnVcg3E_WCZO8qZDMRJ1crWvWI",
 								"description": "Token de fernando",
 								"type": "text"
 							}
@@ -441,7 +339,7 @@
 						"header": [
 							{
 								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjcyMDE2OCwiZXhwIjoxNjEyODA2NTY4fQ.xPxwZN4pllG6cfkBXrZ3-1Y6b_Pjs0d9Gs_z-1HUSgk",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjgxMDgzNywiZXhwIjoxNjEyODk3MjM3fQ.q5k3Hez_WPpQ2hX-nqnVcg3E_WCZO8qZDMRJ1crWvWI",
 								"type": "text"
 							}
 						],
@@ -456,11 +354,12 @@
 								{
 									"key": "id_usuario",
 									"value": "8",
-									"type": "text"
+									"type": "text",
+									"disabled": true
 								},
 								{
-									"key": "id_servicio",
-									"value": "78",
+									"key": "id_ser",
+									"value": "94",
 									"type": "text"
 								},
 								{
@@ -473,12 +372,7 @@
 									"type": "file",
 									"src": "/C:/Users/Israel/Documents/HACKBOSS/Aspectos basicos programacion.docx"
 								}
-							],
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							]
 						},
 						"url": {
 							"raw": "localhost:3000/user/solution",
@@ -495,6 +389,81 @@
 									"key": "id",
 									"value": "1",
 									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar usuarios",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjgxMDgzNywiZXhwIjoxNjEyODk3MjM3fQ.q5k3Hez_WPpQ2hX-nqnVcg3E_WCZO8qZDMRJ1crWvWI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/users?search=Hilario_Stracke",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Hilario_Stracke",
+									"description": "nomUsuario"
+								},
+								{
+									"key": "search",
+									"value": null,
+									"description": "biografía",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Comentarios",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjgxMDgzNywiZXhwIjoxNjEyODk3MjM3fQ.q5k3Hez_WPpQ2hX-nqnVcg3E_WCZO8qZDMRJ1crWvWI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/comentar?search=comentario1&search=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comentar"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "comentario1",
+									"description": "comentario"
+								},
+								{
+									"key": "search",
+									"value": "",
+									"description": "vacío"
 								}
 							]
 						}
@@ -555,12 +524,7 @@
 									"type": "file",
 									"src": "/C:/Users/Public/Pictures/Sample Pictures/Lighthouse.jpg"
 								}
-							],
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							]
 						},
 						"url": {
 							"raw": "http://localhost:3000/users/8",
@@ -596,12 +560,12 @@
 							"formdata": [
 								{
 									"key": "eltitulo",
-									"value": "Titulo quinta catorce",
+									"value": "Titulo quinta quince",
 									"type": "text"
 								},
 								{
 									"key": "explicacion",
-									"value": "esta es la explicación de catorce",
+									"value": "esta es la explicación de quince",
 									"type": "text"
 								},
 								{
@@ -684,6 +648,43 @@
 							""
 						]
 					}
+				}
+			]
+		},
+		{
+			"name": "Usuario Admin",
+			"item": []
+		},
+		{
+			"name": "00 Paso 0 - Registrarte",
+			"item": [
+				{
+					"name": "2 - validateUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/validar/:registrationCode",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"validar",
+								":registrationCode"
+							],
+							"variable": [
+								{
+									"key": "registrationCode",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Este end-point realizará lo siguiente:\r\n\r\n> Generará el token si los datos recibidos son correctos,\r\npara poder utilizarlo en la web.\r\n"
+					},
+					"response": []
 				}
 			]
 		}
