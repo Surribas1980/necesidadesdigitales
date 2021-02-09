@@ -1,0 +1,461 @@
+{
+	"info": {
+		"_postman_id": "f1474d17-982d-4ef0-864e-e7ee9e7d1124",
+		"name": "API Proyecto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Fernando",
+			"item": [
+				{
+					"name": "Puntuar Servicio",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"puntuacion\":8\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/servicios/58",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"servicios",
+								"58"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Muestra un servicio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/servicios/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"servicios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Muestra un usuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar servicios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/servicios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"servicios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar servicio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/servicios?search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"servicios"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users?search=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Nuevo Servicio",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre_fich_ser\": \"prueba 28 de enero\",\n    \"expli_ser\": \"seguimos comprobando que funciona todo ok\",\n    \"titulo_ser\": \"cambio peras por manzanas\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/servicios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"servicios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Nuevo Usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nomUsuario_usu\": \"fersines\",\n    \"nom_usu\": \"Fernando\",\n\t\"biografia_usu\": \"Nací un día que mi madre no estaba en casa\",\n    \"email\": \"fsinesc@gmail.com,\n    \"password\": 1234567890,\n    \"ape1_usu\": \"Sines\",\n    \"ape2_usu\": \"Crespo\",\n    \"dni_usu\": 254654\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/insertar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"insertar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Usuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id_usu\": 8,\n        \"nomFoto_usu\": \"New fugit\",\n        \"nomUsuario_usu\": \"Wilhelmine35bis\",\n        \"nom_usu\": \"Rosalinda\",\n        \"ape1_usu\": \"Schmidt\",\n        \"ape2_usu\": \"Rempel\",\n        \"biografia_usu\": \"Sit voluptatem consectetur autem sed doloremque similique. Et sit quia aut. Quia assumenda tempore aperiam molestiae est neque. Harum aut officia dolores nobis eos odio eveniet.\",\n        \"mail\": \"Jerome.Johnson@hotmail.com\",\n        \"pwd\": null,\n        \"rol\": \"admin\",\n        \"activado\": null,\n        \"borrado\": null,\n        \"codigoRegistro\": null\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar Servicio",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/servicios/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"servicios",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Nuevo Comentario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/comentar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comentar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Comentarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/comentar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comentar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar Comentario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/comentar/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comentar",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Israel",
+			"item": [
+				{
+					"name": "Login de usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mail\": \"issupl@gmail.com\",\n    \"pwd\": \"lorempimpsum\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "insertFile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/C:/Users/Israel/Desktop/913.pdf"
+								},
+								{
+									"key": "id_usuario",
+									"value": "8",
+									"type": "text"
+								},
+								{
+									"key": "id_servicio",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "archivo2",
+									"type": "file",
+									"src": "/C:/Users/Israel/Documents/HACKBOSS/4_3_4_2.png"
+								},
+								{
+									"key": "archivo3",
+									"type": "file",
+									"src": "/C:/Users/Israel/Documents/HACKBOSS/Aspectos basicos programacion.docx"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/user/solution",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"solution"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "newUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mail\": \"issupl@gmail.com\",\r\n    \"pwd\": \"lorempimpsum\",\r\n    \"nomUsuario_usu\": \"jorgint\",\r\n    \"nom_usu\": \"juna\",\r\n    \"ape1_usu\": \"jag dal\",\r\n    \"ape2_usu\": \"ññkljh sadsa\",\r\n    \"biografia_usu\": \"ñkjkh adsa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/insertar",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"insertar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,691 @@
+{
+	"info": {
+		"_postman_id": "f1474d17-982d-4ef0-864e-e7ee9e7d1124",
+		"name": "API Proyecto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Fernando",
+			"item": [
+				{
+					"name": "Puntuar Servicio",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"puntuacion\":8\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/servicios/58",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"servicios",
+								"58"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Muestra un servicio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/servicios/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"servicios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Muestra un usuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar servicios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/servicios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"servicios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar servicio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/servicios?search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"servicios"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users?search=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Nuevo Servicio",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjYyMDQzNCwiZXhwIjoxNjEyNjIwNDM0fQ.P08mRR5NBnYPAboJUvTCrMGSE6nKeKbcr9p2OB-09RI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre_fich_ser\": \"prueba 28 de enero\",\n    \"expli_ser\": \"seguimos comprobando que funciona todo ok\",\n    \"titulo_ser\": \"cambio peras por manzanas\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/servicios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"servicios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Nuevo Usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nomUsuario_usu\": \"fersines\",\n    \"nom_usu\": \"Fernando\",\n\t\"biografia_usu\": \"Nací un día que mi madre no estaba en casa\",\n    \"email\": \"fsinesc@gmail.com,\n    \"password\": 1234567890,\n    \"ape1_usu\": \"Sines\",\n    \"ape2_usu\": \"Crespo\",\n    \"dni_usu\": 254654\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/insertar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"insertar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar Servicio",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/servicios/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"servicios",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Comentarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/comentar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comentar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar Comentario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/comentar/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comentar",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuarios - Primeros pasos",
+			"item": [
+				{
+					"name": "3 - Login de usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mail\": \"issupl@gmail.com\",\n    \"pwd\": \"lorempimpsum\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"login"
+							]
+						},
+						"description": "Este end-point tiene la librería para generar el token,llamada \"jsonwebtoken\".\r\n> Utilizando el método 'sign', generará con la cadena que tenemos guardada en nuestro servidor más la info de la base de datos que traemos una expresión secreta.\r\n\r\n    const jwt = require(\"jsonwebtoken\");\r\n    const token = jwt.sign(info, process.env.SECRETO, {\r\n      expiresIn: \"1d\",\r\n    });"
+					},
+					"response": []
+				},
+				{
+					"name": "1 - newUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mail\": \"fsinesc@gmail.com\",\r\n    \"pwd\": \"lorempimpsum\",\r\n    \"nomUsuario_usu\": \"fer\",\r\n    \"nom_usu\": \"fernando\",\r\n    \"ape1_usu\": \"jag dal\",\r\n    \"ape2_usu\": \"ññkljh sadsa\",\r\n    \"biografia_usu\": \"ñkjkh adsa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/insertar",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"insertar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2 - validateUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/validar/:registrationCode",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"validar",
+								":registrationCode"
+							],
+							"variable": [
+								{
+									"key": "registrationCode",
+									"value": ""
+								}
+							]
+						},
+						"description": "Este end-point realizará lo siguiente:\r\n\r\n> Generará el token si los datos recibidos son correctos,\r\npara poder utilizarlo en la web.\r\n"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Usuarios - logeados",
+			"item": [
+				{
+					"name": "adminUser",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjcyMDE2OCwiZXhwIjoxNjEyODA2NTY4fQ.xPxwZN4pllG6cfkBXrZ3-1Y6b_Pjs0d9Gs_z-1HUSgk",
+								"description": "Token de fernando",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/users/userLogin/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"userLogin",
+								""
+							]
+						},
+						"description": "Este end-point necesita token, eso quire decir que tenemos que meterlo en los HEADERS, con la palabra adecuada, en este caso elegimos \"authorization\" que lo desestructuraremos\r\n    const { authorization } = req.headers;\r\nPreviamente pasará por el middelware isUser que también lo requerirá, que en caso de no ser correcto no deja seguir"
+					},
+					"response": []
+				},
+				{
+					"name": " insertSolution",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjcyMDE2OCwiZXhwIjoxNjEyODA2NTY4fQ.xPxwZN4pllG6cfkBXrZ3-1Y6b_Pjs0d9Gs_z-1HUSgk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/C:/Users/Israel/Desktop/913.pdf"
+								},
+								{
+									"key": "id_usuario",
+									"value": "8",
+									"type": "text"
+								},
+								{
+									"key": "id_servicio",
+									"value": "78",
+									"type": "text"
+								},
+								{
+									"key": "archivo2",
+									"type": "file",
+									"src": "/C:/Users/Israel/Documents/HACKBOSS/4_3_4_2.png"
+								},
+								{
+									"key": "archivo3",
+									"type": "file",
+									"src": "/C:/Users/Israel/Documents/HACKBOSS/Aspectos basicos programacion.docx"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/user/solution",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"solution"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Usuario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjgxMDgzNywiZXhwIjoxNjEyODk3MjM3fQ.q5k3Hez_WPpQ2hX-nqnVcg3E_WCZO8qZDMRJ1crWvWI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nomUsuario_usu",
+									"value": "juanete perillan",
+									"type": "text"
+								},
+								{
+									"key": "nom_usu",
+									"value": "Wilhelmine35bis",
+									"type": "text"
+								},
+								{
+									"key": "ape1_usu",
+									"value": "Rosalinda",
+									"type": "text"
+								},
+								{
+									"key": "ape2_usu",
+									"value": "null",
+									"type": "text"
+								},
+								{
+									"key": "biografia_usu",
+									"value": "Rempel",
+									"type": "text"
+								},
+								{
+									"key": "mail",
+									"value": "Jerome.Johnson@hotmail.com",
+									"type": "text"
+								},
+								{
+									"key": "pwd",
+									"value": "null",
+									"type": "text"
+								},
+								{
+									"key": "nomFoto_usu",
+									"type": "file",
+									"src": "/C:/Users/Public/Pictures/Sample Pictures/Lighthouse.jpg"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "newServicio",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjgwNjc3NSwiZXhwIjoxNjEyODkzMTc1fQ.Vz3ORKREb_B3QHQP3JjSfGY0rU7QurNwubxBL6tl8aE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "eltitulo",
+									"value": "Titulo quinta catorce",
+									"type": "text"
+								},
+								{
+									"key": "explicacion",
+									"value": "esta es la explicación de catorce",
+									"type": "text"
+								},
+								{
+									"key": "aspectos",
+									"type": "file",
+									"src": "/C:/Users/Israel/Documents/HACKBOSS/Aspectos basicos programacion.docx"
+								},
+								{
+									"key": "elpdf",
+									"type": "file",
+									"src": "/C:/Users/Israel/Documents/HACKBOSS/progit_libro.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/servicios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"servicios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Nuevo Comentario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjcyMDE2OCwiZXhwIjoxNjEyODA2NTY4fQ.xPxwZN4pllG6cfkBXrZ3-1Y6b_Pjs0d9Gs_z-1HUSgk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_ser\": \"78\",\r\n    \"comentario\":\"prueba de otro comentario 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/comentar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comentar"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Estos end-points, tienen como condición que estén logeados.\r\n> Para ello deben tener pasados los \"Primeros pasos\".\r\n> Traen el token con el que trabajaremos, este contendrá el \"id de usuario\" y la fecha-hora de inicio y finalización.\r\n> Dichos end-point estarán previamente con el middleware \"isUser\"!!!!!!!!!\r\n\r\nCualquier \"usuario\", una vez logeado irá a su página de inicio, \"adminUser\". Entre las cosas que podrá realizar serán las siguientes:\r\n    * Sus modificaciones como:\r\n        <>> Cambiar sus datos y subir su foto para el avatar => editUser\r\n    * En general:\r\n        <>> Insertar un servicio => newServicio\r\n        <>> Insertar una solución => inserFile\r\n        <>> Insertar un comentario => newComentar\r\n\r\nFinalmente, entendemos que dichos end-point tendrán lo siguiente:\r\n\r\n    *app.[]([OBJETO.URL],isUser,[...lo que toque...]). Ejemplo:\r\n        app.post(urls.servicios, isUser,newServicio);\r\n\r\n",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}

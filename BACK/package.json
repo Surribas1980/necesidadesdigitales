@@ -1,0 +1,36 @@
+{
+  "name": "diario-de-viajes",
+  "version": "1.0.0",
+  "description": "Crear un fichero .env con los contenidos de .env.example completados.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.15.0",
+    "nodemon": "^2.0.6",
+    "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^7.4.0",
+    "body-parser": "^1.19.0",
+    "date-fns": "^2.16.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.0",
+    "faker": "^5.1.0",
+    "fs-extra": "^9.0.1",
+    "joi": "^17.3.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.20",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.2.5",
+    "sharp": "^0.26.3",
+    "uuid": "^8.3.2"
+  }
+}

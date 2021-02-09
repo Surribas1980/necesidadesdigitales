@@ -1,0 +1,46 @@
+
+Resumen ejecutivo
+
+Esta plataforma gestionará lo siguiente, mediante el registro del usuario:
+ Gestionar su perfil
+ Solicitar o solucionar un servicio de cualquier usuario.
+ Mandar mensajes de respuesta o comentarios del servicio.
+ Se podrán subir archivos
+//“Funcionalidad”
+Funcionamiento
+Utilizaremos una API, que generará de manera automática un mail de confirmación de usuario.
+//”Contenidos y funcionamiento WEB”
+Estructura de contenidos
+Constará de la página principal, dicha página constará de varios apartados:
+ Loguearse
+ Registrarse
+Loguearse
+Una vez que cliques, se te abrirá la página con la que te loguearás, escribiendo tu mail y tu
+contraseña.
+Registrarse
+Una vez que accedas a la página, se te pedirán los datos para poder registrarse, como el
+nombre, el nombre de usuario, apellidos y clave entre otros.
+Funcionalidades
+Usuarios
+ Serán validados de manera automática al responder a un correo de validación.
+ Por otra parte, estos, podrán pedir el número los servicios que deseen.
+ Deberá indicar cuando su servicio esté resuelto.
+ Tendrá una puntuación media sobre las puntuaciones obtenidas de las soluciones
+aportadas a otros.
+ Consideraremos un usuario administrador, que se encargará entre otras cosas, de
+establecer una moderación entre los comentarios de los usuarios, llegando incluso a
+eliminarlos.
+Formulario de alta
+La web utilizará un formulario para darse de alta como usuario registrado.
+
+Dashboard
+Login y pwd
+El usuario podrá cambiar de “nombre de usuario” así como su “pwd”.
+Gestión de su zona de usuario
+ Edición de su ficha pública
+ Ver los mensajes de los usuarios que participan en los servicios
+ Ver estadísticas de puntuaciones
+ Tendrá apartados para subir las soluciones así como solicitarlas
+Notificaciones de usuario
+Tendremos un sistema de notificación por correo a los usuarios, en la notificación de
+contestaciones pendientes o avisos pendientes.
