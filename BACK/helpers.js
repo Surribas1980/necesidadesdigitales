@@ -47,7 +47,7 @@ async function uploadFile(mifichero,datos) {
      // Generar un nombre único para la carpeta
     
     let dir = path.join(__dirname,`./${datos.carpeta}/`);
-    
+    console.log(`${dir} upload`);
     mifichero.mv(`${dir}` + mifichero.name);
   }catch(error){
     console.error(error.message);
@@ -55,8 +55,9 @@ async function uploadFile(mifichero,datos) {
 }
 
 function insertFiles(ficheros,datos){
-
+console.log('estoy en isner')
   for (const archivo in ficheros){
+    //console.log(`estoy dentro ${ficheros[archivo].name}`);
     uploadFile(ficheros[archivo],datos);
   }
 }

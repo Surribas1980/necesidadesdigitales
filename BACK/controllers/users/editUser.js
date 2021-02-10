@@ -18,8 +18,11 @@ const editEntry = async (req, res, next) => {
     let connection;
     const datoEnviado = {};
     try {
+
+        console.log(`Llega a edit`)
         connection = await getDB();
-        // Sacar id de req.params
+        // Sacar id de req.params  .Entiendo que este id es mandado desde el front
+        //Al mismo tiempo podría ser mandado al front en el logeo?
         const { id } = req.params; // este es el id de usuario que queremos editar
          // Comprobar que el usuario que queremos editar es el mismo del token o somos administradores
         if (req.userAuth.id !== Number(id) && req.userAuth.role !== "admin") {
@@ -34,7 +37,10 @@ const editEntry = async (req, res, next) => {
      
         const { nomUsuario_usu, nom_usu, ape1_usu, ape2_usu,biografia_usu, mail,pwd} = req.body;
         // Si el email enviado es diferente al de la base de datos procesar el nuevo email
-    if (mail && mail !== dateUser[0].email) {
+
+        console.log(`${dateUser[0].mail}`)
+        
+        if (mail && mail !== dateUser[0].mail) {
         // Comprobar que no exista otro usuario con el nuevo email
         const [existingEmail] = await connection.query(
           `

@@ -38,8 +38,19 @@ const {
 
 
 //Controladores middlewares
-const {isUser,servicioExist,canEdit,canEditAmin,canDeleteService,canDeleteUser,canDeleteComentar} = require("./middlewares");
-const userExists = require("./middlewares/userExists");
+const {
+  isUser,
+  servicioExist,
+  canEdit,
+  canEditAmin,
+  cannotAdmin,
+  canDeleteService,
+  canDeleteUser,
+  canDeleteComentar,
+  userExists,
+  comentarioExists
+} = require("./middlewares");
+
 const urls = {    
     serviciosid:"/servicios/:id",
     usersid:"/users/:id",
@@ -55,11 +66,11 @@ const urls = {
   const urlsusers= {
     userslogin :"/users/login",
     userlogeado:"/users/userLogin/",
-    userborracomentario:"/comentar/:id",
-    deleteuser:"/users/:id",
-    updateuser:"/users/:id",
+    userborracomentario:"/users/delete/comentario/:id", //
+    deleteuser:"/users/delete/:id",
+    updateuser:"/users/edit/:id",
     listarcomentarios: "/comentar",
-    insertcomentarios: "/comentar",
+    insertcomentarios: "/users/insert/comentario/:id_ser",
     comentarAdmin: "/comentar/admin",
     votar:"/servicios/votar/:id_servicio/:id_solucionador",
   };
@@ -92,7 +103,7 @@ app.get(urlsusers.userlogeado,isUser,adminUser);
 
 //Delete - /comentar/:id
 //Borra un comentario de la BBDD
-app.delete(urlsusers.userborracomentario, isUser,canDeleteComentar,deleteComentar);
+app.delete(urlsusers.userborracomentario, isUser,comentarioExists,canDeleteComentar,deleteComentar);
 
 //Delete - /users/:id
 //Borra un usuario de la BBDD
@@ -140,7 +151,7 @@ app.post("/comentar/admin",isUser, newComentAdmin);
 //Post - /servicios
 //Insertamos un servicio
 //app.post("/servicios", isUser);
-app.post(urls.servicios, isUser,newServicio);
+app.post(urls.servicios, isUser,cannotAdmin,newServicio);
 
 //Post - /user
 //Insertamos un usuario
@@ -158,7 +169,7 @@ app.get(urls.validaregistrationCode,validateUser);
 
 //Post - /servicios
 //Añade puntuación a un servicio
-app.post(urlsusers.votar,isUser, voteServicio);
+app.post(urlsusers.votar,isUser,cannotAdmin, voteServicio);
 
 //Middleware de error
 app.use((error, req, res, next) => {

@@ -6,7 +6,7 @@ const servicioExist = async (req, res, next) => {
   try {
     connection = await getDB();
 
-    const { id_ser } = req.body;
+    const { id_ser } = req.params;
 
     const [result] = await connection.query(
       `

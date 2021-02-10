@@ -7,8 +7,8 @@ const newComentar = async (req, res, next) => {
   try {
     connection = await getDB();
 
-    //Saco queryString
-    const { comentario , id_ser} = req.body;
+    const { id_ser } = req.params;
+    const { comentario } = req.body;
 
 const now = new Date();
 

@@ -41,6 +41,7 @@ const insertThings = async (req, res, next)=>{
         const [idServicio] = await connection.query(`SELECT id_ser FROM servicios WHERE titulo_ser = ? AND expli_ser = ?`,[eltitulo,explicacion]);
 
         dato.carpeta = `docs/servicios/${idServicio[0]['id_ser']}`;
+        console.log(`${dato.carpeta}`)
         insertFiles(req.files,dato);
         //console.log(`el id del objeto: ${dato.idSer}`)
         res.send({

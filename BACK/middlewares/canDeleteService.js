@@ -21,7 +21,7 @@ const canDelete = async (req, res, next) => {
     // Comprobar que la id de usuario que la creó es la misma que la que viene en el token (o el token es de administrador)
     if (
       usuario[0].id_usu_soli !== req.userAuth.id &&
-      req.userAuth.role !== "admin"
+      req.userAuth.rol !== "admin"
     ) {
       const error = new Error("No tienes permisos para borrar el servicio");
       error.httpStatus = 401;

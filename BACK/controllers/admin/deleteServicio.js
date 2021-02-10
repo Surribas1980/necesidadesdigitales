@@ -10,24 +10,10 @@ const deleteServicio = async (req, res, next) => {
         //Comprobar si el servicio existe o no y devolver 404 si no existe
         const { id_ser } = req.params;
 
-        //Comprobamos que existe el usuario con ese id
-
-        const [id_a_borrar] = await connection.query(`SELECT id_ser FROM servicios WHERE id_ser=?`,[id_ser]);
-            
-        //Si no existe devolver un 404
-
-        if (id_a_borrar.length === 0) {
-            const error = new Error(
-                "No existe ningún servicio en la BBDD con ese id_ser"
-            );
-            error.httpStatus = 404;
-            throw error;
-        }
-
-        
+        //Rutas a borrar      
       
         //Borrar los posibles ficheros (pendiente cuando tengamos la ruta)
-        const ruta = `../../docs/servicios/${id_a_borrar[0]['id_ser']}`;
+        const ruta = `../../docs/servicios/${id_ser}`;
         const dir = path.join(__dirname,ruta);
 
         await fs.rmdir(dir, {recursive: true, });
@@ -36,7 +22,7 @@ const deleteServicio = async (req, res, next) => {
             
         res.send({
             status: "ok",
-            message: `El servicio con id  fué borrado`,
+            message: `El servicio con ${id_ser}  fué borrado`,
             directorio:dir
           });
     } catch(error){
