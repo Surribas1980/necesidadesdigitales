@@ -13,21 +13,47 @@ En este end-point me surge la siguiente duda:
  */
 const {SHA512} = require("sha2"); 
 const getDB = require("../../db");
-const { savePhoto,insertFiles, generateRandomString, sendMail } = require("../../helpers");
-const uuid = require("uuid");
+const { insertFiles } = require("../../helpers");
 const editEntry = async (req, res, next) => {
     let connection;
+    const datoEnviado = {};
     try {
         connection = await getDB();
-
-         //Comprobar que tenemos los datos mínimos en el body
-
+        // Sacar id de req.params
+        const { id } = req.params; // este es el id de usuario que queremos editar
+         // Comprobar que el usuario que queremos editar es el mismo del token o somos administradores
+        if (req.userAuth.id !== Number(id) && req.userAuth.role !== "admin") {
+            const error = new Error("No tienes permisos para editar este usuario");
+            error.httpStatus = 403;
+            throw error;
+        }
+        
+      // Sacar la información actual del usuario en la base de datos
+      const [dateUser] = await connection.query(`
+        select nomUsuario_usu, nom_usu, ape1_usu, ape2_usu, biografia_usu, mail, pwd from usuarios where id_usu = ?;`,[id]);
+     
         const { nomUsuario_usu, nom_usu, ape1_usu, ape2_usu,biografia_usu, mail,pwd} = req.body;
-        const datoEnviado = {};
-        let id = req.userAuth.id;
-        console.log(`el id que llega ${id}`)
-        const [dateUser] = await connection.query(`
-        select nomUsuario_usu, nom_usu, ape1_usu, ape2_usu, biografia_usu, mail, pwd from usuarios where id_usu = ?;`,[req.userAuth.id]);
+        // Si el email enviado es diferente al de la base de datos procesar el nuevo email
+    if (mail && mail !== dateUser[0].email) {
+        // Comprobar que no exista otro usuario con el nuevo email
+        const [existingEmail] = await connection.query(
+          `
+          SELECT id_usu
+          FROM usuarios
+          WHERE mail=?
+        `,
+          [mail]
+        );
+  
+        if (existingEmail.length > 0) {
+          const error = new Error(
+            "Ya existe un usuario con el email proporcionado en la base de datos"
+          );
+          error.httpStatus = 409;
+          throw error;
+        }
+    }
+         //Comprobar que tenemos los datos mínimos en el body       
         
        datoEnviado.nomUsuario_usu = nomUsuario_usu;
        datoEnviado.nom_usu = nom_usu;
@@ -53,24 +79,13 @@ const editEntry = async (req, res, next) => {
         }
 
 const dato = {
-    "usuario": `${req.userAuth.id}`,    
-    "carpeta": `docs/fotousuario${req.userAuth.id}`,
+    "usuario": `${id}`,    
+    "carpeta": `docs/fotousuario${id}`,
 }
- /*    
-// Sacar la información actual del usuario en la base de datos
-    const [currentUser] = await connection.query(
-      `
-      SELECT email
-      FROM usuarios
-      WHERE id=?
-    `,
-      [req.userAuth.id]
-    );
-*/
+
     if (req.files && req.files.nomFoto_usu) {
       // Se está subiendo una foto
       dateUser[0]['nomFoto_usu'] = req.files.nomFoto_usu.name;
-      console.log(`foto es bbdd ${dateUser[0].nomFoto_usu} llega ${req.files.nomFoto_usu.name}`)
       insertFiles(req.files,dato);
     }
     
@@ -95,7 +110,7 @@ const dato = {
             dateUser[0]['ape2_usu'],
             dateUser[0]['biografia_usu'],
             dateUser[0]['mail'],
-            req.userAuth.id
+            id
         ]
     );
 

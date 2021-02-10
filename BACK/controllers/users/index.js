@@ -1,5 +1,4 @@
 const adminUser = require("./adminUser");
-const deleteServicio = require("./deleteServicio");
 const editUser = require("./editUser");
 const getUser = require("./getUser");
 const listUsers = require("./listUsers");
@@ -9,7 +8,6 @@ const validateUser = require("./validateUser");
 
 module.exports = {
   adminUser,
-  deleteServicio,
   editUser,
   getUser,
   listUsers,

@@ -6,17 +6,17 @@ const fileUpload = require('express-fileupload');
 
 //Controladores de admin
 const {
-  deleteServicioAdmin,
+  //deleteServicioAdmin,
   deleteUser,
   newComentAdmin,
   updateAmin,
+  deleteServicio,
   } = require("./controllers/admin");
 
 //Controladores de servicios
 const {
   deleteComentar,
   getServicio,
-  insertSolBy,
   insertSolutions,
   listComentar,
   listServicios,
@@ -28,7 +28,6 @@ const {
 // Controladores de usuarios
 const {
   adminUser,
-  deleteServicio,
   editUser,
   getUser,
   listUsers,
@@ -39,7 +38,7 @@ const {
 
 
 //Controladores middlewares
-const {isUser,servicioExist} = require("./middlewares");
+const {isUser,servicioExist,canEdit,canEditAmin,canDeleteService,canDeleteUser,canDeleteComentar} = require("./middlewares");
 const userExists = require("./middlewares/userExists");
 const urls = {    
     serviciosid:"/servicios/:id",
@@ -50,7 +49,7 @@ const urls = {
     admin:"/admin",
     validaregistrationCode:"/validar/:registrationCode",
     usersolution:"/user/solution",
-    deleteservicio:"/servicios/:id",
+    deleteservicio:"/servicios/borrar/:id_ser",
   };
 
   const urlsusers= {
@@ -93,40 +92,26 @@ app.get(urlsusers.userlogeado,isUser,adminUser);
 
 //Delete - /comentar/:id
 //Borra un comentario de la BBDD
-app.delete(urlsusers.userborracomentario, deleteComentar);
-
-//Delete - /servicios/:id
-//Borra un servicio de la BBDD por el Admin
-app.delete(urls.deleteservicio, deleteServicioAdmin);
-
-//Delete - /servicios/:id
-//Borra un servicio de la BBDD
-//app.delete(urls.deleteservicio, deleteServicio);
+app.delete(urlsusers.userborracomentario, isUser,canDeleteComentar,deleteComentar);
 
 //Delete - /users/:id
 //Borra un usuario de la BBDD
-app.delete(urlsusers.deleteuser, deleteUser);
+app.delete(urlsusers.deleteuser,isUser,userExists,canDeleteUser, deleteUser);
 
-
-
-app.delete("/delete",deleteServicio);
+//Delete - /servicios/borrar/:id
+//Borra un servicio de la BBDD
+app.delete(urls.deleteservicio, isUser, servicioExist, canDeleteService,deleteServicio);
 
 
 //Put - /usuarios/:id
 //Permite al Admin modificar los datos de usuario en la BBDD
-app.put(urlsusers.updateuser,isUser,userExists, editUser);
+app.put(urlsusers.updateuser,isUser,userExists, canEdit ,editUser);
 
 //Get - /servicios/id
 //Devuelve un único servicio
-app.get(urls.serviciosid, getServicio);
+app.get(urls.serviciosid,isUser, servicioExist, getServicio);
 
-//Get - /users/id
-//Devuelve un único usuario
-app.get(urls.usersid, getUser);
 
-//Post - /user/solution/:id
-//Indica quien ha finalizado un servicio
-//app.post("/user/solution/:id", insertSolBy);
 
 //Insertar Solucion
 
@@ -150,7 +135,7 @@ app.post(urlsusers.insertcomentarios,isUser,servicioExist, newComentar);
 
 //Post - /comentar/admin
 //Añade un comentario realizado por el admin
-app.post("/comentar/admin", newComentAdmin);
+app.post("/comentar/admin",isUser, newComentAdmin);
 
 //Post - /servicios
 //Insertamos un servicio
@@ -163,7 +148,7 @@ app.post(urls.insertUser,newUser);
 
 //Get - admin
 //Insertar o modificar "admin"
-app.post(urls.admin,updateAmin);
+app.post(urls.admin,isUser,canEditAmin,updateAmin);
 
 //Get - user
 //Validar usuario

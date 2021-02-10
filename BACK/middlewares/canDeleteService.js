@@ -1,29 +1,29 @@
 const getDB = require("../db");
 
-const canEdit = async (req, res, next) => {
+const canDelete = async (req, res, next) => {
   let connection;
 
   try {
     connection = await getDB();
 
-    const { id_usu } = req.params;
+    const { id_ser } = req.params;
 
     // Seleccionar la entrada de la base de datos para saber quien la creó
     const [usuario] = await connection.query(
       `
-      SELECT id_usu
-      FROM usuarios
-      WHERE id_usu=?
+      SELECT id_usu_soli
+      FROM solicitar
+      WHERE id_ser_soli=?
     `,
-      [id_usu]
+      [id_ser]
     );
 
     // Comprobar que la id de usuario que la creó es la misma que la que viene en el token (o el token es de administrador)
     if (
-      usuario[0].id_usu !== req.userAuth.id &&
+      usuario[0].id_usu_soli !== req.userAuth.id &&
       req.userAuth.role !== "admin"
     ) {
-      const error = new Error("No tienes permisos para editar esta entrada");
+      const error = new Error("No tienes permisos para borrar el servicio");
       error.httpStatus = 401;
       throw error;
     }
@@ -36,4 +36,4 @@ const canEdit = async (req, res, next) => {
   }
 };
 
-module.exports = canEdit;
+module.exports = canDelete;
