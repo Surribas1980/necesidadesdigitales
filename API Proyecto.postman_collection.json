@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "Fernando",
+			"name": "No me convence",
 			"item": [
 				{
 					"name": "Muestra un servicio",
@@ -60,7 +60,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"mail\": \"fsinesc@gmail.com\",\n    \"pwd\": \"lorempimpsum\"\n}",
+							"raw": "{\n    \"mail\": \"wemix12686@hancack.com\",\n    \"pwd\": \"wemix12686@hancack.com\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -90,7 +90,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"mail\": \"fsinesc@gmail.com\",\r\n    \"pwd\": \"lorempimpsum\",\r\n    \"nomUsuario_usu\": \"fer\",\r\n    \"nom_usu\": \"fernando\",\r\n    \"ape1_usu\": \"jag dal\",\r\n    \"ape2_usu\": \"ññkljh sadsa\",\r\n    \"biografia_usu\": \"ñkjkh adsa\"\r\n}",
+							"raw": "{\r\n    \"mail\": \"wemix12686@hancack.com\",\r\n    \"pwd\": \"wemix12686@hancack.com\",\r\n    \"nomUsuario_usu\": \"wemix12686\",\r\n    \"nom_usu\": \"wemix126nca\",\r\n    \"ape1_usu\": \"jag dal\",\r\n    \"ape2_usu\": \"ññkljh sadsa\",\r\n    \"biografia_usu\": \"ñkjkh adsa\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -278,19 +278,51 @@
 					]
 				},
 				{
+					"name": "Permisos de admin",
+					"item": [
+						{
+							"name": "deleteUser",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIsInJvbCI6ImFkbWluIiwiaWF0IjoxNjEyOTUwOTEyLCJleHAiOjE2MTMwMzczMTJ9.zSTRT7hUioutMku7ls_9Mnejb2hMUpS7CH6Znd2yWpk",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/users/delete/9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"delete",
+										"9"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "Puntuar Servicio",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjgxMDgzNywiZXhwIjoxNjEyODk3MjM3fQ.q5k3Hez_WPpQ2hX-nqnVcg3E_WCZO8qZDMRJ1crWvWI",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIsInJvbCI6ImFkbWluIiwiaWF0IjoxNjEyOTUwOTEyLCJleHAiOjE2MTMwMzczMTJ9.zSTRT7hUioutMku7ls_9Mnejb2hMUpS7CH6Znd2yWpk",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"puntuacion\":2.7\n}",
+							"raw": "{\n    \"puntuacion\":2\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -298,7 +330,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/servicios/votar/2/2",
+							"raw": "http://localhost:3000/servicios/votar/100/24",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -307,8 +339,8 @@
 							"path": [
 								"servicios",
 								"votar",
-								"2",
-								"2"
+								"100",
+								"24"
 							],
 							"query": [
 								{
@@ -425,7 +457,7 @@
 						"header": [
 							{
 								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjgxMDgzNywiZXhwIjoxNjEyODk3MjM3fQ.q5k3Hez_WPpQ2hX-nqnVcg3E_WCZO8qZDMRJ1crWvWI",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjk2ODI3OCwiZXhwIjoxNjEzMDU0Njc4fQ.EdzxNhpclPrQFnWi1S6iLV8OCUh4j7chWxJAnvH-92w",
 								"type": "text"
 							}
 						],
@@ -434,22 +466,22 @@
 							"formdata": [
 								{
 									"key": "nomUsuario_usu",
-									"value": "juanete perillan",
+									"value": "Francisco",
 									"type": "text"
 								},
 								{
 									"key": "nom_usu",
-									"value": "Wilhelmine35bis",
+									"value": "Fernandez",
 									"type": "text"
 								},
 								{
 									"key": "ape1_usu",
-									"value": "Rosalinda",
+									"value": "null",
 									"type": "text"
 								},
 								{
 									"key": "ape2_usu",
-									"value": "null",
+									"value": "jose",
 									"type": "text"
 								},
 								{
@@ -459,23 +491,24 @@
 								},
 								{
 									"key": "mail",
-									"value": "Jerome.Johnson@hotmail.com",
+									"value": "null",
 									"type": "text"
 								},
 								{
 									"key": "pwd",
 									"value": "null",
+									"description": "nemoka6529@jentrix.com",
 									"type": "text"
 								},
 								{
 									"key": "nomFoto_usu",
 									"type": "file",
-									"src": "/C:/Users/Public/Pictures/Sample Pictures/Lighthouse.jpg"
+									"src": "/C:/Users/Public/Pictures/Sample Pictures/Koala.jpg"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/users/8",
+							"raw": "http://localhost:3000/users/edit/22",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -483,7 +516,8 @@
 							"port": "3000",
 							"path": [
 								"users",
-								"8"
+								"edit",
+								"22"
 							]
 						}
 					},
@@ -499,7 +533,7 @@
 						"header": [
 							{
 								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjgwNjc3NSwiZXhwIjoxNjEyODkzMTc1fQ.Vz3ORKREb_B3QHQP3JjSfGY0rU7QurNwubxBL6tl8aE",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjg5MDM3NywiZXhwIjoxNjEyOTc2Nzc3fQ.7rKy9PxN1YMFe8B63BtoCI_yv2qwybVkQ4bPSqG1KQQ",
 								"type": "text"
 							}
 						],
@@ -508,23 +542,23 @@
 							"formdata": [
 								{
 									"key": "eltitulo",
-									"value": "Titulo quinta quince",
+									"value": "Titulo novo 18",
 									"type": "text"
 								},
 								{
 									"key": "explicacion",
-									"value": "esta es la explicación de quince",
+									"value": "esta es la novo 18",
 									"type": "text"
 								},
 								{
 									"key": "aspectos",
 									"type": "file",
-									"src": "/C:/Users/Israel/Documents/HACKBOSS/Aspectos basicos programacion.docx"
+									"src": "/C:/Users/Israel/Desktop/913.pdf"
 								},
 								{
 									"key": "elpdf",
 									"type": "file",
-									"src": "/C:/Users/Israel/Documents/HACKBOSS/progit_libro.pdf"
+									"src": "/C:/Users/Israel/Desktop/esquema_relaciones.pdf"
 								}
 							]
 						},
@@ -549,13 +583,13 @@
 						"header": [
 							{
 								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjcyMDE2OCwiZXhwIjoxNjEyODA2NTY4fQ.xPxwZN4pllG6cfkBXrZ3-1Y6b_Pjs0d9Gs_z-1HUSgk",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjg5MDM3NywiZXhwIjoxNjEyOTc2Nzc3fQ.7rKy9PxN1YMFe8B63BtoCI_yv2qwybVkQ4bPSqG1KQQ",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id_ser\": \"78\",\r\n    \"comentario\":\"prueba de otro comentario 2\"\r\n}",
+							"raw": "{\r\n    \"comentario\":\"prueba de otro comentario 3\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -563,16 +597,83 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/comentar",
+							"raw": "http://localhost:3000/users/insert/comentario/68",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
-								"comentar"
+								"users",
+								"insert",
+								"comentario",
+								"68"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteService",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIsInJvbCI6ImFkbWluIiwiaWF0IjoxNjEyOTUwOTEyLCJleHAiOjE2MTMwMzczMTJ9.zSTRT7hUioutMku7ls_9Mnejb2hMUpS7CH6Znd2yWpk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/servicios/borrar/110",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"servicios",
+								"borrar",
+								"110"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjg5MDM3NywiZXhwIjoxNjEyOTc2Nzc3fQ.7rKy9PxN1YMFe8B63BtoCI_yv2qwybVkQ4bPSqG1KQQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/users/delete/comentario/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"delete",
+								"comentario",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
 					},
 					"response": []
 				}
@@ -670,6 +771,49 @@
 								{
 									"key": "search",
 									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificando el Admin",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIsInJvbCI6ImFkbWluIiwiaWF0IjoxNjEyOTUwOTEyLCJleHAiOjE2MTMwMzczMTJ9.zSTRT7hUioutMku7ls_9Mnejb2hMUpS7CH6Znd2yWpk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomUsuario_usu\" : \"louie14o_e983s@hexud.com\",\r\n                    \"nom_usu\" : \"perillo8\",\r\n                    \"ape1_usu\" : \"${ape1_usu}\",\r\n                    \"ape2_usu\" : \"${ape2_usu}\",\r\n                    \"biografia_usu\" : \"${biografia_usu}\",\r\n                    \"mail\" : \"louie14o_e983s@hexud.com\",\r\n                    \"pwd\" : \"louie14o_e983s@hexud.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/admin/modificar/22",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"modificar",
+								"22"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1",
+									"disabled": true
 								}
 							]
 						}

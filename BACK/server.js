@@ -22,7 +22,8 @@ const {
   listServicios,
   newComentar,
   newServicio,
-  voteServicio
+  voteServicio,
+  updateService
   } = require("./controllers/servicios");
 
 // Controladores de usuarios
@@ -57,7 +58,7 @@ const urls = {
     servicios:"/servicios",
     users:"/users",
     insertUser:"/users/insertar",
-    admin:"/admin",
+    admin:"/admin/modificar/:id",
     validaregistrationCode:"/validar/:registrationCode",
     usersolution:"/user/solution",
     deleteservicio:"/servicios/borrar/:id_ser",
@@ -159,7 +160,7 @@ app.post(urls.insertUser,newUser);
 
 //Get - admin
 //Insertar o modificar "admin"
-app.post(urls.admin,isUser,canEditAmin,updateAmin);
+app.put(urls.admin,isUser,userExists,canEditAmin,updateAmin);
 
 //Get - user
 //Validar usuario

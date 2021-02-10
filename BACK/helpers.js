@@ -53,7 +53,12 @@ async function uploadFile(mifichero,datos) {
     console.error(error.message);
   }
 }
+async function deleteFiles(id){
 
+  const ruta = `docs/servicios/${id}`;
+  const dir = path.join(__dirname,ruta);
+  await fs.rmdir(dir, {recursive: true, });
+}
 function insertFiles(ficheros,datos){
 console.log('estoy en isner')
   for (const archivo in ficheros){
@@ -274,5 +279,6 @@ module.exports = {
   miNumSolucionados,
   insertServicio,
   listarDatos,
-  modificarDatos
+  modificarDatos,
+  deleteFiles
 };

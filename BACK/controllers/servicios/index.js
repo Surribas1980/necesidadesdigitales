@@ -6,7 +6,7 @@ const newComentar = require("./newComentar");
 const newServicio = require("./newServicio");
 const insertSolutions = require("./insertSolutions");
 const voteServicio = require("./voteServicio");
-
+const updateService = require("./updateService");
 module.exports = {
   deleteComentar,
   getServicio,
@@ -15,5 +15,6 @@ module.exports = {
   listServicios,
   newComentar,
   newServicio,
-  voteServicio
+  voteServicio,
+  updateService
 };

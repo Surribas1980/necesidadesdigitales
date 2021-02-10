@@ -7,22 +7,21 @@ const canDelete = async (req, res, next) => {
     connection = await getDB();
 
     const { id } = req.params;
-
+    console.log(`en canEdit ${id}`)
     // Seleccionar la entrada de la base de datos para saber quien la creó
     const [usuario] = await connection.query(
       `
       SELECT id_usu
-      FROM usuario
-      WHERE id_usu=?
+      FROM usuarios
+      WHERE id_usu=?;
     `,
       [id]
     );
-
-    // Comprobar que la id de usuario que la creó es la misma que la que viene en el token (o el token es de administrador)
-    if (
-      usuario[0].id_usu !== req.userAuth.id &&
-      req.userAuth.rol !== "admin"
-    ) {
+      console.log(`${usuario[0]['id_usu']} = id_usu...${req.userAuth.id}`)
+   
+    const condicion =  usuario[0].id_usu !== req.userAuth.id || req.userAuth.rol !== "admin";
+    
+    if (condicion) {
       const error = new Error("No tienes permisos para modificar el admin");
       error.httpStatus = 401;
       throw error;
