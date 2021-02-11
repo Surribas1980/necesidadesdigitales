@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "No me convence",
+			"name": "Sin concretar",
 			"item": [
 				{
 					"name": "Muestra un servicio",
@@ -23,6 +23,31 @@
 							"path": [
 								"servicios",
 								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar servicio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/servicios?search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"servicios"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -51,8 +76,64 @@
 			]
 		},
 		{
-			"name": "00 - Loguearte",
+			"name": "Primeros pasos",
 			"item": [
+				{
+					"name": "1 - newUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mail\": \"wemix12686@hancack.com\",\r\n    \"pwd\": \"wemix12686@hancack.com\",\r\n    \"nomUsuario_usu\": \"wemix12686\",\r\n    \"nom_usu\": \"wemix126nca\",\r\n    \"ape1_usu\": \"jag dal\",\r\n    \"ape2_usu\": \"ññkljh sadsa\",\r\n    \"biografia_usu\": \"ñkjkh adsa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/insertar",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"insertar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2 - validateUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/validar/:registrationCode",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"validar",
+								":registrationCode"
+							],
+							"variable": [
+								{
+									"key": "registrationCode",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"description": "Este end-point realizará lo siguiente:\r\n\r\n> Generará el token si los datos recibidos son correctos,\r\npara poder utilizarlo en la web.\r\n"
+					},
+					"response": []
+				},
 				{
 					"name": "3 - Login de usuario",
 					"request": {
@@ -82,34 +163,6 @@
 						"description": "Este end-point tiene la librería para generar el token,llamada \"jsonwebtoken\".\r\n> Utilizando el método 'sign', generará con la cadena que tenemos guardada en nuestro servidor más la info de la base de datos que traemos una expresión secreta.\r\n\r\n    const jwt = require(\"jsonwebtoken\");\r\n    const token = jwt.sign(info, process.env.SECRETO, {\r\n      expiresIn: \"1d\",\r\n    });"
 					},
 					"response": []
-				},
-				{
-					"name": "1 - newUser",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"mail\": \"wemix12686@hancack.com\",\r\n    \"pwd\": \"wemix12686@hancack.com\",\r\n    \"nomUsuario_usu\": \"wemix12686\",\r\n    \"nom_usu\": \"wemix126nca\",\r\n    \"ape1_usu\": \"jag dal\",\r\n    \"ape2_usu\": \"ññkljh sadsa\",\r\n    \"biografia_usu\": \"ñkjkh adsa\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:3000/users/insertar",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"users",
-								"insertar"
-							]
-						}
-					},
-					"response": []
 				}
 			],
 			"event": [
@@ -134,244 +187,21 @@
 			]
 		},
 		{
-			"name": "Usuarios - logeados",
+			"name": "Poder borrar",
 			"item": [
 				{
-					"name": "Pestañas de busqueda",
-					"item": [
-						{
-							"name": "Listar usuarios",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "authorization",
-										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjgxMDgzNywiZXhwIjoxNjEyODk3MjM3fQ.q5k3Hez_WPpQ2hX-nqnVcg3E_WCZO8qZDMRJ1crWvWI",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "http://localhost:3000/users?search=Hilario_Stracke",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users"
-									],
-									"query": [
-										{
-											"key": "search",
-											"value": "Hilario_Stracke",
-											"description": "nomUsuario"
-										},
-										{
-											"key": "search",
-											"value": null,
-											"description": "biografía",
-											"disabled": true
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Listar Comentarios",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "authorization",
-										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjgxMDgzNywiZXhwIjoxNjEyODk3MjM3fQ.q5k3Hez_WPpQ2hX-nqnVcg3E_WCZO8qZDMRJ1crWvWI",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "http://localhost:3000/comentar?search=comentario1&search=",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"comentar"
-									],
-									"query": [
-										{
-											"key": "search",
-											"value": "comentario1",
-											"description": "comentario"
-										},
-										{
-											"key": "search",
-											"value": "",
-											"description": "vacío"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Buscar servicio",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://localhost:3000/servicios?search",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"servicios"
-									],
-									"query": [
-										{
-											"key": "search",
-											"value": ""
-										}
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Pagina listado peticiones",
-					"item": [
-						{
-							"name": "Listar servicios",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "authorization",
-										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjgxMDgzNywiZXhwIjoxNjEyODk3MjM3fQ.q5k3Hez_WPpQ2hX-nqnVcg3E_WCZO8qZDMRJ1crWvWI",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "http://localhost:3000/servicios?search=ipsam",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"servicios"
-									],
-									"query": [
-										{
-											"key": "search",
-											"value": "ipsam"
-										}
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Permisos de admin",
-					"item": [
-						{
-							"name": "deleteUser",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "authorization",
-										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIsInJvbCI6ImFkbWluIiwiaWF0IjoxNjEyOTUwOTEyLCJleHAiOjE2MTMwMzczMTJ9.zSTRT7hUioutMku7ls_9Mnejb2hMUpS7CH6Znd2yWpk",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "http://localhost:3000/users/delete/9",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"users",
-										"delete",
-										"9"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Puntuar Servicio",
+					"name": "deleteUser-creo que esta",
 					"request": {
-						"method": "POST",
+						"method": "DELETE",
 						"header": [
 							{
 								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIsInJvbCI6ImFkbWluIiwiaWF0IjoxNjEyOTUwOTEyLCJleHAiOjE2MTMwMzczMTJ9.zSTRT7hUioutMku7ls_9Mnejb2hMUpS7CH6Znd2yWpk",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"puntuacion\":2\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/servicios/votar/100/24",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"servicios",
-								"votar",
-								"100",
-								"24"
-							],
-							"query": [
-								{
-									"key": "",
-									"value": "",
-									"disabled": true
-								},
-								{
-									"key": "",
-									"value": "",
-									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "adminUser",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjgxMDgzNywiZXhwIjoxNjEyODk3MjM3fQ.q5k3Hez_WPpQ2hX-nqnVcg3E_WCZO8qZDMRJ1crWvWI",
-								"description": "Token de fernando",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjg5MDM3NywiZXhwIjoxNjEyOTc2Nzc3fQ.7rKy9PxN1YMFe8B63BtoCI_yv2qwybVkQ4bPSqG1KQQ",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/users/userLogin/",
+							"raw": "http://localhost:3000/users/delete/comentario/8",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -379,77 +209,122 @@
 							"port": "3000",
 							"path": [
 								"users",
-								"userLogin",
-								""
-							]
-						},
-						"description": "Este end-point necesita token, eso quire decir que tenemos que meterlo en los HEADERS, con la palabra adecuada, en este caso elegimos \"authorization\" que lo desestructuraremos\r\n    const { authorization } = req.headers;\r\nPreviamente pasará por el middelware isUser que también lo requerirá, que en caso de no ser correcto no deja seguir"
-					},
-					"response": []
-				},
-				{
-					"name": " insertSolution",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjgxMDgzNywiZXhwIjoxNjEyODk3MjM3fQ.q5k3Hez_WPpQ2hX-nqnVcg3E_WCZO8qZDMRJ1crWvWI",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "archivo",
-									"type": "file",
-									"src": "/C:/Users/Israel/Desktop/913.pdf"
-								},
-								{
-									"key": "id_usuario",
-									"value": "8",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "id_ser",
-									"value": "94",
-									"type": "text"
-								},
-								{
-									"key": "archivo2",
-									"type": "file",
-									"src": "/C:/Users/Israel/Documents/HACKBOSS/4_3_4_2.png"
-								},
-								{
-									"key": "archivo3",
-									"type": "file",
-									"src": "/C:/Users/Israel/Documents/HACKBOSS/Aspectos basicos programacion.docx"
-								}
-							]
-						},
-						"url": {
-							"raw": "localhost:3000/user/solution",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"user",
-								"solution"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "1",
-									"disabled": true
-								}
+								"delete",
+								"comentario",
+								"8"
 							]
 						}
 					},
 					"response": []
 				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIsInJvbCI6ImFkbWluIiwiaWF0IjoxNjEyOTUwOTEyLCJleHAiOjE2MTMwMzczMTJ9.zSTRT7hUioutMku7ls_9Mnejb2hMUpS7CH6Znd2yWpk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/users/delete/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"delete",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar Servicio",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/servicios/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"servicios",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar Comentario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/comentar/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comentar",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteService",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIsInJvbCI6ImFkbWluIiwiaWF0IjoxNjEyOTUwOTEyLCJleHAiOjE2MTMwMzczMTJ9.zSTRT7hUioutMku7ls_9Mnejb2hMUpS7CH6Znd2yWpk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/servicios/borrar/110",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"servicios",
+								"borrar",
+								"110"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Poder Editar",
+			"item": [
 				{
 					"name": "Editar Usuario",
 					"request": {
@@ -523,6 +398,54 @@
 					},
 					"response": []
 				},
+				{
+					"name": "Modificando el Admin",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIsInJvbCI6ImFkbWluIiwiaWF0IjoxNjEyOTUwOTEyLCJleHAiOjE2MTMwMzczMTJ9.zSTRT7hUioutMku7ls_9Mnejb2hMUpS7CH6Znd2yWpk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomUsuario_usu\" : \"louie14o_e983s@hexud.com\",\r\n                    \"nom_usu\" : \"perillo8\",\r\n                    \"ape1_usu\" : \"${ape1_usu}\",\r\n                    \"ape2_usu\" : \"${ape2_usu}\",\r\n                    \"biografia_usu\" : \"${biografia_usu}\",\r\n                    \"mail\" : \"louie14o_e983s@hexud.com\",\r\n                    \"pwd\" : \"louie14o_e983s@hexud.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/admin/modificar/22",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"modificar",
+								"22"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Poder Insertar",
+			"item": [
 				{
 					"name": "newServicio",
 					"protocolProfileBehavior": {
@@ -612,11 +535,16 @@
 						}
 					},
 					"response": []
-				},
+				}
+			]
+		},
+		{
+			"name": "Poder puntuar",
+			"item": [
 				{
-					"name": "deleteService",
+					"name": "Puntuar Servicio",
 					"request": {
-						"method": "DELETE",
+						"method": "POST",
 						"header": [
 							{
 								"key": "authorization",
@@ -624,93 +552,9 @@
 								"type": "text"
 							}
 						],
-						"url": {
-							"raw": "http://localhost:3000/servicios/borrar/110",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"servicios",
-								"borrar",
-								"110"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "New Request",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjg5MDM3NywiZXhwIjoxNjEyOTc2Nzc3fQ.7rKy9PxN1YMFe8B63BtoCI_yv2qwybVkQ4bPSqG1KQQ",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:3000/users/delete/comentario/8",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"users",
-								"delete",
-								"comentario",
-								"8"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "New Request",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": null
-					},
-					"response": []
-				}
-			],
-			"description": "Estos end-points, tienen como condición que estén logeados.\r\n> Para ello deben tener pasados los \"Primeros pasos\".\r\n> Traen el token con el que trabajaremos, este contendrá el \"id de usuario\" y la fecha-hora de inicio y finalización.\r\n> Dichos end-point estarán previamente con el middleware \"isUser\"!!!!!!!!!\r\n\r\nCualquier \"usuario\", una vez logeado irá a su página de inicio, \"adminUser\". Entre las cosas que podrá realizar serán las siguientes:\r\n    * Sus modificaciones como:\r\n        <>> Cambiar sus datos y subir su foto para el avatar => editUser\r\n    * En general:\r\n        <>> Insertar un servicio => newServicio\r\n        <>> Insertar una solución => inserFile\r\n        <>> Insertar un comentario => newComentar\r\n\r\nFinalmente, entendemos que dichos end-point tendrán lo siguiente:\r\n\r\n    *app.[]([OBJETO.URL],isUser,[...lo que toque...]). Ejemplo:\r\n        app.post(urls.servicios, isUser,newServicio);\r\n\r\n",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				}
-			]
-		},
-		{
-			"name": "Usuario Admin",
-			"item": [
-				{
-					"name": "Borrar Comentario",
-					"request": {
-						"method": "DELETE",
-						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\n    \"puntuacion\":2\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -718,27 +562,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/comentar/3",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"comentar",
-								"3"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Borrar Servicio",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/servicios/11",
+							"raw": "http://localhost:3000/servicios/votar/100/24",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -746,12 +570,244 @@
 							"port": "3000",
 							"path": [
 								"servicios",
-								"11"
+								"votar",
+								"100",
+								"24"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Solucionar Servicio",
+			"item": [
+				{
+					"name": " insertSolution",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjgxMDgzNywiZXhwIjoxNjEyODk3MjM3fQ.q5k3Hez_WPpQ2hX-nqnVcg3E_WCZO8qZDMRJ1crWvWI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/C:/Users/Israel/Desktop/913.pdf"
+								},
+								{
+									"key": "id_usuario",
+									"value": "8",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "id_ser",
+									"value": "94",
+									"type": "text"
+								},
+								{
+									"key": "archivo2",
+									"type": "file",
+									"src": "/C:/Users/Israel/Documents/HACKBOSS/4_3_4_2.png"
+								},
+								{
+									"key": "archivo3",
+									"type": "file",
+									"src": "/C:/Users/Israel/Documents/HACKBOSS/Aspectos basicos programacion.docx"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/user/solution",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"solution"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Listar datos",
+			"item": [
+				{
+					"name": "Listar Comentarios",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjgxMDgzNywiZXhwIjoxNjEyODk3MjM3fQ.q5k3Hez_WPpQ2hX-nqnVcg3E_WCZO8qZDMRJ1crWvWI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/comentar?search=comentario1&search=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comentar"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "comentario1",
+									"description": "comentario"
+								},
+								{
+									"key": "search",
+									"value": "",
+									"description": "vacío"
+								}
 							]
 						}
 					},
 					"response": []
 				},
+				{
+					"name": "Listar usuarios",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjgxMDgzNywiZXhwIjoxNjEyODk3MjM3fQ.q5k3Hez_WPpQ2hX-nqnVcg3E_WCZO8qZDMRJ1crWvWI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/users?search=Hilario_Stracke",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Hilario_Stracke",
+									"description": "nomUsuario"
+								},
+								{
+									"key": "search",
+									"value": null,
+									"description": "biografía",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar servicios",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjgxMDgzNywiZXhwIjoxNjEyODk3MjM3fQ.q5k3Hez_WPpQ2hX-nqnVcg3E_WCZO8qZDMRJ1crWvWI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/servicios?search=ipsam",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"servicios"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "ipsam"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AdminUser",
+			"item": [
+				{
+					"name": "adminUser",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjgxMDgzNywiZXhwIjoxNjEyODk3MjM3fQ.q5k3Hez_WPpQ2hX-nqnVcg3E_WCZO8qZDMRJ1crWvWI",
+								"description": "Token de fernando",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/users/userLogin/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"userLogin",
+								""
+							]
+						},
+						"description": "Este end-point necesita token, eso quire decir que tenemos que meterlo en los HEADERS, con la palabra adecuada, en este caso elegimos \"authorization\" que lo desestructuraremos\r\n    const { authorization } = req.headers;\r\nPreviamente pasará por el middelware isUser que también lo requerirá, que en caso de no ser correcto no deja seguir"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario Admin",
+			"item": [
 				{
 					"name": "Buscar usuarios",
 					"request": {
@@ -774,82 +830,6 @@
 								}
 							]
 						}
-					},
-					"response": []
-				},
-				{
-					"name": "Modificando el Admin",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIsInJvbCI6ImFkbWluIiwiaWF0IjoxNjEyOTUwOTEyLCJleHAiOjE2MTMwMzczMTJ9.zSTRT7hUioutMku7ls_9Mnejb2hMUpS7CH6Znd2yWpk",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"nomUsuario_usu\" : \"louie14o_e983s@hexud.com\",\r\n                    \"nom_usu\" : \"perillo8\",\r\n                    \"ape1_usu\" : \"${ape1_usu}\",\r\n                    \"ape2_usu\" : \"${ape2_usu}\",\r\n                    \"biografia_usu\" : \"${biografia_usu}\",\r\n                    \"mail\" : \"louie14o_e983s@hexud.com\",\r\n                    \"pwd\" : \"louie14o_e983s@hexud.com\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/admin/modificar/22",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"admin",
-								"modificar",
-								"22"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "1",
-									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "00 Paso 0 - Registrarte",
-			"item": [
-				{
-					"name": "2 - validateUser",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/validar/:registrationCode",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"validar",
-								":registrationCode"
-							],
-							"variable": [
-								{
-									"key": "registrationCode",
-									"value": "",
-									"type": "string"
-								}
-							]
-						},
-						"description": "Este end-point realizará lo siguiente:\r\n\r\n> Generará el token si los datos recibidos son correctos,\r\npara poder utilizarlo en la web.\r\n"
 					},
 					"response": []
 				}
