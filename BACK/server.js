@@ -127,7 +127,7 @@ app.get(urls.serviciosid,isUser, servicioExist, getServicio);
 
 //Insertar Solucion
 
-app.post(urls.usersolution,isUser,servicioExist,insertSolutions);
+app.post(urls.usersolution,isUser,servicioExist,cannotAdmin,insertSolutions);
 
 //GET - /comentar
 //Devuelve todos los comentarios de la tabla comentar
