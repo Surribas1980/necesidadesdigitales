@@ -22,8 +22,7 @@ const {
   listServicios,
   newComentar,
   newServicio,
-  voteServicio,
-  updateService
+  voteServicio
   } = require("./controllers/servicios");
 
 // Controladores de usuarios
