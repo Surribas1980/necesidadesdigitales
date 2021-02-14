@@ -7,7 +7,7 @@ const fs = require("fs").promises;
 const getDB = require("./db");
 const { result } = require("lodash");
 const {ensuDir, unlink} = require("fs-extra");
-sgMail.setApiKey('');
+sgMail.setApiKey('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMzAzODY3NywiZXhwIjoxNjEzMTI1MDc3fQ.7Na0UNKI6UJ1LtMOymu4_KMac7M6M-6l9YdDs3zb8gc');
 
 //se manda como un objeto, y este ya lo desestructura en 'to','subject' y 'body'
 async function sendMail({to,subject,body}){

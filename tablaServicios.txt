@@ -1,0 +1,48 @@
+id_ser	nombre_fich_ser	iniciado_ser	expli_ser	fecha_ser_ini	fecha_ser_fin	titulo_ser	puntuacion
+1	ut	NULL	impedit eligendi sed aut quia fugiat maxime qui laudantium aut minus sint ab culpa ut	2021-01-31 20:11:43	NULL	fuga dolores commodi	4
+2	quia	NULL	voluptates modi ullam velit exercitationem mollitia fugit quaerat ducimus dolorem natus vitae deserunt reiciendis asperiores	2021-01-31 20:11:43	2021-02-09 12:43:37	iste qui sint	2.7
+3	quo	NULL	dolore et cupiditate sapiente blanditiis quas expedita consectetur et repudiandae modi nisi minus voluptas quam	2021-01-31 20:11:43	NULL	cum ea alias	0
+4	rem	NULL	molestiae nisi et nam voluptate animi sit laudantium est autem soluta tempora consequuntur sapiente et	2021-01-31 20:11:43	NULL	et nostrum perferendis	3
+5	sapiente	NULL	ipsam enim consequatur aut error adipisci nulla nisi vero aut ratione illum omnis temporibus id	2021-01-31 20:11:43	NULL	quis velit consectetur	0
+6	prueba0	NULL	me da la gana	2021-02-02 11:59:29	NULL	O primeiro	2.5
+7	prueba2	NULL	me da la gana3	2021-02-02 12:09:41	NULL	O segundo	NULL
+66	prueba 28 de enero	NULL	seguimos comprobando que funciona todo ok	2021-02-05 17:28:20	NULL	cambio peras por manzanas	NULL
+67		NULL	hkfgjfh ffuytf kytfyi vyut ytty uty 	2021-02-02 13:00:00	NULL	funcion	NULL
+68		NULL	hkfgjfh ffuytf kytfyi vyut ytty uty 	2021-02-02 13:00:00	NULL	funcion	NULL
+69		NULL	esta es otra prueba 	2021-02-02 13:00:08	NULL	funcion2	NULL
+70		NULL	esta es otra para solicitar 	2021-02-02 13:00:10	NULL	funcion3	NULL
+71		NULL	esta es otra para solicitar 	2021-02-02 13:00:10	NULL	funcion3	NULL
+72		NULL	esta es otra para solicitar 	2021-02-02 13:00:10	NULL	funcion3	NULL
+73		NULL	esta es otra para solicitar 8dad	2021-02-02 13:00:10	NULL	funcion3	NULL
+74		NULL	a ver si ahora va	2021-02-02 13:10:10	NULL	funcion4	NULL
+75		NULL	este es el admin	2021-02-02 13:10:10	NULL	titulo	NULL
+76		NULL	esta es la explicación	2021-02-07 01:04:11	NULL	este es el titulo	NULL
+77		NULL	A ver si si funciona 	2021-02-07 08:56:29	NULL	Prueba mañanera	NULL
+78		NULL	esta es la explicación de Fernando	2021-02-07 23:30:04	NULL	este es el titulo de Fernando	NULL
+79		NULL	esta es la explicación de Fernando	2021-02-08 17:19:05	NULL	este es el titulo de Fernando	NULL
+80		NULL	esta es la explicación de prueba 08/02/2021	2021-02-08 17:57:44	NULL	Titulo prueba 08/02/2021	NULL
+81		NULL	esta es la explicación de segunda prueba 08/02/2021	2021-02-08 18:03:32	NULL	Titulo segunda prueba 08/02/2021	NULL
+82		NULL	esta es la explicación de tercera prueba 08/02/2021	2021-02-08 18:05:59	NULL	Titulo tercera prueba 08/02/2021	NULL
+83		NULL	esta es la explicación de cuarta prueba 08/02/2021	2021-02-08 18:14:02	NULL	Titulo cuarta prueba 08/02/2021	NULL
+84		NULL	esta es la explicación de cuarta prueba 08/02/2021	2021-02-08 18:14:28	NULL	Titulo cuarta prueba 08/02/2021	NULL
+85		NULL	esta es la explicación de quitnta prueba 08/02/2021	2021-02-08 18:15:49	NULL	Titulo quinta prueba 08/02/2021	NULL
+86		NULL	esta es la explicación de sextaprueba 08/02/2021	2021-02-08 18:25:32	NULL	Titulo quinta sexta08/02/2021	NULL
+87		NULL	esta es la explicación de septima 08/02/2021	2021-02-08 18:27:55	NULL	Titulo quinta septima 08/02/2021	NULL
+88		NULL	esta es la explicación de septima	2021-02-08 18:29:39	NULL	Titulo quinta septima 08-02-2021	NULL
+89		NULL	esta es la explicación de octava	2021-02-08 18:31:52	NULL	Titulo quinta octava 08-02-2021	NULL
+90		NULL	esta es la explicación de novena	2021-02-08 18:42:58	NULL	Titulo quinta novena	NULL
+91		NULL	esta es la explicación de novena	2021-02-08 18:45:24	NULL	Titulo quinta novena	NULL
+92		NULL	esta es la explicación de decima	2021-02-08 18:45:45	NULL	Titulo quinta decima	NULL
+93		NULL	esta es la explicación de doce	2021-02-08 18:50:21	NULL	Titulo quinta doce	NULL
+94		NULL	esta es la explicación de trece	2021-02-08 18:53:46	NULL	Titulo quinta trece	NULL
+97		NULL	esta es la explicación de quince	2021-02-10 09:56:45	NULL	Titulo quinta quince	NULL
+98		NULL	esta es la explicación de quince	2021-02-10 10:00:42	NULL	Titulo quinta quince	NULL
+99		NULL	esta es la novo	2021-02-10 10:32:56	NULL	Titulo novo 10	NULL
+100		NULL	esta es la novo 11	2021-02-10 10:34:20	2021-02-10 15:29:25	Titulo novo 11	2
+101		NULL	esta es la novo 12	2021-02-10 10:38:59	NULL	Titulo novo 12	NULL
+102		NULL	esta es la novo 13	2021-02-10 10:41:48	NULL	Titulo novo 13	NULL
+103		NULL	esta es la novo 14	2021-02-10 10:44:48	NULL	Titulo novo 14	NULL
+104		NULL	esta es la novo 15	2021-02-10 10:47:48	NULL	Titulo novo 15	NULL
+105		NULL	esta es la novo 15	2021-02-10 10:55:52	NULL	Titulo novo 15	NULL
+106		NULL	esta es la novo 16	2021-02-10 10:56:17	NULL	Titulo novo 16	NULL
+107		NULL	esta es la novo 17	2021-02-10 10:58:39	NULL	Titulo novo 17	NULL

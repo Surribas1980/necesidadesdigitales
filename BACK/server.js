@@ -3,7 +3,7 @@ const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const fileUpload = require('express-fileupload');
-
+const cors = require("cors");
 //Controladores de admin
 const {
   //deleteServicioAdmin,
@@ -90,7 +90,7 @@ app.use(bodyParser.json()); //Comentario realizado por [Israel] : no recuerdo pa
 app.use(fileUpload({
   createParentPath: true
 }));
-
+app.use(cors());
 // POST - /users/login
 // Hace login de un usuario 
 app.post(urlsusers.userslogin, loginUser);
