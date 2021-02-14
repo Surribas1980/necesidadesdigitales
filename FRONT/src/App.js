@@ -4,6 +4,7 @@ import Home from './Pages/Home';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
 import AuthForm from './components/AuthForm';
+import { AuthProvider } from './shared/context/authContext';
 
 function App() {
   return (    
@@ -28,7 +29,9 @@ function App() {
                 <Home />
               </Route>
               <Route path="/login">
-                <Login />
+                <AuthProvider>
+                  <Login />
+                </AuthProvider>
               </Route>
               <Route path="/register">
                 <Register />
