@@ -13,15 +13,22 @@ const endpoints = { login: '/users/login' };
 
 async function fetchTravelApi(path, { body, method }) {
  
+  const token = localStorage.getItem('token');
   const headers = new Headers({ 'Content-Type': 'application/json' });
+  if(token){
+    headers.append('Authorization',token);
+  }
   const request = await fetch(`${apiUrl}${path}`, { headers: headers, method: method, body: JSON.stringify(body) });
   return await request.json();
-
-
 }
 
 export async function login(mail, pwd) {
-  return fetchTravelApi('/users/login', { method: requestMethods.post, body: { mail, pwd } });
+  //return fetchTravelApi('/users/login', { method: requestMethods.post, body: { mail, pwd } });
+  const tokenData = await fetchTravelApi('/users/login', { method: requestMethods.post, body: { mail, pwd } });
+  const token = tokenData.data.token;
+  console.log(token);
+  localStorage.setItem('token', token);
+  return token;
 }
 /*
 export async function signUpApi(email, password) {
