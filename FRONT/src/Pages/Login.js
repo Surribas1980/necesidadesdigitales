@@ -1,6 +1,5 @@
 import { useForm } from 'react-hook-form';
 import { login } from '../http/api';
-import decodeTokenData from '../shared/utils/decodeTokenData';
 import useAuth from '../shared/hooks/useAuth';
 
 

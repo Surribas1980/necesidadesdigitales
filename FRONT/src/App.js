@@ -29,9 +29,9 @@ function App() {
                 <Home />
               </Route>
               <Route path="/login">
-                <AuthProvider>
+                
                   <Login />
-                </AuthProvider>
+               
               </Route>
               <Route path="/register">
                 <Register />

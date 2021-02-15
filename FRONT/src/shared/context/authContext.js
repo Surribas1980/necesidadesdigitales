@@ -17,7 +17,7 @@ const tokenObject = decodeTokenData(token);
 
 export function AuthProvider({ children }){
     const [userData, setUserData] = useState(tokenObject);
-    //const [isUserLogged, setIsUserLogged] = useState(!!tokenObject);
+    const [isUserLogged, setIsUserLogged] = useState(!!tokenObject);
     const history = useHistory();
   
     // Método para hacer log in desde los componentes
@@ -26,7 +26,7 @@ export function AuthProvider({ children }){
       localStorage.setItem('token', loginData);
       const tokenObject = decodeTokenData(loginData);
       setUserData(tokenObject);
-      //setIsUserLogged(true);
+      setIsUserLogged(true);
       history.push('/');
     };
 
