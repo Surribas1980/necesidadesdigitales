@@ -18,9 +18,13 @@ const tokenObject = decodeTokenData(token);
 export function AuthProvider({ children }){
     const [userData, setUserData] = useState(tokenObject);
     
-     
+  
     // Método para hacer log in desde los componentes
-   
+    //me llega user y pwd
+  const logIn = async (user, pwd)=>{
+    const loginData = await login(user,pwd);
+    console.log(loginData);
+  } 
 
-    return <AuthContextProvider value = {{ userData}}>{children}</AuthContextProvider>
+    return <AuthContextProvider value = {{ userData, logIn}}>{children}</AuthContextProvider>
 }
