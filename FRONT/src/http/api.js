@@ -1,7 +1,7 @@
 const apiUrl = 'http://localhost:4000';
 
 const requestMethods = { post: 'POST', get: 'GET' };
-const endpoints = { login: '/users/login' };
+const endpoints = { login: '/users/login', userInsert : '/users/insertar' };
 
 /*async function fetchFormData(path, { body, method }) {
   const token = localStorage.getItem('token');
@@ -30,14 +30,14 @@ export async function login(mail, pwd) {
   localStorage.setItem('token', token);
   return token;
 }
-/*
-export async function signUpApi(email, password) {
-  return await fetchTravelApi(endpoints.signUp, {
+
+export async function userLogin(mail, pwd, nomUsuario_usu, nom_usu, ape1_usu, ape2_usu, biografia_usu) {
+  return await fetchTravelApi(endpoints.userInsert, {
     method: requestMethods.post,
-    body: { email, password, invite: 'moduloreact' },
+    body: { mail, pwd, nomUsuario_usu, nom_usu, ape1_usu, ape2_usu, biografia_usu, invite: 'moduloreact' },
   });
 }
-
+/*
 export async function getUserInfo(userId) {
   const userData = await fetchTravelApi(`${endpoints.getUserInfo}${userId}`, { method: requestMethods.get });
   return userData.data;

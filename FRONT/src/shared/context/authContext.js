@@ -5,7 +5,8 @@
 
 import React from 'react'
 import decodeTokenData from '../utils/decodeTokenData';
-import { useState } from 'react';
+import { useState, useHistory } from 'react';
+import { login } from '../../http/api';
 export const AuthContext = React.createContext();
 const AuthContextProvider = AuthContext.Provider;
 
@@ -16,7 +17,18 @@ const tokenObject = decodeTokenData(token);
 
 export function AuthProvider({ children }){
     const [userData, setUserData] = useState(tokenObject);
+    //const [isUserLogged, setIsUserLogged] = useState(!!tokenObject);
+    const history = useHistory();
+  
+    // Método para hacer log in desde los componentes
+    const signIn = async (email, password) => {
+      const loginData = await login(email, password);
+      localStorage.setItem('token', loginData);
+      const tokenObject = decodeTokenData(loginData);
+      setUserData(tokenObject);
+      //setIsUserLogged(true);
+      history.push('/');
+    };
 
-
-    return <AuthContextProvider value = {{ userData}}>{children}</AuthContextProvider>
+    return <AuthContextProvider value = {{ userData,signIn}}>{children}</AuthContextProvider>
 }
