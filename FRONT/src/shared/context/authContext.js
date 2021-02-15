@@ -20,7 +20,7 @@ export function AuthProvider({ children }){
     
   
     // Método para hacer log in desde los componentes
-    //me llega user y pwd
+    //me llega user y pwd,
     const sigIn = async (mail, pwd)=>{
       const loginData = await login(mail,pwd);
       localStorage.setItem('token',loginData);
