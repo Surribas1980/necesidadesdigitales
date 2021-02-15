@@ -21,13 +21,13 @@ export function AuthProvider({ children }){
   
     // Método para hacer log in desde los componentes
     //me llega user y pwd
-    const sigIn = async (mail, pwd)=>{
-      const loginData = await login(mail,pwd);
-      localStorage.setItem('token',loginData);
-      const tokenObject = decodeTokenData(loginData);
-      setUserData(tokenObject);
-      console.log(loginData);
-    } 
+  const sigIn = async (mail, pwd)=>{
+    const loginData = await login(mail,pwd);
+    localStorage.setItem('token',loginData);
+    const tokenObject = decodeTokenData(loginData);
+    setUserData(tokenObject);
+    console.log(loginData);
+  } 
 
     return <AuthContextProvider value = {{ userData, sigIn}}>{children}</AuthContextProvider>
 }
