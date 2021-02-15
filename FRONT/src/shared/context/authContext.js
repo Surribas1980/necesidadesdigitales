@@ -17,18 +17,10 @@ const tokenObject = decodeTokenData(token);
 
 export function AuthProvider({ children }){
     const [userData, setUserData] = useState(tokenObject);
-    const [isUserLogged, setIsUserLogged] = useState(!!tokenObject);
-    const history = useHistory();
-  
+    
+     
     // Método para hacer log in desde los componentes
-    const signIn = async (email, password) => {
-      const loginData = await login(email, password);
-      localStorage.setItem('token', loginData);
-      const tokenObject = decodeTokenData(loginData);
-      setUserData(tokenObject);
-      setIsUserLogged(true);
-      history.push('/');
-    };
+   
 
-    return <AuthContextProvider value = {{ userData,signIn}}>{children}</AuthContextProvider>
+    return <AuthContextProvider value = {{ userData}}>{children}</AuthContextProvider>
 }
