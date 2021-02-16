@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Home from './Pages/Home';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
+import InsertServices from './Pages/InsertServices';
 import AuthForm from './components/AuthForm';
 import { AuthProvider } from './shared/context/authContext';
 
@@ -21,6 +22,9 @@ function App() {
               <li>
                 <Link to="/register">Register</Link>
               </li>
+              <li>
+                <Link to="/insert/servicios">Insertar servicios</Link>
+              </li>
              
             </ul>
     
@@ -36,7 +40,9 @@ function App() {
               <Route path="/register">
                 <Register />
               </Route>
-              
+              <Route>
+                <InsertServices />
+              </Route>
             </Switch>
           </div>
         </Router>

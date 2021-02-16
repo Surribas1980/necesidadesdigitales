@@ -29,5 +29,7 @@ export function AuthProvider({ children }){
       console.log(loginData);
     } 
 
+    //const sendFiles = async 
+
     return <AuthContextProvider value = {{ userData, sigIn}}>{children}</AuthContextProvider>
 }
