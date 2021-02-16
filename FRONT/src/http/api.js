@@ -45,9 +45,9 @@ export async function getUserInfo(userId) {
 */
 export async function newEntry(data,idUser) {
   const body = new FormData();
-  body.append('usuario',idUser)
-  body.append('place', data.place);
-  body.append('description', data.description);
+  //body.append('usuario',idUser)
+  body.append('eltitulo', data.titulo);
+  body.append('explicacion', data.explicacion);
   body.append('ficheros', data.ficheros);
   console.log(body);
   return await fetchFormData(endpoints.servicios, { method: requestMethods.post, body });
