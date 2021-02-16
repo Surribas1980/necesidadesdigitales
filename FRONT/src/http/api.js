@@ -42,13 +42,13 @@ export async function getUserInfo(userId) {
   const userData = await fetchTravelApi(`${endpoints.getUserInfo}${userId}`, { method: requestMethods.get });
   return userData.data;
 }
-
-export async function newEntry(data) {
+*/
+export async function newEntry(data,idUser) {
   const body = new FormData();
+  body.append('usuario',idUser)
   body.append('place', data.place);
   body.append('description', data.description);
-  body.append('foto1', data.foto1[0]);
-
-  return await fetchFormData(endpoints.entries, { method: requestMethods.post, body });
+  body.append('ficheros', data.ficheros);
+  console.log(body);
+  //return await fetchFormData(endpoints.entries, { method: requestMethods.post, body });
 }
-*/

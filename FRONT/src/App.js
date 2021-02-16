@@ -31,18 +31,18 @@ function App() {
             <Switch>
               <Route exact path="/">
                 <Home />
-              </Route>
-              <Route path="/login">  
-                <AuthProvider>
-                  <Login />
-                </AuthProvider>                
-              </Route>
+              </Route>                         
               <Route path="/register">
                 <Register />
               </Route>
-              <Route>
-                <InsertServices />
-              </Route>
+              <AuthProvider>
+                <Route path="/login">                    
+                    <Login />                                
+                </Route>
+                <Route path="/insert/servicios">
+                  <InsertServices />
+                </Route>
+              </AuthProvider>
             </Switch>
           </div>
         </Router>

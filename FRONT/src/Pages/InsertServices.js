@@ -1,11 +1,13 @@
 import { useForm } from 'react-hook-form';
+import { newEntry } from '../http/api';
+import useAuth from '../shared/hooks/useAuth';
 
 
 
 export default function InsertServices() {
   const { register, handleSubmit } = useForm();
-  
-
+  const {userData} = useAuth();
+  console.log(`Este es el usuario que está ahora ${userData.id}`);
   const onSubmit = (data) =>{
     console.log(data.titulo);
     console.log(data.explicacion);
@@ -13,6 +15,8 @@ export default function InsertServices() {
     console.log(data.ficheros);
     console.log(data.ficheros[0]);
     console.log(data.ficheros[1].name);
+
+    newEntry(data,userData.id);
    // console.log(data.ficheros.files[0]);
   };
 //un comentario
@@ -28,6 +32,8 @@ export default function InsertServices() {
       <input id="ficheros" ref={register({ required: true})} name="ficheros" multiple type="file"/>
       
       <button>Enviar</button>
+      <p>ID: {userData && userData.id}</p>
+    <p>EXP: {userData && userData.exp}</p>
     </form>
     
     </>
