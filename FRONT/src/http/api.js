@@ -1,15 +1,15 @@
 const apiUrl = 'http://localhost:4000';
 
 const requestMethods = { post: 'POST', get: 'GET' };
-const endpoints = { login: '/users/login', userInsert : '/users/insertar' };
+const endpoints = { login: '/users/login', userInsert : '/users/insertar' , servicios: '/servicios'};
 
-/*async function fetchFormData(path, { body, method }) {
+async function fetchFormData(path, { body, method }) {
   const token = localStorage.getItem('token');
   const headers = new Headers();
   headers.append('Authorization', token);
 
   return await fetch(`${apiUrl}${path}`, { method, headers, body });
-}*/
+}
 
 async function fetchTravelApi(path, { body, method }) {
  
@@ -50,5 +50,5 @@ export async function newEntry(data,idUser) {
   body.append('description', data.description);
   body.append('ficheros', data.ficheros);
   console.log(body);
-  //return await fetchFormData(endpoints.entries, { method: requestMethods.post, body });
+  return await fetchFormData(endpoints.servicios, { method: requestMethods.post, body });
 }

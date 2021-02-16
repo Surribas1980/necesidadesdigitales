@@ -14,7 +14,7 @@ export default function InsertServices() {
    // console.log(data.ficheros.files.length);
     console.log(data.ficheros);
     console.log(data.ficheros[0]);
-    console.log(data.ficheros[1].name);
+    //console.log(data.ficheros[1].name);
 
     newEntry(data,userData.id);
    // console.log(data.ficheros.files[0]);
