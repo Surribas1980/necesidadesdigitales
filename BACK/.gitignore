@@ -1,3 +1,6 @@
+controllers
+docs
+middlewares
 # Logs
 logs
 *.log
