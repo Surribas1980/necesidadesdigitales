@@ -48,7 +48,7 @@ export async function newEntry(data,idUser) {
   //body.append('usuario',idUser)
   body.append('eltitulo', data.titulo);
   body.append('explicacion', data.explicacion);
-  body.append('ficheros', data.ficheros);
+  body.append('ficheros', data.ficheros[0],data.ficheros[0].name);
   console.log(body);
   return await fetchFormData(endpoints.servicios, { method: requestMethods.post, body });
 }
