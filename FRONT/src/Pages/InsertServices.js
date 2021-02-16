@@ -17,18 +17,26 @@ export default function InsertServices() {
     console.log(data.ficheros[0]);
     console.log(data.ficheros[0].name);//ESTO OK!!!
     console.log(data.ficheros[prop].name);
-    /*for(const prop in data.ficheros){
-      console.log(`Prop : ${prop}=${data.ficheros[prop]}`);
+
+    for(const valor of Object.values(data.ficheros)){
+      console.log(`Estoy en Object ${valor}`);
+      console.log(valor)
+      console.log(valor.name);
+      
+    }
+
+    for(const prop in data.ficheros){
+      console.log(`Prop : ${prop}=${data.ficheros[prop].name}`);
       for(const nombre in data.ficheros[prop]){
-        console.log(`Dentro de ${data.ficheros[prop]} valor ${nombre}`)
-        for(const valor in data.ficheros[prop][nombre]){
+        console.log(`Dentro de ${data.ficheros[prop][nombre]}`)
+        /*for(const valor in data.ficheros[prop][nombre]){
           console.log(`Dentro de ${data.ficheros[prop][nombre]}: el valor es ${valor}`)
-        }
+        }*/
       }
 
-    }*/
+    }
 
-    newEntry(data,userData.id);
+    newEntry(data);
     //console.log(data.ficheros.file);
   };
 //un comentario

@@ -43,12 +43,20 @@ export async function getUserInfo(userId) {
   return userData.data;
 }
 */
-export async function newEntry(data,idUser) {
+export async function newEntry(data) {
   const body = new FormData();
-  //body.append('usuario',idUser)
+  
   body.append('eltitulo', data.titulo);
   body.append('explicacion', data.explicacion);
-  body.append('ficheros', data.ficheros[0],data.ficheros[0].name);
-  console.log(body);
+ ;
+  for(const valor of Object.values(data.ficheros)){
+      console.log(`Estoy en 0 ${valor}`)
+      //console.log(`Estoy enn 1 ${valor}`)
+    body.append('ficheros', valor);
+  }
+
+  //body.append(`${valor}`, data.ficheros[valor],data.ficheros[valor].name);
+ 
+  //console.log(body);
   return await fetchFormData(endpoints.servicios, { method: requestMethods.post, body });
 }
