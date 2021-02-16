@@ -34,15 +34,19 @@ const insertThings = async (req, res, next)=>{
             titulo: `${eltitulo}`,
             explicacion:`${explicacion}`,
         }
+        let ficheros;
+        console.log(`${eltitulo}, ${explicacion}, ${req.userAuth.id} ${req.files}`)
+        for(const elemento of Object.values(req.files)){
+            ficheros = elemento;
+        }
         
         
-        //insertServicio(req.userAuth.id,dato);
         await connection.query(`call insertarServicio(?,?,?,?)`,[req.userAuth.id,dato.explicacion,new Date(),dato.titulo]);
         const [idServicio] = await connection.query(`SELECT id_ser FROM servicios WHERE titulo_ser = ? AND expli_ser = ?`,[eltitulo,explicacion]);
 
         dato.carpeta = `docs/servicios/${idServicio[0]['id_ser']}`;
-        console.log(`${dato.carpeta}`)
-        insertFiles(req.files,dato);
+        
+        insertFiles(ficheros,dato);
         //console.log(`el id del objeto: ${dato.idSer}`)
         res.send({
             status:"ok",
