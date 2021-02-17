@@ -9,10 +9,11 @@ export default function InsertServices() {
   const {userData} = useAuth();
   console.log(`Este es el usuario que está ahora ${userData.id}`);
   const onSubmit = (data) =>{
+/*
     const prop = 0;
     console.log(data.titulo);
     console.log(data.explicacion);
-   // console.log(data.ficheros.files.length);// me da error
+    console.log(data.ficheros.files.length);// me da error
     console.log(data.ficheros);
     console.log(data.ficheros[0]);
     console.log(data.ficheros[0].name);//ESTO OK!!!
@@ -29,13 +30,13 @@ export default function InsertServices() {
       console.log(`Prop : ${prop}=${data.ficheros[prop].name}`);
       for(const nombre in data.ficheros[prop]){
         console.log(`Dentro de ${data.ficheros[prop][nombre]}`)
-        /*for(const valor in data.ficheros[prop][nombre]){
+        for(const valor in data.ficheros[prop][nombre]){
           console.log(`Dentro de ${data.ficheros[prop][nombre]}: el valor es ${valor}`)
-        }*/
+        }
       }
 
     }
-
+    */
     newEntry(data);
     //console.log(data.ficheros.file);
   };

@@ -6,6 +6,7 @@ import Register from './Pages/Register';
 import InsertServices from './Pages/InsertServices';
 import AuthForm from './components/AuthForm';
 import { AuthProvider } from './shared/context/authContext';
+import DeleteService from './Pages/DeleteService';
 
 function App() {
   return (    
@@ -25,7 +26,9 @@ function App() {
               <li>
                 <Link to="/insert/servicios">Insertar servicios</Link>
               </li>
-             
+              <li>
+                <Link to="/delete/servicios">Borrar servicios</Link>
+              </li>
             </ul>
     
             <Switch>
@@ -41,6 +44,9 @@ function App() {
                 </Route>
                 <Route path="/insert/servicios">
                   <InsertServices />
+                </Route>
+                <Route path="/delete/servicios">
+                  <DeleteService></DeleteService>
                 </Route>
               </AuthProvider>
             </Switch>

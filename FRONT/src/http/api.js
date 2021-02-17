@@ -1,7 +1,21 @@
 const apiUrl = 'http://localhost:4000';
 
-const requestMethods = { post: 'POST', get: 'GET' };
-const endpoints = { login: '/users/login', userInsert : '/users/insertar' , servicios: '/servicios'};
+const requestMethods = { post: 'POST', get: 'GET', delete: 'DELETE' };
+const endpoints = { login: '/users/login', userInsert : '/users/insertar' , servicios: '/servicios', deleteservices: '/servicios/borrar/'};
+
+function montandoObxetos(uri,metodo){
+  const token = localStorage.getItem('token');
+  //let accion = `${endpoints.}`;
+  let url = new URL(`${uri}`,`${apiUrl}`);
+  const headers = new Headers();
+  if(token){
+    headers.append('Authorization',token);
+  }
+  
+  const obxeto = {url:url,headers:headers,method: metodo }  
+  return obxeto;
+}
+
 
 async function fetchFormData(path, { body, method }) {
   const token = localStorage.getItem('token');
@@ -26,10 +40,12 @@ export async function login(mail, pwd) {
   //return fetchTravelApi('/users/login', { method: requestMethods.post, body: { mail, pwd } });
   const tokenData = await fetchTravelApi('/users/login', { method: requestMethods.post, body: { mail, pwd } });
   const token = tokenData.data.token;
-  console.log(token);
+  //console.log(token);
   localStorage.setItem('token', token);
   return token;
 }
+
+
 
 export async function userLogin(mail, pwd, nomUsuario_usu, nom_usu, ape1_usu, ape2_usu, biografia_usu) {
   return await fetchTravelApi(endpoints.userInsert, {
@@ -48,15 +64,24 @@ export async function newEntry(data) {
   
   body.append('eltitulo', data.titulo);
   body.append('explicacion', data.explicacion);
- ;
+ 
   for(const valor of Object.values(data.ficheros)){
-      console.log(`Estoy en 0 ${valor}`)
-      //console.log(`Estoy enn 1 ${valor}`)
     body.append('ficheros', valor);
   }
 
-  //body.append(`${valor}`, data.ficheros[valor],data.ficheros[valor].name);
- 
-  //console.log(body);
   return await fetchFormData(endpoints.servicios, { method: requestMethods.post, body });
+}
+
+export async function deleteService(uri,metodo){
+
+  const obxRequest = montandoObxetos(uri,metodo);
+  const request = new Request(obxRequest.url,{ headers: obxRequest.headers, method: obxRequest.method});
+  const peticion = await fetch(request);
+  let datos = await peticion.json();
+  console.log(`Estoy en la funcion delete ${datos}`);
+  console.log(datos);
+  return datos;
+
+
+
 }
