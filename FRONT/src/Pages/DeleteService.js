@@ -1,9 +1,10 @@
 import {useState, useEffect} from 'react';
+import ListaServicios from '../components/ListaServicios';
 import {deleteService} from '../http/api';
 import useAuth from '../shared/hooks/useAuth';
 
 function DeleteService(){
-    const [servicios, setServices] = useState();
+    const [servicios, setServices] = useState([]);
     const {userData} = useAuth();
 
     useEffect(() => {
@@ -20,6 +21,7 @@ function DeleteService(){
              <h1>Borrar Servicio</h1>
           <p>ID: {userData && userData.id}</p>
         <p>EXP: {userData && userData.exp}</p>
+       {servicios.map((item)=>{return <p>{item.titulo_ser}</p>})}
         </>);
 }
 
