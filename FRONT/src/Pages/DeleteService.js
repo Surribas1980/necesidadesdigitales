@@ -1,9 +1,11 @@
 import {useState, useEffect} from 'react';
+import {useForm} from 'react-hook-form';
 import ListaServicios from '../components/ListaServicios';
 import {deleteService} from '../http/api';
 import useAuth from '../shared/hooks/useAuth';
 
 function DeleteService(){
+    const { register, handleSubmit} = useForm;
     const [servicios, setServices] = useState([]);
     const {userData} = useAuth();
 
@@ -17,11 +19,16 @@ function DeleteService(){
         listarServicios();
     },[]);
 
+    const onSubmit = async (data) =>{
+
+    }
+    let valor = [];
     return (<>
              <h1>Borrar Servicio</h1>
           <p>ID: {userData && userData.id}</p>
-        <p>EXP: {userData && userData.exp}</p>
-       {servicios.map((item)=>{return <p>{item.titulo_ser}</p>})}
+        <p>EXP: {userData && userData.exp}</p>            
+            {servicios.map((item)=>{return <p>{item.titulo_ser}</p>})}
+            <ListaServicios valores={servicios} ></ListaServicios>
         </>);
 }
 
