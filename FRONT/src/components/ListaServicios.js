@@ -6,7 +6,7 @@ export default function ListaServicios(props){
     console.log(props);
 
     const onSubmit = async (data)=>{
-
+        console.log(data);
     }
 
 
@@ -21,10 +21,10 @@ export default function ListaServicios(props){
     {props.valores.map((item) => {
         const fieldName = `servicio[${item}]`;
         return (
-            <fieldset name={fieldName} key={fieldName.id_ser}>
+            <fieldset name={fieldName} key={item.id_ser}>
                 <label>
-                    Valor 1:{item.expli_ser}
-                    <input type="checkbox" name={`${fieldName}.expli_ser`} ref={register} />
+                    {item.expli_ser}
+                    <input type="checkbox" value={item.id_ser} name={`${fieldName}.expli_ser`} ref={register} />
                 </label>
             </fieldset>
         );
