@@ -26,8 +26,10 @@ function DeleteService(){
     return (<>
              <h1>Borrar Servicio</h1>
           <p>ID: {userData && userData.id}</p>
-        <p>EXP: {userData && userData.exp}</p>            
-            {servicios.map((item)=>{return <p>{item.titulo_ser}</p>})}
+        <p>EXP: {userData && userData.exp}</p>  
+        <ul>{servicios.map((item)=>{return <li key={item.id_ser}>{item.titulo_ser}</li>})}
+            </ul>          
+            
             <ListaServicios valores={servicios} ></ListaServicios>
         </>);
 }
