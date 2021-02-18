@@ -1,3 +1,7 @@
+/**
+ * Sacado de la documentación de react-hook-form, adaptando el siguiente ejemplo
+ * https://codesandbox.io/s/6j1760jkjk?file=/src/index.js
+ */
 import {useForm} from 'react-hook-form';
 export default function ListaServicios(props){
     const { register, handleSubmit } = useForm();
@@ -6,7 +10,13 @@ export default function ListaServicios(props){
     console.log(props);
 
     const onSubmit = async (data)=>{
-        console.log(data);
+        console.log(data.servicio);
+        for(const valor in data.servicio){
+            console.log(`${valor} = ${data.servicio[valor]}`)
+            for(const dentro in data.servicio[valor]){
+                console.log(`${dentro} = ${data.servicio[valor][dentro]}`)
+            }
+        }
     }
 
 
