@@ -21,10 +21,10 @@ export default function ListaServicios(props){
     {props.valores.map((item) => {
         const fieldName = `servicio[${item}]`;
         return (
-            <fieldset name={fieldName} key={fieldName}>
+            <fieldset name={fieldName} key={fieldName.id_ser}>
                 <label>
-                    Valor 1:
-                    <input type="checkbox" name={`${fieldName}.expli_ser`} ref={register} />{fieldName.expli_ser}
+                    Valor 1:{item.expli_ser}
+                    <input type="checkbox" name={`${fieldName}.expli_ser`} ref={register} />
                 </label>
             </fieldset>
         );
