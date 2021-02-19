@@ -72,15 +72,28 @@ export async function newEntry(data) {
   return await fetchFormData(endpoints.servicios, { method: requestMethods.post, body });
 }
 
-export async function deleteService(uri,metodo){
+
+
+export async function deleteService(uri,metodo,condatos,ids){
 
   const obxRequest = montandoObxetos(uri,metodo);
-  const request = new Request(obxRequest.url,{ headers: obxRequest.headers, method: obxRequest.method});
+  let request = new Request(obxRequest.url,{ headers: obxRequest.headers, method: obxRequest.method});
+  if(condatos){
+    const formu = new FormData();
+    
+    formu.append('ids',ids);
+    
+    console.log('Estoy en delete y estos son los ids: ');
+    console.log(ids);
+    request = new Request(obxRequest.url,{ headers: obxRequest.headers, method: metodo,body:formu});
+  }
   const peticion = await fetch(request);
-  let datos = await peticion.json();
-  console.log(`Estoy en la funcion delete ${datos}`);
-  console.log(datos);
-  return datos;
+let datos = await peticion.json();
+console.log(`Estoy en la funcion delete ${datos}`);
+console.log(datos);
+return datos;
+  
+ 
 
 
 

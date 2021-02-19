@@ -11,7 +11,7 @@ function DeleteService(){
 
     useEffect(() => {
         const listarServicios = async () => {
-            const numServicios = await deleteService('/servicios','GET'); 
+            const numServicios = await deleteService('/servicios','GET',0,null); 
             setServices(numServicios.data);
             console.log(`Estos son los servicios del objeto ${servicios}:`);
             console.log(numServicios.data)
@@ -19,9 +19,6 @@ function DeleteService(){
         listarServicios();
     },[]);
 
-    const onSubmit = async (data) =>{
-
-    }
     let valor = [];
     return (<>
              <h1>Borrar Servicio</h1>
