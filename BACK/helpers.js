@@ -53,12 +53,46 @@ async function uploadFile(mifichero,datos) {
     console.error(error.message);
   }
 }
-async function deleteFiles(id){
+
+function vectorServis(ids){
+  let vectorServicios = [];
+  let idServicio ='';
+  for(const valor in ids){
+     if(ids[valor] === ','){
+       vectorServicios.push(idServicio)
+       idServicio = '';
+       
+     }else{        
+       idServicio += ids[valor];
+      
+       if((ids.length-1) == valor){
+         vectorServicios.push(idServicio)
+       }
+     }
+   }
+   return vectorServicios;
+}
+
+
+async function borrarServicio(id){
   let connection;
   try{
     connection = await getDB();
     await connection.query(`DELETE FROM servicios WHERE id_ser = ?`,[id]);
-          
+    
+  }
+  catch(error){
+    const e = new Error('Error borrarServicio datos');
+    e.httpStatus = 500;
+    throw e;
+  }finally {
+    if (connection) connection.release();
+  }
+}
+
+async function deleteFiles(id){
+  try{
+    borrarServicio(id);
     const ruta = `docs/servicios/${id}`;
     const dir = path.join(__dirname,ruta);
     await fs.rmdir(dir, {recursive: true, });
@@ -288,5 +322,6 @@ module.exports = {
   insertServicio,
   listarDatos,
   modificarDatos,
-  deleteFiles
+  deleteFiles,
+  vectorServis
 };
