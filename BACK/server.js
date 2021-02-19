@@ -60,7 +60,7 @@ const urls = {
     admin:"/admin/modificar/:id",
     validaregistrationCode:"/validar/:registrationCode",
     usersolution:"/user/solution",
-    deleteservicio:"/servicios/borrar/:id_ser",
+    deleteservicio:"/servicios/borrar",
   };
 
   const urlsusers= {
@@ -111,7 +111,7 @@ app.delete(urlsusers.deleteuser,isUser,userExists,canDeleteUser, deleteUser);
 
 //Delete - /servicios/borrar/:id
 //Borra un servicio de la BBDD
-app.delete(urls.deleteservicio, isUser, servicioExist, canDeleteService,deleteServicio);
+app.delete(urls.deleteservicio, isUser, canDeleteService,deleteServicio);
 
 
 //Put - /usuarios/:id

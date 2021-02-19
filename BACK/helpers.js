@@ -54,10 +54,18 @@ async function uploadFile(mifichero,datos) {
   }
 }
 async function deleteFiles(id){
-
-  const ruta = `docs/servicios/${id}`;
-  const dir = path.join(__dirname,ruta);
-  await fs.rmdir(dir, {recursive: true, });
+  let connection;
+  try{
+    connection = await getDB();
+    await connection.query(`DELETE FROM servicios WHERE id_ser = ?`,[id]);
+          
+    const ruta = `docs/servicios/${id}`;
+    const dir = path.join(__dirname,ruta);
+    await fs.rmdir(dir, {recursive: true, });
+  }catch(error){
+    console.error(error.message);
+  }
+  
 }
 function insertFiles(ficheros,datos){
 console.log('estoy en isner')
