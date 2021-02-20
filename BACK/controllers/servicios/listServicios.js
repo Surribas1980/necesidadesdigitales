@@ -7,12 +7,23 @@ const listServicios = async (req, res, next) => {
     connection = await getDB();
 
     //Saco queryString
-    const { search } = req.query;
+    const { search,limite,inicioLista,alante } = req.query;
+    
+    console.log('limite y inicioLista: ',limite,inicioLista);
+
+    
+    await connection.query(`call tablaLimitadaServicios(?, ?, ?);`,[limite,inicioLista,alante]);
+    const [results] = await connection.query(`select * from servicioslimitada;`);
+    const [idMaxTemporal] = await connection.query(`select idMaxServiciosTemporal();`);
+    const [idMinTemporal] = await connection.query(`select idMinServiciosTemporal();`);
+    await connection.query(`call borrarTemporalServicios();`);
+
+/*
     const campos = {
       campo1: "expli_ser"
     };
     const tabla = "servicios";
-    const [results] = await listarDatos(tabla,campos,search)
+    const [results] = await listarDatos(tabla,campos,search)*/
 
 /*
     let results;
@@ -35,7 +46,11 @@ const listServicios = async (req, res, next) => {
     //Devuelto un json con los servicios
     res.send({
       status: "ok",
-      data: results,
+      data: limite,
+      inicioLista,
+      results,
+      idMaxTemporal,
+      idMinTemporal
     });
   } catch (error) {
     next(error);

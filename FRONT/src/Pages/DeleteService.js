@@ -1,33 +1,34 @@
 import {useState, useEffect} from 'react';
-import {useForm} from 'react-hook-form';
+
 import ListaServicios from '../components/ListaServicios';
-import {deleteService} from '../http/api';
+import {enviarDatos} from '../http/api';
 import useAuth from '../shared/hooks/useAuth';
 
 function DeleteService(){
-    const { register, handleSubmit} = useForm;
+    
     const [servicios, setServices] = useState([]);
+    const [limite, setLimite] = useState(15);
+    const [inicioLista, setInicioLista] = useState(1);
+    const [alante, setAlante] = useState(1)
     const {userData} = useAuth();
 
     useEffect(() => {
         const listarServicios = async () => {
-            const numServicios = await deleteService('/servicios','GET',0,null); 
-            setServices(numServicios.data);
-            console.log(`Estos son los servicios del objeto ${servicios}:`);
-            console.log(numServicios.data)
+            //const numServicios = await deleteService('/servicios','GET',0,null); 
+            const numServicios = await enviarDatos(limite,inicioLista,alante);
+            console.log(numServicios)
+            //setServices(numServicios.data);
+            console.log(numServicios.idMaxTemporal[0].idMaxServiciosTemporal)
         }
         listarServicios();
-    },[]);
+    },[limite,inicioLista]);
 
-    let valor = [];
+    
     return (<>
              <h1>Borrar Servicio</h1>
           <p>ID: {userData && userData.id}</p>
         <p>EXP: {userData && userData.exp}</p>  
-        <ul>{servicios.map((item)=>{return <li key={item.id_ser}>{item.titulo_ser}</li>})}
-            </ul>          
-            
-            <ListaServicios valores={servicios} ></ListaServicios>
+        <button onClick={()=>{}}>Adelante</button>
         </>);
 }
 

@@ -72,7 +72,10 @@ export async function newEntry(data) {
   return await fetchFormData(endpoints.servicios, { method: requestMethods.post, body });
 }
 
-
+export async function enviarDatos(limite,inicioLista,alante){
+  return (await fetchTravelApi(`${endpoints.servicios}?limite=${limite}&inicioLista=${inicioLista}&alante=${alante}`,{method: requestMethods.get}));
+   
+}
 
 export async function deleteService(uri,metodo,condatos,ids){
 
@@ -80,11 +83,7 @@ export async function deleteService(uri,metodo,condatos,ids){
   let request = new Request(obxRequest.url,{ headers: obxRequest.headers, method: obxRequest.method});
   if(condatos){
     const formu = new FormData();
-    
     formu.append('ids',ids);
-    
-    console.log('Estoy en delete y estos son los ids: ');
-    console.log(ids);
     request = new Request(obxRequest.url,{ headers: obxRequest.headers, method: metodo,body:formu});
   }
   const peticion = await fetch(request);
@@ -92,9 +91,4 @@ let datos = await peticion.json();
 console.log(`Estoy en la funcion delete ${datos}`);
 console.log(datos);
 return datos;
-  
- 
-
-
-
 }
