@@ -5,15 +5,24 @@ const listServicios = async (req, res, next) => {
 
   try {
     connection = await getDB();
-
+    let results;
     //Saco queryString
     const { search,limite,inicioLista,alante } = req.query;
     
     console.log('limite y inicioLista: ',limite,inicioLista);
 
+    if(alante){
+       await connection.query(`call tablaLimitadaServicios(?, ?, ?);`,[limite,inicioLista,alante]);
+        [results] = await connection.query(`select * from servicioslimitada;`);
+
+       console.log('alante ',alante)
+    }else{
+       await connection.query(`call miBucle(?, ?);`,[limite,inicioLista]);
+       [results] = await connection.query(`select * from servicioslimitada;`);
+      console.log('alante ',alante)
+    }
     
-    await connection.query(`call tablaLimitadaServicios(?, ?, ?);`,[limite,inicioLista,alante]);
-    const [results] = await connection.query(`select * from servicioslimitada;`);
+   // const [results] = await connection.query(`select * from servicioslimitada;`);
     const [idMaxTemporal] = await connection.query(`select idMaxServiciosTemporal();`);
     const [idMinTemporal] = await connection.query(`select idMinServiciosTemporal();`);
     await connection.query(`call borrarTemporalServicios();`);
@@ -48,7 +57,7 @@ const listServicios = async (req, res, next) => {
       status: "ok",
       data: limite,
       inicioLista,
-      results,
+      resultbbdd: results,
       idMaxTemporal,
       idMinTemporal
     });
