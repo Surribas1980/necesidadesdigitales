@@ -5,7 +5,7 @@ const listServicios = async (req, res, next) => {
 
   try {
     connection = await getDB();
-    let results;
+    
     //Saco queryString
     const { search,limite,inicioLista,alante } = req.query;
     
@@ -13,16 +13,16 @@ const listServicios = async (req, res, next) => {
 
     if(alante){
        await connection.query(`call tablaLimitadaServicios(?, ?, ?);`,[limite,inicioLista,alante]);
-        [results] = await connection.query(`select * from servicioslimitada;`);
+     
 
        console.log('alante ',alante)
     }else{
        await connection.query(`call miBucle(?, ?);`,[limite,inicioLista]);
-       [results] = await connection.query(`select * from servicioslimitada;`);
+       
       console.log('alante ',alante)
     }
     
-   // const [results] = await connection.query(`select * from servicioslimitada;`);
+    const [results] = await connection.query(`select * from servicioslimitada;`);
     const [idMaxTemporal] = await connection.query(`select idMaxServiciosTemporal();`);
     const [idMinTemporal] = await connection.query(`select idMinServiciosTemporal();`);
     await connection.query(`call borrarTemporalServicios();`);
