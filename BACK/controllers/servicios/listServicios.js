@@ -16,8 +16,6 @@ const listServicios = async (req, res, next) => {
       //correcta
         await connection.query(`call tablaLimitadaServicios(?, ?, ?);`,[limite,inicioLista,alante]);
         [results]= await connection.query(`call buscarValor(?,?);`,[search1,search2]);
-       
-     console.log('Estoy en if search',results);
     }else{
             if(uno === alante){
               await connection.query(`call tablaLimitadaServicios(?, ?, ?);`,[limite,inicioLista,alante]);
@@ -32,31 +30,6 @@ const listServicios = async (req, res, next) => {
           const [idMinTemporal] = await connection.query(`select idMinServiciosTemporal();`);
           await connection.query(`call borrarTemporalServicios();`);
           
-/*
-    const campos = {
-      campo1: "expli_ser"
-    };
-    const tabla = "servicios";
-    const [results] = await listarDatos(tabla,campos,search)*/
-
-/*
-    let results;
-
-    if (search) {
-      [results] = await connection.query(
-        `
-            SELECT * FROM servicios
-            WHERE titulo_ser LIKE ? OR expli_ser LIKE ?;
-        `,
-        [`%${search}%`, `%${search}%`]
-      );
-    } else {
-      //Leo los servicios de la BBDD
-      [results] = await connection.query(`
-            SELECT * FROM servicios;
-        `);
-    }
-*/
     //Devuelto un json con los servicios
     res.send({
       status: "ok",

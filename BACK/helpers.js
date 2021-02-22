@@ -130,18 +130,29 @@ async function modificarDatos(tabla,valor,valorcampo,campo){
 }
 
 
-async function listarDatos(tabla,campos,search) {
+async function listarDatos(limite,inicioLista,alante,search1,search2) {
 
   try {
     let results;
     let connection;
     connection = await getDB();
-   
-    if(search){
-      results = await connection.query(`select * from ${tabla} where ${campos.campo1} like ?`,[`%${search}%`]);
-    }
-    else{
-      results = await connection.query(`select * from ${tabla}`);
+    console.log('estoy en listar')
+    if(search1 || search2){
+      //ojo, esto puede dar lugar a error si desde el front no se hace la búsquda de manera
+      //correcta
+      console.log('Paso por search')
+        await connection.query(`call tablaLimitadaServicios(?, ?, ?);`,[limite,inicioLista,alante]);
+        [results]= await connection.query(`call buscarValor(?,?);`,[search1,search2]);
+    }else{
+            if('1' === alante){
+              console.log('paso por 1')
+              await connection.query(`call tablaLimitadaServicios(?, ?, ?);`,[limite,inicioLista,alante]);
+            }else{
+              await connection.query(`call miBucle(?, ?);`,[limite,inicioLista]);
+            }
+            
+           [results] = await connection.query(`select * from servicioslimitada;`);
+            
     }
 
     return results;
