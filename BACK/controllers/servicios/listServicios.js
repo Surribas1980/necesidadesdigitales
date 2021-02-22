@@ -5,21 +5,22 @@ const listServicios = async (req, res, next) => {
 
   try {
     connection = await getDB();
-    
+    let uno = '1';
+
     //Saco queryString
     const { search,limite,inicioLista,alante } = req.query;
     
     console.log('limite y inicioLista: ',limite,inicioLista);
-
-    if(alante){
+ 
+    if(uno === alante){
        await connection.query(`call tablaLimitadaServicios(?, ?, ?);`,[limite,inicioLista,alante]);
      
 
-       console.log('alante ',alante)
+       console.log('alante en tablalimitada ',alante)
     }else{
        await connection.query(`call miBucle(?, ?);`,[limite,inicioLista]);
        
-      console.log('alante ',alante)
+      console.log('alante en miBucle',alante)
     }
     
     const [results] = await connection.query(`select * from servicioslimitada;`);
