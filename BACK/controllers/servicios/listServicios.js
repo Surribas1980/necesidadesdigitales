@@ -6,10 +6,7 @@ const listServicios = async (req, res, next) => {
   try {
     connection = await getDB();
     let uno = '1';
-  
-   
-   
-
+    let results;
     //Saco queryString
     const { limite,inicioLista,alante,search1,search2 } = req.query;
     
@@ -18,22 +15,17 @@ const listServicios = async (req, res, next) => {
       //ojo, esto puede dar lugar a error si desde el front no se hace la búsquda de manera
       //correcta
         await connection.query(`call tablaLimitadaServicios(?, ?, ?);`,[limite,inicioLista,alante]);
-        var [results]= await connection.query(`call buscarValor(?,?);`,[search1,search2]);
+        [results]= await connection.query(`call buscarValor(?,?);`,[search1,search2]);
        
      console.log('Estoy en if search',results);
     }else{
             if(uno === alante){
               await connection.query(`call tablaLimitadaServicios(?, ?, ?);`,[limite,inicioLista,alante]);
-            
-        
-              console.log('alante en tablalimitada ',alante)
             }else{
               await connection.query(`call miBucle(?, ?);`,[limite,inicioLista]);
-              
-              console.log('alante en miBucle',alante)
             }
             
-             [results] = await connection.query(`select * from servicioslimitada;`);
+           [results] = await connection.query(`select * from servicioslimitada;`);
             
           }
           const [idMaxTemporal] = await connection.query(`select idMaxServiciosTemporal();`);
