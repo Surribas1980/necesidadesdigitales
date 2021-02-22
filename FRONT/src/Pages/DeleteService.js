@@ -20,8 +20,9 @@ function DeleteService(){
         const listarServicios = async () => {
             //const numServicios = await deleteService('/servicios','GET',0,null); 
             const numServicios = await enviarDatos(limite,inicioLista,alante);
-            setServices(numServicios);
+            setServices(numServicios['resultbbdd']);
             console.log(numServicios);
+            console.log('La tabla: ',numServicios['resultbbdd']);
             for(const i1 in numServicios){
                // console.log(`Estoy en el primer nivel ${i1} = ${numServicios[i1]}`);
                 for(const i2 in numServicios[i1]){
@@ -60,7 +61,7 @@ function DeleteService(){
         console.log('El idMin que entra en setInicioLista: ',idMin)
              setAlante(0)}}>Atrás</button>         	
         
-        
+        <ListaServicios valores={servicios}></ListaServicios>
         </>);
 }
 
