@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Home from './Pages/Home';
+import Formulario from './Pages/Formulario';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
 import InsertServices from './Pages/InsertServices';
@@ -29,6 +30,9 @@ function App() {
               <li>
                 <Link to="/delete/servicios">Borrar servicios</Link>
               </li>
+              <li>
+                <Link to="/formulario/prueba">Forumulario</Link>
+              </li>
             </ul>
     
             <Switch>
@@ -47,6 +51,9 @@ function App() {
                 </Route>
                 <Route path="/delete/servicios">
                   <DeleteService></DeleteService>
+                </Route>
+                <Route path="/formulario/prueba">
+                  <Formulario></Formulario>
                 </Route>
               </AuthProvider>
             </Switch>
