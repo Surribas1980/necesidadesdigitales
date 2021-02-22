@@ -6,28 +6,40 @@ const listServicios = async (req, res, next) => {
   try {
     connection = await getDB();
     let uno = '1';
+  
+   
+   
 
     //Saco queryString
-    const { search,limite,inicioLista,alante } = req.query;
+    const { limite,inicioLista,alante,search1,search2 } = req.query;
     
     console.log('limite y inicioLista: ',limite,inicioLista);
- 
-    if(uno === alante){
-       await connection.query(`call tablaLimitadaServicios(?, ?, ?);`,[limite,inicioLista,alante]);
-     
-
-       console.log('alante en tablalimitada ',alante)
-    }else{
-       await connection.query(`call miBucle(?, ?);`,[limite,inicioLista]);
+    if(search1 || search2){
+      //ojo, esto puede dar lugar a error si desde el front no se hace la búsquda de manera
+      //correcta
+        await connection.query(`call tablaLimitadaServicios(?, ?, ?);`,[limite,inicioLista,alante]);
+        var [results]= await connection.query(`call buscarValor(?,?);`,[search1,search2]);
        
-      console.log('alante en miBucle',alante)
-    }
-    
-    const [results] = await connection.query(`select * from servicioslimitada;`);
-    const [idMaxTemporal] = await connection.query(`select idMaxServiciosTemporal();`);
-    const [idMinTemporal] = await connection.query(`select idMinServiciosTemporal();`);
-    await connection.query(`call borrarTemporalServicios();`);
-
+     console.log('Estoy en if search',results);
+    }else{
+            if(uno === alante){
+              await connection.query(`call tablaLimitadaServicios(?, ?, ?);`,[limite,inicioLista,alante]);
+            
+        
+              console.log('alante en tablalimitada ',alante)
+            }else{
+              await connection.query(`call miBucle(?, ?);`,[limite,inicioLista]);
+              
+              console.log('alante en miBucle',alante)
+            }
+            
+             [results] = await connection.query(`select * from servicioslimitada;`);
+            
+          }
+          const [idMaxTemporal] = await connection.query(`select idMaxServiciosTemporal();`);
+          const [idMinTemporal] = await connection.query(`select idMinServiciosTemporal();`);
+          await connection.query(`call borrarTemporalServicios();`);
+          
 /*
     const campos = {
       campo1: "expli_ser"

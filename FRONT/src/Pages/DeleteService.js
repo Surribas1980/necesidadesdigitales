@@ -7,10 +7,11 @@ import useAuth from '../shared/hooks/useAuth';
 
 function DeleteService(){
     const { register, handleSubmit } = useForm();
-    const [search, setSearch] = useState();
+    const [search1, setSearch1] = useState('');
+    const [search2, setSearch2] = useState('');
     const [servicios, setServices] = useState([]);
     const [limite, setLimite] = useState(5);
-    const [inicioLista, setInicioLista] = useState(1);
+    const [inicioLista, setInicioLista] = useState(0);
     const [alante, setAlante] = useState(1);
     const [valoresform, setValoresForm] = useState();
     
@@ -26,8 +27,14 @@ function DeleteService(){
     useEffect(() => {
         const listarServicios = async () => {
             //const numServicios = await deleteService('/servicios','GET',0,null); 
-            const numServicios = await enviarDatos(limite,inicioLista,alante,search);
-            setServices(numServicios['resultbbdd']);
+            const numServicios = await enviarDatos(limite,inicioLista,alante,search1,search2);
+            if(search2 || search1){
+              setServices(numServicios['resultbbdd'][0]);
+              console.log('Trae datos: ',numServicios['resultbbdd'][0])  
+            }else{
+              setServices(numServicios['resultbbdd']);  
+            }
+            
             console.log(numServicios);
             //console.log('La tabla: ',numServicios['resultbbdd']);
             for(const i1 in numServicios){
@@ -53,13 +60,15 @@ function DeleteService(){
            
         }
         listarServicios();
-    },[limite,inicioLista,alante,search]);
+    },[limite,inicioLista,alante,search1,search2]);
 
     const submitForm = (data) => {
         
         //console.log('Enviamos',data.titulo,data.explicacion);
-        setSearch(data);
-        //console.log(search);
+        let valor = data.titulo + data.explicacion;
+        setSearch1(data.titulo);
+        setSearch2(data.explicacion);
+        console.log('Valor que envío: ',valor);
         //setSearch(initialSearch);
     }
     
@@ -77,9 +86,9 @@ function DeleteService(){
 
         <form onSubmit={handleSubmit(submitForm)}>
             <label htmlFor='titulo'>Titulo</label>
-            <input id="titulo" ref={register({ required: true})} name="titulo" ></input>
+            <input id="titulo" ref={register({ required: false})} name="titulo" ></input>
             <label htmlFor='explicacion'>Explicacion</label>
-            <input id="explicacion" ref={register({ required: true})} name="explicacion"></input>
+            <input id="explicacion" ref={register({ required: false})} name="explicacion"></input>
             <button>Buscar</button>
         </form>    	
         
