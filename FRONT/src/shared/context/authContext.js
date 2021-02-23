@@ -28,11 +28,6 @@ export function AuthProvider({ children }){
       const tokenObject = decodeTokenData(loginData);
       setUserData(tokenObject);
       setIsUserLogged(true);
-      /*if(userData.rol === 'normal'){
-        history.push('/useradmin');
-      }else{
-        
-      }*/
       history.push('/');
     } 
 
