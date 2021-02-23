@@ -89,7 +89,6 @@ export async function deleteService(uri,metodo,condatos,ids){
   }
   const peticion = await fetch(request);
 let datos = await peticion.json();
-console.log(`Estoy en la funcion delete ${datos}`);
-console.log(datos);
+
 return datos;
 }
