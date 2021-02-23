@@ -3,14 +3,17 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Home from './Pages/Home';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
+import Admin from './Pages/Admin';
 import InsertServices from './Pages/InsertServices';
-
+import AdminComponent from './components/AdminComponent';
 import { AuthProvider } from './shared/context/authContext';
 import DeleteService from './Pages/DeleteService';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
+import AdminRoute from './components/AdminRoute';
 import UserAdmin from './Pages/UserAdmin';
 import PrivateComponent from './components/PrivateComponent';
+
 
 function App() {
   return (    
@@ -38,6 +41,11 @@ function App() {
                   <li>
                     <Link to="/useradmin">UserAdmin</Link>
                   </li>
+                  <li>
+                    <AdminComponent>
+                      <Link to="/admin">Administrador</Link>
+                    </AdminComponent>
+                  </li>
               </PrivateComponent>
             </ul>
     
@@ -62,6 +70,12 @@ function App() {
                     <UserAdmin />
                   </PrivateRoute>
                  
+                </Route>
+                <Route path="/admin">
+                  <AdminRoute>
+                    <Admin></Admin>
+                  </AdminRoute>
+
                 </Route>
                 <Route path="/delete/servicios">
                  
