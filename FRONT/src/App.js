@@ -6,6 +6,7 @@ import Register from './Pages/Register';
 import Admin from './Pages/Admin';
 import InsertServices from './Pages/InsertServices';
 import AdminComponent from './components/AdminComponent';
+import UserComponent from './components/UserComponent';
 import { AuthProvider } from './shared/context/authContext';
 import DeleteService from './Pages/DeleteService';
 import PrivateRoute from './components/PrivateRoute';
@@ -39,7 +40,9 @@ function App() {
                     <Link to="/delete/servicios">Borrar servicios</Link>
                   </li>
                   <li>
-                    <Link to="/useradmin">UserAdmin</Link>
+                    <UserComponent>
+                      <Link to="/useradmin">UserAdmin</Link>
+                    </UserComponent>
                   </li>
                   <li>
                     <AdminComponent>

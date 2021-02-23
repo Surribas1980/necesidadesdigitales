@@ -3,5 +3,5 @@ import useAuth from '../shared/hooks/useAuth';
 
 export default function AdminRoute({ children }) {
   const { userData } = useAuth();
-  return <>{userData.role ? children : <Redirect to="/"></Redirect>}</>;
+  return <>{userData.rol==='admin' ? children : <Redirect to="/"></Redirect>}</>;
 }
