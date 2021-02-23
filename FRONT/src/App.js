@@ -34,16 +34,18 @@ function App() {
               </li>
               <PrivateComponent>
                   <li>
-                    <Link to="/insert/servicios">Insertar servicios</Link>
-                  </li>
-                  <li>
                     <Link to="/delete/servicios">Borrar servicios</Link>
                   </li>
-                  <li>
-                    <UserComponent>
-                      <Link to="/useradmin">UserAdmin</Link>
-                    </UserComponent>
-                  </li>
+                  <UserComponent>
+                    <li>
+                      <Link to="/insert/servicios">Insertar servicios</Link>
+                    </li>
+                    <li>
+                      
+                        <Link to="/useradmin">UserAdmin</Link>
+                      
+                    </li>
+                  </UserComponent>
                   <li>
                     <AdminComponent>
                       <Link to="/admin">Administrador</Link>
