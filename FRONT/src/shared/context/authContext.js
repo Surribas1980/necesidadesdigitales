@@ -5,11 +5,11 @@
 
 import React from 'react'
 import decodeTokenData from '../utils/decodeTokenData';
-import { useState, useHistory } from 'react';
+import { useState } from 'react';
 import { login } from '../../http/api';
+import { useHistory } from 'react-router-dom';
 export const AuthContext = React.createContext();
 const AuthContextProvider = AuthContext.Provider;
-
 
 const token = localStorage.getItem('token');//viene texto y lo convertimos a texto. Si lo tenemos almacenado lo recuperamos
 const tokenObject = decodeTokenData(token);
@@ -17,7 +17,8 @@ const tokenObject = decodeTokenData(token);
 
 export function AuthProvider({ children }){
     const [userData, setUserData] = useState(tokenObject);
-    
+    const [isUserLogged, setIsUserLogged] = useState(!!tokenObject);
+    const history = useHistory();
   
     // Método para hacer log in desde los componentes
     //me llega user y pwd,
@@ -26,10 +27,18 @@ export function AuthProvider({ children }){
       localStorage.setItem('token',loginData);
       const tokenObject = decodeTokenData(loginData);
       setUserData(tokenObject);
-      console.log(loginData);
+      setIsUserLogged(true);
+      history.push('/useradmin');
     } 
+
+    const logOut = () => {
+      localStorage.removeItem('token');      
+      history.push('/');
+      setUserData(null);
+      setIsUserLogged(false);
+    };
 
     //const sendFiles = async 
 
-    return <AuthContextProvider value = {{ userData, sigIn}}>{children}</AuthContextProvider>
+    return <AuthContextProvider value = {{ userData, sigIn, logOut, isUserLogged}}>{children}</AuthContextProvider>
 }

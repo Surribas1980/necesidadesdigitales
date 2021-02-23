@@ -5,7 +5,7 @@ import useAuth from '../shared/hooks/useAuth';
 export default function Login() {
   const { register, handleSubmit } = useForm();
   const {userData, sigIn} = useAuth();
-console.log(userData);
+
   const onSubmit = (data) =>{
      sigIn(data.mail,data.pwd);
   };
