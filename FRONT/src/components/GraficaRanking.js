@@ -18,8 +18,8 @@ export default function GraficaRanking(props){
     console.log('esto es puntuacion en: ',puntu);
     const nombres = ranking1.map((usuario)=> usuario.nom_usu);
 
-    const colores = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'];
-    const puntos = [12, 19, 3, 5, 2, 3];
+    /*const colores = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'];
+    const puntos = [12, 19, 3, 5, 2, 3];*/
     return (<><h1>Estoy en Graficas</h1>
         <Bar 
             data={{

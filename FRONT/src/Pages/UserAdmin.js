@@ -1,11 +1,17 @@
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import useAuth from '../shared/hooks/useAuth';
 import { useState,useEffect} from 'react';
 import { deleteService } from '../http/api';
 import GraficaRanking from '../components/GraficaRanking';
+import InsertServices from './InsertServices';
+import ServiciosUser from '../components/User/ServiciosUser';
+import ServiciosSolucionados from '../components/User/ServiciosSolucionados';
 
 function UserAdmin(){
     const { userData, logOut } = useAuth();
     const [ranking, setRanking] = useState([]);
+    const [misSolicitados, setmisSolicitados] = useState([]);
+    const [servesSolucionados, setservisSolucionados] = useState([]);
     const [valor, setValor] = useState(0);
 
     useEffect(()=>{
@@ -14,6 +20,8 @@ function UserAdmin(){
             
             console.log('El ranking',data['ranking']);
             setRanking(data['ranking']);
+            setmisSolicitados(data['serv']);
+            setservisSolucionados(data['serviSolucionados']);
             console.log('Esto es data...',data)
         }
         datosUser();
@@ -21,7 +29,25 @@ function UserAdmin(){
 
 
 
-    return (<><h1>Estoy en UserAdmin</h1>
+    return (<>
+        <Router>
+            <ul>
+                <li>
+                    <Link to="/darsolucion">Página dar solucion</Link>    
+                </li>
+                <li>
+                    <Link to="/servicio">Solicitar servicio</Link>
+                </li>
+            </ul>
+            <Route path="/darsolucion">
+                
+            </Route>
+            <Route path="/servicio">
+                <InsertServices />
+            </Route>
+        </Router>
+    
+    <h1>Estoy en UserAdmin</h1>
     <p>ID: {userData && userData.id}</p>
         <p>EXP: {userData && userData.exp}</p>
         <button onClick={logOut}>LOG OUT!</button>
@@ -36,7 +62,9 @@ function UserAdmin(){
                         }
         }
             }>Actualizar</button>
+        <ServiciosUser servicios={misSolicitados}></ServiciosUser>
         <GraficaRanking valores={ranking}></GraficaRanking>
+        <ServiciosSolucionados solucionados={servesSolucionados}></ServiciosSolucionados>
     </>);
 }
 
