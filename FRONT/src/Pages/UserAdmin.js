@@ -11,9 +11,10 @@ function UserAdmin(){
     useEffect(()=>{
         const datosUser = async ()=>{
             const data = await deleteService("/users/userLogin/",'GET',0,0);
-            console.log(data);
+            
             console.log('El ranking',data['ranking']);
             setRanking(data['ranking']);
+            console.log('Esto es data...',data)
         }
         datosUser();
     },[]);
@@ -35,7 +36,7 @@ function UserAdmin(){
                         }
         }
             }>Actualizar</button>
-            <GraficaRanking valores={ranking}></GraficaRanking>
+        <GraficaRanking valores={ranking}></GraficaRanking>
     </>);
 }
 

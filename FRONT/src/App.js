@@ -14,6 +14,7 @@ import PublicRoute from './components/PublicRoute';
 import AdminRoute from './components/AdminRoute';
 import UserAdmin from './Pages/UserAdmin';
 import PrivateComponent from './components/PrivateComponent';
+import Graficas from './Pages/Graficas';
 
 
 function App() {
@@ -23,6 +24,9 @@ function App() {
           <AuthProvider>
           <div>
             <ul>
+              <li>
+                <Link to="/graficas">Graficas</Link>
+              </li>
               <li>
                 <Link to="/">Home</Link>
               </li>
@@ -58,7 +62,10 @@ function App() {
               
                 <Route exact path="/">
                   <Home />
-                </Route>                         
+                </Route> 
+                <Route path="/graficas">
+                  <Graficas />
+                </Route>                        
                 <Route path="/register">
                   <Register />
                 </Route>

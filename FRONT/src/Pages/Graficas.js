@@ -1,44 +1,31 @@
-import { useState, useEffect} from 'react';
 import {Bar, Line} from 'react-chartjs-2';
 
-export default function GraficaRanking(props){
-    //const [datos, setDatos] = useState({});
-    const puntu = [];
-    const ranking1 = props.valores;
-    console.log('lo que entra',ranking1)
-
-  /*  const chart = () => {
-        
-        
-    };*/
-    for(let i=0; i< props.valores.length;i++){
-        puntu.push(Math.round(ranking1[i]['sum(puntuacion)']));
-        
-    }
-    console.log('esto es puntuacion en: ',puntu);
-    const nombres = ranking1.map((usuario)=> usuario.nom_usu);
-
+function Graficas(){
     const colores = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'];
     const puntos = [12, 19, 3, 5, 2, 3];
     return (<><h1>Estoy en Graficas</h1>
         <Bar 
             data={{
-                    labels: nombres,
+                    labels: colores,
                     datasets: [
                         {
                             label: '# Puntuación',
-                            data: puntu,
+                            data: puntos,
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
                                 'rgba(54, 162, 235, 0.2)',
                                 'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)'
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
                             ],
                             borderColor: [
                                 'rgba(255, 99, 132, 1)',
                                 'rgba(54, 162, 235, 1)',
                                 'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)'
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
                             ],
                             borderWidth: 1,
                         },
@@ -66,22 +53,26 @@ export default function GraficaRanking(props){
              />
         <Line
           data={{
-            labels: nombres,
+            labels: colores,
             datasets: [
                 {
                     label: '# Puntuación',
-                    data: puntu,
+                    data: puntos,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
                         'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)'
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
                     ],
                     borderColor: [
                         'rgba(255, 99, 132, 1)',
                         'rgba(54, 162, 235, 1)',
                         'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)'
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
                     ],
                     borderWidth: 1,
                 },
@@ -107,5 +98,6 @@ export default function GraficaRanking(props){
     }}
         />
     </>);
-   
 }
+
+export default Graficas;
