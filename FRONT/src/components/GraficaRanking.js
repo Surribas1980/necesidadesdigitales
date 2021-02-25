@@ -12,7 +12,7 @@ export default function GraficaRanking(props){
         
     };*/
     for(let i=0; i< props.valores.length;i++){
-        puntu.push(Math.round(ranking1[i]['sum(puntuacion)']));
+        puntu.push(ranking1[i]['sum(puntuacion)']);
         
     }
     console.log('esto es puntuacion en: ',puntu);

@@ -13,6 +13,7 @@ function UserAdmin(){
     const [misSolicitados, setmisSolicitados] = useState([]);
     const [servesSolucionados, setservisSolucionados] = useState([]);
     const [valor, setValor] = useState(0);
+    const [showMenu, setShowMenu]=useState(false);
 
     useEffect(()=>{
         const datosUser = async ()=>{
@@ -31,6 +32,8 @@ function UserAdmin(){
 
     return (<>
         <Router>
+            <button onClick={() => setShowMenu(!showMenu)}>Menú</button>
+            {showMenu && <div>Esto é o menu</div>}
             <ul>
                 <li>
                     <Link to="/darsolucion">Página dar solucion</Link>    
@@ -62,7 +65,7 @@ function UserAdmin(){
                         }
         }
             }>Actualizar</button>
-        <ServiciosUser servicios={misSolicitados}></ServiciosUser>
+       <ServiciosUser servicios={misSolicitados}></ServiciosUser>
         <GraficaRanking valores={ranking}></GraficaRanking>
         <ServiciosSolucionados solucionados={servesSolucionados}></ServiciosSolucionados>
     </>);
