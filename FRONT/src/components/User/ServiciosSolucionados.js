@@ -9,7 +9,7 @@ export default function ServiciosUser(props){
     let contenido = [];
     let totaltext = [];
     let totalcontenido= [];
-    //let probar = [];
+    let probar = [];
     
     //console.log('Esto es probar: ',probar) 
        /*if(elemts[0]['puntos(id_usu)']){
@@ -50,10 +50,10 @@ export default function ServiciosUser(props){
                     }
                 }
         }
-/*        
-        probar.push(totaltext);
-        probar.push(totalcontenido);
-    console.log('proba: ',probar); 
+        
+        /*probar.push(totaltext);
+        probar.push(totalcontenido);*/
+/*    console.log('proba: ',probar); 
     console.log('elemento proba',probar[0][0],probar[1][0],probar[1][1])   
     console.log('totaltext',totaltext);
     console.log('contenido',totalcontenido); 
@@ -88,19 +88,32 @@ export default function ServiciosUser(props){
        /* {listaServicios}
         <p>Outro</p>
         {probar[0][0]}*/
+    /*let titulo = totaltext[0];
+    probar.push(totaltext[0]);
+    probar.push(totalcontenido);
+    console.log('titulo ',titulo);
+    console.log('totalcontenido: ',totalcontenido)
+    console.log('probar',probar)*/
+    totalcontenido.push(totaltext[0]);
+    totalcontenido.reverse();
+    //console.log('totalcontenido con tiulo:' , totalcontenido);
+
 
     return (<>
     <h1>Os servizos solucionados</h1>
        
         {
            
-           // totalcontenido.map((elemento,index)=>{return <p>--------- {probar[1][index]}  ----   </p>})
             <table>
-                {totalcontenido.map((item,index)=>{
+                
+                {
+                totalcontenido.map((item,index)=>{
                     return <DatosLista key={index} dato={item} />;
 
-                })}
+                })
+                }
             </table>
+           // totalcontenido.map((elemento,index)=>{return <p>--------- {probar[1][index]}  ----   </p>})
            
         }   
       
