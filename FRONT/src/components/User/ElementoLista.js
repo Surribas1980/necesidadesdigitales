@@ -1,6 +1,9 @@
 function ElementoLista(props){
     console.log('Estoy en elemento lista: ',props.elementos)
-    return <li> {props.elementos}</li>
+    return (
+    <>
+        <td> {props.elementos}</td>
+    </>)
 
 }
 

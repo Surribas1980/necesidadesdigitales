@@ -94,12 +94,12 @@ export default function ServiciosUser(props){
         {
            
            // totalcontenido.map((elemento,index)=>{return <p>--------- {probar[1][index]}  ----   </p>})
-            <ul>
+            <table>
                 {totalcontenido.map((item,index)=>{
                     return <DatosLista key={index} dato={item} />;
 
                 })}
-            </ul>
+            </table>
            
         }   
         <p>A ver que sae</p>
