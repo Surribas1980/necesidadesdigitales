@@ -1,7 +1,7 @@
-const getDB = require("../../db");
+
 const {listarDatos} = require("../../helpers");
 const listUsers = async (req, res, next) => {
-  let connection;
+
 
   try {
 
@@ -22,9 +22,7 @@ const listUsers = async (req, res, next) => {
     });
   } catch (error) {
     next(error);
-  } finally {
-    if (connection) connection.release();
-  }
+  } 
 };
 
 module.exports = listUsers;

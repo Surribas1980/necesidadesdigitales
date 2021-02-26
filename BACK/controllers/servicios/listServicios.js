@@ -10,7 +10,6 @@ const listServicios = async (req, res, next) => {
     //Saco queryString
     const { limite,inicioLista,alante,search1,search2 } = req.query;
     
-    console.log('limite y inicioLista: ',limite,inicioLista);
     if(search1 || search2){
       //ojo, esto puede dar lugar a error si desde el front no se hace la búsquda de manera
       //correcta
@@ -25,7 +24,7 @@ const listServicios = async (req, res, next) => {
             
            [results] = await connection.query(`select * from servicioslimitada;`);
             
-          }
+    }
           const [idMaxTemporal] = await connection.query(`select idMaxServiciosTemporal();`);
           const [idMinTemporal] = await connection.query(`select idMinServiciosTemporal();`);
           await connection.query(`call borrarTemporalServicios();`);

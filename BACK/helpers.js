@@ -1,12 +1,10 @@
 const { format } = require("date-fns");
 const sgMail = require('@sendgrid/mail');
-const sharp = require("sharp");
 const path = require("path");
 const crypto = require("crypto");
 const fs = require("fs").promises;
 const getDB = require("./db");
-const { result } = require("lodash");
-const {ensuDir, unlink} = require("fs-extra");
+
 sgMail.setApiKey('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMzAzODY3NywiZXhwIjoxNjEzMTI1MDc3fQ.7Na0UNKI6UJ1LtMOymu4_KMac7M6M-6l9YdDs3zb8gc');
 
 //se manda como un objeto, y este ya lo desestructura en 'to','subject' y 'body'
@@ -74,6 +72,27 @@ function vectorServis(ids){
 }
 
 
+async function deleteFiles(id){
+  try{
+    borrarServicio(id);
+    const ruta = `docs/servicios/${id}`;
+    const dir = path.join(__dirname,ruta);
+    await fs.rmdir(dir, {recursive: true, });
+  }catch(error){
+    console.error(error.message);
+  }
+  
+}
+function insertFiles(ficheros,datos){
+console.log('estoy en isner')
+for (const archivo in ficheros){
+  //console.log(`estoy dentro ${ficheros[archivo].name}`);
+    uploadFile(ficheros[archivo],datos);
+  }
+}
+
+////Funciones SQL /////
+
 async function borrarServicio(id){
   let connection;
   try{
@@ -90,52 +109,33 @@ async function borrarServicio(id){
   }
 }
 
-async function deleteFiles(id){
-  try{
-    borrarServicio(id);
-    const ruta = `docs/servicios/${id}`;
-    const dir = path.join(__dirname,ruta);
-    await fs.rmdir(dir, {recursive: true, });
-  }catch(error){
-    console.error(error.message);
-  }
-  
-}
-function insertFiles(ficheros,datos){
-console.log('estoy en isner')
-  for (const archivo in ficheros){
-    //console.log(`estoy dentro ${ficheros[archivo].name}`);
-    uploadFile(ficheros[archivo],datos);
-  }
-}
-
-////Funciones SQL /////
-
 async function modificarDatos(tabla,valor,valorcampo,campo){
-
+  
+  let results;
+  let connection;
+  connection = await getDB();
   try{
-    let results;
-    let connection;
     let setSolucionar = `SET solucionado = ${valor} WHERE ${campo} = ${valorcampo};`;
-    connection = await getDB();
-
+    
     results = await connection.query(`UPDATE ${tabla} ${setSolucionar}`);
     return results;
   }catch(error){
     const e = new Error('Error modificando datos');
     e.httpStatus = 500;
     throw e;
+  } finally {
+    if (connection) connection.release();
   }
 
 }
 
 
 async function listarDatos(limite,inicioLista,alante,search1,search2) {
-
+  
+  let results;
+  let connection;
+  connection = await getDB();
   try {
-    let results;
-    let connection;
-    connection = await getDB();
     console.log('estoy en listar')
     if(search1 || search2){
       //ojo, esto puede dar lugar a error si desde el front no se hace la búsquda de manera
@@ -154,13 +154,15 @@ async function listarDatos(limite,inicioLista,alante,search1,search2) {
            [results] = await connection.query(`select * from servicioslimitada;`);
             
     }
-
     return results;
 
+    
   } catch (error) {
     const e = new Error('Error cargando datos de lista de busqueda');
     e.httpStatus = 500;
     throw e;
+  } finally {
+    if (connection) connection.release();
   }
 
   
@@ -187,6 +189,8 @@ async function rank(){
       const e = new Error('Error cargando datos de ranking');
       e.httpStatus = 500;
       throw e;
+  } finally {
+    if (connection) connection.release();
   }
 }
 async function datosServicios(condicion){
@@ -202,6 +206,8 @@ async function datosServicios(condicion){
       const e = new Error('Error cargando datos de servicios');
       e.httpStatus = 500;
       throw e;
+  } finally {
+    if (connection) connection.release();
   }
 }
 ///////Mis servicios
@@ -217,6 +223,8 @@ async function insertServicio(id_usuario,dato){
     const e = new Error('Error insertando Servicio solicitado');
       e.httpStatus = 500;
       throw e;
+  } finally {
+    if (connection) connection.release();
   }
 }
 
@@ -234,6 +242,8 @@ async function miNumSolucionados(usuario) {
     const e = new Error('Error cargando datos de miNumSolucionados');
       e.httpStatus = 500;
       throw e;
+  }finally {
+    if (connection) connection.release();
   }
 }
 async function misComentarios(usuario,campo) {
@@ -251,6 +261,8 @@ async function misComentarios(usuario,campo) {
       const e = new Error('Error cargando datos de misComentarios');
       e.httpStatus = 500;
       throw e;
+    } finally {
+      if (connection) connection.release();
     }
 
 }
@@ -278,6 +290,8 @@ async function misServes(usuario,solucionados){
     const e = new Error('Error cargando datos de misServes');
       e.httpStatus = 500;
       throw e;
+  } finally {
+    if (connection) connection.release();
   }
   
 }
@@ -296,6 +310,8 @@ async function elServicios(usuario){
     const e = new Error('Error cargando datos de elServicios');
       e.httpStatus = 500;
       throw e;
+  } finally {
+    if (connection) connection.release();
   }
 }
 
@@ -313,6 +329,8 @@ async function numServSoli(usuario) {
     const e = new Error('Error cargando datos de numServSoli');
       e.httpStatus = 500;
       throw e;
+  } finally {
+    if (connection) connection.release();
   }
 }
 

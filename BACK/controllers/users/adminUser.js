@@ -58,9 +58,7 @@ const adminUser = async (req, res, next) => {
 
   } catch (error) {
     next(error);
-  } finally {
-    if (connection) connection.release();
-  }
+  } 
 }
 
 module.exports = adminUser;
