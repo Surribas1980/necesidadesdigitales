@@ -2,27 +2,27 @@ import {useState,useEffect} from 'react';
 import DatosLista from "./DatosLista";
 
 export default function ServiciosUser(props){
-    let [elementoVector,setElementoVector] = useState('');
+    
     const elemts = props.solucionados;
-    console.log()
+    
     let texto = [];
     let contenido = [];
     let totaltext = [];
     let totalcontenido= [];
-    let probar = [];
+    //let probar = [];
     
-    console.log('Esto es probar: ',probar) 
+    //console.log('Esto es probar: ',probar) 
        /*if(elemts[0]['puntos(id_usu)']){
             console.log('Es solucionados');
         }*/
-       let unavez = 1;
+       
         for(const interno of Object.values((elemts))){
             let i = 1;
             let j = 1;
          //console.log(interno)
                 for(const elemntstexto of Object.keys(interno)){
                    
-                    console.log('i es :',i)
+                    //console.log('i es :',i)
                     //console.log(elemntstexto);
                     
                     i++;
@@ -40,9 +40,9 @@ export default function ServiciosUser(props){
                 
                     
                     j++;
-                    console.log('Esto es dentro',dentro)
+                    //console.log('Esto es dentro',dentro)
                     contenido.push(dentro)
-                    console.log('esto es el contenido guardado: ', contenido)
+                    /*console.log('esto es el contenido guardado: ', contenido)*/
                     if(j>=(elemts.length-1)){                        
                         totalcontenido.push(contenido);
                        
@@ -50,6 +50,7 @@ export default function ServiciosUser(props){
                     }
                 }
         }
+/*        
         probar.push(totaltext);
         probar.push(totalcontenido);
     console.log('proba: ',probar); 
@@ -62,7 +63,7 @@ export default function ServiciosUser(props){
         const listaServicios = elemts.map((ser)=>{
             return (<p>Solucionador: {ser.Solucionador} <br></br> Solicitante: {ser.nom_usu} <br></br>Titulo: {ser.titulo_ser} <br></br>Puntos usuario: {ser['puntos(id_usu)']} <br></br>Puntos solucionador: {ser['puntos(id_usu_sol)']} <br></br>Puntos del servicio: {ser.puntuacion}<br></br>------------------</p> )
         });
-
+*/
         /*const salida = totaltext.map((value,index)=>{
             return [value,totalcontenido[index]];
         });*/

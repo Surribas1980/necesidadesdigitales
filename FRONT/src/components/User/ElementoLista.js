@@ -1,5 +1,5 @@
 function ElementoLista(props){
-    console.log('Estoy en elemento lista: ',props.elementos)
+   // console.log('Estoy en elemento lista: ',props.elementos)
     return (
     <>
         <td> {props.elementos}</td>
