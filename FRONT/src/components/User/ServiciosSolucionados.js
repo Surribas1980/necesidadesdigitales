@@ -15,7 +15,7 @@ export default function ServiciosUser(props){
        /*if(elemts[0]['puntos(id_usu)']){
             console.log('Es solucionados');
         }*/
-       
+       let unavez = 1;
         for(const interno of Object.values((elemts))){
             let i = 1;
             let j = 1;
@@ -63,9 +63,9 @@ export default function ServiciosUser(props){
             return (<p>Solucionador: {ser.Solucionador} <br></br> Solicitante: {ser.nom_usu} <br></br>Titulo: {ser.titulo_ser} <br></br>Puntos usuario: {ser['puntos(id_usu)']} <br></br>Puntos solucionador: {ser['puntos(id_usu_sol)']} <br></br>Puntos del servicio: {ser.puntuacion}<br></br>------------------</p> )
         });
 
-        const salida = totaltext.map((value,index)=>{
+        /*const salida = totaltext.map((value,index)=>{
             return [value,totalcontenido[index]];
-        });
+        });*/
         /*for(let i=0; i<totalcontenido.length-1;i++){
             console.log('Vector total contenido: ',totalcontenido[i]);
             for(let j=0; j<totalcontenido.length-1;j++){
@@ -73,7 +73,7 @@ export default function ServiciosUser(props){
             }
         }*/
        
-        const noentiendonada  = totalcontenido.map((vector)=>{
+        /*const noentiendonada  = totalcontenido.map((vector)=>{
             const valor = vector.map((elemento)=>{
                 //setElementoVector(elemento);
                 console.log('Entoces estás aquí: ', elemento);
@@ -82,15 +82,15 @@ export default function ServiciosUser(props){
             console.log('interior de los maps===>>>> ',valor);
             return valor;
         });
-        console.log('No entiendo nada: ',noentiendonada);
+        console.log('No entiendo nada: ',noentiendonada);*/
 
+       /* {listaServicios}
+        <p>Outro</p>
+        {probar[0][0]}*/
 
     return (<>
     <h1>Os servizos solucionados</h1>
-        {listaServicios}
-        <p>Outro</p>
-        {probar[0][0]}
-        <p>seguintes</p>
+       
         {
            
            // totalcontenido.map((elemento,index)=>{return <p>--------- {probar[1][index]}  ----   </p>})
@@ -102,7 +102,7 @@ export default function ServiciosUser(props){
             </table>
            
         }   
-        <p>A ver que sae</p>
+      
         
         
     
