@@ -10,8 +10,11 @@ import ServiciosSolucionados from '../components/User/ServiciosSolucionados';
 function UserAdmin(){
     const { userData, logOut } = useAuth();
     const [ranking, setRanking] = useState([]);
-    const [misSolicitados, setmisSolicitados] = useState([]);
+    const [serviciosNoSolucionados,setserviciosNoSolucionados]=useState([]);
+    const [misSerNoSolucionados,setmisSerNoSolucionados]=useState([]);
     const [servesSolucionados, setservisSolucionados] = useState([]);
+    const [misSolicitados, setmisSolicitados] = useState([]);
+    const [misSerSolucionados,setmisSerSolucionados]=useState([]);
     const [valor, setValor] = useState(0);
     const [showMenu, setShowMenu]=useState(false);
 
@@ -19,10 +22,14 @@ function UserAdmin(){
         const datosUser = async ()=>{
             const data = await deleteService("/users/userLogin/",'GET',0,0);
             
-            console.log('El ranking',data['ranking']);
+            //console.log('El ranking',data['ranking']);
+            
             setRanking(data['ranking']);
-            setmisSolicitados(data['serv']);
             setservisSolucionados(data['serviSolucionados']);
+            setserviciosNoSolucionados(data['serviciosNoSolucionados']);
+            setmisSerNoSolucionados(data['misSerNoSolucionados']);
+            setmisSerSolucionados(data['misSerSolucionados']);
+            setmisSolicitados(data['serv']);
             console.log('Esto es data...',data)
         }
         datosUser();
@@ -65,14 +72,26 @@ function UserAdmin(){
                         }
         }
             }>Actualizar</button>
-            <h1>Servicios Usuario</h1>
-            <ServiciosSolucionados solucionados={misSolicitados}></ServiciosSolucionados>
-          <h1>Servicios Usuario</h1>  
-       <ServiciosUser servicios={misSolicitados}></ServiciosUser>
-       <h1>Gráfica</h1>
+      
+        <h1>Gráfica</h1>
         <GraficaRanking valores={ranking}></GraficaRanking>
+          
         <h1>Servicios solucionados</h1>
         <ServiciosSolucionados solucionados={servesSolucionados}></ServiciosSolucionados>
+
+        <h1>Servicios no solucionados</h1>
+        <ServiciosSolucionados solucionados={serviciosNoSolucionados}></ServiciosSolucionados>
+
+        <h1>Servicios Usuario</h1>
+        <ServiciosSolucionados solucionados={misSolicitados}></ServiciosSolucionados>
+
+        <h1>Mis servicios no solucionados</h1>
+        <ServiciosSolucionados solucionados={misSerNoSolucionados}></ServiciosSolucionados>
+
+        <h1>Mis servicios solucionados</h1>
+        <ServiciosSolucionados solucionados={misSerSolucionados}></ServiciosSolucionados>
+
+
     </>);
 }
 

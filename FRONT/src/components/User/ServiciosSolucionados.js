@@ -114,14 +114,14 @@ let titulo;
     console.log('El objeto con valores', probarConObjVal)
     console.log('El título: ',titulo);
     console.log('total texto: ',totaltext);
-    console.log('Probando si array o matriz: ',titulo[0])
+    //console.log('Probando si array o matriz: ',titulo[0])
     probarConObjVal.push(titulo);
     probarConObjVal.reverse();
     console.log('totalcontenido con tiulo:' , totalcontenido);
 
 
     return (<>
-    <h1>Os servizos solucionados</h1>
+    
        
         {
            
