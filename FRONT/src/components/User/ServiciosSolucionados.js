@@ -114,8 +114,8 @@ let titulo;
     console.log('El objeto con valores', probarConObjVal)
     console.log('El título: ',titulo);
     console.log('total texto: ',totaltext)
-    totalcontenido.push(titulo);
-    totalcontenido.reverse();
+    probarConObjVal.push(titulo);
+    probarConObjVal.reverse();
     console.log('totalcontenido con tiulo:' , totalcontenido);
 
 
@@ -127,7 +127,7 @@ let titulo;
             <table>
                 
                 {
-                totalcontenido.map((item,index)=>{
+                probarConObjVal.map((item,index)=>{
                     return <DatosLista key={index} dato={item} />;
 
                 })
