@@ -65,8 +65,13 @@ function UserAdmin(){
                         }
         }
             }>Actualizar</button>
+            <h1>Servicios Usuario</h1>
+            <ServiciosSolucionados solucionados={misSolicitados}></ServiciosSolucionados>
+          <h1>Servicios Usuario</h1>  
        <ServiciosUser servicios={misSolicitados}></ServiciosUser>
+       <h1>Gráfica</h1>
         <GraficaRanking valores={ranking}></GraficaRanking>
+        <h1>Servicios solucionados</h1>
         <ServiciosSolucionados solucionados={servesSolucionados}></ServiciosSolucionados>
     </>);
 }

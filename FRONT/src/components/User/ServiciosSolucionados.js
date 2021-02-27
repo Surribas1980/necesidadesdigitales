@@ -9,17 +9,33 @@ export default function ServiciosUser(props){
     let contenido = [];
     let totaltext = [];
     let totalcontenido= [];
-    let probar = [];
+    let probarConObj = [];
+    let probarConObjVal = [];
     
     //console.log('Esto es probar: ',probar) 
        /*if(elemts[0]['puntos(id_usu)']){
             console.log('Es solucionados');
         }*/
-       
+let titulo;
         for(const interno of Object.values((elemts))){
             let i = 1;
             let j = 1;
+            //console.log('Nombres>>>',Object.getOwnPropertyNames(interno).sort());
+            titulo=Object.getOwnPropertyNames(interno).sort();
          //console.log(interno)
+
+         Object.getOwnPropertyNames(interno).forEach(function(val, idx, array) {
+            i++;
+            console.log(val + " -> " + interno[val]);
+            probarConObj.push(interno[val]);
+            console.log('Tamaño de interno: ',interno.length, 'Tamaño de elemts.length: ',elemts.length)
+            if(i>=(interno.length-1)){
+                probarConObjVal.push(probarConObj);
+                console.log('No entras')
+                console.log('La i es: ',i,'Interno es: ',interno.length)
+                probarConObj = [];
+            }
+          });
                 for(const elemntstexto of Object.keys(interno)){
                    
                     //console.log('i es :',i)
@@ -29,7 +45,7 @@ export default function ServiciosUser(props){
                     texto.push(elemntstexto);
                    // console.log('Entra en Objetct elemento texto y muestra. Y el tamaño es: ',texto, (elemts.length-1))
                     if(i>=(elemts.length-1)){
-                       // console.log('entra en length texto es',texto)
+                      //console.log('entra en length texto es',texto)
                         totaltext.push(texto);
                         texto = [];
                        
@@ -94,9 +110,12 @@ export default function ServiciosUser(props){
     console.log('titulo ',titulo);
     console.log('totalcontenido: ',totalcontenido)
     console.log('probar',probar)*/
-    totalcontenido.push(totaltext[0]);
+    console.log('El objeto con valores', probarConObjVal)
+    console.log('El título: ',titulo);
+    console.log('total texto: ',totaltext)
+    totalcontenido.push(titulo);
     totalcontenido.reverse();
-    //console.log('totalcontenido con tiulo:' , totalcontenido);
+    console.log('totalcontenido con tiulo:' , totalcontenido);
 
 
     return (<>
