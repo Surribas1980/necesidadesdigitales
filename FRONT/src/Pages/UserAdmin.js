@@ -10,9 +10,13 @@ import ServiciosSolucionados from '../components/User/ServiciosSolucionados';
 function UserAdmin(){
     const { userData, logOut } = useAuth();
     const [ranking, setRanking] = useState([]);
-    const [serviciosNoSolucionados,setserviciosNoSolucionados]=useState([]);
-    const [misSerNoSolucionados,setmisSerNoSolucionados]=useState([]);
     const [servesSolucionados, setservisSolucionados] = useState([]);
+    const [serviciosNoSolucionados,setserviciosNoSolucionados]=useState([]);
+    const [numComentariosSinver,setnumComentariosSinver]=useState(0);
+    const [numComentariosSinLer,setnumComentariosSinLer]=useState(0);
+    const [numMisSolucionados,setnumMisSolucionados]=useState(0);
+    const [numMisSolicitados,setnumMisSolicitados]=useState(0);
+    const [misSerNoSolucionados,setmisSerNoSolucionados]=useState([]);
     const [misSolicitados, setmisSolicitados] = useState([]);
     const [misSerSolucionados,setmisSerSolucionados]=useState([]);
     const [valor, setValor] = useState(0);
@@ -22,11 +26,16 @@ function UserAdmin(){
         const datosUser = async ()=>{
             const data = await deleteService("/users/userLogin/",'GET',0,0);
             
-            //console.log('El ranking',data['ranking']);
+            console.log('El ranking',data);
             
             setRanking(data['ranking']);
             setservisSolucionados(data['serviSolucionados']);
             setserviciosNoSolucionados(data['serviciosNoSolucionados']);
+            console.log('numerico: ',data['numComentariosSinver'][0]['count(sinver)']);
+            setnumComentariosSinLer(data['numComentariosSinLer'][0]['count(sinleer)']);
+            setnumComentariosSinver(data['numComentariosSinver'][0]['count(sinver)']);
+            setnumMisSolicitados(data['numMisSolicitados'][0]['count(id_ser)']);
+            setnumMisSolucionados(data['numMisSolucionados'][0]['count(id_sol)']);
             setmisSerNoSolucionados(data['misSerNoSolucionados']);
             setmisSerSolucionados(data['misSerSolucionados']);
             setmisSolicitados(data['serv']);
@@ -90,6 +99,16 @@ function UserAdmin(){
 
         <h1>Mis servicios solucionados</h1>
         <ServiciosSolucionados solucionados={misSerSolucionados}></ServiciosSolucionados>
+        <h1>Datos numéricos</h1>
+        Comentarios sin ver: {numComentariosSinver}
+        <br></br>
+        Comentarios sin leer: {numComentariosSinLer}
+        <br></br>
+        Cantidad de servicios que solucioné: {numMisSolucionados}
+        <br></br>
+        Cantidad de mis servicios solicitados: {numMisSolicitados}
+        
+        
 
 
     </>);

@@ -26,14 +26,14 @@ let titulo;
 
          Object.getOwnPropertyNames(interno).forEach(function(val, idx, array) {
             i++;
-            console.log(val + " -> " + interno[val]);
+           // console.log(val + " -> " + interno[val]);
             let valor = interno[val];
             probarConObj.push(valor);
-            console.log('Tamaño de interno: ',interno.length, 'Tamaño de elemts.length: ',elemts.length)
+           // console.log('Tamaño de interno: ',interno.length, 'Tamaño de elemts.length: ',elemts.length)
             if(i>(titulo.length)){
                 probarConObjVal.push(probarConObj);
-                console.log('No entras')
-                console.log('La i es: ',i,'Interno es: ',interno.length)
+               // console.log('No entras')
+                //console.log('La i es: ',i,'Interno es: ',interno.length)
                 probarConObj = [];
             }
           });
@@ -111,13 +111,13 @@ let titulo;
     console.log('titulo ',titulo);
     console.log('totalcontenido: ',totalcontenido)
     console.log('probar',probar)*/
-    console.log('El objeto con valores', probarConObjVal)
-    console.log('El título: ',titulo);
-    console.log('total texto: ',totaltext);
+    //console.log('El objeto con valores', probarConObjVal)
+    //console.log('El título: ',titulo);
+    //console.log('total texto: ',totaltext);
     //console.log('Probando si array o matriz: ',titulo[0])
     probarConObjVal.push(titulo);
     probarConObjVal.reverse();
-    console.log('totalcontenido con tiulo:' , totalcontenido);
+    //console.log('totalcontenido con tiulo:' , totalcontenido);
 
 
     return (<>
