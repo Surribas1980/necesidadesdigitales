@@ -27,9 +27,10 @@ let titulo;
          Object.getOwnPropertyNames(interno).forEach(function(val, idx, array) {
             i++;
             console.log(val + " -> " + interno[val]);
-            probarConObj.push(interno[val]);
+            let valor = interno[val];
+            probarConObj.push(valor);
             console.log('Tamaño de interno: ',interno.length, 'Tamaño de elemts.length: ',elemts.length)
-            if(i>=(interno.length-1)){
+            if(i>(titulo.length)){
                 probarConObjVal.push(probarConObj);
                 console.log('No entras')
                 console.log('La i es: ',i,'Interno es: ',interno.length)
