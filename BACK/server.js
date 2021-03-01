@@ -70,7 +70,7 @@ const urls = {
     deleteuser:"/users/delete/:id",
     updateuser:"/users/edit/:id",
     listarcomentarios: "/comentar",
-    insertcomentarios: "/users/insert/comentario/:id_ser",
+    insertcomentarios: "/users/insert/comentario/",
     comentarAdmin: "/comentar/admin",
     votar:"/servicios/votar/:id_servicio/:id_solucionador",
   };
