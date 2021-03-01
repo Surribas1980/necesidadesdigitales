@@ -22,6 +22,7 @@ function UserAdmin(){
     const [misSerSolucionados,setmisSerSolucionados]=useState([]);
     const [valor, setValor] = useState(0);
     const [showMenu, setShowMenu]=useState(false);
+    const [mostrar, setMostrar] = useState(false);
 
     useEffect(()=>{
         const datosUser = async ()=>{
@@ -87,7 +88,8 @@ function UserAdmin(){
                         }
         }
             }>Actualizar</button>
-      
+        <p onClick={()=>{setMostrar(!mostrar)}}>Mostrar</p>
+        {mostrar && <p>Esto es otro dato</p>}
         <h1>Gráfica</h1>
         <GraficaRanking valores={ranking}></GraficaRanking>
           
