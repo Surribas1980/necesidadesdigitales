@@ -8,19 +8,17 @@ const newComentar = async (req, res, next) => {
     connection = await getDB();
 
     const { id_ser } = req.params;
-    const { comentario } = req.body;
+    const { idConversacion,comentario } = req.body;
 
-const now = new Date();
-
-await connection.query(`INSERT INTO comentar(id_usu_co, id_ser_co, comentario, fecha) VALUES(?,?,?,?);`, [req.userAuth.id, id_ser, comentario, formatDateToDB(now)]);
+await connection.query(`call insertarComentarios(?, ?, ?, ?);`, [id_ser,idConversacion,req.userAuth.id, comentario]);
 
     //Devuelto un json con los detalles del comentario
     res.send({
       status: "ok",
       data: {
-  
+        idConversacion,
         comentario,
-        fecha:now,
+        id_ser,
       },
     });
   } catch (error) {
