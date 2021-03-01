@@ -7,8 +7,8 @@ const newComentar = async (req, res, next) => {
   try {
     connection = await getDB();
 
-    const { id_ser } = req.params;
-    const { idConversacion,comentario } = req.body;
+  
+    const { id_ser,idConversacion,comentario } = req.body;
 
 await connection.query(`call insertarComentarios(?, ?, ?, ?);`, [id_ser,idConversacion,req.userAuth.id, comentario]);
 
