@@ -6,6 +6,7 @@ import GraficaRanking from '../components/GraficaRanking';
 import InsertServices from './InsertServices';
 import ServiciosUser from '../components/User/ServiciosUser';
 import ServiciosSolucionados from '../components/User/ServiciosSolucionados';
+import InsertComentarios from './InsertComentarios';
 
 function UserAdmin(){
     const { userData, logOut } = useAuth();
@@ -50,16 +51,21 @@ function UserAdmin(){
         <Router>
             <button onClick={() => setShowMenu(!showMenu)}>Menú</button>
             {showMenu && <div>Esto é o menu</div>}
-            <ul>
-                <li>
-                    <Link to="/darsolucion">Página dar solucion</Link>    
-                </li>
+            
+             
+            <ul>     
+                 <Link to="/useradmin">Recoger</Link>
                 <li>
                     <Link to="/servicio">Solicitar servicio</Link>
                 </li>
+                <li>
+                    <Link to = "/insertarcomentario">Insertar comentarios</Link>
+                </li>
             </ul>
             <Route path="/darsolucion">
-                
+            </Route>
+            <Route path="/insertarcomentario">
+                <InsertComentarios />
             </Route>
             <Route path="/servicio">
                 <InsertServices />

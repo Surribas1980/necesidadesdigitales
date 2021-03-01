@@ -1,7 +1,7 @@
 const apiUrl = 'http://localhost:4000';
 
 const requestMethods = { post: 'POST', get: 'GET', delete: 'DELETE' };
-const endpoints = { login: '/users/login', userInsert : '/users/insertar' , servicios: '/servicios', deleteservices: '/servicios/borrar/'};
+const endpoints = { login: '/users/login', userInsert : '/users/insertar' , servicios: '/servicios', deleteservices: '/servicios/borrar/',insertarcomentario:'/users/insert/comentario/'};
 
 function montandoObxetos(uri,metodo){
   const token = localStorage.getItem('token');
@@ -59,17 +59,26 @@ export async function getUserInfo(userId) {
   return userData.data;
 }
 */
-export async function newEntry(data) {
+export async function newEntry(data,servicio) {
   const body = new FormData();
-  
-  body.append('eltitulo', data.titulo);
-  body.append('explicacion', data.explicacion);
- 
-  for(const valor of Object.values(data.ficheros)){
-    body.append('ficheros', valor);
+  let endpoint;
+  if(servicio){
+
+    body.append('eltitulo', data.titulo);
+    body.append('explicacion', data.explicacion);
+   
+    for(const valor of Object.values(data.ficheros)){
+      body.append('ficheros', valor);
+    }
+    endpoint = endpoints.servicios;
+  }else{
+    body.append('id_ser',data.id_ser);
+    body.append('idConversacion',data.idConversacion);
+    body.append('comentario',data.comentario);
+    endpoint = endpoints.insertarcomentario;
   }
 
-  return await fetchFormData(endpoints.servicios, { method: requestMethods.post, body });
+  return await fetchFormData(endpoint, { method: requestMethods.post, body });
 }
 
 export async function enviarDatos(limite,inicioLista,alante,search1,search2){

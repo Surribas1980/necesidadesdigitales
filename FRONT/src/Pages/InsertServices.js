@@ -37,7 +37,7 @@ export default function InsertServices() {
 
     }
     */
-    newEntry(data);
+    newEntry(data,1);
     //console.log(data.ficheros.file);
   };
 //un comentario
