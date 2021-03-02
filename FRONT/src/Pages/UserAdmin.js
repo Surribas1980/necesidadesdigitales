@@ -7,6 +7,7 @@ import InsertServices from './InsertServices';
 import ServiciosUser from '../components/User/ServiciosUser';
 import ServiciosSolucionados from '../components/User/ServiciosSolucionados';
 import InsertComentarios from './InsertComentarios';
+import Comentarios from './Comentarios';
 
 function UserAdmin(){
     const { userData, logOut } = useAuth();
@@ -60,13 +61,13 @@ function UserAdmin(){
                     <Link to="/servicio">Solicitar servicio</Link>
                 </li>
                 <li>
-                    <Link to = "/insertarcomentario">Insertar comentarios</Link>
+                    <Link to = "/comentario">Comentarios</Link>
                 </li>
             </ul>
             <Route path="/darsolucion">
             </Route>
-            <Route path="/insertarcomentario">
-                <InsertComentarios />
+            <Route path="/comentario">
+                <Comentarios />
             </Route>
             <Route path="/servicio">
                 <InsertServices />
