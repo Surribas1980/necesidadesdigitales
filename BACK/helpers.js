@@ -129,7 +129,22 @@ async function modificarDatos(tabla,valor,valorcampo,campo){
 
 }
 
+async function listar(){
+  let results;
+  let connection;
+  connection = await getDB();
 
+  try{
+    [results]=await connection.query(`call comentarios`);
+    return results;
+  }catch (error) {
+    const e = new Error('Error cargando datos de listar');
+    e.httpStatus = 500;
+    throw e;
+  } finally {
+    if (connection) connection.release();
+  }
+}
 async function listarDatos(limite,inicioLista,alante,search1,search2) {
   
   let results;
@@ -246,6 +261,22 @@ async function miNumSolucionados(usuario) {
     if (connection) connection.release();
   }
 }
+async function misConversaciones(usuario){
+  let connection;
+  let sql;
+
+  try {
+    connection = await getDB();
+    sql = await connection.query(`call misComentarios(${usuario})`);
+    return sql;
+  } catch (error) {
+    const e = new Error('Error cargando datos de misConversaciones');
+      e.httpStatus = 500;
+      throw e;
+  }finally{
+    if (connection) connection.release();
+  }
+}
 async function misComentarios(usuario,campo) {
   let connection;
   let sql;
@@ -352,5 +383,7 @@ module.exports = {
   listarDatos,
   modificarDatos,
   deleteFiles,
-  vectorServis
+  vectorServis,
+  listar,
+  misConversaciones
 };

@@ -1,29 +1,20 @@
-const getDB = require("../../db");
-const {listarDatos} = require("../../helpers");
+const {listar, misConversaciones} = require("../../helpers");
 const listComentar = async (req, res, next) => {
-  let connection;
 
-  try {
+  let results;
+  let myconversaciones;
 
-    //Saco queryString
-    const { search } = req.query;
-  const campos = {
-      campo1: "comentario"
-    };
-    
-    const tabla = "comentar";
-    const [results] = await listarDatos(tabla,campos,search);
-    
+  try {   
+      results = await listar();
+      myconversaciones = await misConversaciones(req.userAuth.id);
     //Devuelto un json con los servicios
     res.send({
-      status: "ok",
-      data: results,
+      datosMisConversaciones: myconversaciones[0],
+      data: results[0],
     });
   } catch (error) {
     next(error);
-  } finally {
-    if (connection) connection.release();
-  }
+  } 
 };
 
 module.exports = listComentar;

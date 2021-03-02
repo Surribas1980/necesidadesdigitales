@@ -142,7 +142,7 @@ app.get(urls.users,isUser, listUsers);
 
 //Post - /comentar
 //Añade un comentario al servicio
-app.post(urlsusers.insertcomentarios,isUser,servicioExist, newComentar);
+app.post(urlsusers.insertcomentarios,isUser,newComentar);
 
 //Post - /comentar/admin
 //Añade un comentario realizado por el admin
