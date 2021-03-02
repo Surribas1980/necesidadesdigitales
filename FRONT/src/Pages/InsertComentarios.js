@@ -4,7 +4,7 @@ import { newEntry } from '../http/api';
 
 export default function InsertComentarios (){
     const {register, handleSubmit} = useForm();
-    const {userData} = useAuth();
+    
 
     const onSubmit = (data)=>{
         const valordevuelt = newEntry(data,0);
@@ -12,7 +12,7 @@ export default function InsertComentarios (){
     }
 
 
-    return(<>
+    return(<><h2>Hacer un comentario en cualquier conversación</h2>
     <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="id_ser">Id Servicio</label>
         <input id="id_ser" ref={register({required: true})} name="id_ser"/>
@@ -21,8 +21,7 @@ export default function InsertComentarios (){
         <label htmlFor="comentario">Comentario</label>
         <textarea id="comentario" ref={register({required: true})} name="comentario"/>
         <button>Enviar comentario</button>
-        <p>ID: {userData && userData.id}</p>
-        <p>EXP: {userData && userData.exp}</p>
+        
     </form>
     </>);
 }

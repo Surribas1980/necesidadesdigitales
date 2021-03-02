@@ -1,3 +1,5 @@
+import ComentarioListaTr from "./ComentariosListaTr";
+
 /**
  * Esta función debe sacar para poder realizar la tabla final, el 'length' de los títulos
  * debido en esta ocasión cómo los estoy sacando desde la bbdd, no me viene con el tamaño
@@ -48,5 +50,15 @@ export default function ComentariosLista(props){
     valoresTotal.reverse();
     console.log('Valores Total',valoresTotal);
     
-    return (<><h1>Estoy en lista de comentarios</h1></>);
+    return (<>
+    <h2>Lista de comentarios</h2>
+    <table>
+        {
+            valoresTotal?.map((item,index)=>{
+                return <ComentarioListaTr key={index} dato={item} />
+
+            })
+        }
+    </table>
+    </>);
 }
