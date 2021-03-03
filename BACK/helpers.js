@@ -267,7 +267,7 @@ async function misConversaciones(usuario){
 
   try {
     connection = await getDB();
-    sql = await connection.query(`call misComentarios(${usuario})`);
+    sql = await connection.query(`call misConversaciones(${usuario})`);
     return sql;
   } catch (error) {
     const e = new Error('Error cargando datos de misConversaciones');
@@ -277,7 +277,7 @@ async function misConversaciones(usuario){
     if (connection) connection.release();
   }
 }
-async function misComentarios(usuario,campo) {
+async function misNumComentarios(usuario,campo) {
   let connection;
   let sql;
 
@@ -289,7 +289,7 @@ async function misComentarios(usuario,campo) {
       
       return sql;
     } catch (error) {
-      const e = new Error('Error cargando datos de misComentarios');
+      const e = new Error('Error cargando datos de misNumComentarios');
       e.httpStatus = 500;
       throw e;
     } finally {
@@ -297,6 +297,22 @@ async function misComentarios(usuario,campo) {
     }
 
 }
+async function misComentarios(usuario){
+  let connection;
+  let sql;
+  try{
+    connection = await getDB();
+    sql = await connection.query(`call misComentarios(${usuario})`);
+    return sql;
+  }catch(error){
+    const e = new Error('Error cargando datos de misComentarios');
+    e.httpStatus = 500;
+    throw e;
+  }finally{
+    if (connection) connection.release();
+  }
+}
+
 async function misServes(usuario,solucionados){
   let connection;
   let sql;
@@ -378,6 +394,7 @@ module.exports = {
   numServSoli,
   misServes,
   misComentarios,
+  misNumComentarios,
   miNumSolucionados,
   insertServicio,
   listarDatos,

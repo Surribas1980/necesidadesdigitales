@@ -7,13 +7,14 @@ import InsertComentarios from './InsertComentarios';
 
 export default function Comentarios(){
     const [comentarios,setComentarios] = useState([]);
-
+    const [misconversaciones, setMisConversaciones] = useState([]);
     useEffect(()=>{
         const comentServicios = async () => {
             const data = await deleteService("/comentar",'GET',0,0);
             console.log('datos : ', data);
+            console.log('mis conversaciones',data['datosMisConversaciones'][0])
             
-            
+            setMisConversaciones(data['datosMisConversaciones'][0]);
             setComentarios(data['data']);
         }
         comentServicios();
