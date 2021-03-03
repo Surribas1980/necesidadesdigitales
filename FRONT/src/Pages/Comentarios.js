@@ -8,13 +8,15 @@ import InsertComentarios from './InsertComentarios';
 export default function Comentarios(){
     const [comentarios,setComentarios] = useState([]);
     const [misconversaciones, setMisConversaciones] = useState([]);
+    const [miscomentarios,setMisComentarios] = useState([]);
     useEffect(()=>{
         const comentServicios = async () => {
             const data = await deleteService("/comentar",'GET',0,0);
             console.log('datos : ', data);
-            console.log('mis conversaciones',data['datosMisConversaciones'][0])
-            
+            console.log('mis conversaciones ',data['datosMisConversaciones'][0]);
+            console.log('mis comentarios ', data['datosMisComentarios'][0]);
             setMisConversaciones(data['datosMisConversaciones'][0]);
+            setMisComentarios(data['datosMisComentarios'][0]);
             setComentarios(data['data']);
         }
         comentServicios();
@@ -27,15 +29,15 @@ export default function Comentarios(){
                 <ul>
                     <Link to="/nada">Recoger en Comentarios</Link>
                     <li><Link to="/insertarcomentario">Conversaciones</Link></li>
-                    <li><Link to="/comentarios" >Mis conversaciones</Link></li>
+                    <li><Link to="/miscomentarios" >Mis conversaciones</Link></li>
                 </ul>
 
                 <Route path="/insertarcomentario">
                     <InsertComentarios />
                     <ServiciosSolucionados solucionados={comentarios}></ServiciosSolucionados>
                 </Route>
-                <Route path="/comentarios">
-
+                <Route path="/miscomentarios">
+                    <ServiciosSolucionados solucionados={miscomentarios}></ServiciosSolucionados>
                 </Route>
                 <Route path="/nada">
 
