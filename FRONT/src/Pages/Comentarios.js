@@ -13,11 +13,12 @@ export default function Comentarios(){
         const comentServicios = async () => {
             const data = await deleteService("/comentar",'GET',0,0);
             console.log('datos : ', data);
-            console.log('mis conversaciones ',data['datosMisConversaciones'][0]);
-            console.log('mis comentarios ', data['datosMisComentarios'][0]);
-            setMisConversaciones(data['datosMisConversaciones'][0]);
-            setMisComentarios(data['datosMisComentarios'][0]);
-            setComentarios(data['data']);
+            console.log('datos data : ', data['data'][0]);
+            console.log('mis conversaciones ',data['datosMisConversaciones'][0][0]);
+            console.log('mis comentarios ', data['datosMisComentarios'][0][0]);
+            setMisConversaciones(data['datosMisConversaciones'][0][0]);
+            setMisComentarios(data['datosMisComentarios'][0][0]);
+            setComentarios(data['data'][0]);
         }
         comentServicios();
     },[]);
