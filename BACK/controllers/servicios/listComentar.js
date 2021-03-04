@@ -13,17 +13,11 @@ const listComentar = async (req, res, next) => {
 
   try {   
       if(ids){
-        
-        console.log('esto es ids: ',ids)
         comentariosdelServicio = await comentariosServicio(ids);
-        console.log('Comentarios del servicio: ',comentariosdelServicio)
       }else{
          results = await listar();
          myconversaciones = await misConversaciones(req.userAuth.id);
          mycomentarios = await misComentarios(req.userAuth.id);
-         console.log('Esto es results: ',results);
-         console.log('Estos son mis conversaciones: ',myconversaciones);
-         console.log('Esto es mis comentarios: ', mycomentarios);
       }
      
   
