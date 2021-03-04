@@ -131,7 +131,7 @@ app.post(urls.usersolution,isUser,servicioExist,cannotAdmin,insertSolutions);
 //GET - /comentar
 //Devuelve todos los comentarios de la tabla comentar
 app.get(urlsusers.listarcomentarios,isUser, listComentar);
-
+app.post(urlsusers.listarcomentarios,isUser, listComentar);
 //Get - /servicios
 //Devuelve todos los elementos de la tabla servicios
 app.get(urls.servicios,isUser, listServicios);

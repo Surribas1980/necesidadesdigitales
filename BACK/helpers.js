@@ -297,6 +297,21 @@ async function misNumComentarios(usuario,campo) {
     }
 
 }
+async function comentariosServicio(idServicio){
+  let connection;
+  let sql;
+  try{
+    connection = await getDB();
+    sql = await connection.query(`select * from comentar where id_ser_co = ?;`,[idServicio]);
+    return sql;
+  } catch (error) {
+    const e = new Error('Error cargando datos de comentariosServicio');
+    e.httpStatus = 500;
+    throw e;
+  } finally {
+    if (connection) connection.release();
+  }
+}
 async function misComentarios(usuario){
   let connection;
   let sql;
@@ -402,5 +417,6 @@ module.exports = {
   deleteFiles,
   vectorServis,
   listar,
-  misConversaciones
+  misConversaciones,
+  comentariosServicio
 };
