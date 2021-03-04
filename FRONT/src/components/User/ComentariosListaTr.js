@@ -57,7 +57,9 @@ function ComentarioListaTr(props){
 
     {mostrar && <> <input type="text" name="text1" autoComplete="off" value={name} onChange={handleChange} /> 
     <input type="text" name="text2" autoComplete="off" value={name1} onChange={handleChange} /></>}
-    {datoscomentariosServicios && <ComentarioListaTd elementos={datoscomentariosServicios}></ComentarioListaTd>}
+    <table>
+         {datoscomentariosServicios && <ComentarioListaTd elementos={datoscomentariosServicios}></ComentarioListaTd>}
+    </table>
     </>)
 
 };
