@@ -17,17 +17,22 @@ const listComentar = async (req, res, next) => {
         console.log('esto es ids: ',ids)
         comentariosdelServicio = await comentariosServicio(ids);
         console.log('Comentarios del servicio: ',comentariosdelServicio)
+      }else{
+         results = await listar();
+         myconversaciones = await misConversaciones(req.userAuth.id);
+         mycomentarios = await misComentarios(req.userAuth.id);
+         console.log('Esto es results: ',results);
+         console.log('Estos son mis conversaciones: ',myconversaciones);
+         console.log('Esto es mis comentarios: ', mycomentarios);
       }
-      results = await listar();
-      myconversaciones = await misConversaciones(req.userAuth.id);
-      mycomentarios = await misComentarios(req.userAuth.id);
+     
   
       //Devuelto un json con los servicios
     res.send({
-      datoscomentariosServicios: comentariosdelServicio[0],
-      datosMisComentarios: mycomentarios[0],
-      datosMisConversaciones: myconversaciones[0],
-      data: results[0],
+      datoscomentariosServicios: comentariosdelServicio,
+      datosMisComentarios: mycomentarios,
+      datosMisConversaciones: myconversaciones,
+      data: results,
     });
   } catch (error) {
     next(error);
