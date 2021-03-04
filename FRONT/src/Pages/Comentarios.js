@@ -29,7 +29,7 @@ export default function Comentarios(){
                 <ul>
                     <Link to="/nada">Recoger en Comentarios</Link>
                     <li><Link to="/insertarcomentario">Conversaciones</Link></li>
-                    <li><Link to="/miscomentarios" >Mis conversaciones</Link></li>
+                    <li><Link to="/miscomentarios" >Mis comentarios</Link></li>
                 </ul>
 
                 <Route path="/insertarcomentario">
@@ -44,6 +44,6 @@ export default function Comentarios(){
                 </Route>
 
             </Router>
-
+        <ComentariosLista valores={misconversaciones}></ComentariosLista>
         </>);
 }

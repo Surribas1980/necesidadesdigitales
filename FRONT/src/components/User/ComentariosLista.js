@@ -9,14 +9,25 @@ import ComentarioListaTr from "./ComentariosListaTr";
  * 
  * De ahí en esta ocasión, que se realize de esta manera.
  */
+import {useState} from 'react';
 export default function ComentariosLista(props){
-
-    const listaComentarios = props.valores;
+    const [mostrar, setMostrar] = useState(false);
+    const [name, setName] = useState("");
+    const [name1, setName1] = useState("");
+    const listaConversaciones = props?.valores;
     let titulo;
     let valores = [];
     let valoresTotal =[];
-    console.log('Lista de comentarios ',listaComentarios)
-    let vectorDatos = Object.values(listaComentarios);
+    console.log('Lista de conversaciones ',listaConversaciones)
+    for (const interno of Object.values(listaConversaciones)){
+        console.log('Esto es interno: ', interno)
+        titulo=Object.getOwnPropertyNames(interno).sort();
+        for(const valores of Object.values(interno)){
+            console.log('Esto son los valores: ', valores);
+        }
+    }
+    console.log('Esto es titulo: ', titulo)
+    /*let vectorDatos = Object.values(listaComentarios);
     console.log('vector de datos: ',vectorDatos)
 
     for(const interno of Object.values(listaComentarios)){
@@ -48,17 +59,38 @@ export default function ComentariosLista(props){
     }
     valoresTotal.push(titulo);
     valoresTotal.reverse();
-    console.log('Valores Total',valoresTotal);
+    console.log('Valores Total',valoresTotal);*/
     
+function handleChange(e) {
+    if(e.target.name == "text1"){
+       setName(e.target.value); 
+       console.log(name);
+    }
+    if(e.target.name == "text2"){
+        setName1(e.target.value);
+        console.log(name1);
+    }
+    
+  }
+console.log('Esto es name 1:...',name1,'Esto es name: ',name)
     return (<>
-    <h2>Lista de comentarios</h2>
-    <table>
-        {
-            valoresTotal?.map((item,index)=>{
-                return <ComentarioListaTr key={index} dato={item} />
+    <h2>Lista de mis conversaciones</h2>
+    
 
-            })
-        }
+    <br></br>
+    ////////////////////////////////////////////
+  esto son pruebas<p onClick={()=>{setMostrar(!mostrar)}}>Mostrar</p>
+    {mostrar &&  <input type="text" name="text1" autoComplete="off" value={name} onChange={handleChange} />}
+    {mostrar && <div>{titulo[1]}</div>}    
+    {mostrar &&  <input type="text" name="text2" autoComplete="off" value={name1} onChange={handleChange} />}
+        <p>esto es lista: {mostrar && listaConversaciones[0]?.nomUsuario_usu}</p>
+    <table>
+        <tr>{titulo.map((item)=>{
+            return (item)
+        })}</tr>
+    {mostrar && <ComentarioListaTr dato={listaConversaciones} ></ComentarioListaTr>}
+
     </table>
+    {mostrar && <button>Envia Comentarios Lista</button>}
     </>);
 }
