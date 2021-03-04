@@ -24,7 +24,7 @@ const listComentar = async (req, res, next) => {
   
       //Devuelto un json con los servicios
     res.send({
-      datoscomentariosServicios: comentariosdelServicio,
+      datoscomentariosServicios: comentariosdelServicio[0],
       datosMisComentarios: mycomentarios[0],
       datosMisConversaciones: myconversaciones[0],
       data: results[0],
