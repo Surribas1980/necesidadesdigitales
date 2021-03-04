@@ -1,4 +1,5 @@
 import ComentarioListaTd from "./ComentarioListaTd";
+import { deleteService } from '../../http/api';
 import {useState} from 'react';
 function ComentarioListaTr(props){
     const [mostrar, setMostrar] = useState(false);
@@ -16,6 +17,11 @@ function ComentarioListaTr(props){
             console.log('Estoy en comentarios lista tr es name',name1);
         }
         
+      }
+      const irA = async (parametro)=>{
+          console.log('irA',parametro);
+          const data = await deleteService("/comentar",'POST',1,parametro);
+          console.log(data['datoscomentariosServicios']);
       }
       
       console.log('Tr--Esto es name 1:...',name1,'Esto es name: ',name)
@@ -40,7 +46,7 @@ function ComentarioListaTr(props){
                                 <input type="text" name="text3" autoComplete="off" value={name3} onChange={handleChange} />
                             </div>
                         </td>
-                        <td><button onClick={()=>{}}>Ir a conversacion</button></td>
+                        <td><button onClick={()=>{irA(item.id_ser)}}>Ir a conversacion</button></td>
                     </tr>
         </>)
     })}
