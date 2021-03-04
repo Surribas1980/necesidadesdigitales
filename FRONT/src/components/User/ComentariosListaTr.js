@@ -4,6 +4,7 @@ function ComentarioListaTr(props){
     const [mostrar, setMostrar] = useState(false);
     const [name, setName] = useState("");
     const [name1, setName1] = useState("");
+    const [name3, setName3] = useState("");
     const lista = props.dato;
     function handleChange(e) {
         if(e.target.name == "text1"){
@@ -16,25 +17,30 @@ function ComentarioListaTr(props){
         }
         
       }
+      
       console.log('Tr--Esto es name 1:...',name1,'Esto es name: ',name)
     return (<><p onClick={()=>{setMostrar(!mostrar)}}>Mostrar en comentarios lista Tr</p>
    
-    
-    {mostrar && lista.map((item)=>{
+                    <tr>
+                        <td>Nº de servicio</td>
+                        <td>Nº de conversacion</td>
+                        <td>Usuario</td>
+                        <td>Comentario</td>
+                    </tr>
+    {mostrar && lista?.map((item)=>{
         return (<>
+                    
                     <tr>
                         <td>{item.id_ser}</td>
-                        <td>Hola
+                        <td>{item.id_co}</td>                        
+                        <td>{item['buscarUsu(id_usu_co)']}</td>
+                        <td>{item.comentario}</td>
+                        <td>Respuesta: 
                             <div>
-                                {<input type="text" name="text1" autoComplete="off" value={name} onChange={handleChange} />}
+                                <input type="text" name="text3" autoComplete="off" value={name3} onChange={handleChange} />
                             </div>
-                            {item.nomUsuario}
                         </td>
-                        <td>
-                            <div>
-                                <input type="text" name="text2" autoComplete="off" value={name1} onChange={handleChange} />
-                            </div>
-                        {item['buscarUsu(id_usu_co)']}</td>
+                        <td><button onClick={()=>{}}>Ir a conversacion</button></td>
                     </tr>
         </>)
     })}

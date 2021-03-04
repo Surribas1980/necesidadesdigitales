@@ -85,7 +85,7 @@ console.log('Esto es name 1:...',name1,'Esto es name: ',name)
     {mostrar &&  <input type="text" name="text2" autoComplete="off" value={name1} onChange={handleChange} />}
         <p>esto es lista: {mostrar && listaConversaciones[0]?.nomUsuario_usu}</p>
     <table>
-        <tr>{titulo.map((item)=>{
+        <tr>{titulo?.map((item)=>{
             return (item)
         })}</tr>
     {mostrar && <ComentarioListaTr dato={listaConversaciones} ></ComentarioListaTr>}
