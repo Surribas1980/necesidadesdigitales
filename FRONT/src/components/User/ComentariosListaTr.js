@@ -6,6 +6,7 @@ function ComentarioListaTr(props){
     const [name, setName] = useState("");
     const [name1, setName1] = useState("");
     const [name3, setName3] = useState("");
+    const [datoscomentariosServicios,setdatoscomentariosServicios] = useState("");
     const lista = props.dato;
     function handleChange(e) {
         if(e.target.name == "text1"){
@@ -22,6 +23,8 @@ function ComentarioListaTr(props){
           console.log('irA',parametro);
           const data = await deleteService("/comentar",'POST',1,parametro);
           console.log(data['datoscomentariosServicios']);
+          setdatoscomentariosServicios(data['datoscomentariosServicios']);
+          
       }
       
       console.log('Tr--Esto es name 1:...',name1,'Esto es name: ',name)
@@ -54,7 +57,7 @@ function ComentarioListaTr(props){
 
     {mostrar && <> <input type="text" name="text1" autoComplete="off" value={name} onChange={handleChange} /> 
     <input type="text" name="text2" autoComplete="off" value={name1} onChange={handleChange} /></>}
-
+    {datoscomentariosServicios && <ComentarioListaTd elementos={datoscomentariosServicios}></ComentarioListaTd>}
     </>)
 
 };
