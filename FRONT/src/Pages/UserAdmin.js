@@ -9,6 +9,7 @@ import ServiciosSolucionados from '../components/User/ServiciosSolucionados';
 import InsertComentarios from './InsertComentarios';
 import Comentarios from './Comentarios';
 import ModificacionDatos from '../components/User/ModificacionDatos';
+import Solucion from '../components/User/Solucion';
 
 
 function UserAdmin(){
@@ -34,8 +35,9 @@ function UserAdmin(){
             console.log('El ranking',data);
             
             setRanking(data['ranking']);
-            setservisSolucionados(data['serviSolucionados']);
-            setserviciosNoSolucionados(data['serviciosNoSolucionados']);
+            console.log('Servicios solucionados',data['serviSolucionados'][0]);
+            setservisSolucionados(data['serviSolucionados'][0]);
+            setserviciosNoSolucionados(data['serviciosNoSolucionados'][0]);
             console.log('numerico: ',data['numComentariosSinver'][0]['count(sinver)']);
             setnumComentariosSinLer(data['numComentariosSinLer'][0]['count(sinleer)']);
             setnumComentariosSinver(data['numComentariosSinver'][0]['count(sinver)']);
@@ -68,6 +70,9 @@ function UserAdmin(){
                 <li>
                     <Link to = "/datospersonales">Modificacion de datos personales</Link>
                 </li>
+                <li>
+                    <Link to= "/darsolucion">Dar posible solucion</Link>
+                </li>
             </ul>
             <Route path="/darsolucion">
             </Route>
@@ -79,6 +84,9 @@ function UserAdmin(){
             </Route>
             <Route path="/datospersonales">
                 <ModificacionDatos />
+            </Route>
+            <Route path="/darsolucion">
+                <Solucion />
             </Route>
         </Router>
     
