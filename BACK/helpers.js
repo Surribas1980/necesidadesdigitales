@@ -215,7 +215,7 @@ async function datosServicios(condicion){
     connection = await getDB();
     
     await connection.query(`call tablatemporal(${condicion});`);
-    sql = await connection.query(`select puntos(id_usu),puntos(id_usu_sol),buscarUsu(id_usu_sol) as 'Solucionador',nom_usu,titulo_ser,puntuacion from temporal L join servicios on L.id_ser_soli = id_ser;`);
+    sql = await connection.query(`call deTemporal();`);
     return sql;
     } catch (error) {
       const e = new Error('Error cargando datos de servicios');
