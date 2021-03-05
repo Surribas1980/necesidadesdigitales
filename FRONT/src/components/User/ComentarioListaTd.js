@@ -5,19 +5,31 @@ import InsertComentarios from '../../Pages/InsertComentarios';
 
 function ComentarioListaTd(props){
     
-    const [respuesta, setRespuesta] = useState("");
+    const [respuesta, setRespuesta] = useState([]);
+   
     let comentarios = props?.elementos[0];
+
+    const initialState = comentarios.reduce((accumulator, field) => {
+        accumulator[field] = '';
+        return accumulator;
+      }, {});
+      const [respuestas, setRespuestas] = useState(initialState);
+      const updateAddress = (event, field) => {
+        setRespuestas({ ...respuestas, [field]: event.target.value });
+        console.log('Estas son las respuestas: ',respuestas);
+      };
+
     console.log('Estoy comentarioslistaTd:... ',comentarios);
     
     
 
-    const enviarRespuesta = ()=>{
-        console.log('Esto es lo que envío', respuesta);
+    const enviarRespuesta = (parametro)=>{
+        console.log('Esto es lo que envío', parametro);
     }
 
     function handleChange(e) {
-        setRespuesta(e.target.value);
-        console.log('Estoy en la funcion:',respuesta); 
+        
+        console.log('Estoy en la funcion:',respuestas); 
       }
 
     return (<>
@@ -32,7 +44,7 @@ function ComentarioListaTd(props){
         }
 
         {                   
-            comentarios?.map((item)=>{
+            comentarios?.map((item,index)=>{
                 return(<>
                             
                             <tr>
@@ -42,10 +54,10 @@ function ComentarioListaTd(props){
                                 <td>{item.comentario}</td>
                                 <td>Respuesta: 
                                     <div>
-                                        <input type="text" name="respuesta" autoComplete="off" value={respuesta} onChange={handleChange} />
+                                        <input type="text" name="respuesta" autoComplete="off" onClick={(event)=>{updateAddress(event,respuesta)}} />
                                     </div>
                                 </td>
-                                <td><button onClick={()=>{enviarRespuesta()}}>Enviar respuesta</button></td>
+                                <td><button onClick={(event)=>{updateAddress(event,respuesta)}}>Enviar respuesta</button></td>
                     
                             </tr>
                 </>)

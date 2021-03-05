@@ -8,6 +8,8 @@ import ServiciosUser from '../components/User/ServiciosUser';
 import ServiciosSolucionados from '../components/User/ServiciosSolucionados';
 import InsertComentarios from './InsertComentarios';
 import Comentarios from './Comentarios';
+import ModificacionDatos from '../components/User/ModificacionDatos';
+
 
 function UserAdmin(){
     const { userData, logOut } = useAuth();
@@ -63,6 +65,9 @@ function UserAdmin(){
                 <li>
                     <Link to = "/comentario">Comentarios</Link>
                 </li>
+                <li>
+                    <Link to = "/datospersonales">Modificacion de datos personales</Link>
+                </li>
             </ul>
             <Route path="/darsolucion">
             </Route>
@@ -71,6 +76,9 @@ function UserAdmin(){
             </Route>
             <Route path="/servicio">
                 <InsertServices />
+            </Route>
+            <Route path="/datospersonales">
+                <ModificacionDatos />
             </Route>
         </Router>
     

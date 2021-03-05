@@ -68,6 +68,7 @@ export async function newEntry(data,servicio) {
     body.append('explicacion', data.explicacion);
    
     for(const valor of Object.values(data.ficheros)){
+      console.log('valor',valor)
       body.append('ficheros', valor);
     }
     endpoint = endpoints.servicios;
@@ -86,7 +87,32 @@ export async function enviarDatos(limite,inicioLista,alante,search1,search2){
   return (await fetchTravelApi(`${endpoints.servicios}?limite=${limite}&inicioLista=${inicioLista}&alante=${alante}&search1=${search1}&search2=${search2}`,{method: requestMethods.get}));
    
 }
-
+export async function modificacionDatos(metodo,uri,campo,id){
+  const formularioDato = new FormData();
+  const obxRequest = montandoObxetos(uri,metodo);
+ for(const valor of Object.values(campo.nomFoto_usu)){
+   console.log('valor',valor)
+      formularioDato.append('nomFoto_usu', valor);
+    }
+  for(const i in campo){
+    if(i != 'nomFoto_usu'){
+      formularioDato.append(`${i}`,campo[i]);
+    console.log(`${i}=${campo[i]}`);
+    }
+    
+    if(campo[i] == ''){
+      campo[i]= null;
+      console.log(`${i}=${campo[i]}`)
+      formularioDato.append(`${i}`,campo[i]);
+    }
+  }
+  let url = `${obxRequest.url}${id}`;
+  console.log(`La url es ${url}`);
+  let request = new Request(url,{ headers: obxRequest.headers, method: obxRequest.method,body:formularioDato});
+  const peticion = await fetch(request);
+  let datos = await peticion.json();
+  return datos;
+}
 export async function deleteService(uri,metodo,condatos,ids){
 
   const obxRequest = montandoObxetos(uri,metodo);
