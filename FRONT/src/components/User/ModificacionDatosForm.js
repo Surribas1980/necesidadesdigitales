@@ -21,18 +21,25 @@ export default function ModificacionDatosForm(props){
         console.log('Enviamos Datos a modificar: ',campos);
         const respuesta = modificacionDatos('PUT','/users/edit/',campos,userData.id);
         console.log('respuesta',respuesta);
+         console.log('Foto: ',campos.nomFoto_usu)
     };
 
   
 
   return (
-    <>
+    <><div>
+    {
+
+    }
+    </div>
+
       <h1>Dynamic</h1>
-      <form onSubmit={onSubmitDatos}>
+      <form onSubmit={onSubmitDatos} encType="multipart/form-data" >
         {datos.map((field) => {
           return (
-            <div key={field}>
+            <><div key={field}>
               <label htmlFor={field}>{field}</label>
+               
               <input
                 onChange={(event) => {
                   updateCampos(event, field);
@@ -40,13 +47,15 @@ export default function ModificacionDatosForm(props){
                 id={field}
                 name={field}
               />
-             
-            </div>
+             <div>{
+                 (field === 'nomFoto_usu') ? <input id="nomFoto_usu" name="nomFoto_usu" onChange={(event) => {
+                  updateCampos(event, field);
+                }} multiple type="file" />: console.log('hola')
+             }</div>
+            </div></>
           );
         })}
-        Foto: {<input id="nomFoto_usu" name="nomFoto_usu" onChange={(event) => {
-                  updateCampos(event, "nomFoto_usu");
-                }} multiple type="file" />}<br></br>
+        Foto: {<input id="nomFoto_usu" name="nomFoto_usu" multiple type="file" />}<br></br>
         <button type="submit">Enviar</button>
       </form>
     </>

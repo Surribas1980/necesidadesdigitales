@@ -90,15 +90,19 @@ export async function enviarDatos(limite,inicioLista,alante,search1,search2){
 export async function modificacionDatos(metodo,uri,campo,id){
   const formularioDato = new FormData();
   const obxRequest = montandoObxetos(uri,metodo);
+ 
  for(const valor of Object.values(campo.nomFoto_usu)){
    console.log('valor',valor)
       formularioDato.append('nomFoto_usu', valor);
     }
   for(const i in campo){
-    if(i != 'nomFoto_usu'){
+    
+    if(campo[i] != 'nomFoto_usu'){
       formularioDato.append(`${i}`,campo[i]);
     console.log(`${i}=${campo[i]}`);
+
     }
+    
     
     if(campo[i] == ''){
       campo[i]= null;
