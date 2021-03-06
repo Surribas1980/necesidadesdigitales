@@ -1,10 +1,10 @@
 import {useState} from 'react';
-
+import { useForm } from 'react-hook-form';
 import InsertComentarios from '../../Pages/InsertComentarios';
 
 
 function ComentarioListaTd(props){
-    
+    const {register, handleSubmit} = useForm();
     const [respuesta, setRespuesta] = useState([]);
    
     let comentarios = props?.elementos[0];
@@ -21,6 +21,11 @@ function ComentarioListaTd(props){
 
     console.log('Estoy comentarioslistaTd:... ',comentarios);
     
+    const onSubmit = (data)=>{
+        console.log('estos son los datos enviados desde el formulario ', data.respuesta );
+        console.log(`Esto es el formulario ${data.respuesta}`)
+        console.log('Esto es data',data)
+    }
     
 
     const enviarRespuesta = (parametro)=>{
@@ -57,13 +62,30 @@ function ComentarioListaTd(props){
                                         <input type="text" name="respuesta" autoComplete="off" onClick={(event)=>{updateAddress(event,respuesta)}} />
                                     </div>
                                 </td>
-                                <td><button onClick={(event)=>{updateAddress(event,respuesta)}}>Enviar respuesta</button></td>
+                                <td>
+                                    <form onSubmit={handleSubmit(onSubmit)}>
+                                    <label htmlFor="respuesta">Respuesta desde el formulario</label>
+                                    <input id="respuesta" ref={register({required: false})} name="respuesta" ></input>
+                                    <button>Enviar</button>
+                                    </form>
+                                </td>
                     
                             </tr>
                 </>)
             })
         }
-       
+        <h3>Esto es el formulario</h3>
+        {
+            comentarios?.map((item)=>{
+               return (<>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                <label htmlFor="respuesta">HOLA Respuesta</label>
+                <input id="respuesta" ref={register({required: false})} name="respuesta" ></input>
+                <button>Enviar</button>
+                </form>
+               </>); 
+            })
+        }
     </>);
     
 }
