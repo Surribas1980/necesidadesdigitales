@@ -20,14 +20,17 @@ const   insertSolutions = async (req, res, next)=>{
     let connection;   
     try {
         connection = await getDB();
-        const {id_ser} = req.body;
+        const {id_ser} = req.params;
         const dato = {
             "usuario":req.userAuth.id,
             "carpeta": `docs/servicios/solucionados/${id_ser}`
         }
-
+        let ficheros;
+        for(const elemento of Object.values(req.files)){
+            ficheros = elemento;
+        }
         
-        insertFiles(req.files,dato);
+        insertFiles(ficheros,dato);
 
         //{Insertar en la bbdd el de usuario y del servicio en la tabla solucionar}
 
