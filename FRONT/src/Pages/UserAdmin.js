@@ -86,7 +86,7 @@ function UserAdmin(){
                 <ModificacionDatos />
             </Route>
             <Route path="/darsolucion">
-                <Solucion />
+                <Solucion nosolucionados={serviciosNoSolucionados}/>
             </Route>
         </Router>
     

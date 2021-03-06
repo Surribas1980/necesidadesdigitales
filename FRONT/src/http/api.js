@@ -117,6 +117,19 @@ export async function modificacionDatos(metodo,uri,campo,id){
   let datos = await peticion.json();
   return datos;
 }
+
+export async function insertarSolucion(uri,metodo,datos,id){
+  const formularioFicheros = new FormData();
+  const obxRequest = montandoObxetos(uri,metodo);
+
+  for(const valor of Object.values(datos.ficheros)){
+    console.log('valor',valor)
+    formularioFicheros.append('ficheros', valor);
+  }
+  let url = `${obxRequest.url}${id}`;
+  let request = new Request(url,{ headers: obxRequest.headers, method: metodo,body:formularioFicheros});
+  await fetch(request);
+}
 export async function deleteService(uri,metodo,condatos,ids){
 
   const obxRequest = montandoObxetos(uri,metodo);
