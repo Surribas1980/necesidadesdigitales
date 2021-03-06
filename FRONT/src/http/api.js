@@ -118,18 +118,23 @@ export async function modificacionDatos(metodo,uri,campo,id){
   return datos;
 }
 
-export async function insertarSolucion(uri,metodo,datos,id){
+export async function insertarSolucion(metodo,uri,datos){
   const formularioFicheros = new FormData();
   const obxRequest = montandoObxetos(uri,metodo);
 
-  for(const valor of Object.values(datos.ficheros)){
-    console.log('valor',valor)
-    formularioFicheros.append('ficheros', valor);
-  }
-  let url = `${obxRequest.url}${id}`;
+      for(const valor of Object.values(datos.ficheros)){
+        console.log('valor',valor)
+        formularioFicheros.append('ficheros', valor);
+      } 
+  
+  
+  let url = `${obxRequest.url}${datos.id_ser}`;
+  console.log('Esto es insertar Solucion $', url)
+  console.log(`La url es ${url}`);
   let request = new Request(url,{ headers: obxRequest.headers, method: metodo,body:formularioFicheros});
   await fetch(request);
 }
+
 export async function deleteService(uri,metodo,condatos,ids){
 
   const obxRequest = montandoObxetos(uri,metodo);

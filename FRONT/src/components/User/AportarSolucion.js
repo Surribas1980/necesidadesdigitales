@@ -1,23 +1,24 @@
 import { useForm } from 'react-hook-form';
-import { insertarSolucion } from '../../http/api';
-import {useState} from 'react';
+import {insertarSolucion} from '../../http/api';
 
 export default function AportarSolucion(props){
     const {register, handleSubmit} = useForm();
-    //const {id,setId}=useState(0);
     let id= props.id;
-    //setId(props.id);
+ 
 
-    const onSubmit = (data)=>{
-        //insertarSolucion('POST','/user/solution/',data,id);
-    }
+    const onSubmit = (data) => {
+        console.log('estoy en onSubmit',data);
+        insertarSolucion('POST','/user/solution/',data);    
+        
+    };
 
     return (<>
-    <form onSubmit={onSubmit(handleSubmit)}>
-        <br></br>Id:{id}<br></br>
+    <form onSubmit={handleSubmit(onSubmit)}>
+        
         <label htmlFor="ficheros">Inserte los ficheros</label>
-        <input id="ficheros" ref={register({required: true})} name="ficheros" multiple type="file"></input><br></br>
-        Entrada: <input id="id_ser" ref={register({required: false})} name="id_ser" type="hidden" value={id}></input>
+        <input id="ficheros" ref={register({required: true})} name="ficheros" multiple type="file"></input>
+        <input id="id_ser" ref={register({required: false})} name="id_ser" type="hidden" value={id}></input>
+        <button>Enviar</button>
     </form>
     </>);
 }
