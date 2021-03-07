@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import { useForm } from 'react-hook-form';
 import InsertComentarios from '../../Pages/InsertComentarios';
-
+import BotonEnvioComentarios from './BotonEnvioComentarios';
 
 function ComentarioListaTd(props){
     const {register, handleSubmit} = useForm();
@@ -14,7 +14,7 @@ function ComentarioListaTd(props){
         return accumulator;
       }, {});
       const [respuestas, setRespuestas] = useState(initialState);
-      const updateAddress = (event, field) => {
+      const updateAddress = (field,event) => {
         setRespuestas({ ...respuestas, [field]: event.target.value });
         console.log('Estas son las respuestas: ',respuestas);
       };
@@ -28,8 +28,24 @@ function ComentarioListaTd(props){
     }
     
 
-    const enviarRespuesta = (parametro)=>{
-        console.log('Esto es lo que envío', parametro);
+    const enviarRespuesta = ()=>{
+        
+        let x = document.getElementById("respuesta").value;
+        console.log('Esto es  x ',x);
+        console.log(Object.values(document.getElementById("respuesta").value));
+        x="";
+        console.log('Esto es  x borrado ',x);
+        
+        let inputs = document.getElementsByTagName("input");
+        let message = "The form has the following input elements with the 'type' attribute = 'text': \n\n";
+        for (var i = 0; i < inputs.length; i++) {
+
+            if (inputs[i].getAttribute('type') == 'text') {
+               message += inputs[i].tagName + " element with the 'name' attribute = '-->" + inputs[i].value + "este es el valor";
+               message += inputs[i].getAttribute('name') + "'\n";
+               console.log('Esto es nuevo: ', message);
+            }
+         }
     }
 
     function handleChange(e) {
@@ -59,24 +75,20 @@ function ComentarioListaTd(props){
                                 <td>{item.comentario}</td>
                                 <td>Respuesta: 
                                     <div>
-                                        <input type="text" name="respuesta" autoComplete="off" onClick={(event)=>{updateAddress(event,respuesta)}} />
+                                        <input id="respuesta" type="text" name="respuesta" autoComplete="off" />
                                     </div>
+                                    
                                 </td>
-                                <td>
-                                    <form onSubmit={handleSubmit(onSubmit)}>
-                                    <label htmlFor="respuesta">Respuesta desde el formulario</label>
-                                    <input id="respuesta" ref={register({required: false})} name="respuesta" ></input>
-                                    <button>Enviar</button>
-                                    </form>
-                                </td>
+                               
                     
                             </tr>
+                            
                 </>)
             })
         }
         <h3>Esto es el formulario</h3>
         {
-            comentarios?.map((item)=>{
+            /*comentarios?.map((item)=>{
                return (<>
                 <form onSubmit={handleSubmit(onSubmit)}>
                 <label htmlFor="respuesta">HOLA Respuesta</label>
@@ -84,8 +96,9 @@ function ComentarioListaTd(props){
                 <button>Enviar</button>
                 </form>
                </>); 
-            })
+            })*/
         }
+        <BotonEnvioComentarios funcion={enviarRespuesta}></BotonEnvioComentarios>
     </>);
     
 }
