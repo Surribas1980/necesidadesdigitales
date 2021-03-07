@@ -24,7 +24,11 @@ function ComentarioListaTd(props){
         
 
             for (var i = 0; i < inputs.length; i++) {
-    
+                console.log('tagName',inputs[i].tagName,'Atributo name',inputs[i].getAttribute('name'))
+                if(inputs[i].getAttribute('name') == 'id_ser'){
+                    console.log('id_ser ',inputs[i].value);
+                    
+                }
                 if (inputs[i].getAttribute('type') == 'text') {
                   // message += inputs[i].tagName + " element with the 'name' attribute = '-->" + inputs[i].value + "este es el valor";
                   // message += inputs[i].getAttribute('name') + "'\n";
@@ -58,6 +62,7 @@ function ComentarioListaTd(props){
                                 <td>Respuesta: 
                                     <div>
                                         <input id="respuesta" type="text" name="respuesta" autoComplete="off" />
+                                        <input id="id_ser" type="hidden" name="id_ser" value={item.id_ser_co} />
                                     </div>
                                     
                                 </td>
