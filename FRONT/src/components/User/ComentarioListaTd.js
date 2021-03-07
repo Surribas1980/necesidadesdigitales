@@ -8,26 +8,8 @@ function ComentarioListaTd(props){
     const [respuesta, setRespuesta] = useState([]);
    
     let comentarios = props?.elementos[0];
-
-    const initialState = comentarios.reduce((accumulator, field) => {
-        accumulator[field] = '';
-        return accumulator;
-      }, {});
-      const [respuestas, setRespuestas] = useState(initialState);
-      const updateAddress = (field,event) => {
-        setRespuestas({ ...respuestas, [field]: event.target.value });
-        console.log('Estas son las respuestas: ',respuestas);
-      };
-
-    console.log('Estoy comentarioslistaTd:... ',comentarios);
     
-    const onSubmit = (data)=>{
-        console.log('estos son los datos enviados desde el formulario ', data.respuesta );
-        console.log(`Esto es el formulario ${data.respuesta}`)
-        console.log('Esto es data',data)
-    }
-    
-
+    console.log('Esto son los comentarios: ', comentarios);
     const enviarRespuesta = ()=>{
         
         let x = document.getElementById("respuesta").value;
@@ -38,21 +20,21 @@ function ComentarioListaTd(props){
         
         let inputs = document.getElementsByTagName("input");
         let message = "The form has the following input elements with the 'type' attribute = 'text': \n\n";
-        for (var i = 0; i < inputs.length; i++) {
+        console.log ('Tamaños ',inputs.length,comentarios.length)
+        
 
-            if (inputs[i].getAttribute('type') == 'text') {
-               message += inputs[i].tagName + " element with the 'name' attribute = '-->" + inputs[i].value + "este es el valor";
-               message += inputs[i].getAttribute('name') + "'\n";
-               console.log('Esto es nuevo: ', message);
-            }
-         }
+            for (var i = 0; i < inputs.length; i++) {
+    
+                if (inputs[i].getAttribute('type') == 'text') {
+                  // message += inputs[i].tagName + " element with the 'name' attribute = '-->" + inputs[i].value + "este es el valor";
+                  // message += inputs[i].getAttribute('name') + "'\n";
+                   console.log('Esto es valor ',i,inputs[i].value);
+                }
+             }
+        
     }
 
-    function handleChange(e) {
-        
-        console.log('Estoy en la funcion:',respuestas); 
-      }
-
+   
     return (<>
         <h1>Estoy en comentario lista</h1>
         {
@@ -85,18 +67,6 @@ function ComentarioListaTd(props){
                             
                 </>)
             })
-        }
-        <h3>Esto es el formulario</h3>
-        {
-            /*comentarios?.map((item)=>{
-               return (<>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                <label htmlFor="respuesta">HOLA Respuesta</label>
-                <input id="respuesta" ref={register({required: false})} name="respuesta" ></input>
-                <button>Enviar</button>
-                </form>
-               </>); 
-            })*/
         }
         <BotonEnvioComentarios funcion={enviarRespuesta}></BotonEnvioComentarios>
     </>);
