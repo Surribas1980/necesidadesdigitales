@@ -91,6 +91,6 @@ console.log('Esto es name 1:...',name1,'Esto es name: ',name)
     {mostrar && <ComentarioListaTr dato={listaConversaciones} ></ComentarioListaTr>}
 
     </table>
-    {mostrar && <button>Envia Comentarios Lista</button>}
+   
     </>);
 }

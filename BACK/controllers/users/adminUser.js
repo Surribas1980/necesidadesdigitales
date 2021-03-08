@@ -13,7 +13,7 @@ const {
   elServicios,
   numServSoli,
   misServes,
-  misComentarios,
+  misNumComentarios,
   miNumSolucionados
 } = require("../../helpers");
 const getDB = require("../../db");
@@ -36,8 +36,8 @@ const adminUser = async (req, res, next) => {
     const [MisSolucionados] = await connection.query(`select  count(id_sol) 
     from solucionar where solucionado = 1 && id_usu_sol= ?;`, [req.userAuth.id]);
   
-    const [comentSinLer] = await misComentarios(req.userAuth.id,"sinleer");
-    const [comentSinVer] = await misComentarios(req.userAuth.id,"sinver");
+    const [comentSinLer] = await misNumComentarios(req.userAuth.id,"sinleer");
+    const [comentSinVer] = await misNumComentarios(req.userAuth.id,"sinver");
   //const [MisSolucionados] = await miNumSolucionados(id_usuario); //No sé porque esta función me queda en espera ¿?
      
   // Devuelvo un json con las entradas

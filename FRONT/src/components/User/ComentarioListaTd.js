@@ -1,40 +1,45 @@
-import {useState} from 'react';
-import { useForm } from 'react-hook-form';
-import InsertComentarios from '../../Pages/InsertComentarios';
 import BotonEnvioComentarios from './BotonEnvioComentarios';
+import {insertComent} from '../../http/api';
 
 function ComentarioListaTd(props){
-    const {register, handleSubmit} = useForm();
-    const [respuesta, setRespuesta] = useState([]);
-   
+  
     let comentarios = props?.elementos[0];
     
-    console.log('Esto son los comentarios: ', comentarios);
-    const enviarRespuesta = ()=>{
-        
-        let x = document.getElementById("respuesta").value;
-        console.log('Esto es  x ',x);
-        console.log(Object.values(document.getElementById("respuesta").value));
-        x="";
-        console.log('Esto es  x borrado ',x);
-        
-        let inputs = document.getElementsByTagName("input");
-        let message = "The form has the following input elements with the 'type' attribute = 'text': \n\n";
-        console.log ('Tamaños ',inputs.length,comentarios.length)
-        
 
-            for (var i = 0; i < inputs.length; i++) {
-                console.log('tagName',inputs[i].tagName,'Atributo name',inputs[i].getAttribute('name'))
-                if(inputs[i].getAttribute('name') == 'id_ser'){
-                    console.log('id_ser ',inputs[i].value);
-                    
-                }
+    const enviarRespuesta = ()=>{
+        let inputs = document.getElementsByTagName("input");
+        let id_ser=0;
+        let idComentario=null;
+        let comentario= undefined;
+        for (var i = 0; i < inputs.length; i++) {
                 if (inputs[i].getAttribute('type') == 'text') {
-                  // message += inputs[i].tagName + " element with the 'name' attribute = '-->" + inputs[i].value + "este es el valor";
-                  // message += inputs[i].getAttribute('name') + "'\n";
-                   console.log('Esto es valor ',i,inputs[i].value);
+                    if(inputs[i].value !== ''){
+                        
+                        comentario = inputs[i].value;
+                        //console.log('Esto es el comentario ',inputs[i].value);
+                   }
                 }
-             }
+               
+                if(inputs[i].getAttribute('name') == 'id_ser'){
+                    id_ser = inputs[i].value;
+                   // console.log('id_ser ',inputs[i].value);
+                    if(inputs[i].value){
+
+                    }
+                }
+                if(inputs[i].getAttribute('name') == 'idConversacion'){
+                    //console.log('id_co ',inputs[i].value); 
+                    idComentario = inputs[i].value;
+                   // console.log('idComentario: ', idComentario);
+                    if(inputs[i].value){
+                    }
+                }
+                if( comentario !== undefined && id_ser !== 0 && idComentario !== null){
+                    console.log('entrando',comentario,idComentario,id_ser);
+                    comentario = undefined;
+                    //insertComent('/users/insert/comentario/',id_ser,idComentario,comentario);
+                }
+            }
         
     }
 
@@ -63,6 +68,7 @@ function ComentarioListaTd(props){
                                     <div>
                                         <input id="respuesta" type="text" name="respuesta" autoComplete="off" />
                                         <input id="id_ser" type="hidden" name="id_ser" value={item.id_ser_co} />
+                                        <input id="idConversacion" type="hidden" name="idConversacion" value={item.id_co} />
                                     </div>
                                     
                                 </td>

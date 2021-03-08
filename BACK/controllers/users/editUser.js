@@ -37,7 +37,8 @@ const editEntry = async (req, res, next) => {
      
         const { nomUsuario_usu, nom_usu, ape1_usu, ape2_usu,biografia_usu, mail,pwd} = req.body;
         // Si el email enviado es diferente al de la base de datos procesar el nuevo email
-
+        console.log('NomUsuario: ',nomUsuario_usu);
+        console.log('id: ',id);
         console.log(`${dateUser[0].mail}`)
         
         if (mail && mail !== dateUser[0].mail) {
@@ -88,7 +89,9 @@ const dato = {
     "usuario": `${id}`,    
     "carpeta": `docs/fotousuario${id}`,
 }
-
+if(req.files){
+    console.log('vienen ficheros');
+}
     if (req.files && req.files.nomFoto_usu) {
       // Se está subiendo una foto
       dateUser[0]['nomFoto_usu'] = req.files.nomFoto_usu.name;

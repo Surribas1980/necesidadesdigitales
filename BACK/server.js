@@ -59,7 +59,7 @@ const urls = {
     insertUser:"/users/insertar",
     admin:"/admin/modificar/:id",
     validaregistrationCode:"/validar/:registrationCode",
-    usersolution:"/user/solution",
+    usersolution:"/user/solution/:id_ser",
     deleteservicio:"/servicios/borrar",
   };
 

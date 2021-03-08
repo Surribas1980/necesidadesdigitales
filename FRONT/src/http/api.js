@@ -46,7 +46,6 @@ export async function login(mail, pwd) {
 }
 
 
-
 export async function userLogin(mail, pwd, nomUsuario_usu, nom_usu, ape1_usu, ape2_usu, biografia_usu) {
   return await fetchTravelApi(endpoints.userInsert, {
     method: requestMethods.post,
@@ -148,4 +147,15 @@ export async function deleteService(uri,metodo,condatos,ids){
 let datos = await peticion.json();
 
 return datos;
+}
+
+export async function insertComent(uri,id_ser,idComentario,comentario){
+  if(comentario != '' && (idComentario != 0) && (id_ser != 0)){
+
+    console.log('Estoy en insertar comentario: ',uri,id_ser,idComentario,comentario);
+  }
+   /*await fetchTravelApi(uri, {
+    method: requestMethods.post,
+    body: { id_ser, idComentario, comentario, invite: 'moduloreact' },
+  });*/
 }
