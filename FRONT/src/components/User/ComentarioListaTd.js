@@ -59,6 +59,8 @@ function ComentarioListaTd(props){
                                 <td>Nº de usuario</td>
                                 <td>Nº de servicio</td>
                                 <td>Comentario</td>
+                                <td>Respuesta al comentario Nº</td>
+                                <td>Responder</td>
                             </tr>
         }
 
@@ -71,7 +73,8 @@ function ComentarioListaTd(props){
                                 <td>{item.id_usu_co}</td>
                                 <td>{item.id_ser_co}</td>
                                 <td>{item.comentario}</td>
-                                <td>Respuesta: 
+                                <td>{item.id_co_num}</td>
+                                <td>
                                     <div>
                                         <input id="respuesta" type="text" name="respuesta" autoComplete="off" />
                                         <input id="id_ser" type="hidden" name="id_ser" value={item.id_ser_co} />

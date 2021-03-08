@@ -22,7 +22,7 @@ function ComentarioListaTr(props){
                         <td>Nº de servicio</td>
                         <td>Nº de conversacion</td>
                         <td>Usuario</td>
-                        <td>Comentario</td>
+                        <td>Último comentario realizado</td>
                     </tr>
     {lista?.map((item)=>{
         return (<>
