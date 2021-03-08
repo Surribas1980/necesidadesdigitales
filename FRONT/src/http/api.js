@@ -149,13 +149,13 @@ let datos = await peticion.json();
 return datos;
 }
 
-export async function insertComent(uri,id_ser,idComentario,comentario){
-  if(comentario != '' && (idComentario != 0) && (id_ser != 0)){
+export default async function insertComent(uri,id_ser,idComentario,comentario){
+
 
     console.log('Estoy en insertar comentario: ',uri,id_ser,idComentario,comentario);
-  }
-   /*await fetchTravelApi(uri, {
+  
+   await fetchTravelApi(uri, {
     method: requestMethods.post,
     body: { id_ser, idComentario, comentario, invite: 'moduloreact' },
-  });*/
+  });
 }

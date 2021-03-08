@@ -1,5 +1,5 @@
 import BotonEnvioComentarios from './BotonEnvioComentarios';
-import {insertComent} from '../../http/api';
+import insertComent from '../../http/api';
 
 function ComentarioListaTd(props){
   
@@ -36,8 +36,15 @@ function ComentarioListaTd(props){
                 }
                 if( comentario !== undefined && id_ser !== 0 && idComentario !== null){
                     console.log('entrando',comentario,idComentario,id_ser);
+                    let valor = 1;
+                    console.log('hola')
+                    insertComent('/users/insert/comentario/',id_ser,idComentario,comentario);
+                    if(valor){
+                        console.log('hola')
+                        valor = 0;
+                    }
+                    
                     comentario = undefined;
-                    //insertComent('/users/insert/comentario/',id_ser,idComentario,comentario);
                 }
             }
         
