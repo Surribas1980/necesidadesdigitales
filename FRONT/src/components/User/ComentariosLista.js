@@ -75,19 +75,9 @@ function handleChange(e) {
 console.log('Esto es name 1:...',name1,'Esto es name: ',name)
     return (<>
     <h2>Lista de mis conversaciones</h2>
+    <button onClick={()=>{setMostrar(!mostrar)}}>Mostrar conversaciones</button>
     
-
-    <br></br>
-    ////////////////////////////////////////////
-  esto son pruebas<p onClick={()=>{setMostrar(!mostrar)}}>Mostrar</p>
-    {mostrar &&  <input type="text" name="text1" autoComplete="off" value={name} onChange={handleChange} />}
-    {mostrar && <div>{titulo[1]}</div>}    
-    {mostrar &&  <input type="text" name="text2" autoComplete="off" value={name1} onChange={handleChange} />}
-        <p>esto es lista: {mostrar && listaConversaciones[0]?.nomUsuario_usu}</p>
     <table>
-        <tr>{titulo?.map((item)=>{
-            return (item)
-        })}</tr>
     {mostrar && <ComentarioListaTr dato={listaConversaciones} ></ComentarioListaTr>}
 
     </table>

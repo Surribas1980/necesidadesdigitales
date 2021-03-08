@@ -52,7 +52,7 @@ function ComentarioListaTd(props){
 
    
     return (<>
-        <h1>Estoy en comentario lista</h1>
+       
         {
                             <tr>
                                 <td>Nº de comentario</td>
