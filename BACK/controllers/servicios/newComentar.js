@@ -8,9 +8,9 @@ const newComentar = async (req, res, next) => {
     connection = await getDB();
 
   
-    const { id_ser,idConversacion,comentario } = req.body;
-
-await connection.query(`call insertarComentarios(?, ?, ?, ?);`, [id_ser,idConversacion,req.userAuth.id, comentario]);
+    const { id_ser,idComentario,comentario } = req.body;
+console.log('datos en newComentar',id_ser,idComentario,comentario);
+await connection.query(`call insertarComentarios(?,?,?,?);`,[id_ser,idComentario,req.userAuth.id,comentario]);
 
     //Devuelto un json con los detalles del comentario
     res.send({
