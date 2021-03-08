@@ -10,6 +10,7 @@ import InsertComentarios from './InsertComentarios';
 import Comentarios from './Comentarios';
 import ModificacionDatos from '../components/User/ModificacionDatos';
 import Solucion from '../components/User/Solucion';
+import DarPuntuacion from '../components/User/DarPuntuacion';
 
 
 function UserAdmin(){
@@ -73,6 +74,9 @@ function UserAdmin(){
                 <li>
                     <Link to= "/darsolucion">Dar posible solucion</Link>
                 </li>
+                <li>
+                    <Link to= "/darpuntuacion">Dar puntuación</Link>
+                </li>
             </ul>
             <Route path="/darsolucion">
             </Route>
@@ -84,6 +88,9 @@ function UserAdmin(){
             </Route>
             <Route path="/datospersonales">
                 <ModificacionDatos />
+            </Route>
+            <Route path="/darpuntuacion">
+                <DarPuntuacion></DarPuntuacion>
             </Route>
             <Route path="/darsolucion">
                 <Solucion nosolucionados={serviciosNoSolucionados}/>

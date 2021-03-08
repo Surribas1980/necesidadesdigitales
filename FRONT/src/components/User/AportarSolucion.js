@@ -12,7 +12,7 @@ export default function AportarSolucion(props){
         
     };
 
-    return (<>
+    return (<><h2>Inserte la solución al servicio {id}</h2>
     <form onSubmit={handleSubmit(onSubmit)}>
         
         <label htmlFor="ficheros">Inserte los ficheros</label>
