@@ -76,11 +76,7 @@ console.log('Esto es name 1:...',name1,'Esto es name: ',name)
     return (<>
     <h2>Lista de mis conversaciones</h2>
     <button onClick={()=>{setMostrar(!mostrar)}}>Mostrar conversaciones</button>
-    
-    <table>
     {mostrar && <ComentarioListaTr dato={listaConversaciones} ></ComentarioListaTr>}
-
-    </table>
    
     </>);
 }

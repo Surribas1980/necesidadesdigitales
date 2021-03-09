@@ -1,0 +1,17 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  background-color: #3f1b87;
+}
+
+.header-item {
+  font-family: sans-serif;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.header-item a {
+  text-decoration: none;
+  color: white;
+}

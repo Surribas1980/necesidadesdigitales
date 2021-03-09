@@ -16,29 +16,46 @@ function ComentarioListaTr(props){
       
       
     return (<> 
-   
-   
-                    <tr>
-                        <td>Nº de servicio</td>
-                        <td>Nº de conversacion</td>
-                        <td>Usuario</td>
-                        <td>Último comentario realizado</td>
-                    </tr>
-    {lista?.map((item)=>{
-        return (<>
-                    
-                    <tr>
-                        <td>{item.id_ser}</td>
-                        <td>{item.id_co}</td>                        
-                        <td>{item['buscarUsu(id_usu_co)']}</td>
-                        <td>{item.comentario}</td>                       
-                        <td><button onClick={()=>{irA(item.id_ser)}}>Ir a conversacion</button></td>
-                    </tr>
-        </>)
-    })}
-    <table>
+                <div  
+                style={{
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        marginTop: "50px",
+                        marginRight: "500px",
+                        color: "black"
+                    }}
+                >
+
+                </div>
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>Nº de servicio</th>
+                            <th>Nº de conversacion</th>
+                            <th>Usuario</th>
+                            <th>Último comentario realizado</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+
+                            {lista?.map((item)=>{
+                                return (<>
+                                            
+                                            <tr key={item.id_co}>
+                                                <td>{item.id_ser}</td>
+                                                <td>{item.id_co}</td>                        
+                                                <td>{item['buscarUsu(id_usu_co)']}</td>
+                                                <td>{item.comentario}</td>                       
+                                                <td><button onClick={()=>{irA(item.id_ser)}}>Ir a conversacion</button></td>
+                                            </tr>
+                                </>)
+                            })}
+                    </tbody>
+                </table>
+    
          {datoscomentariosServicios && <ComentarioListaTd elementos={datoscomentariosServicios}></ComentarioListaTd>}
-    </table>
+    
     </>)
 
 };

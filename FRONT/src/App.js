@@ -1,4 +1,4 @@
-import './App.css';
+import './css/App.css';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Home from './Pages/Home';
 import Login from './Pages/Login';
@@ -22,50 +22,47 @@ function App() {
     
         <Router>
           <AuthProvider>
-          <div>
-            <ul>
-              <li>
-                <Link to="/graficas">Graficas</Link>
-              </li>
-              <li>
+         
+            <nav>
+              
+              <div className="header-item">
                 <Link to="/">Home</Link>
-              </li>
-              <li>
+              </div> 
+              <div className="header-item">
                 <Link to="/login">Login</Link>
-              </li>
-              <li>
+              </div>
+              <div className="header-item">
                 <Link to="/register">Register</Link>
-              </li>
+              </div> 
+
               <PrivateComponent>
-                  <li>
-                    <Link to="/delete/servicios">Borrar servicios</Link>
-                  </li>
+                    <div className="header-item">
+                      <Link to="/delete/servicios">Borrar servicios</Link>
+                    </div>
                   <UserComponent>
-                    <li>
+                    <div className="header-item">
                       <Link to="/insert/servicios">Insertar servicios</Link>
-                    </li>
-                    <li>
-                      
-                        <Link to="/useradmin">UserAdmin</Link>
-                      
-                    </li>
+                    </div>
+                    <div className="header-item">
+                        <Link to="/useradmin">UserAdmin</Link>  
+                    </div>
                   </UserComponent>
-                  <li>
                     <AdminComponent>
-                      <Link to="/admin">Administrador</Link>
+                      <div className="header-item">
+                        <Link to="/admin">Administrador</Link>
+                      </div>
                     </AdminComponent>
-                  </li>
               </PrivateComponent>
-            </ul>
+
+            </nav>
+           
     
             <Switch>
               
                 <Route exact path="/">
                   <Home />
                 </Route> 
-                <Route path="/graficas">
-                  <Graficas />
-                </Route>                        
+                                       
                 <Route path="/register">
                   <Register />
                 </Route>
@@ -96,7 +93,7 @@ function App() {
                 </Route>                
               
             </Switch>
-          </div>
+          
           </AuthProvider>
         </Router>
       

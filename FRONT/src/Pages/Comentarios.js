@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import InsertComentarios from './InsertComentarios';
 
 export default function Comentarios(){
+    const [showMenu, setShowMenu]=useState(false);
     const [comentarios,setComentarios] = useState([]);
     const [misconversaciones, setMisConversaciones] = useState([]);
     const [miscomentarios,setMisComentarios] = useState([]);
@@ -27,11 +28,27 @@ export default function Comentarios(){
     return (<>
         <h1>Estoy en comentarios</h1>
             <Router>
-                <ul>
-                    <Link to="/nada">Recoger en Comentarios</Link>
-                    <li><Link to="/insertarcomentario">Conversaciones</Link></li>
-                    <li><Link to="/miscomentarios" >Mis comentarios</Link></li>
-                </ul>
+            <button onClick={() => setShowMenu(!showMenu)}>Menú de Comentarios</button>
+            {showMenu && 
+                <nav>
+                        <div className="header-item">
+
+                        <Link to="/nada">Recoger en Comentarios</Link>
+                        </div>
+                        <div className="header-item">
+
+                        <Link to="/insertarcomentario">Conversaciones</Link>
+                        </div>
+                        <div className="header-item">
+
+                        <Link to="/miscomentarios" >Mis comentarios</Link>
+                        </div>
+                
+            
+                </nav>
+            }
+                
+                
 
                 <Route path="/insertarcomentario">
                     <InsertComentarios />

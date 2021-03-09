@@ -1,5 +1,6 @@
 import {useState,useEffect} from 'react';
 import DatosLista from "./DatosLista";
+import '../../css/ServiciosSolucionados.css';
 
 export default function ServiciosUser(props){
     
@@ -39,7 +40,7 @@ let titulo;
        
         {
            
-            <table>
+            <table className="fl-table">
                 
                 {
                 probarConObjVal.map((item,index)=>{

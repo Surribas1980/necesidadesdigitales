@@ -11,7 +11,7 @@ import Comentarios from './Comentarios';
 import ModificacionDatos from '../components/User/ModificacionDatos';
 import Solucion from '../components/User/Solucion';
 import DarPuntuacion from '../components/User/DarPuntuacion';
-
+import '../css/UserAdmin.css'
 
 function UserAdmin(){
     const { userData, logOut } = useAuth();
@@ -57,27 +57,39 @@ function UserAdmin(){
     return (<>
         <Router>
             <button onClick={() => setShowMenu(!showMenu)}>Menú</button>
-            {showMenu && <div>Esto é o menu</div>}
+            {showMenu &&
+             
+                        <nav>
+                            <div className="header-item">
+
+                            <Link to="/useradmin">Recoger</Link>
+                            </div>
+                            <div className="header-item">
+
+                            <Link to="/servicio">Solicitar servicio</Link>
+                            </div>
+                            <div className="header-item">
+
+                            <Link to = "/comentario">Comentarios</Link>
+                            </div>
+                            <div className="header-item">
+
+                            <Link to = "/datospersonales">Modificacion de datos personales</Link>
+                            </div>
+                            <div className="header-item">
+
+                            <Link to= "/darsolucion">Dar posible solucion</Link>
+                            </div>
+                            <div className="header-item">
+
+                            <Link to= "/darpuntuacion">Dar puntuación</Link>
+                            </div>
+                        
+                        </nav>
+                
+            }
             
              
-            <ul>     
-                 <Link to="/useradmin">Recoger</Link>
-                <li>
-                    <Link to="/servicio">Solicitar servicio</Link>
-                </li>
-                <li>
-                    <Link to = "/comentario">Comentarios</Link>
-                </li>
-                <li>
-                    <Link to = "/datospersonales">Modificacion de datos personales</Link>
-                </li>
-                <li>
-                    <Link to= "/darsolucion">Dar posible solucion</Link>
-                </li>
-                <li>
-                    <Link to= "/darpuntuacion">Dar puntuación</Link>
-                </li>
-            </ul>
             <Route path="/darsolucion">
             </Route>
             <Route path="/comentario">

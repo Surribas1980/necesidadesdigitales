@@ -54,41 +54,52 @@ function ComentarioListaTd(props){
     return (<>
        
         {
+            <table>
+                <thead>
                             <tr>
-                                <td>Nº de comentario</td>
-                                <td>Nº de usuario</td>
-                                <td>Nº de servicio</td>
-                                <td>Comentario</td>
-                                <td>Respuesta al comentario Nº</td>
-                                <td>Responder</td>
+                                <th>Nº de comentario</th>
+                                <th>Nº de usuario</th>
+                                <th>Nº de servicio</th>
+                                <th>Comentario</th>
+                                <th>Respuesta al comentario Nº</th>
+                                <th>Responder</th>
                             </tr>
+            </thead>
+            <tbody>
+                
+                {                   
+                    comentarios?.map(
+                        (item,index)=>
+                        {
+                            return(<>
+                                        
+                                        <tr>
+                                            <td>{item.id_co}</td>
+                                            <td>{item.id_usu_co}</td>
+                                            <td>{item.id_ser_co}</td>
+                                            <td>{item.comentario}</td>
+                                            <td>{item.id_co_num}</td>
+                                            <td>
+                                                <div>
+                                                    <input id="respuesta" type="text" name="respuesta" autoComplete="off" />
+                                                    <input id="id_ser" type="hidden" name="id_ser" value={item.id_ser_co} />
+                                                    <input id="idConversacion" type="hidden" name="idConversacion" value={item.id_co} />
+                                                </div>
+                                                
+                                            </td>
+                                           
+                                
+                                        </tr>
+                                        
+                            </>)
+                        })
+                 }
+            </tbody>
+            </table>
+            
+            
         }
 
-        {                   
-            comentarios?.map((item,index)=>{
-                return(<>
-                            
-                            <tr>
-                                <td>{item.id_co}</td>
-                                <td>{item.id_usu_co}</td>
-                                <td>{item.id_ser_co}</td>
-                                <td>{item.comentario}</td>
-                                <td>{item.id_co_num}</td>
-                                <td>
-                                    <div>
-                                        <input id="respuesta" type="text" name="respuesta" autoComplete="off" />
-                                        <input id="id_ser" type="hidden" name="id_ser" value={item.id_ser_co} />
-                                        <input id="idConversacion" type="hidden" name="idConversacion" value={item.id_co} />
-                                    </div>
-                                    
-                                </td>
-                               
-                    
-                            </tr>
-                            
-                </>)
-            })
-        }
         <BotonEnvioComentarios funcion={enviarRespuesta}></BotonEnvioComentarios>
     </>);
     
