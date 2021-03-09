@@ -28,7 +28,7 @@ export function AuthProvider({ children }){
       const tokenObject = decodeTokenData(loginData);
       setUserData(tokenObject);
       setIsUserLogged(true);
-      history.push('/');
+      history.push('/useradmin');
     } 
 
     const logOut = () => {

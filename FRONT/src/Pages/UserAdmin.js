@@ -56,7 +56,7 @@ function UserAdmin(){
 
     return (<>
         <Router>
-            <button onClick={() => setShowMenu(!showMenu)}>Menú</button>
+            <button onClick={() => setShowMenu(!showMenu)}>Pulsa para | Menú de UserAdmin</button>
             {showMenu &&
              
                         <nav>

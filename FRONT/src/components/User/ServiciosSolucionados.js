@@ -42,12 +42,20 @@ let titulo;
            
             <table className="fl-table">
                 
-                {
-                probarConObjVal.map((item,index)=>{
-                    return <DatosLista key={index} dato={item} />;
+                <thead>
+                </thead>
+                <tbody>
+                    {
+                    probarConObjVal.map((item,index)=>{
+                        
+                        return (<tr key={index}> {item?.map((valor,index)=>{
+                            return <td> {valor}</td>
+                        })}</tr>)
 
-                })
-                }
+                    })
+                    }
+
+                </tbody>
             </table>
            // totalcontenido.map((elemento,index)=>{return <p>--------- {probar[1][index]}  ----   </p>})
            

@@ -43,9 +43,7 @@ function App() {
                     <div className="header-item">
                       <Link to="/insert/servicios">Insertar servicios</Link>
                     </div>
-                    <div className="header-item">
-                        <Link to="/useradmin">UserAdmin</Link>  
-                    </div>
+                    
                   </UserComponent>
                     <AdminComponent>
                       <div className="header-item">
