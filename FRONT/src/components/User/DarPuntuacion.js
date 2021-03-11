@@ -8,6 +8,6 @@ export default function DarPuntuacion(){
     }
 
     return(<><h1>Estoy en dar puntuación</h1>
-    <button onClick={abrirVentana(1)}>Ver solución</button>
+    <button >Ver solución</button>
     </>);
 }

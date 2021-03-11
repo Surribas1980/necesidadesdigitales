@@ -39,6 +39,7 @@ function UserAdmin(){
             console.log('Servicios solucionados',data['serviSolucionados'][0]);
             setservisSolucionados(data['serviSolucionados'][0]);
             setserviciosNoSolucionados(data['serviciosNoSolucionados'][0]);
+            console.log('Servicios No solucionados',data['serviciosNoSolucionados'][0]);
             console.log('numerico: ',data['numComentariosSinver'][0]['count(sinver)']);
             setnumComentariosSinLer(data['numComentariosSinLer'][0]['count(sinleer)']);
             setnumComentariosSinver(data['numComentariosSinver'][0]['count(sinver)']);
@@ -124,33 +125,67 @@ function UserAdmin(){
                         }
         }
             }>Actualizar</button>
+            
         <p onClick={()=>{setMostrar(!mostrar)}}>Mostrar</p>
         {mostrar && <p>Esto es otro dato</p>}
-        <h1>Gráfica</h1>
-        <GraficaRanking valores={ranking}></GraficaRanking>
-          
-        <h1>Servicios solucionados</h1>
-        <ServiciosSolucionados solucionados={servesSolucionados}></ServiciosSolucionados>
+        <main>
+            <div>
+                    <div className="secciones">
+                        <section >
+                            <h1>Gráfica</h1>
+                            <GraficaRanking valores={ranking}></GraficaRanking>
+                        </section>
 
-        <h1>Servicios no solucionados</h1>
-        <ServiciosSolucionados solucionados={serviciosNoSolucionados}></ServiciosSolucionados>
+                    </div>
+                    <div  className="secciones">
+                        <section >
+                            <h1>Servicios solucionados</h1>
+                            <ServiciosSolucionados solucionados={servesSolucionados}></ServiciosSolucionados>
+                        </section>
+                    </div>
+                    <div>
+                        <section >
+                            <h1>Servicios no solucionados</h1>
+                            <ServiciosSolucionados solucionados={serviciosNoSolucionados}></ServiciosSolucionados>
+                        </section>
+                    </div>
+                    <div>
+                        <section >
+                            <h1>Servicios Usuario</h1>
+                            <ServiciosSolucionados solucionados={misSolicitados}></ServiciosSolucionados>
+                        </section>
+                    </div>
+                    <div>
+                        <section >
+                            <h1>Mis servicios no solucionados</h1>
+                            <ServiciosSolucionados solucionados={misSerNoSolucionados}></ServiciosSolucionados>
+                        </section>
+                    </div>
+                    <div>
+                        <section >
+                            <h1>Mis servicios solucionados</h1>
+                            <ServiciosSolucionados solucionados={misSerSolucionados}></ServiciosSolucionados>
+                        </section>
+                    </div>
+                    <div>
+                        <section >
+                            <h1>Datos numéricos</h1>
+                            Comentarios sin ver: {numComentariosSinver}
+                            <br></br>
+                            Comentarios sin leer: {numComentariosSinLer}
+                            <br></br>
+                            Cantidad de servicios que solucioné: {numMisSolucionados}
+                            <br></br>
+                            Cantidad de mis servicios solicitados: {numMisSolicitados}
+                        </section>
+                    </div>
+                
 
-        <h1>Servicios Usuario</h1>
-        <ServiciosSolucionados solucionados={misSolicitados}></ServiciosSolucionados>
+            </div>
 
-        <h1>Mis servicios no solucionados</h1>
-        <ServiciosSolucionados solucionados={misSerNoSolucionados}></ServiciosSolucionados>
 
-        <h1>Mis servicios solucionados</h1>
-        <ServiciosSolucionados solucionados={misSerSolucionados}></ServiciosSolucionados>
-        <h1>Datos numéricos</h1>
-        Comentarios sin ver: {numComentariosSinver}
-        <br></br>
-        Comentarios sin leer: {numComentariosSinLer}
-        <br></br>
-        Cantidad de servicios que solucioné: {numMisSolucionados}
-        <br></br>
-        Cantidad de mis servicios solicitados: {numMisSolicitados}
+
+        </main>
         
         
 

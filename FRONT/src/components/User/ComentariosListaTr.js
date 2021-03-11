@@ -9,7 +9,8 @@ function ComentarioListaTr(props){
       const irA = async (parametro)=>{
           console.log('irA',parametro);
           const data = await deleteService("/comentar",'POST',1,parametro);
-          console.log(data['datoscomentariosServicios']);
+          console.log('Isto é o que recollo', data);
+          console.log('isto é o que estou a pasar: ',data['datoscomentariosServicios']);
           setdatoscomentariosServicios(data['datoscomentariosServicios']);
           
       }
@@ -49,6 +50,7 @@ function ComentarioListaTr(props){
                                                 <td>{item.comentario}</td>                       
                                                 <td><button onClick={()=>{irA(item.id_ser)}}>Ir a conversacion</button></td>
                                             </tr>
+                                            
                                 </>)
                             })}
                     </tbody>

@@ -15,33 +15,36 @@ export default function Solucion(props){
     })
     return (<><h1>Dar solucion</h1>
     <table>
-        <tr>
-            <td>Nº de servicio</td>
-            <td>Puntos</td>
-            <td>Puntos solucion</td>
-            <td>Solucionador</td>
-            <td>Alias</td>
-            <td>Titulo servicio</td>
-            <td>Puntuacion recibida</td>
-        </tr>
+        <tbody>
 
-       {
-           sinsolucionar?.map((item)=>{
-               return(<>
-                        <tr>
-                                <td>{item.id_ser}</td>
-                                <td>{item['puntos(id_usu)']}</td>
-                                <td>{item['puntos(id_usu_sol)']}</td>
-                                <td>{item.Solucionador}</td>
-                                <td>{item.nom_usu}</td>
-                                <td>{item.titulo_ser}</td>
-                                <td>{item.puntuacion}</td>
-                                <td><button onClick={()=>{aSolucionar(item.id_ser)}}>Dar solucion</button></td>
-                        </tr>
+            <tr>
+                <td>Nº de servicio</td>
+                <td>Puntos</td>
+                <td>Puntos solucion</td>
+                <td>Solucionador</td>
+                <td>Alias</td>
+                <td>Titulo servicio</td>
+                <td>Puntuacion recibida</td>
+            </tr>
 
-               </>);
-           })
-       }
+        {
+            sinsolucionar?.map((item,index)=>{
+                return(<>
+                            <tr key ={item.id_ser}>
+                                    <td>{item.id_ser}</td>
+                                    <td>{item['puntos(id_usu)']}</td>
+                                    <td>{item['puntos(id_usu_sol)']}</td>
+                                    <td>{item.Solucionador}</td>
+                                    <td>{item.nom_usu}</td>
+                                    <td>{item.titulo_ser}</td>
+                                    <td>{item.puntuacion}</td>
+                                    <td><button onClick={()=>{aSolucionar(item.id_ser)}}>Dar solucion</button></td>
+                            </tr>
+
+                </>);
+            })
+        }
+        </tbody>
 
     </table>
        {idServicio && <AportarSolucion id={idServicio}></AportarSolucion>}

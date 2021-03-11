@@ -19,7 +19,9 @@ nav {
   text-decoration: none;
   color: white;
 }
-
+.secciones {
+  border-width: 33px;
+}
 body {
   font-family: Helvetica;
   -webkit-font-smoothing: antialiased;

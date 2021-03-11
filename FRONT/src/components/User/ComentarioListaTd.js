@@ -1,11 +1,14 @@
 import BotonEnvioComentarios from './BotonEnvioComentarios';
 import insertComent from '../../http/api';
+import '../../css/ComentariosListaTd.css';
 
 function ComentarioListaTd(props){
   
     let comentarios = props?.elementos[0];
     
-
+    comentarios?.map((item,index)=>{
+        console.log('foto ', item)
+    })
     const enviarRespuesta = ()=>{
         let inputs = document.getElementsByTagName("input");
         let id_ser=0;
@@ -59,6 +62,7 @@ function ComentarioListaTd(props){
                             <tr>
                                 <th>Nº de comentario</th>
                                 <th>Nº de usuario</th>
+                                <th>AVATAR</th>
                                 <th>Nº de servicio</th>
                                 <th>Comentario</th>
                                 <th>Respuesta al comentario Nº</th>
@@ -76,6 +80,9 @@ function ComentarioListaTd(props){
                                         <tr>
                                             <td>{item.id_co}</td>
                                             <td>{item.id_usu_co}</td>
+                                            <td>
+                                                <img src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_co}/${item.nomFoto_usu}`} />
+                                            </td>
                                             <td>{item.id_ser_co}</td>
                                             <td>{item.comentario}</td>
                                             <td>{item.id_co_num}</td>

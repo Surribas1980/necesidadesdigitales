@@ -40,23 +40,25 @@ let titulo;
        
         {
            
-            <table className="fl-table">
-                
-                <thead>
-                </thead>
-                <tbody>
-                    {
-                    probarConObjVal.map((item,index)=>{
-                        
-                        return (<tr key={index}> {item?.map((valor,index)=>{
-                            return <td> {valor}</td>
-                        })}</tr>)
 
-                    })
-                    }
+                <table className="fl-table">
+                    
+                    <thead>
+                    </thead>
+                    <tbody>
+                        {
+                        probarConObjVal.map((item,index)=>{
+                            
+                            return (<tr key={index}> {item?.map((valor,index)=>{
+                                return <td> {valor}</td>
+                            })}</tr>)
 
-                </tbody>
-            </table>
+                        })
+                        }
+
+                    </tbody>
+                </table>
+         
            // totalcontenido.map((elemento,index)=>{return <p>--------- {probar[1][index]}  ----   </p>})
            
         }   
