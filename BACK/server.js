@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const fileUpload = require('express-fileupload');
 const cors = require("cors");
+const path = require("path");
 //Controladores de admin
 const {
   //deleteServicioAdmin,
@@ -81,7 +82,14 @@ const { PORT } = process.env;
 
 //Creo la app de express
 const app = express();
-
+const staticRoute = path.join(__dirname, '/docs/fotousuario3')
+const staticRoute2 = path.join(__dirname, '/docs');
+app.use('/imagenes',express.static(staticRoute));
+app.use('/imagenes',express.static(staticRoute2));
+app.use('/mirarservicios',express.static(staticRoute2));
+/*app.get('/docs/fotousuario3/',function(req, res){
+  res.sendFile( `2af9ebed-0af0-4cd1-b63d-1e3bec5b6a5d.jpg` );
+})*/
 //Aplico middlewares
 app.use(morgan("dev"));
 // Body parser (body en JSON)

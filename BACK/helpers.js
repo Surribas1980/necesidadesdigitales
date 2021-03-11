@@ -331,7 +331,7 @@ async function comentariosServicio(idServicio){
   let sql;
   try{
     connection = await getDB();
-    sql = await connection.query(`select * from comentar where id_ser_co = ?;`,[idServicio]);
+    sql = await connection.query(`select * from comentar join usuarios on id_usu_co = id_usu where id_ser_co = ?;`,[idServicio]);
     return sql;
   } catch (error) {
     const e = new Error('Error cargando datos de comentariosServicio');
