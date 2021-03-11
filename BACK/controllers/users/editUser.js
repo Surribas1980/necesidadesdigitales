@@ -13,7 +13,8 @@ En este end-point me surge la siguiente duda:
  */
 const {SHA512} = require("sha2"); 
 const getDB = require("../../db");
-const { insertFiles } = require("../../helpers");
+const { insertFiles, savePhoto} = require("../../helpers");
+const uuid = require('uuid');
 const editEntry = async (req, res, next) => {
     let connection;
     const datoEnviado = {};
@@ -94,8 +95,12 @@ if(req.files){
 }
     if (req.files && req.files.nomFoto_usu) {
       // Se está subiendo una foto
-      dateUser[0]['nomFoto_usu'] = req.files.nomFoto_usu.name;
-      insertFiles(req.files,dato);
+      for (const photoData of Object.values(req.files).slice(0, 3)) {
+        // Guardar la imagen y conseguir el nombre del fichero
+        const photoFile = await savePhoto(photoData,dato);
+        dateUser[0]['nomFoto_usu'] = photoFile;       
+      }
+      console.log('Esto es lo que envía la funcion: ',dateUser[0]['nomFoto_usu'])
     }
     
 
@@ -103,6 +108,7 @@ if(req.files){
 
     await connection.query(
         `UPDATE usuarios SET 
+        nomFoto_usu=?,
         pwd=?, 
         nomUsuario_usu=?, 
         nom_usu=?,
@@ -112,6 +118,7 @@ if(req.files){
         mail=?
         WHERE id_usu= ?;`,
         [
+            dateUser[0]['nomFoto_usu'],
             dateUser[0]['pwd'],    
             dateUser[0]['nomUsuario_usu'], 
             dateUser[0]['nom_usu'],

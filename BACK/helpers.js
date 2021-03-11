@@ -3,8 +3,10 @@ const sgMail = require('@sendgrid/mail');
 const path = require("path");
 const crypto = require("crypto");
 const fs = require("fs").promises;
+const fs1 = require("fs"); 
 const getDB = require("./db");
-
+const uuid = require('uuid');
+const sharp = require('sharp');
 sgMail.setApiKey('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMzAzODY3NywiZXhwIjoxNjEzMTI1MDc3fQ.7Na0UNKI6UJ1LtMOymu4_KMac7M6M-6l9YdDs3zb8gc');
 
 //se manda como un objeto, y este ya lo desestructura en 'to','subject' y 'body'
@@ -37,7 +39,32 @@ function generateRandomString(length) {
 function formatDateToDB(dateObject) {
   return format(dateObject, "yyyy-MM-dd HH:mm:ss");
 }
+async function savePhoto(imageData,dato) {
+  // imageData es el objeto con información de la imagen
+  if(!fs1.existsSync(dato.carpeta)){
+    fs1.mkdirSync(dato.carpeta);
+  }
+  // Leer la imagen con sharp
+  const image = sharp(imageData.data);
 
+  // Comprobar que la imagen no tenga un tamaño mayor a X pixeles de ancho
+  const imageInfo = await image.metadata();
+
+  // Si es mayor que ese tamaño redimensionarla a ese tamaño
+  const IMAGE_MAX_WIDTH = 1000;
+  if (imageInfo.width > IMAGE_MAX_WIDTH) {
+    image.resize(IMAGE_MAX_WIDTH);
+  }
+
+  // Generar un nombre único para la imagen
+  const savedImageName = `${uuid.v4()}.jpg`;
+
+  // Guardar la imagen en el directorio de subida de imagenes
+  await image.toFile(path.join(dato.carpeta, savedImageName));
+
+  // Devolver en nombre del fichero
+  return savedImageName;
+}
 
 async function uploadFile(mifichero,datos) {
   
@@ -46,7 +73,9 @@ async function uploadFile(mifichero,datos) {
     
     let dir = path.join(__dirname,`./${datos.carpeta}/`);
     console.log(`${dir} upload`);
-    mifichero.mv(`${dir}` + mifichero.name);
+    
+      mifichero.mv(`${dir}` + mifichero.name);
+    
   }catch(error){
     console.error(error.message);
   }
@@ -83,11 +112,11 @@ async function deleteFiles(id){
   }
   
 }
-function insertFiles(ficheros,datos){
+function insertFiles(ficheros,datos,nomFoto){
 console.log('estoy en isner')
 for (const archivo in ficheros){
   //console.log(`estoy dentro ${ficheros[archivo].name}`);
-    uploadFile(ficheros[archivo],datos);
+    uploadFile(ficheros[archivo],datos,nomFoto);
   }
 }
 
@@ -418,5 +447,6 @@ module.exports = {
   vectorServis,
   listar,
   misConversaciones,
-  comentariosServicio
+  comentariosServicio,
+  savePhoto
 };
