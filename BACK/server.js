@@ -185,7 +185,7 @@ app.post(urlsusers.votar, isUser, cannotAdmin, voteServicio);
 //Archivos
 
 //...manda al servidor los archivos solucionados
-app.get(urls.archivosserviciossolucionados,filesSolution);
+app.get(urls.archivosserviciossolucionados,isUser,filesSolution);
 
 
 
