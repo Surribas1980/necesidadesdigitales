@@ -4,7 +4,7 @@ import { useState,useEffect} from 'react';
 import { deleteService } from '../http/api';
 import GraficaRanking from '../components/GraficaRanking';
 import InsertServices from './InsertServices';
-import ServiciosUser from '../components/User/ServiciosUser';
+
 import ServiciosSolucionados from '../components/User/ServiciosSolucionados';
 import InsertComentarios from './InsertComentarios';
 import Comentarios from './Comentarios';
@@ -16,6 +16,7 @@ import '../css/UserAdmin.css'
 function UserAdmin(){
     const { userData, logOut } = useAuth();
     const [ranking, setRanking] = useState([]);
+    const [datosUsuario, setDatosUsuario] = useState([]);
     const [servesSolucionados, setservisSolucionados] = useState([]);
     const [serviciosNoSolucionados,setserviciosNoSolucionados]=useState([]);
     const [numComentariosSinver,setnumComentariosSinver]=useState(0);
@@ -34,7 +35,7 @@ function UserAdmin(){
             const data = await deleteService("/users/userLogin/",'GET',0,0);
             
             console.log('El ranking',data);
-            
+            setDatosUsuario(data['datosUsuario']);
             setRanking(data['ranking']);
             console.log('Servicios solucionados',data['serviSolucionados'][0]);
             setservisSolucionados(data['serviSolucionados'][0]);
@@ -100,7 +101,7 @@ function UserAdmin(){
                 <InsertServices />
             </Route>
             <Route path="/datospersonales">
-                <ModificacionDatos />
+                <ModificacionDatos datos={datosUsuario}/>
             </Route>
             <Route path="/darpuntuacion">
                 <DarPuntuacion></DarPuntuacion>

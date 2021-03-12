@@ -2,11 +2,16 @@ import { useForm } from 'react-hook-form';
 import {modificacionDatos} from '../../http/api';
 import useAuth from '../../shared/hooks/useAuth';
 
-export default function ModificacionDatosForm(){
+export default function ModificacionDatosForm(props){
   const { userData } = useAuth();
   const { register, handleSubmit } = useForm();
+  const camposUsuario = props?.datos;
  
-  const campos = ['nomUsuario_usu', 'nom_usu', 'ape1_usu', 'ape2_usu','biografia_usu', 'mail','pwd','nomFoto_usu'];
+  camposUsuario?.map((item)=>{
+    console.log('valores en modificacion de datos', item, 'individual', item.id_usu);
+  })
+
+  console.log('campo id_usu',camposUsuario.id_usu);
 
    const onSubmit = (datos) => {
         
@@ -20,6 +25,13 @@ export default function ModificacionDatosForm(){
 
   return (
     <>
+    {
+      camposUsuario?.map((item)=>{
+        return(<>        
+        <img src={`http://localhost:4000/imagenes/fotousuario${item.id_usu}/${item.nomFoto_usu}`}></img>
+        </>);
+      })
+    }
         <form onSubmit={handleSubmit(onSubmit)}>
             <label htmlFor="nomUsuario_usu" >Nombre de usuario</label>
             <input id="nomUsuario_usu" ref={register({ required: false})} name="nomUsuario_usu"/>

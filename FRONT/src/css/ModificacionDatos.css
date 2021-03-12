@@ -1,0 +1,8 @@
+img {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  max-width: 50%;
+  height: auto;
+  margin: 0%;
+  text-align: center;
+}

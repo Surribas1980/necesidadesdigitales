@@ -12,12 +12,9 @@ import ComentarioListaTr from "./ComentariosListaTr";
 import {useState} from 'react';
 export default function ComentariosLista(props){
     const [mostrar, setMostrar] = useState(false);
-    const [name, setName] = useState("");
-    const [name1, setName1] = useState("");
     const listaConversaciones = props?.valores;
     let titulo;
-    let valores = [];
-    let valoresTotal =[];
+    
     console.log('Lista de conversaciones ',listaConversaciones)
     for (const interno of Object.values(listaConversaciones)){
         console.log('Esto es interno: ', interno)
@@ -61,18 +58,8 @@ export default function ComentariosLista(props){
     valoresTotal.reverse();
     console.log('Valores Total',valoresTotal);*/
     
-function handleChange(e) {
-    if(e.target.name == "text1"){
-       setName(e.target.value); 
-       console.log(name);
-    }
-    if(e.target.name == "text2"){
-        setName1(e.target.value);
-        console.log(name1);
-    }
-    
-  }
-console.log('Esto es name 1:...',name1,'Esto es name: ',name)
+
+
     return (<>
     <h2>Lista de mis conversaciones</h2>
     <button onClick={()=>{setMostrar(!mostrar)}}>Mostrar conversaciones</button>

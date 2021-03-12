@@ -6,9 +6,6 @@ function ComentarioListaTd(props){
   
     let comentarios = props?.elementos[0];
     
-    comentarios?.map((item,index)=>{
-        console.log('foto ', item)
-    })
     const enviarRespuesta = ()=>{
         let inputs = document.getElementsByTagName("input");
         let id_ser=0;
