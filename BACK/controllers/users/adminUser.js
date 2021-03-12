@@ -24,6 +24,7 @@ const adminUser = async (req, res, next) => {
   try {
     connection = await getDB();
 
+    const [usuario] = await connection.query(`select * from usuarios where id_usu = ?;`,[req.userAuth.id]);
     const [Solucionados] = await datosServicios(1);
     const [NoSolucionados] = await datosServicios(0);
     const [ranking] = await rank();   
@@ -42,6 +43,7 @@ const adminUser = async (req, res, next) => {
      
   // Devuelvo un json con las entradas
      res.send({
+        datosUsuario: usuario,
         status: "ok",
         ranking:ranking,
         serviSolucionados: Solucionados,
@@ -58,7 +60,9 @@ const adminUser = async (req, res, next) => {
 
   } catch (error) {
     next(error);
-  } 
+  } finally{
+    if(connection) connection.release();
+  }
 }
 
 module.exports = adminUser;
