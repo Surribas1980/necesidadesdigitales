@@ -4,7 +4,7 @@ import { useState,useEffect} from 'react';
 import { deleteService } from '../http/api';
 import GraficaRanking from '../components/GraficaRanking';
 import InsertServices from './InsertServices';
-
+import ServisSolucionados from '../components/ServisSolucionados';
 import ServiciosSolucionados from '../components/User/ServiciosSolucionados';
 import InsertComentarios from './InsertComentarios';
 import Comentarios from './Comentarios';
@@ -86,6 +86,10 @@ function UserAdmin(){
 
                             <Link to= "/darpuntuacion">Dar puntuación</Link>
                             </div>
+                            <div className="header-item">
+
+                            <Link to= "/solucionados">Servicios Solucionados</Link>
+                            </div>
                         
                         </nav>
                 
@@ -108,6 +112,9 @@ function UserAdmin(){
             </Route>
             <Route path="/darsolucion">
                 <Solucion nosolucionados={serviciosNoSolucionados}/>
+            </Route>
+            <Route path="/solucionados">
+                <ServisSolucionados servissolucionados={servesSolucionados}></ServisSolucionados>
             </Route>
         </Router>
     
