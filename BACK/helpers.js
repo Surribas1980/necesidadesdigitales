@@ -9,6 +9,38 @@ const uuid = require('uuid');
 const sharp = require('sharp');
 sgMail.setApiKey('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMzAzODY3NywiZXhwIjoxNjEzMTI1MDc3fQ.7Na0UNKI6UJ1LtMOymu4_KMac7M6M-6l9YdDs3zb8gc');
 
+
+async function buscarDentro(dir){
+
+  const archivos = [];
+  try{
+      const contDirectorio = await fs.readdir(dir);
+      for(const contenido of contDirectorio)
+      {
+          const pathEntra = path.join(dir,contenido);
+          const infoEntra = await fs.stat(pathEntra);
+
+          if(infoEntra.isDirectory()){
+             console.log(`El path es ${pathEntra}`)
+             await buscarDentro(pathEntra);
+          }
+          else if(infoEntra.isFile()){
+              console.log(`El path es ${pathEntra}, el fichero es ${contenido}, pesa ${infoEntra.size} y su fecha es ${infoEntra.birthtime}`);
+              archivos.push(contenido);
+          }
+      }
+      return archivos;
+  }
+  catch(error){console.error(error.message);}
+}
+
+async function buscarArchivos(dir){
+  try {
+   return await buscarDentro(dir);
+  } catch (e) {
+    throw new Error("El directorio no existe");
+  }
+}
 //se manda como un objeto, y este ya lo desestructura en 'to','subject' y 'body'
 async function sendMail({to,subject,body}){
     try{
@@ -448,5 +480,6 @@ module.exports = {
   listar,
   misConversaciones,
   comentariosServicio,
-  savePhoto
+  savePhoto,
+  buscarArchivos
 };

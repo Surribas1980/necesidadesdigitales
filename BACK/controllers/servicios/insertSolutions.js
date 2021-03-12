@@ -23,14 +23,14 @@ const   insertSolutions = async (req, res, next)=>{
         const {id_ser} = req.params;
         const dato = {
             "usuario":req.userAuth.id,
-            "carpeta": `docs/servicios/solucionados/${id_ser}`
+            "carpeta": `docs/servicios/solucionados/ServicioNº${id_ser}/Usuario_${req.userAuth.id}`
         }
         let ficheros;
         for(const elemento of Object.values(req.files)){
             ficheros = elemento;
         }
         
-        insertFiles(ficheros,dato);
+        insertFiles(ficheros,dato,0);
 
         //{Insertar en la bbdd el de usuario y del servicio en la tabla solucionar}
 
