@@ -31,17 +31,17 @@ export default function DarPuntuacion(){
         showMenu &&
             <nav>
                 <div className="header-item1">
-                    <Link to ="misservisnosol">Posibles soluciones</Link>
+                    <Link to ="/misservisnosol">Posibles soluciones</Link>
                 </div>
                 <div className="header-item1">
-                    <Link to = "missolucionesdescartadas">Mis soluciones descartadas</Link>
+                    <Link to = "/missolucionesdescartadas">Mis soluciones descartadas</Link>
                 </div>
             </nav>
     }
-        <Route path="misservisnosol">
+        <Route path="/misservisnosol">
             <MisSolDesc nosolucionados={misServNoSol}></MisSolDesc>
         </Route>
-        <Route path="missolucionesdescartadas">
+        <Route path="/missolucionesdescartadas">
             <MisServNoSol descartadas={misSolDesc}></MisServNoSol>
         </Route>
     </Router>
