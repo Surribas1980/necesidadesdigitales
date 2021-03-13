@@ -1,0 +1,16 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    background-color: #218821;
+  }
+  .header-item1 {
+    font-family: sans-serif;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .header-item1 a {
+    text-decoration: none;
+    color: rgb(211, 132, 30);
+  }
