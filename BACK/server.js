@@ -24,7 +24,8 @@ const {
   newComentar,
   newServicio,
   voteServicio,
-  filesSolution
+  filesSolution,
+  myServices
 } = require("./controllers/servicios");
 
 // Controladores de usuarios
@@ -64,7 +65,8 @@ const urls = {
   validaregistrationCode: "/validar/:registrationCode",
   usersolution: "/user/solution/:id_ser",
   deleteservicio: "/servicios/borrar",
-  archivosserviciossolucionados:"/archivos/solucionados/:id_ser/:id_usu"
+  archivosserviciossolucionados:"/archivos/solucionados/:id_ser/:id_usu",
+  misservicios: "/misservicios"
 };
 
 const urlsusers = {
@@ -180,7 +182,8 @@ app.get(urls.validaregistrationCode, validateUser);
 //Añade puntuación a un servicio
 app.post(urlsusers.votar, isUser, cannotAdmin, voteServicio);
 
-
+//Get - /
+app.get(urls.misservicios,isUser,myServices);
 
 //Archivos
 
