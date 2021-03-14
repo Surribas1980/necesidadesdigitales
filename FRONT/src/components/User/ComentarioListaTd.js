@@ -11,7 +11,7 @@ function ComentarioListaTd(props){
         let id_ser=0;
         let idComentario=null;
         let comentario= undefined;
-        for (var i = 0; i < inputs.length; i++) {
+        for (let i = 0; i < inputs.length; i++) {
                 if (inputs[i].getAttribute('type') == 'text') {
                     if(inputs[i].value !== ''){
                         
