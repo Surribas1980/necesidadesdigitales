@@ -1,4 +1,4 @@
-import { deleteService } from '../http/api';
+import { deleteService, descartarServicio } from '../http/api';
 import {useState} from 'react';
 import VerArchivos from './VerArchivos';
 
@@ -8,7 +8,23 @@ function ServisSolucionados(props){
     const [servicio, setServicio] = useState(0);
     const [nombreSolucionador, setNombreSolucionador] = useState("");
     const lista = props?.servissolucionados;
-    lista?.map((item)=>{return console.log('valores: ',item)})
+    lista?.map((item)=>{return console.log('valores: ',item)});
+
+    const descartar = ()=>{
+        let inputs = document.getElementsByTagName("input");
+        //console.log('tamaño ',inputs.length);
+        for(let i = 0;i < inputs.length; i++){
+            console.log('buscando',i, inputs[i].value)
+            if(inputs[i].checked){
+                console.log( 'checkeado', inputs[i].checked);
+                console.log('servicio',inputs[i-3].value,'solucionador',inputs[i-2].value)
+                const url = `/servicios/descartarsolucion/${inputs[i-3].value}/${inputs[i-2].value}`;
+                const data = descartarServicio(url,'POST');
+                /*console.log('esto es lo que responde',data)*/
+            }
+
+        }
+    }
 
     const irA = async (Servicio,Solucionador,nombreSolucionador)=>{
         console.log('irA',Servicio,Solucionador);
@@ -38,6 +54,7 @@ function ServisSolucionados(props){
                         <th>Titulo del servicio</th>
                         <th>Puntución dada</th>
                         <th>Ver archivos</th>
+                        <th>Solucion a descartar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,6 +62,10 @@ function ServisSolucionados(props){
                         lista?.map((item)=>{
                             return (<>
                             <tr>
+                                <input id="id_ser" type="hidden" name="id_ser" value={item.id_ser} />
+                                <input id="id_usu_sol" type="hidden" name="id_usu_sol" value={item.id_usu_sol} />
+                                <input id="id_usu_soli" type="hidden" name="id_usu_soli" value={item.id_usu_soli} />
+                            
                                 <td>
                                     {item.Solicitador}
                                 </td>
@@ -63,8 +84,9 @@ function ServisSolucionados(props){
                                 </td>
                                 <td>
                                     {item.puntuacion}
-                                </td>
+                                </td>                                
                                 <th><button onClick={()=>{irA(item.id_ser,item.id_usu_sol,item.Solucionador)}}>ver</button></th>
+                                <td><input type="radio" id="eleccion" name="eleccion"></input></td>
                             </tr>
                             </>)
                         })
@@ -72,7 +94,7 @@ function ServisSolucionados(props){
                 </tbody>
             </table>
     }
-    
+    {<button onClick={()=>{descartar()}}>Descartar</button>}
     {archivos && <VerArchivos ficheros={archivos} user={usuario} server={servicio} nombre={nombreSolucionador}></VerArchivos>}
     </>)
 };
