@@ -26,7 +26,6 @@ function App() {
           <AuthProvider>
          
             <nav>
-            <button onClick={() => setShowMenu(!showMenu)}>Pulsa para | Menú de UserAdmin</button>
             
               <div className="header-item">
                 <Link to="/">Home</Link>
@@ -40,6 +39,7 @@ function App() {
 
               <PrivateComponent>
                    
+                  <button onClick={() => setShowMenu(!showMenu)}>Pulsa para | Menú de UserAdmin</button>
                   <UserComponent>
                     
                     
