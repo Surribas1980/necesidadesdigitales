@@ -149,6 +149,19 @@ let datos = await peticion.json();
 return datos;
 }
 
+export async function votarServicio(uri,puntuacion){
+
+  await fetchTravelApi(uri, { method: requestMethods.post, body: {puntuacion } });
+
+}
+
+export async function descartarServicio(uri,metodo){
+  console.log('uri',uri);
+  const obxRequest = montandoObxetos(uri,metodo);
+  let request = new Request(obxRequest.url,{ headers: obxRequest.headers, method: obxRequest.method});
+  await fetch(request);
+}
+
 export default async function insertComent(uri,id_ser,idComentario,comentario){
 
 

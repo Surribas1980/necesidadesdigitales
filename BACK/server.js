@@ -25,7 +25,8 @@ const {
   newServicio,
   voteServicio,
   filesSolution,
-  myServices
+  myServices,
+  discardSolution
 } = require("./controllers/servicios");
 
 // Controladores de usuarios
@@ -66,7 +67,8 @@ const urls = {
   usersolution: "/user/solution/:id_ser",
   deleteservicio: "/servicios/borrar",
   archivosserviciossolucionados:"/archivos/solucionados/:id_ser/:id_usu",
-  misservicios: "/misservicios"
+  misservicios: "/misservicios",
+  descartar: "/servicios/descartarsolucion/:id_ser/:id_usu"
 };
 
 const urlsusers = {
@@ -96,7 +98,7 @@ app.use('/mirarservicios', express.static(staticRoute2));
 //Aplico middlewares
 app.use(morgan("dev"));
 // Body parser (body en JSON)
-app.use(bodyParser.json()); //Comentario realizado por [Israel] : no recuerdo para que lo hace
+app.use(express.json()); //Comentario realizado por [Israel] : no recuerdo para que lo hace
 //app.use(bodyParser.urlencoded({extended: true}));
 app.use(fileUpload({
   createParentPath: true
@@ -181,7 +183,7 @@ app.get(urls.validaregistrationCode, validateUser);
 //Post - /servicios
 //Añade puntuación a un servicio
 app.post(urlsusers.votar, isUser, cannotAdmin, voteServicio);
-
+app.post(urls.descartar, isUser, cannotAdmin, discardSolution);
 //Get - /
 app.get(urls.misservicios,isUser,myServices);
 

@@ -20,7 +20,7 @@ const voteServicio = async (req, res, next) => {
     const { puntuacion } = req.body;
  
 
-    console.log(`${id_servicio} ${id_solucionador} ${req.userAuth.id}`)
+    console.log(`${puntuacion} ${id_servicio} ${id_solucionador} ${req.userAuth.id}`)
     // Limitamos la puntuación en el back sin hacerlo en SQL
     if (puntuacion < 1 || puntuacion > 5) {
       const error = new Error("La puntuacion debería ser 1,2,3,4 o 5");

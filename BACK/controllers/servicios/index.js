@@ -8,6 +8,7 @@ const insertSolutions = require("./insertSolutions");
 const voteServicio = require("./voteServicio");
 const filesSolution = require("./filesSolution");
 const myServices = require("./myServices");
+const discardSolution = require("./discardSolution");
 module.exports = {
   deleteComentar,
   getServicio,
@@ -18,5 +19,6 @@ module.exports = {
   newServicio,
   voteServicio,
   filesSolution,
-  myServices
+  myServices,
+  discardSolution
 };
