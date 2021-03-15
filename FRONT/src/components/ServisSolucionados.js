@@ -54,7 +54,7 @@ function ServisSolucionados(props){
                         <th>Titulo del servicio</th>
                         <th>Puntución dada</th>
                         <th>Ver archivos</th>
-                        <th>Solucion a descartar</th>
+        
                     </tr>
                 </thead>
                 <tbody>
@@ -86,7 +86,7 @@ function ServisSolucionados(props){
                                     {item.puntuacion}
                                 </td>                                
                                 <th><button onClick={()=>{irA(item.id_ser,item.id_usu_sol,item.Solucionador)}}>ver</button></th>
-                                <td><input type="radio" id="eleccion" name="eleccion"></input></td>
+                                
                             </tr>
                             </>)
                         })
@@ -94,7 +94,7 @@ function ServisSolucionados(props){
                 </tbody>
             </table>
     }
-    {<button onClick={()=>{descartar()}}>Descartar</button>}
+    
     {archivos && <VerArchivos ficheros={archivos} user={usuario} server={servicio} nombre={nombreSolucionador}></VerArchivos>}
     </>)
 };

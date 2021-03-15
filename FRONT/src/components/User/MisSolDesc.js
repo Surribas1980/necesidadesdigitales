@@ -49,7 +49,7 @@ export default function MisSolDesc(props){
     }
 
 
-    return (<><h3>Posibles soluciones</h3>
+    return (<>
     {
         <table>
             <thead>

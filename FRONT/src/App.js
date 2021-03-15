@@ -1,5 +1,6 @@
 import './css/App.css';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { useState,useEffect} from 'react';
 import Home from './Pages/Home';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
@@ -18,13 +19,15 @@ import Graficas from './Pages/Graficas';
 
 
 function App() {
+  const [showMenu, setShowMenu]=useState(false);
   return (    
     
         <Router>
           <AuthProvider>
          
             <nav>
-              
+            <button onClick={() => setShowMenu(!showMenu)}>Pulsa para | Menú de UserAdmin</button>
+            
               <div className="header-item">
                 <Link to="/">Home</Link>
               </div> 
@@ -36,13 +39,9 @@ function App() {
               </div> 
 
               <PrivateComponent>
-                    <div className="header-item">
-                      <Link to="/delete/servicios">Borrar servicios</Link>
-                    </div>
+                   
                   <UserComponent>
-                    <div className="header-item">
-                      <Link to="/insert/servicios">Insertar servicios</Link>
-                    </div>
+                    
                     
                   </UserComponent>
                     <AdminComponent>
@@ -69,12 +68,10 @@ function App() {
                     <Login />                                
                   </PublicRoute>       
                 </Route>
-                <Route path="/insert/servicios">
-                    <InsertServices />
-                </Route>
+               
                 <Route path="/useradmin">
                   <PrivateRoute>
-                    <UserAdmin />
+                  {showMenu && <UserAdmin />}  
                   </PrivateRoute>
                  
                 </Route>
@@ -84,11 +81,7 @@ function App() {
                   </AdminRoute>
 
                 </Route>
-                <Route path="/delete/servicios">
-                 
-                    <DeleteService />
-                  
-                </Route>                
+                               
               
             </Switch>
           

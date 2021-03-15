@@ -4,7 +4,9 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import '../../css/DarPuntuacion.css';
 import MisServNoSol from './MisServNoSol';
 import MisSolDesc from './MisSolDesc';
-export default function DarPuntuacion(){ 
+import MisServSol from './MisServSol';
+export default function DarPuntuacion(props){ 
+    const servsolucionados = props.solucionados;
     const [misServNoSol,setmisSerNoSol] = useState([]);
     const [misSolDesc, setmisSolDesc] = useState([]);
     const [showMenu, setShowMenu]=useState(false);
@@ -23,26 +25,29 @@ export default function DarPuntuacion(){
     ,[]);
     
 
-    return(<><h1>Estoy en dar puntuación</h1>
+    return(<>
     <Router>
 
-    <button onClick={()=>{setShowMenu(!showMenu)}}>Ver menús</button>
-    {
-        showMenu &&
             <nav>
                 <div className="header-item1">
-                    <Link to ="/misservisnosol">Posibles soluciones</Link>
+                    <Link  to = "/missolucionados">Mis servicios solucionados</Link>
+                </div>
+                <div className="header-item1">
+                    <Link to ="/misservisnosol">Elección de las soluciones</Link>
                 </div>
                 <div className="header-item1">
                     <Link to = "/missolucionesdescartadas">Mis soluciones descartadas</Link>
                 </div>
             </nav>
-    }
+    
         <Route path="/misservisnosol">
             <MisSolDesc nosolucionados={misServNoSol}></MisSolDesc>
         </Route>
         <Route path="/missolucionesdescartadas">
             <MisServNoSol descartadas={misSolDesc}></MisServNoSol>
+        </Route>
+        <Route path="/missolucionados">
+            <MisServSol missolucionados={servsolucionados}></MisServSol>
         </Route>
     </Router>
     </>);

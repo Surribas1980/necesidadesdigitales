@@ -158,6 +158,7 @@ export async function votarServicio(uri,puntuacion){
 export async function descartarServicio(uri,metodo){
   console.log('uri',uri);
   const obxRequest = montandoObxetos(uri,metodo);
+  console.log('La uri',obxRequest.url)
   let request = new Request(obxRequest.url,{ headers: obxRequest.headers, method: obxRequest.method});
   await fetch(request);
 }

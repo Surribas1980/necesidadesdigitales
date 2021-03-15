@@ -12,7 +12,7 @@ import ModificacionDatos from '../components/User/ModificacionDatos';
 import Solucion from '../components/User/Solucion';
 import DarPuntuacion from '../components/User/DarPuntuacion';
 import '../css/UserAdmin.css'
-
+import DeleteService from '../Pages/DeleteService';
 function UserAdmin(){
     const { userData, logOut } = useAuth();
     const [ranking, setRanking] = useState([]);
@@ -58,8 +58,8 @@ function UserAdmin(){
 
     return (<>
         <Router>
-            <button onClick={() => setShowMenu(!showMenu)}>Pulsa para | Menú de UserAdmin</button>
-            {showMenu &&
+            
+            {
              
                         <nav>
                             <div className="header-item">
@@ -90,7 +90,12 @@ function UserAdmin(){
 
                             <Link to= "/solucionados">Servicios Solucionados</Link>
                             </div>
-                        
+                            <div className="header-item">
+                                <Link to="/delete/servicios">Borrar servicios</Link>
+                            </div>
+                            <div className="header-item">
+                      <Link to="/insert/servicios">Insertar servicios</Link>
+                    </div>
                         </nav>
                 
             }
@@ -108,7 +113,7 @@ function UserAdmin(){
                 <ModificacionDatos datos={datosUsuario}/>
             </Route>
             <Route path="/darpuntuacion">
-                <DarPuntuacion></DarPuntuacion>
+                <DarPuntuacion solucionados={misSerSolucionados}></DarPuntuacion>
             </Route>
             <Route path="/darsolucion">
                 <Solucion nosolucionados={serviciosNoSolucionados}/>
@@ -116,6 +121,14 @@ function UserAdmin(){
             <Route path="/solucionados">
                 <ServisSolucionados servissolucionados={servesSolucionados}></ServisSolucionados>
             </Route>
+            <Route path="/delete/servicios">
+                 
+                    <DeleteService />
+                  
+            </Route>
+            <Route path="/insert/servicios">
+                    <InsertServices />
+                </Route>
         </Router>
     
     <h1>Estoy en UserAdmin</h1>

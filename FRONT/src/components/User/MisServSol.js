@@ -1,13 +1,13 @@
 import VerArchivos from '../VerArchivos';
 import {useState} from 'react';
-import {deleteService} from '../../http/api';
-export default function MisServNoSol(props){
-
-    const misservisdescart = props.descartadas;
+import {deleteService,descartarServicio} from '../../http/api';
+export default function MisServSol(props){
+    const misservissolucionados = props.missolucionados;
     const [archivos,setArchivos] = useState();
     const [usuario, setUsuario] = useState(0);
     const [servicio, setServicio] = useState(0);
     const [nombreSolucionador, setNombreSolucionador] = useState("");
+    misservissolucionados?.map((item)=>{return console.log('Estoy en MisServSol Solucionados: ',item)});
 
     const irA = async (Servicio,Solucionador,nombreSolucionador)=>{
         console.log('irA',Servicio,Solucionador);
@@ -20,7 +20,21 @@ export default function MisServNoSol(props){
           console.log('Isto é o que recollo', data);
           
     }
+    const descartar = ()=>{
+        let inputs = document.getElementsByTagName("input");
+        //console.log('tamaño ',inputs.length);
+        for(let i = 0;i < inputs.length; i++){
+            console.log('buscando',i, inputs[i].value)
+            if(inputs[i].checked){
+                console.log( 'checkeado', inputs[i].checked);
+                console.log('servicio',inputs[i-3].value,'solucionador',inputs[i-2].value)
+                const url = `/servicios/descartarsolucion/${inputs[i-3].value}/${inputs[i-2].value}`;
+                const data = descartarServicio(url,'POST');
+                /*console.log('esto es lo que responde',data)*/
+            }
 
+        }
+    }
     return (<>
     {
         <table>
@@ -29,11 +43,12 @@ export default function MisServNoSol(props){
                 <th>Solucionador</th>
                 <th>Titulo del servicio</th>
                 <th>Explicacion del servicio</th>
-                <th>Ver solución descartada</th>
+                <th>Ver solución</th>
+                <th>Solucion a descartar</th>
             </thead>
             <tbody>
                 {
-                    misservisdescart?.map((item) =>{
+                    misservissolucionados?.map((item) =>{
                         return(<>
 
                                     <tr>
@@ -54,7 +69,8 @@ export default function MisServNoSol(props){
                                             {item.expli_ser}
                                         </td>
                                         <th><button onClick={()=>{irA(item.id_ser,item.id_usu_sol,item.Solucionador)}}>ver</button></th>
-                                        
+                                        <td><input type="radio" id="eleccion" name="eleccion"></input></td>
+                        
                                     </tr>
                         </>)
                     })
@@ -63,6 +79,6 @@ export default function MisServNoSol(props){
         </table>
     }
     {archivos && <VerArchivos ficheros={archivos} user={usuario} server={servicio} nombre={nombreSolucionador}></VerArchivos>}
-    
+    {<button onClick={()=>{descartar()}}>Descartar</button>}
     </>)
 }
