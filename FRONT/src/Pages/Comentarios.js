@@ -26,15 +26,11 @@ export default function Comentarios(){
     
     //<ComentariosLista valores={comentarios}></ComentariosLista>
     return (<>
-        <h1>Estoy en comentarios</h1>
+        
             <Router>
-            <button onClick={() => setShowMenu(!showMenu)}>Menú de Comentarios</button>
-            {showMenu && 
+            
+            { 
                 <nav>
-                        <div className="header-item">
-
-                        <Link to="/nada">Recoger en Comentarios</Link>
-                        </div>
                         <div className="header-item">
 
                         <Link to="/insertarcomentario">Conversaciones</Link>
@@ -44,6 +40,10 @@ export default function Comentarios(){
                         <Link to="/miscomentarios" >Mis comentarios</Link>
                         </div>
                 
+                        <div className="header-item">
+
+                            <Link to="/misconversaciones">Mis conversaciones</Link>
+                        </div>
             
                 </nav>
             }
@@ -57,11 +57,11 @@ export default function Comentarios(){
                 <Route path="/miscomentarios">
                     <ServiciosSolucionados solucionados={miscomentarios}></ServiciosSolucionados>
                 </Route>
-                <Route path="/nada">
-
+                <Route path="/misconversaciones">
+                    <ComentariosLista valores={misconversaciones}></ComentariosLista>
                 </Route>
 
             </Router>
-        <ComentariosLista valores={misconversaciones}></ComentariosLista>
+        
         </>);
 }

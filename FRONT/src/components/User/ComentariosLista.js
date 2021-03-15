@@ -61,9 +61,8 @@ export default function ComentariosLista(props){
 
 
     return (<>
-    <h2>Lista de mis conversaciones</h2>
-    <button onClick={()=>{setMostrar(!mostrar)}}>Mostrar conversaciones</button>
-    {mostrar && <ComentarioListaTr dato={listaConversaciones} ></ComentarioListaTr>}
+    
+    {<ComentarioListaTr dato={listaConversaciones} ></ComentarioListaTr>}
    
     </>);
 }
