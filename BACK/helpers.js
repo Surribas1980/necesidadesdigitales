@@ -196,7 +196,7 @@ async function listar(){
   connection = await getDB();
 
   try{
-    [results]=await connection.query(`call comentarios`);
+    [results]=await connection.query(`call Conversaciones`);
     return results;
   }catch (error) {
     const e = new Error('Error cargando datos de listar');
@@ -269,14 +269,14 @@ async function rank(){
     if (connection) connection.release();
   }
 }
-async function datosServicios(condicion){
+async function datosServicios(condicion,usuario){
   let connection;
   let sql;
   try {
     connection = await getDB();
     
-    await connection.query(`call tablatemporal(${condicion});`);
-    sql = await connection.query(`call deTemporal();`);
+    
+    sql = await connection.query(`call tablatemporal(${condicion},${usuario});`);
     return sql;
     } catch (error) {
       const e = new Error('Error cargando datos de servicios');
@@ -393,19 +393,23 @@ async function misServes(usuario,solucionados){
   let connection;
   let sql;
   let condicion;
+  let condicion2;
   let instrucionSql;
   try {
     connection = await getDB();
-    instrucionSql =`select titulo_ser,nombre_fich_ser,puntuacion 
+    instrucionSql =`select * 
     from servicios join solicitar
     on servicios.id_ser = solicitar.id_ser_soli
+    join solucionar on id_ser_soli = id_ser_sol
     where solicitar.id_usu_soli = ?`;
     if(solucionados){
-      condicion = "puntuacion >= 2.5";
-      sql = await connection.query(`${instrucionSql} and ${condicion}`,[usuario]); 
+      condicion = "puntuacion >= 2.5 ";
+      condicion2 = "solucionado = 1";
+      sql = await connection.query(`${instrucionSql} and ${condicion} and ${condicion2}`,[usuario]); 
     }else{
       condicion = "puntuacion < 2.5";
-      sql = await connection.query(`${instrucionSql} and ${condicion}`,[usuario]); 
+      condicion2 = "solucionado = 0";
+      sql = await connection.query(`${instrucionSql} and ${condicion} and ${condicion2}`,[usuario]); 
     }
       return sql;
 

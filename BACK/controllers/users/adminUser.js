@@ -25,8 +25,8 @@ const adminUser = async (req, res, next) => {
     connection = await getDB();
 
     const [usuario] = await connection.query(`select * from usuarios where id_usu = ?;`,[req.userAuth.id]);
-    const [Solucionados] = await datosServicios(1);
-    const [NoSolucionados] = await datosServicios(0);
+    const [Solucionados] = await datosServicios(1,req.userAuth.id);
+    const [NoSolucionados] = await datosServicios(0,req.userAuth.id);
     const [ranking] = await rank();   
     const [misServicios] = await elServicios(req.userAuth.id);
  
@@ -34,8 +34,7 @@ const adminUser = async (req, res, next) => {
     const [misServiciosNoSolucionados] = await misServes(req.userAuth.id,0);
     const [misServiciosSolucionados] = await misServes(req.userAuth.id,1);
 
-    const [MisSolucionados] = await connection.query(`select  count(id_sol) 
-    from solucionar where solucionado = 1 && id_usu_sol= ?;`, [req.userAuth.id]);
+    const [MisSolucionados] = await connection.query(`select count(id_sol) from solucionar where solucionado = 1 && id_usu_sol= ?;`, [req.userAuth.id]);
   
     const [comentSinLer] = await misNumComentarios(req.userAuth.id,"sinleer");
     const [comentSinVer] = await misNumComentarios(req.userAuth.id,"sinver");
