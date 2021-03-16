@@ -46,7 +46,7 @@ const insertThings = async (req, res, next)=>{
 
         dato.carpeta = `docs/servicios/${idServicio[0]['id_ser']}`;
         
-        insertFiles(ficheros,dato);
+        insertFiles(ficheros,dato,0);
         //console.log(`el id del objeto: ${dato.idSer}`)
         res.send({
             status:"ok",
