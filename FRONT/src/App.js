@@ -16,31 +16,24 @@ import AdminRoute from './components/AdminRoute';
 import UserAdmin from './Pages/UserAdmin';
 import PrivateComponent from './components/PrivateComponent';
 import Graficas from './Pages/Graficas';
-
+import useAuth from "./shared/hooks/useAuth";
+import Title from './components/Title';
 
 function App() {
   const [showMenu, setShowMenu]=useState(false);
+  //const { isUserLogged } = useAuth(false);
   return (    
     
         <Router>
           <AuthProvider>
-         
+            <Title></Title>
             <nav>
-            
-              <div className="header-item">
-                <Link to="/">Home</Link>
-              </div> 
-              <div className="header-item">
-                <Link to="/login">Login</Link>
-              </div>
-              <div className="header-item">
-                <Link to="/register">Register</Link>
-              </div> 
+  
+              
 
               <PrivateComponent>
-                   
-                  <button onClick={() => setShowMenu(!showMenu)}>Pulsa para | Menú de UserAdmin</button>
-                  <UserComponent>
+                  
+                    <UserComponent>
                     
                     
                   </UserComponent>
@@ -71,7 +64,7 @@ function App() {
                
                 <Route path="/useradmin">
                   <PrivateRoute>
-                  {showMenu && <UserAdmin />}  
+                 <UserAdmin />  
                   </PrivateRoute>
                  
                 </Route>
