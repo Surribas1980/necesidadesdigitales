@@ -53,8 +53,7 @@ export default function InsertServices() {
       <input id="ficheros" ref={register({ required: true})} name="ficheros" multiple type="file"/>
       
       <button>Enviar</button>
-      <p>ID: {userData && userData.id}</p>
-    <p>EXP: {userData && userData.exp}</p>
+      
     </form>
     
     </>

@@ -4,9 +4,7 @@ function Home(){
     return (
       <>
         <h1>HOME</h1>
-        <p>ID: {userData && userData.id}</p>
-        <p>EXP: {userData && userData.exp}</p>
-        <button onClick={logOut}>LOG OUT!</button>
+       
       </>
     );
 }

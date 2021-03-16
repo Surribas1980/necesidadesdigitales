@@ -4,6 +4,9 @@ import ServiciosSolucionados from '../components/User/ServiciosSolucionados';
 import { deleteService } from '../http/api';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import InsertComentarios from './InsertComentarios';
+import Conversaciones from '../components/Conversaciones';
+
+
 
 export default function Comentarios(){
     const [showMenu, setShowMenu]=useState(false);
@@ -31,6 +34,10 @@ export default function Comentarios(){
             
             { 
                 <nav>
+                    <div className="header-item">
+
+                        <Link to="/iniciarconversacion">Iniciar conversacion</Link>
+                    </div>
                         <div className="header-item">
 
                         <Link to="/insertarcomentario">Conversaciones</Link>
@@ -51,8 +58,8 @@ export default function Comentarios(){
                 
 
                 <Route path="/insertarcomentario">
-                    <InsertComentarios />
-                    <ServiciosSolucionados solucionados={comentarios}></ServiciosSolucionados>
+                    <Conversaciones convergeneral={comentarios}></Conversaciones>
+                    
                 </Route>
                 <Route path="/miscomentarios">
                     <ServiciosSolucionados solucionados={miscomentarios}></ServiciosSolucionados>
@@ -60,7 +67,10 @@ export default function Comentarios(){
                 <Route path="/misconversaciones">
                     <ComentariosLista valores={misconversaciones}></ComentariosLista>
                 </Route>
-
+                <Route path="/iniciarconversacion">
+                    <InsertComentarios />
+                </Route>
+                
             </Router>
         
         </>);

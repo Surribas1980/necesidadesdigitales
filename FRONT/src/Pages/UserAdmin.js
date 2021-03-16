@@ -14,6 +14,7 @@ import DarPuntuacion from '../components/User/DarPuntuacion';
 import '../css/UserAdmin.css'
 import DeleteService from '../Pages/DeleteService';
 import DeleteMyService from '../components/User/DeleteMyService';
+import TitleUserAdmin from '../components/User/TitleUserAdmin';
 function UserAdmin(){
     const { userData, logOut } = useAuth();
     const [ranking, setRanking] = useState([]);
@@ -59,50 +60,7 @@ function UserAdmin(){
 
     return (<>
         <Router>
-            
-            {
-             
-                        <nav>
-                            <div className="header-item">
-
-                            <Link to="/useradmin">Recoger</Link>
-                            </div>
-                            <div className="header-item">
-
-                            <Link to="/servicio">Solicitar servicio</Link>
-                            </div>
-                            <div className="header-item">
-
-                            <Link to = "/comentario">Comentarios</Link>
-                            </div>
-                            <div className="header-item">
-
-                            <Link to = "/datospersonales">Modificacion de datos personales</Link>
-                            </div>
-                            <div className="header-item">
-
-                            <Link to= "/darsolucion">Dar posible solucion</Link>
-                            </div>
-                            <div className="header-item">
-
-                            <Link to= "/darpuntuacion">Dar puntuación</Link>
-                            </div>
-                            <div className="header-item">
-
-                            <Link to= "/solucionados">Servicios Solucionados</Link>
-                            </div>
-                            <div className="header-item">
-                                <Link to="/delete/servicios">Borrar servicios</Link>
-                            </div>
-                            <div className="header-item">
-                                <Link to="/borrar/misservicios">Borrar mis servicios</Link>
-                            </div>
-                            <div className="header-item">
-                      <Link to="/insert/servicios">Insertar servicios</Link>
-                    </div>
-                        </nav>
-                
-            }   
+            <TitleUserAdmin></TitleUserAdmin> 
             
             <Route path="/comentario">
                 <Comentarios />
@@ -134,10 +92,7 @@ function UserAdmin(){
             </Route>
             </Router>
     
-    <h1>Estoy en UserAdmin</h1>
-    <p>ID: {userData && userData.id}</p>
-        <p>EXP: {userData && userData.exp}</p>
-        <button onClick={logOut}>LOG OUT!</button>
+    
         <button onClick={()=>{
                         console.log('Valor es: ',valor);
                         if(valor === 0)
@@ -150,13 +105,23 @@ function UserAdmin(){
         }
             }>Actualizar</button>
             
-        <p onClick={()=>{setMostrar(!mostrar)}}>Mostrar</p>
-        {mostrar && <p>Esto es otro dato</p>}
         <main>
             <div>
                     <div className="secciones">
+                        <div>
+                            <section >
+                                <h1>Datos numéricos</h1>
+                                Comentarios sin ver: {numComentariosSinver}
+                                <br></br>
+                                Comentarios sin leer: {numComentariosSinLer}
+                                <br></br>
+                                Cantidad de servicios que solucioné: {numMisSolucionados}
+                                <br></br>
+                                Cantidad de mis servicios solicitados: {numMisSolicitados}
+                            </section>
+                        </div>
                         <section >
-                            <h1>Gráfica</h1>
+                            
                             <GraficaRanking valores={ranking}></GraficaRanking>
                         </section>
 
@@ -189,18 +154,6 @@ function UserAdmin(){
                         <section >
                             <h1>Mis servicios solucionados</h1>
                             <ServiciosSolucionados solucionados={misSerSolucionados}></ServiciosSolucionados>
-                        </section>
-                    </div>
-                    <div>
-                        <section >
-                            <h1>Datos numéricos</h1>
-                            Comentarios sin ver: {numComentariosSinver}
-                            <br></br>
-                            Comentarios sin leer: {numComentariosSinLer}
-                            <br></br>
-                            Cantidad de servicios que solucioné: {numMisSolucionados}
-                            <br></br>
-                            Cantidad de mis servicios solicitados: {numMisSolicitados}
                         </section>
                     </div>
                 

@@ -5,7 +5,7 @@ import useAuth from '../shared/hooks/useAuth';
 
 export default function Login() {
   const { register, handleSubmit } = useForm();
-  const {userData, sigIn} = useAuth();
+  const {sigIn} = useAuth();
 
   const onSubmit = (data) =>{
      sigIn(data.mail,data.pwd);
@@ -22,8 +22,7 @@ export default function Login() {
       
       <button>Enviar</button>
     </form>
-    <p>ID: {userData && userData.id}</p>
-    <p>EXP: {userData && userData.exp}</p>
+    
     </>
     
   );

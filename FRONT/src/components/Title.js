@@ -3,7 +3,7 @@ import '../css/App.css';
 import useAuth from '../shared/hooks/useAuth';
 
 function Title(){
-    const { isUserLogged } = useAuth(false);
+    const { isUserLogged, logOut } = useAuth(false);
     const salida = <><nav>
              <div className="header-item">
                             <Link to="/">Home</Link>
@@ -14,6 +14,7 @@ function Title(){
               <div className="header-item">
                 <Link to="/register">Register</Link>
               </div>
+              
     </nav></>;
     return(<>  {!isUserLogged && salida}
     

@@ -142,6 +142,10 @@ export async function deleteService(uri,metodo,condatos,ids){
     const formu = new FormData();
     formu.append('ids',ids);
     request = new Request(obxRequest.url,{ headers: obxRequest.headers, method: metodo,body:formu});
+    const peticion = await fetch(request);
+    let datos = await peticion.json();
+
+    return datos;
   }
   const peticion = await fetch(request);
 let datos = await peticion.json();
