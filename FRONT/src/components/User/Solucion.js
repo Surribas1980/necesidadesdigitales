@@ -10,21 +10,18 @@ export default function Solucion(props){
         console.log('aSolucionar: ',valor)
         setIdservicio(valor);
     }
-    sinsolucionar?.map((item)=>{
-        console.log('map: ',item.id_ser);
-    })
+   
     return (<><h1>Dar solucion</h1>
     <table>
         <tbody>
 
             <tr>
                 <td>Nº de servicio</td>
-                <td>Puntos</td>
-                <td>Puntos solucion</td>
-                <td>Solucionador</td>
+                <td>Puntos de quien solicita</td>                
+                <td>AVATAR</td>
                 <td>Alias</td>
                 <td>Titulo servicio</td>
-                <td>Puntuacion recibida</td>
+                <td>Última puntuacion recibida</td>
             </tr>
 
         {
@@ -32,9 +29,10 @@ export default function Solucion(props){
                 return(<>
                             <tr key ={item.id_ser}>
                                     <td>{item.id_ser}</td>
-                                    <td>{item['puntos(id_usu)']}</td>
-                                    <td>{item['puntos(id_usu_sol)']}</td>
-                                    <td>{item.Solucionador}</td>
+                                    <td>{item['puntos(id_usu_soli)']}</td>
+                                    <td>
+                                     <img src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_co}/${item.nomFoto_usu}`} alt="imagen" />
+                                    </td>
                                     <td>{item.nom_usu}</td>
                                     <td>{item.titulo_ser}</td>
                                     <td>{item.puntuacion}</td>

@@ -29,7 +29,7 @@ const salida =<><nav>
 </div>
 <div className="header-item">
 
-<Link to= "/darpuntuacion">Dar puntuación</Link>
+<Link to= "/darpuntuacion">Mis servicios</Link>
 </div>
 <div className="header-item">
 

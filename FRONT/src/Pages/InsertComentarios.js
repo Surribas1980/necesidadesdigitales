@@ -12,12 +12,10 @@ export default function InsertComentarios (){
     }
 
 
-    return(<><h2>Hacer un comentario en cualquier conversación</h2>
+    return(<><h2>Iniciar conversación</h2>
     <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="id_ser">Id Servicio</label>
         <input id="id_ser" ref={register({required: true})} name="id_ser"/>
-        <label htmlFor="idConversacion">Id Conversacion</label>
-        <input id="idConversacion" ref={register({required: true})} name="idConversacion" />
         <label htmlFor="comentario">Comentario</label>
         <textarea id="comentario" ref={register({required: true})} name="comentario"/>
         <button>Enviar comentario</button>

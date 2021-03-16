@@ -42,10 +42,7 @@ export default function Comentarios(){
 
                         <Link to="/insertarcomentario">Conversaciones</Link>
                         </div>
-                        <div className="header-item">
-
-                        <Link to="/miscomentarios" >Mis comentarios</Link>
-                        </div>
+                        
                 
                         <div className="header-item">
 
@@ -61,9 +58,7 @@ export default function Comentarios(){
                     <Conversaciones convergeneral={comentarios}></Conversaciones>
                     
                 </Route>
-                <Route path="/miscomentarios">
-                    <ServiciosSolucionados solucionados={miscomentarios}></ServiciosSolucionados>
-                </Route>
+                
                 <Route path="/misconversaciones">
                     <ComentariosLista valores={misconversaciones}></ComentariosLista>
                 </Route>
