@@ -7,16 +7,16 @@ const listServicios = async (req, res, next) => {
     let uno = '1';
     let results;
     //Saco queryString
-    const { limite,inicioLista,alante,search1,search2 } = req.query;
+    const { limite,inicioLista,alante,search1,search2,mi } = req.query;
     
     if(search1 || search2){
       //ojo, esto puede dar lugar a error si desde el front no se hace la búsquda de manera
       //correcta
-        await connection.query(`call tablaLimitadaServicios(?, ?, ?);`,[limite,inicioLista,alante]);
+        await connection.query(`call tablaLimitadaServicios(?, ?, ?, ?, ?);`,[mi,req.userAuth.id,limite,inicioLista,alante]);
         [results]= await connection.query(`call buscarValor(?,?);`,[search1,search2]);
     }else{
             if(uno === alante){
-              await connection.query(`call tablaLimitadaServicios(?, ?, ?);`,[limite,inicioLista,alante]);
+              await connection.query(`call tablaLimitadaServicios(?, ?, ?, ?, ?);`,[mi,req.userAuth.id,limite,inicioLista,alante]);
             }else{
               await connection.query(`call miBucle(?, ?);`,[limite,inicioLista]);
             }
