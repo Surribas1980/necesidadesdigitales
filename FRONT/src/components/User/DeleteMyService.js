@@ -1,11 +1,10 @@
 import {useState, useEffect} from 'react';
-import BuscarServicio from '../components/BuscarServicio';
 import {useForm} from 'react-hook-form';
-import ListaServicios from '../components/ListaServicios';
-import {enviarDatos} from '../http/api';
-import useAuth from '../shared/hooks/useAuth';
+import ListaServicios from '../ListaServicios';
+import {enviarDatos} from '../../http/api';
 
-function DeleteService(){
+
+function DeleteMyService(){
     const { register, handleSubmit } = useForm();
     const [search1, setSearch1] = useState('');
     const [search2, setSearch2] = useState('');
@@ -15,7 +14,7 @@ function DeleteService(){
     const [alante, setAlante] = useState(1);
     const [valoresform, setValoresForm] = useState();
     
-    const {userData} = useAuth();
+   
     const text1 = 'idMinServiciosTemporal()';
     const text2 = 'idMaxServiciosTemporal()';
     const [idMin,setIdMin]=useState(0);
@@ -27,10 +26,10 @@ function DeleteService(){
     useEffect(() => {
         const listarServicios = async () => {
             //const numServicios = await deleteService('/servicios','GET',0,null); 
-            const numServicios = await enviarDatos(limite,inicioLista,alante,search1,search2,0);
+            const numServicios = await enviarDatos(limite,inicioLista,alante,search1,search2,1);
             if(search2 || search1){
               setServices(numServicios['resultbbdd'][0]);
-              console.log('Trae datos: ',numServicios['resultbbdd'][0])  
+              console.log('Estoy en mis servicios Trae datos: ',numServicios['resultbbdd'][0])  
             }else{
               setServices(numServicios['resultbbdd']);  
             }
@@ -73,9 +72,8 @@ function DeleteService(){
     }
     
     return (<>
-             <h1>Borrar Servicio</h1>
-          <p>ID: {userData && userData.id}</p>
-        <p>EXP: {userData && userData.exp}</p>  
+             
+          <h1>Estoy en deletemyservices</h1>
         <button onClick={()=>{setInicioLista(idMax);
             console.log('El idMax que entra en setInicioLista: ',idMax)
             setAlante(1)}}>Adelante</button>
@@ -96,4 +94,4 @@ function DeleteService(){
         </>);
 }
 
-export default DeleteService;
+export default DeleteMyService;

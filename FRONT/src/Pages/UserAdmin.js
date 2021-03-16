@@ -13,6 +13,7 @@ import Solucion from '../components/User/Solucion';
 import DarPuntuacion from '../components/User/DarPuntuacion';
 import '../css/UserAdmin.css'
 import DeleteService from '../Pages/DeleteService';
+import DeleteMyService from '../components/User/DeleteMyService';
 function UserAdmin(){
     const { userData, logOut } = useAuth();
     const [ranking, setRanking] = useState([]);
@@ -94,15 +95,15 @@ function UserAdmin(){
                                 <Link to="/delete/servicios">Borrar servicios</Link>
                             </div>
                             <div className="header-item">
+                                <Link to="/borrar/misservicios">Borrar mis servicios</Link>
+                            </div>
+                            <div className="header-item">
                       <Link to="/insert/servicios">Insertar servicios</Link>
                     </div>
                         </nav>
                 
-            }
+            }   
             
-             
-            <Route path="/darsolucion">
-            </Route>
             <Route path="/comentario">
                 <Comentarios />
             </Route>
@@ -121,15 +122,17 @@ function UserAdmin(){
             <Route path="/solucionados">
                 <ServisSolucionados servissolucionados={servesSolucionados}></ServisSolucionados>
             </Route>
-            <Route path="/delete/servicios">
-                 
-                    <DeleteService />
-                  
+            <Route path="/delete/servicios">                 
+                    <DeleteService />                  
             </Route>
             <Route path="/insert/servicios">
                     <InsertServices />
-                </Route>
-        </Router>
+            </Route>
+
+            <Route path="/borrar/misservicios">                 
+                    <DeleteMyService />                  
+            </Route>
+            </Router>
     
     <h1>Estoy en UserAdmin</h1>
     <p>ID: {userData && userData.id}</p>

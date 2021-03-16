@@ -81,9 +81,9 @@ export async function newEntry(data,servicio) {
   return await fetchFormData(endpoint, { method: requestMethods.post, body });
 }
 
-export async function enviarDatos(limite,inicioLista,alante,search1,search2){
+export async function enviarDatos(limite,inicioLista,alante,search1,search2,mi){
   console.log('Estoy en api ',search1,search2);
-  return (await fetchTravelApi(`${endpoints.servicios}?limite=${limite}&inicioLista=${inicioLista}&alante=${alante}&search1=${search1}&search2=${search2}`,{method: requestMethods.get}));
+  return (await fetchTravelApi(`${endpoints.servicios}?limite=${limite}&inicioLista=${inicioLista}&alante=${alante}&search1=${search1}&search2=${search2}&mi=${mi}`,{method: requestMethods.get}));
    
 }
 export async function modificacionDatos(metodo,uri,campo,id){
