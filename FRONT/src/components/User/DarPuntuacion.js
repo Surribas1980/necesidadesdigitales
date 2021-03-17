@@ -9,7 +9,7 @@ export default function DarPuntuacion(props){
     const servsolucionados = props.solucionados;
     const [misServNoSol,setmisSerNoSol] = useState([]);
     const [misSolDesc, setmisSolDesc] = useState([]);
-    const [showMenu, setShowMenu]=useState(false);
+    
     useEffect(()=>{
         const pedirmisServicios = async ()=>{
 
@@ -35,17 +35,13 @@ export default function DarPuntuacion(props){
                 <div className="header-item1">
                     <Link to ="/misservisnosol">Elección de las soluciones</Link>
                 </div>
-                <div className="header-item1">
-                    <Link to = "/missolucionesdescartadas">Mis soluciones descartadas</Link>
-                </div>
+               
             </nav>
     
         <Route path="/misservisnosol">
-            <MisSolDesc nosolucionados={misServNoSol}></MisSolDesc>
+            <MisSolDesc nosolucionados={misSolDesc}></MisSolDesc>
         </Route>
-        <Route path="/missolucionesdescartadas">
-            <MisServNoSol descartadas={misSolDesc}></MisServNoSol>
-        </Route>
+        
         <Route path="/missolucionados">
             <MisServSol missolucionados={servsolucionados}></MisServSol>
         </Route>

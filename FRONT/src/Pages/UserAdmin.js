@@ -48,8 +48,8 @@ function UserAdmin(){
             setnumComentariosSinver(data['numComentariosSinver'][0]['count(sinver)']);
             setnumMisSolicitados(data['numMisSolicitados'][0]['count(id_ser)']);
             setnumMisSolucionados(data['numMisSolucionados'][0]['count(id_sol)']);
-            setmisSerNoSolucionados(data['misSerNoSolucionados']);
-            setmisSerSolucionados(data['misSerSolucionados']);
+            setmisSerNoSolucionados(data['misSerNoSolucionados'][0]);
+            setmisSerSolucionados(data['misSerSolucionados'][0]);
             setmisSolicitados(data['serv']);
             console.log('Esto es data...',data)
         }
