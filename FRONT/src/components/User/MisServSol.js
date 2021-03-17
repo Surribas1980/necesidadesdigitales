@@ -48,16 +48,17 @@ export default function MisServSol(props){
             </thead>
             <tbody>
                 {
-                    misservissolucionados?.map((item) =>{
+                    misservissolucionados?.map((item,index) =>{
                         return(<>
 
                                     <tr>
+                                        <td>
+                                            <img key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_sol}/${item['buscarFoto(id_usu_sol)']}`} alt="" />
+                                            
                                             <input id="id_ser" type="hidden" name="id_ser" value={item.id_ser} />
                                             <input id="id_usu_sol" type="hidden" name="id_usu_sol" value={item.id_usu_sol} />
                                             <input id="id_usu_soli" type="hidden" name="id_usu_soli" value={item.id_usu_soli} />
-                                        <td>
-                                        <img src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_sol}/${item['buscarFoto(id_usu_sol)']}`} alt="" />
-                                            
+                                       
                                         </td>
                                         <td>
                                             {item.Solucionador}

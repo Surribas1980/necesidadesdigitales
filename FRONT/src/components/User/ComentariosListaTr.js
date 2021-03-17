@@ -17,17 +17,7 @@ function ComentarioListaTr(props){
       
       
     return (<> 
-                <div  
-                style={{
-                        display: "flex",
-                        justifyContent: "flex-end",
-                        marginTop: "50px",
-                        marginRight: "500px",
-                        color: "black"
-                    }}
-                >
-
-                </div>
+                
                 <table className="table">
                     <thead>
                         <tr>
@@ -40,15 +30,15 @@ function ComentarioListaTr(props){
                     </thead>
                     <tbody>
 
-                            {lista?.map((item)=>{
+                            {lista?.map((item,index)=>{
                                 return (<>
                                             
-                                            <tr key={item.id_co}>
-                                                <td>{item.id_ser}</td>
-                                                <td>{item.id_co}</td>                        
-                                                <td>{item['buscarUsu(id_usu_co)']}</td>
-                                                <td>{item.comentario}</td>                       
-                                                <td><button onClick={()=>{irA(item.id_ser)}}>Ir a conversacion</button></td>
+                                            <tr>
+                                                <td  key={index+1}>{item.id_ser}</td>
+                                                <td  key={index+2}>{item.id_co}</td>                        
+                                                <td  key={index+3}>{item['buscarUsu(id_usu_co)']}</td>
+                                                <td  key={index+4}>{item.comentario}</td>                       
+                                                <td  key={index+5}><button onClick={()=>{irA(item.id_ser)}}>Ir a conversacion</button></td>
                                             </tr>
                                             
                                 </>)

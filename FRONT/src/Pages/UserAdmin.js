@@ -64,10 +64,7 @@ function UserAdmin(){
             
             <Route path="/comentario">
                 <Comentarios />
-            </Route>
-            <Route path="/servicio">
-                <InsertServices />
-            </Route>
+            </Route>            
             <Route path="/datospersonales">
                 <ModificacionDatos datos={datosUsuario}/>
             </Route>

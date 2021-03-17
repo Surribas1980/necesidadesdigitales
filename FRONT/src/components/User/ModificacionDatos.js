@@ -7,11 +7,9 @@ export default function ModificacionDatosForm(props){
   const { register, handleSubmit } = useForm();
   const camposUsuario = props?.datos;
  
-  camposUsuario?.map((item)=>{
-    console.log('valores en modificacion de datos', item, 'individual', item.id_usu);
-  })
+  
 
-  console.log('campo id_usu',camposUsuario.id_usu);
+  console.log('campo id_usu : ',props?.datos['id_usu']);
 
    const onSubmit = (datos) => {
         
@@ -26,12 +24,13 @@ export default function ModificacionDatosForm(props){
   return (
     <>
     {
-      camposUsuario?.map((item)=>{
+      camposUsuario?.map((item,index)=>{
         return(<>        
-        <img src={`http://localhost:4000/imagenes/fotousuario${item.id_usu}/${item.nomFoto_usu}`}></img>
+        <img key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu}/${item.nomFoto_usu}`} alt="imagen"></img>
         </>);
       })
     }
+        
         <form onSubmit={handleSubmit(onSubmit)}>
             <label htmlFor="nomUsuario_usu" >Nombre de usuario</label>
             <input id="nomUsuario_usu" ref={register({ required: false})} name="nomUsuario_usu"/>

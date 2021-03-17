@@ -78,7 +78,7 @@ function ComentarioListaTd(props){
                                             <td>{item.id_co}</td>
                                             <td>{item.id_usu_co}</td>
                                             <td>
-                                                <img src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_co}/${item.nomFoto_usu}`} />
+                                                <img key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_co}/${item.nomFoto_usu}`} alt="imagen"/>
                                             </td>
                                             <td>{item.id_ser_co}</td>
                                             <td>{item.comentario}</td>

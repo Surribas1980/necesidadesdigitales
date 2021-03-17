@@ -3,6 +3,7 @@ import {useState} from 'react';
 import VerArchivos from './VerArchivos';
 
 function ServisSolucionados(props){
+    let [foto,setFoto] = useState('');
     const [archivos,setArchivos] = useState();
     const [usuario, setUsuario] = useState(0);
     const [servicio, setServicio] = useState(0);
@@ -10,7 +11,7 @@ function ServisSolucionados(props){
     const lista = props?.servissolucionados;
     lista?.map((item)=>{return console.log('valores: ',item)});
 
-    const descartar = ()=>{
+    /*const descartar = ()=>{
         let inputs = document.getElementsByTagName("input");
         //console.log('tamaño ',inputs.length);
         for(let i = 0;i < inputs.length; i++){
@@ -20,11 +21,11 @@ function ServisSolucionados(props){
                 console.log('servicio',inputs[i-3].value,'solucionador',inputs[i-2].value)
                 const url = `/servicios/descartarsolucion/${inputs[i-3].value}/${inputs[i-2].value}`;
                 const data = descartarServicio(url,'POST');
-                /*console.log('esto es lo que responde',data)*/
+                /*console.log('esto es lo que responde',data)
             }
 
         }
-    }
+    }*/
 
     const irA = async (Servicio,Solucionador,nombreSolucionador)=>{
         console.log('irA',Servicio,Solucionador);
@@ -59,24 +60,26 @@ function ServisSolucionados(props){
                 </thead>
                 <tbody>
                     {
-                        lista?.map((item)=>{
+                        lista?.map((item,index)=>{
                             return (<>
                             <tr>
-                                <input id="id_ser" type="hidden" name="id_ser" value={item.id_ser} />
-                                <input id="id_usu_sol" type="hidden" name="id_usu_sol" value={item.id_usu_sol} />
-                                <input id="id_usu_soli" type="hidden" name="id_usu_soli" value={item.id_usu_soli} />
-                            
+                                
                                 <td>
+                                    <input id="id_ser" type="hidden" name="id_ser" value={item.id_ser} />
+                                    <input id="id_usu_sol" type="hidden" name="id_usu_sol" value={item.id_usu_sol} />
+                                    <input id="id_usu_soli" type="hidden" name="id_usu_soli" value={item.id_usu_soli} />
+                            
                                     {item.Solicitador}
                                 </td>
                                 <td>
                                     {item.Solucionador}
                                 </td>
                                 <td>
-                                <img src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_soli}/${item['buscarFoto(id_usu_soli)']}`} alt=""/>
+                                    
+                                <img key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_soli}/${item.nomFoto_usu}`} alt=""/>
                                 </td>
                                 <td>
-                                <img src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_sol}/${item['buscarFoto(id_usu_sol)']}`} alt="" />
+                                <img key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_sol}/${item['buscarFoto(id_usu_sol)']}`} alt="" />
                                 
                                 </td>
                                 <td>

@@ -31,7 +31,7 @@ export default function Solucion(props){
                                     <td>{item.id_ser}</td>
                                     <td>{item['puntos(id_usu_soli)']}</td>
                                     <td>
-                                     <img src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_co}/${item.nomFoto_usu}`} alt="imagen" />
+                                     <img src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_soli}/${item.nomFoto_usu}`} alt="imagen" />
                                     </td>
                                     <td>{item.nom_usu}</td>
                                     <td>{item.titulo_ser}</td>

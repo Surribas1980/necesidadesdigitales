@@ -11,10 +11,7 @@ const salida =<><nav>
 
 <Link to="/useradmin">Recoger</Link>
 </div>
-<div className="header-item">
 
-<Link to="/servicio">Solicitar servicio</Link>
-</div>
 <div className="header-item">
 
 <Link to = "/comentario">Comentarios</Link>
