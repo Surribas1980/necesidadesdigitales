@@ -55,8 +55,7 @@ export default function Comentarios(){
                 
 
                 <Route path="/insertarcomentario">
-                    <Conversaciones convergeneral={comentarios}></Conversaciones>
-                    
+                    <Conversaciones convergeneral={comentarios}></Conversaciones>                    
                 </Route>
                 
                 <Route path="/misconversaciones">
