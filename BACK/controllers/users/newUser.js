@@ -12,6 +12,7 @@ const newUser = async (req, res, next) => {
     
     const { mail, pwd, nomUsuario_usu, nom_usu, ape1_usu, ape2_usu, biografia_usu } = req.body; 
     // Compruebo que no estén vacíos
+console.log('esto es lo que trae',mail, pwd, nomUsuario_usu, nom_usu, ape1_usu, ape2_usu, biografia_usu)
 
     if (!mail || !pwd || !nomUsuario_usu || !nom_usu || !ape1_usu || !ape2_usu) {
       const error = new Error("Faltan campos");
@@ -44,14 +45,14 @@ const newUser = async (req, res, next) => {
         await conexion.query(`
         INSERT INTO usuarios (lastAuthUpdate,pwd,mail,nomUsuario_usu,nom_usu,ape1_usu,ape2_usu,biografia_usu,codigoRegistro) VALUES (?,SHA2(?, 512),?,?,?,?,?,?,?);
          `,[new Date(),pwd,mail,nomUsuario_usu, nom_usu, ape1_usu, ape2_usu,biografia_usu,registrationCode]);
-         
+         const localhost = 'http://localhost:4000';
          const emailBody = `Te acabas de registrar en Servicios Digitales.
-                            Pulsa en este link para verificar tu mail: ${process.env.PUBLIC_HOST}/validar/${registrationCode}`;
+                            Pulsa en este link para verificar tu mail: ${localhost}/validar/${registrationCode}`;
 
         await sendMail({
             to: mail,
             subject: 'Activa tu usuario de Servicios Digitales',
-            body: emailBody,
+            body: emailBody
 
         });
         

@@ -7,7 +7,7 @@ const fs1 = require("fs");
 const getDB = require("./db");
 const uuid = require('uuid');
 const sharp = require('sharp');
-sgMail.setApiKey('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMzAzODY3NywiZXhwIjoxNjEzMTI1MDc3fQ.7Na0UNKI6UJ1LtMOymu4_KMac7M6M-6l9YdDs3zb8gc');
+sgMail.setApiKey('');
 
 
 async function buscarDentro(dir){
@@ -46,7 +46,7 @@ async function sendMail({to,subject,body}){
     try{
             const msg = {
                     to,
-                    from: process.env.SENDGRID_FROM, // Use the email address or domain you verified above
+                    from: 'israel.surribas.planas@gmail.com', // Use the email address or domain you verified above
                     subject,
                     text: body,
                     html: `
@@ -273,9 +273,7 @@ async function datosServicios(condicion,usuario){
   let connection;
   let sql;
   try {
-    connection = await getDB();
-    
-    
+    connection = await getDB();    
     sql = await connection.query(`call tablatemporal(${condicion},${usuario});`);
     return sql;
     } catch (error) {
@@ -389,30 +387,14 @@ async function misComentarios(usuario){
   }
 }
 
-async function misServes(usuario,solucionados){
+async function misServes(usuario,condicion){
   let connection;
   let sql;
-  let condicion;
-  let condicion2;
-  let instrucionSql;
+  
   try {
-    connection = await getDB();
-    instrucionSql =`select * 
-    from servicios join solicitar
-    on servicios.id_ser = solicitar.id_ser_soli
-    join solucionar on id_ser_soli = id_ser_sol
-    where solicitar.id_usu_soli = ?`;
-    if(solucionados){
-      condicion = "puntuacion >= 2.5 ";
-      condicion2 = "solucionado = 1";
-      sql = await connection.query(`${instrucionSql} and ${condicion} and ${condicion2}`,[usuario]); 
-    }else{
-      condicion = "puntuacion < 2.5";
-      condicion2 = "solucionado = 0";
-      sql = await connection.query(`${instrucionSql} and ${condicion} and ${condicion2}`,[usuario]); 
-    }
-      return sql;
-
+    connection = await getDB();    
+    sql = await connection.query(`call misServicios(${condicion},${usuario});`);
+    return sql;
   } catch (error) {
     const e = new Error('Error cargando datos de misServes');
       e.httpStatus = 500;
