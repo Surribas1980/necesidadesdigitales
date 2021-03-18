@@ -7,7 +7,7 @@ const fs1 = require("fs");
 const getDB = require("./db");
 const uuid = require('uuid');
 const sharp = require('sharp');
-sgMail.setApiKey('');
+sgMail.setApiKey('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');
 
 
 async function buscarDentro(dir){
@@ -342,9 +342,8 @@ async function misNumComentarios(usuario,campo) {
 
     try {
       connection = await getDB();
-      sql = await connection.query(`select count(${campo}) from comentar join usuarios
-      on usuarios.id_usu = comentar.id_usu_co
-      where ${campo} = 1 and id_usu_co = ?`,[usuario]);  
+      sql = await connection.query(`select count(${campo}) from avisos
+      where ${campo} = 1 and idUsuarioorigen = ?`,[usuario]);  
       
       return sql;
     } catch (error) {
