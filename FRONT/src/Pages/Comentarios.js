@@ -5,6 +5,7 @@ import { deleteService } from '../http/api';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import InsertComentarios from './InsertComentarios';
 import Conversaciones from '../components/Conversaciones';
+import IniciarConversacion from '../components/IniciarConversacion';
 
 
 
@@ -63,6 +64,7 @@ export default function Comentarios(){
                 </Route>
                 <Route path="/iniciarconversacion">
                     <InsertComentarios />
+                   <IniciarConversacion />
                 </Route>
                 
             </Router>

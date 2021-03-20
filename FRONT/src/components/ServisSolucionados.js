@@ -1,7 +1,7 @@
 import { deleteService, descartarServicio } from '../http/api';
 import {useState} from 'react';
 import VerArchivos from './VerArchivos';
-
+import '../css/ServisSolucionados.css'
 function ServisSolucionados(props){
     let [foto,setFoto] = useState('');
     const [archivos,setArchivos] = useState();
@@ -76,10 +76,10 @@ function ServisSolucionados(props){
                                 </td>
                                 <td>
                                     
-                                <img key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_soli}/${item.nomFoto_usu}`} alt=""/>
+                                <img className="avatar" key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_soli}/${item.nomFoto_usu}`} alt=""/>
                                 </td>
                                 <td>
-                                <img key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_sol}/${item['buscarFoto(id_usu_sol)']}`} alt="" />
+                                <img className="avatar" key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_sol}/${item['buscarFoto(id_usu_sol)']}`} alt="" />
                                 
                                 </td>
                                 <td>

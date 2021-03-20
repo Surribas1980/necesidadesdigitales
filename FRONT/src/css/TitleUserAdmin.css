@@ -1,17 +1,26 @@
 nav {
-    display: flex;
-    flex-direction: row;
-    background-color: #3f1b87;
-  }
-  
-  .header-item {
-    font-family: sans-serif;
-    padding: 5px 10px;
-    text-decoration: none;
-    color: white;
-  }
-  
-  .header-item a {
-    text-decoration: none;
-    color: white;
-  }
+  display: flex;
+  flex-direction: row;
+  background-color: #1b8751;
+}
+
+.header-item {
+  font-family: sans-serif;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.header-item a {
+  text-decoration: none;
+  color: white;
+}
+
+img {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  max-width: 3%;
+  height: auto;
+  margin: 0%;
+  text-align: center;
+}

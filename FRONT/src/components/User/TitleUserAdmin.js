@@ -1,10 +1,17 @@
 import { Link } from 'react-router-dom';
 import useAuth from '../../shared/hooks/useAuth';
+import '../../css/TitleUserAdmin.css'
 
 
-
-function TitleUserAdmin(){
+function TitleUserAdmin(props){
     const { isUserLogged, logOut } = useAuth(false);
+    const datos = props?.datosusuario;
+    console.log('la foto:',datos);
+
+    const valoresBuscados = datos?.map((item)=>{
+        return (<> {item.nomFoto_usu} {item.id_usu}</>)
+    })
+    console.log('Buscados',valoresBuscados)
 
 const salida =<><nav>
 <div className="header-item">
@@ -42,6 +49,14 @@ const salida =<><nav>
 <Link to="/insert/servicios">Insertar servicios</Link>
 </div>
 <button onClick={logOut}>LOG OUT!</button>
+{
+    datos?.map((item,index)=>{
+        return(<>
+        
+<img key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu}/${item.nomFoto_usu}`} alt="imagen"/>
+        </>)
+    })
+}
 </nav></>;
 
     return (<>{isUserLogged && salida}</>)

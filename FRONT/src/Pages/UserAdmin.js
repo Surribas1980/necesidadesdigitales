@@ -31,7 +31,7 @@ function UserAdmin(){
     const [valor, setValor] = useState(0);
     const [showMenu, setShowMenu]=useState(false);
     const [mostrar, setMostrar] = useState(false);
-
+    
     useEffect(()=>{
         const datosUser = async ()=>{
             const data = await deleteService("/users/userLogin/",'GET',0,0);
@@ -54,13 +54,13 @@ function UserAdmin(){
             console.log('Esto es data...',data)
         }
         datosUser();
-    },[]);
+    },[showMenu]);
 
 
 
-    return (<>
+    return (<><h1>showMenu {showMenu}</h1>
         <Router>
-            <TitleUserAdmin></TitleUserAdmin> 
+            <TitleUserAdmin datosusuario={datosUsuario}></TitleUserAdmin> 
             
             <Route path="/comentario">
                 <Comentarios />
@@ -91,14 +91,15 @@ function UserAdmin(){
     
     
         <button onClick={()=>{
-                        console.log('Valor es: ',valor);
+                        /*console.log('Valor es: ',valor);
                         if(valor === 0)
                         {
                             setValor(1);
                         }
                         else{
                             setValor(0);
-                        }
+                        }*/
+                        setShowMenu(!showMenu);
         }
             }>Actualizar</button>
             
