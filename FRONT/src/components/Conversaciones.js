@@ -31,7 +31,7 @@ function Conversaciones(props){
                             <tr>
                                 <td>{item.id_ser}</td>
                                 <td>{item.nom_usu}</td>
-                                <td><img key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_co}/${item.nomFoto_usu}`} alt="imagen"/></td>
+                                <td><img className="imagenAvatar" key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_co}/${item.nomFoto_usu}`} alt="imagen"/></td>
                                 <td>{item.comentario}</td>
                                 <td>{item.fecha}</td>
                                 <td><button onClick={()=>{irA(item.id_ser)}}>Ver conversacion</button></td>

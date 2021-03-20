@@ -1,5 +1,6 @@
 import AportarSolucion from './AportarSolucion';
 import {useState} from 'react';
+import '../../css/Solucion.css'
 export default function Solucion(props){
     const [idServicio,setIdservicio] = useState(0);
     const [irA,setirA]=useState(false);
@@ -31,7 +32,7 @@ export default function Solucion(props){
                                     <td>{item.id_ser}</td>
                                     <td>{item['puntos(id_usu_soli)']}</td>
                                     <td>
-                                     <img src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_soli}/${item.nomFoto_usu}`} alt="imagen" />
+                                     <img className="imagenAvatar" src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_soli}/${item.nomFoto_usu}`} alt="imagen" />
                                     </td>
                                     <td>{item.Solicitador}</td>
                                     <td>{item.titulo_ser}</td>

@@ -8,9 +8,7 @@ function ComentarioListaTd(props){
     
     const enviarRespuesta = ()=>{
         let inputs = document.getElementsByTagName("input");
-        let id_ser=0;
-        let idComentario=null;
-        let comentario= undefined;
+       
 
 
         
@@ -65,7 +63,7 @@ function ComentarioListaTd(props){
                                             <td>{item.id_ser_co}</td>
                                             <td>{item.comentario}</td>
                                             <td>{item.id_co_num}</td>
-                                            <td><input type="checkbox" id="eleccion" name="eleccion"></input></td>
+                                            <td><input className="imagenAvatar" type="checkbox" id="eleccion" name="eleccion"></input></td>
                                             <td>
                                                 <div>
                                                     <input id="respuesta" type="text" name="respuesta" autoComplete="off" />

@@ -58,7 +58,7 @@ function UserAdmin(){
 
 
 
-    return (<><h1>showMenu {showMenu}</h1>
+    return (<>
         <Router>
             <TitleUserAdmin datosusuario={datosUsuario}></TitleUserAdmin> 
             
@@ -101,11 +101,11 @@ function UserAdmin(){
                         }*/
                         setShowMenu(!showMenu);
         }
-            }>Actualizar</button>
+            }>Actualizar UserAdmin</button>
             
         <main>
             <div>
-                    <div className="secciones">
+                    <div >
                         <div>
                             <section >
                                 <h1>Datos numéricos</h1>
@@ -118,14 +118,14 @@ function UserAdmin(){
                                 Cantidad de mis servicios solicitados: {numMisSolicitados}
                             </section>
                         </div>
-                        <section >
+                        <section className="secciones">
                             
                             <GraficaRanking valores={ranking}></GraficaRanking>
                         </section>
 
                     </div>
-                    <div  className="secciones">
-                        <section >
+                    <div>
+                        <section className="secciones">
                             <h1>Servicios solucionados</h1>
                             <ServiciosSolucionados solucionados={servesSolucionados}></ServiciosSolucionados>
                         </section>

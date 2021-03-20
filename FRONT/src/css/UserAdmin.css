@@ -14,13 +14,21 @@ nav {
   text-decoration: none;
   color: white;
 }
-
+.imagenAvatar {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  max-width: 25%;
+  height: auto;
+  margin: 0%;
+  text-align: center;
+}
 .header-item a {
   text-decoration: none;
   color: white;
 }
 .secciones {
-  border-width: 33px;
+  border-style: solid;
+  border-width: 5px;
 }
 body {
   font-family: Helvetica;
