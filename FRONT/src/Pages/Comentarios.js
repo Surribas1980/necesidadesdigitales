@@ -7,7 +7,7 @@ import InsertComentarios from './InsertComentarios';
 import Conversaciones from '../components/Conversaciones';
 import IniciarConversacion from '../components/IniciarConversacion';
 import '../css/Comentarios.css'
-
+import PagGinar from '../shared/utils/helpers';
 
 export default function Comentarios(){
     const [numServiciosSinSolucion,setnumServiciosSinSolucion]=useState(0);
@@ -34,6 +34,8 @@ export default function Comentarios(){
     for(let i=0; i< numServiciosSinSolucion; i++){
         paginacion.push(i);
     }
+    let valor = PagGinar(numServiciosSinSolucion);
+    console.log('esto es el valor de la funcion', valor);
 
     const traerServicios = (valor)=>{
 
