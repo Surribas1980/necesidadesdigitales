@@ -15,7 +15,7 @@ export default function Comentarios(){
     const [comentarios,setComentarios] = useState([]);
     const [misconversaciones, setMisConversaciones] = useState([]);
     const [miscomentarios,setMisComentarios] = useState([]);
-    const paginacion = [];
+    let paginacion;
     useEffect(()=>{
         const comentServicios = async () => {
             const data = await deleteService("/comentar",'GET',0,0);
@@ -31,11 +31,9 @@ export default function Comentarios(){
         }
         comentServicios();
     },[showMenu]);
-    for(let i=0; i< numServiciosSinSolucion; i++){
-        paginacion.push(i);
-    }
-    let valor = PagGinar(numServiciosSinSolucion);
-    console.log('esto es el valor de la funcion', valor);
+   
+     paginacion = PagGinar(numServiciosSinSolucion);
+    
 
     const traerServicios = (valor)=>{
 
