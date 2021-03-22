@@ -16,7 +16,8 @@ export default function Comentarios(){
     const [misconversaciones, setMisConversaciones] = useState([]);
     const [miscomentarios,setMisComentarios] = useState([]);
     const [cantidad,setCantidad]=useState(2);
-    const [cantidadpagina,setCantidadPaginas]= useState(0);
+    const [numpaginamax,setNumPaginaMax]= useState(2);
+    const [numpaginamin,setNumPaginaMin]= useState(1);
     let paginacion;
     useEffect(()=>{
         const comentServicios = async () => {
@@ -37,9 +38,9 @@ export default function Comentarios(){
     },[showMenu]);
    
      paginacion = PagGinar(numServiciosSinSolucion);
-     console.log('paginacion',paginacion);
      
-     console.log('el numero:',cantidadpagina)
+     
+     
     const traerServicios = (valor)=>{
 
         console.log('eso es el valor:',valor)
@@ -87,11 +88,13 @@ export default function Comentarios(){
                 
             </Router>
  		<div className="miscajas" onClick={()=>{
-             if(cantidad > 0){
-                const menosuno = cantidad - 1;
-                setCantidad(menosuno);
+             if(numpaginamin > 0){
+                const menosuno = numpaginamin - 1;
+                const menosunoenmax = numpaginamax - 1;
+                setNumPaginaMin(menosuno);
+                setNumPaginaMax(menosunoenmax);
             }
-            console.log('En menos uno', cantidad)
+            console.log('En menos uno', numpaginamax,numpaginamin)
 
         }}>-</div>       
             {
@@ -99,7 +102,7 @@ export default function Comentarios(){
                 paginacion?.map((item)=>{
                     
 
-                    if(item <= cantidad){
+                    if((item <= numpaginamax) && (item >= numpaginamin)){
 
                         return (<>
                             <div className="miscajas" onClick={()=>{
@@ -113,11 +116,13 @@ export default function Comentarios(){
 		    
             }
 		<div className="miscajas" onClick={()=>{
-            if(cantidad < paginacion.length){
-                const masuno = 1 + cantidad;
-                setCantidad(masuno);
+            if(numpaginamax < paginacion.length){
+                const menosuno = numpaginamin + 1;
+                const menosunoenmax = numpaginamax + 1;
+                setNumPaginaMin(menosuno);
+                setNumPaginaMax(menosunoenmax);
             }
-            console.log('En mas uno', cantidad)
+            console.log('En mas uno', numpaginamax,numpaginamin)
         }}>+</div>
         </>);
 }
