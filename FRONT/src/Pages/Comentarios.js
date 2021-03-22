@@ -8,6 +8,7 @@ import Conversaciones from '../components/Conversaciones';
 import IniciarConversacion from '../components/IniciarConversacion';
 import '../css/Comentarios.css'
 import PagGinar from '../shared/utils/helpers';
+import MostrarServiciosComentarios from '../components/MostrarServiciosComentarios';
 
 export default function Comentarios(){
     const [numServiciosSinSolucion,setnumServiciosSinSolucion]=useState(0);
@@ -18,10 +19,12 @@ export default function Comentarios(){
     const [cantidad,setCantidad]=useState(2);
     const [numpaginamax,setNumPaginaMax]= useState(2);
     const [numpaginamin,setNumPaginaMin]= useState(1);
+    const [servicios,setServicios] = useState("");
     let paginacion;
     useEffect(()=>{
         const comentServicios = async () => {
             const data = await deleteService("/comentar",'GET',0,0);
+            setServicios(data['servicios'][0]);
             console.log('datos : ', data);
             console.log('datos data : ', data['data'][0]);
             console.log('mis conversaciones ',data['datosMisConversaciones'][0][0]);
@@ -70,9 +73,7 @@ export default function Comentarios(){
             
                         <button onClick={()=>{setShowMenu(!showMenu)}}>Actualizar sección de comentarios</button>
                 </nav>
-            }
-                
-                
+            }                
 
                 <Route path="/insertarcomentario">
                     <Conversaciones convergeneral={comentarios}></Conversaciones>                    
@@ -87,16 +88,22 @@ export default function Comentarios(){
                 </Route>
                 
             </Router>
+
+            <MostrarServiciosComentarios servicios={servicios} paginamax={numpaginamax} paginamin={numpaginamin} ></MostrarServiciosComentarios>
+
+
+
  		<div className="miscajas" onClick={()=>{
              if(numpaginamin > 0){
                 const menosuno = numpaginamin - 1;
                 const menosunoenmax = numpaginamax - 1;
                 setNumPaginaMin(menosuno);
                 setNumPaginaMax(menosunoenmax);
+                
             }
             console.log('En menos uno', numpaginamax,numpaginamin)
 
-        }}>-</div>       
+        }}>{'<'}</div>       
             {
 		    
                 paginacion?.map((item)=>{
@@ -105,6 +112,8 @@ export default function Comentarios(){
                     if((item <= numpaginamax) && (item >= numpaginamin)){
 
                         return (<>
+                            
+
                             <div className="miscajas" onClick={()=>{
                                 traerServicios(item)
                             }}>{item}</div>
@@ -121,8 +130,9 @@ export default function Comentarios(){
                 const menosunoenmax = numpaginamax + 1;
                 setNumPaginaMin(menosuno);
                 setNumPaginaMax(menosunoenmax);
+                
             }
             console.log('En mas uno', numpaginamax,numpaginamin)
-        }}>+</div>
+        }}>{'>'}</div>
         </>);
 }
