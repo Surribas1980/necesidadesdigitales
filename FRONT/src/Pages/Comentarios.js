@@ -15,6 +15,8 @@ export default function Comentarios(){
     const [comentarios,setComentarios] = useState([]);
     const [misconversaciones, setMisConversaciones] = useState([]);
     const [miscomentarios,setMisComentarios] = useState([]);
+    const [cantidad,setCantidad]=useState(2);
+    const [cantidadpagina,setCantidadPaginas]= useState(0);
     let paginacion;
     useEffect(()=>{
         const comentServicios = async () => {
@@ -30,11 +32,14 @@ export default function Comentarios(){
             setComentarios(data['data'][0]);
         }
         comentServicios();
+
+        
     },[showMenu]);
    
      paginacion = PagGinar(numServiciosSinSolucion);
-    
-
+     console.log('paginacion',paginacion);
+     
+     console.log('el numero:',cantidadpagina)
     const traerServicios = (valor)=>{
 
         console.log('eso es el valor:',valor)
@@ -81,16 +86,38 @@ export default function Comentarios(){
                 </Route>
                 
             </Router>
-        
-            {
-                paginacion?.map((item)=>{
-                    return (<>
-                        <div className="miscajas" onClick={()=>{
-                            traerServicios(item)
-                        }}>{item}</div>
-                    </>)
-                })
+ 		<div className="miscajas" onClick={()=>{
+             if(cantidad > 0){
+                const menosuno = cantidad - 1;
+                setCantidad(menosuno);
             }
+            console.log('En menos uno', cantidad)
 
+        }}>-</div>       
+            {
+		    
+                paginacion?.map((item)=>{
+                    
+
+                    if(item <= cantidad){
+
+                        return (<>
+                            <div className="miscajas" onClick={()=>{
+                                traerServicios(item)
+                            }}>{item}</div>
+                        </>)
+                    }
+				
+			
+                })
+		    
+            }
+		<div className="miscajas" onClick={()=>{
+            if(cantidad < paginacion.length){
+                const masuno = 1 + cantidad;
+                setCantidad(masuno);
+            }
+            console.log('En mas uno', cantidad)
+        }}>+</div>
         </>);
 }
