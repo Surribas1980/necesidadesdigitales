@@ -28,6 +28,7 @@ const   insertSolutions = async (req, res, next)=>{
         let ficheros;
         for(const elemento of Object.values(req.files)){
             ficheros = elemento;
+            console.log('Esto es ficheros',ficheros)
         }
         
         insertFiles(ficheros,dato,0);
