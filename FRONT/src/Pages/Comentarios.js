@@ -83,13 +83,15 @@ export default function Comentarios(){
                     <ComentariosLista valores={misconversaciones}></ComentariosLista>
                 </Route>
                 <Route path="/iniciarconversacion">
-                    <InsertComentarios />
-                   <IniciarConversacion />
+                    
+                   
+                    <div className="separacion">
+
+                        <MostrarServiciosComentarios servicios={servicios} paginamax={numpaginamax} paginamin={numpaginamin} ></MostrarServiciosComentarios>
+                    </div>
                 </Route>
                 
             </Router>
-
-            <MostrarServiciosComentarios servicios={servicios} paginamax={numpaginamax} paginamin={numpaginamin} ></MostrarServiciosComentarios>
 
 
 
