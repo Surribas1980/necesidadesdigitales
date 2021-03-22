@@ -49,6 +49,6 @@ export default function MostrarServiciosComentarios(props){
                     }
                 </tbody>
             </table>
-            {id && <InsertComentarios id_ser={id}/>}
+            {id && <InsertComentarios id_ser={id}/> ? <InsertComentarios id_ser={id}/> : ''}
     </>);
 }

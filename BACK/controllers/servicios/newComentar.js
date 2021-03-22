@@ -16,7 +16,7 @@ await connection.query(`call insertarComentarios(?,?,?,?);`,[id_ser,idComentario
     res.send({
       status: "ok",
       data: {
-        idConversacion,
+        idComentario,
         comentario,
         id_ser,
       },
