@@ -1,10 +1,12 @@
 import ComentarioListaTd from "./ComentarioListaTd";
-import { deleteService } from '../../http/api';
+import { deleteService,descartarServicio } from '../../http/api';
 import {useState} from 'react';
 function ComentarioListaTr(props){
  
     const [datoscomentariosServicios,setdatoscomentariosServicios] = useState("");
     const lista = props.dato;
+
+
 
       const irA = async (parametro)=>{
           console.log('irA',parametro);
@@ -12,6 +14,7 @@ function ComentarioListaTr(props){
           console.log('Isto é o que recollo', data);
           console.log('isto é o que estou a pasar: ',data['datoscomentariosServicios']);
           setdatoscomentariosServicios(data['datoscomentariosServicios']);
+          descartarServicio(`/avisos/${parametro}`,'POST');
           
       }
       

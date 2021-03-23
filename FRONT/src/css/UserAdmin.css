@@ -35,6 +35,37 @@ body {
   -webkit-font-smoothing: antialiased;
   background: rgb(190, 199, 198);
 }
+.datosnumericos {
+  border-radius: 10px;
+  width: 300px;
+  height: 200px;
+  margin: 50px;
+  padding: 5px;
+  color: white;
+  background: blue;
+  display: inline;
+}
+.texto {
+  border: 1px solid black;
+  width: 175px;
+  height: 10px;
+  padding: 1px;
+}
+.cajanumericos {
+  border-radius: 5px;
+  width: 1500px;
+  height: 200px;
+  padding: 5px;
+  background: green;
+}
+.caja1 {
+  border-radius: 5px;
+  width: 300px;
+  height: 200px;
+  padding: 5px;
+  background: rgb(228, 214, 25);
+  display: inline;
+}
 h1,
 h2 {
   text-align: center;

@@ -1,11 +1,11 @@
 import { useState,useEffect} from 'react';
 import ComentariosLista from '../components/User/ComentariosLista';
-import ServiciosSolucionados from '../components/User/ServiciosSolucionados';
+
 import { deleteService } from '../http/api';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import InsertComentarios from './InsertComentarios';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
 import Conversaciones from '../components/Conversaciones';
-import IniciarConversacion from '../components/IniciarConversacion';
+
 import '../css/Comentarios.css'
 import PagGinar from '../shared/utils/helpers';
 import MostrarServiciosComentarios from '../components/MostrarServiciosComentarios';

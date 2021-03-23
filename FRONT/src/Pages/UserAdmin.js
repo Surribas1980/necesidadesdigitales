@@ -90,33 +90,39 @@ function UserAdmin(){
             </Router>
     
     
-        <button onClick={()=>{
-                        /*console.log('Valor es: ',valor);
-                        if(valor === 0)
-                        {
-                            setValor(1);
-                        }
-                        else{
-                            setValor(0);
-                        }*/
-                        setShowMenu(!showMenu);
-        }
+        <button onClick={()=>{setShowMenu(!showMenu);}
             }>Actualizar UserAdmin</button>
             
         <main>
             <div>
                     <div >
-                        <div>
-                            <section >
-                                <h1>Datos numéricos</h1>
-                                Comentarios sin ver: {numComentariosSinver}
-                                <br></br>
-                                Comentarios sin leer: {numComentariosSinLer}
-                                <br></br>
-                                Cantidad de servicios que solucioné: {numMisSolucionados}
-                                <br></br>
-                                Cantidad de mis servicios solicitados: {numMisSolicitados}
-                            </section>
+                        <div className="cajanumericos">
+                            
+				                    <div className="datosnumericos">
+	    				             
+                                	        Comentarios sin ver:
+                                            
+
+                                        {numComentariosSinver}
+                                       
+                                        
+                                        <div className="caja1">
+                                            {numComentariosSinver}
+                                        </div>
+	    				            </div>
+                                    
+				                    <div className="datosnumericos">	
+                                    Comentarios sin leer: {numComentariosSinLer}
+                                    </div>
+
+				                    <div className="datosnumericos">	
+                                    Cantidad de servicios que solucioné: {numMisSolucionados}
+                                    </div>
+
+				                    <div className="datosnumericos">            
+	    			                Cantidad de mis servicios solicitados: {numMisSolicitados}
+                           	        </div> 
+	    			        
                         </div>
                         <section className="secciones">
                             

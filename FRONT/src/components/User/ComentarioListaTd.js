@@ -58,12 +58,12 @@ function ComentarioListaTd(props){
                                             <td>{item.id_co}</td>
                                             <td>{item.id_usu_co}</td>
                                             <td>
-                                                <img key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_co}/${item.nomFoto_usu}`} alt="imagen"/>
+                                                <img className="miAvatar" key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_co}/${item.nomFoto_usu}`} alt="imagen"/>
                                             </td>
                                             <td>{item.id_ser_co}</td>
                                             <td>{item.comentario}</td>
                                             <td>{item.id_co_num}</td>
-                                            <td><input className="imagenAvatar" type="checkbox" id="eleccion" name="eleccion"></input></td>
+                                            <td><input  type="checkbox" id="eleccion" name="eleccion"></input></td>
                                             <td>
                                                 <div>
                                                     <input id="respuesta" type="text" name="respuesta" autoComplete="off" />
