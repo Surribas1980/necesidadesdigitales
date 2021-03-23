@@ -9,6 +9,7 @@ import Conversaciones from '../components/Conversaciones';
 import '../css/Comentarios.css'
 import PagGinar from '../shared/utils/helpers';
 import MostrarServiciosComentarios from '../components/MostrarServiciosComentarios';
+import ConversacionesParticipo from '../components/User/ConversacionesParticipo';
 
 export default function Comentarios(){
     const [numServiciosSinSolucion,setnumServiciosSinSolucion]=useState(0);
@@ -20,6 +21,7 @@ export default function Comentarios(){
     const [numpaginamax,setNumPaginaMax]= useState(2);
     const [numpaginamin,setNumPaginaMin]= useState(1);
     const [servicios,setServicios] = useState("");
+    const [comentariosRecibidos,setcomentariosRecibidos] = useState([]);
     let paginacion;
     useEffect(()=>{
         const comentServicios = async () => {
@@ -33,6 +35,7 @@ export default function Comentarios(){
             setnumServiciosSinSolucion(data['numservicios'][0][0]['count(id_ser)']);
             setMisConversaciones(data['datosMisConversaciones'][0][0]);
             setMisComentarios(data['datosMisComentarios'][0][0]);
+            setcomentariosRecibidos(data['comentariosRecibidos'][0][0]);
             setComentarios(data['data'][0]);
         }
         comentServicios();
@@ -64,11 +67,13 @@ export default function Comentarios(){
 
                         <Link to="/insertarcomentario">Conversaciones</Link>
                         </div>
-                        
+                        <div className="header-item">
+                            <Link to="/comentariosrecibidos">Conversaciones en las que participo</Link>
+                        </div>
                 
                         <div className="header-item">
 
-                            <Link to="/misconversaciones">Mis conversaciones</Link>
+                            <Link to="/misconversaciones">Conversaciones sobre mis servicios</Link>
                         </div>
             
                         <button onClick={()=>{setShowMenu(!showMenu)}}>Actualizar sección de comentarios</button>
@@ -82,11 +87,11 @@ export default function Comentarios(){
                 <Route path="/misconversaciones">
                     <ComentariosLista valores={misconversaciones}></ComentariosLista>
                 </Route>
-                <Route path="/iniciarconversacion">
-                    
-                   
+                <Route path="/comentariosrecibidos">
+                    <ConversacionesParticipo misconvergenericas={comentariosRecibidos} ></ConversacionesParticipo>
+                </Route>
+                <Route path="/iniciarconversacion">                 
                     <div className="separacion">
-
                         <MostrarServiciosComentarios servicios={servicios} paginamax={numpaginamax} paginamin={numpaginamin} ></MostrarServiciosComentarios>
                     </div>
                 </Route>

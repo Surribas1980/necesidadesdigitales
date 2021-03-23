@@ -14,7 +14,7 @@ function ComentarioListaTr(props){
           console.log('Isto é o que recollo', data);
           console.log('isto é o que estou a pasar: ',data['datoscomentariosServicios']);
           setdatoscomentariosServicios(data['datoscomentariosServicios']);
-          descartarServicio(`/avisos/${parametro}`,'POST');
+          descartarServicio(`/avisos/1/${parametro}`,'POST');
           
       }
       

@@ -1,6 +1,6 @@
 import ComentarioListaTr from "./ComentariosListaTr";
 
-import { descartarServicio } from '../../http/api';
+
 /**
  * Esta función debe sacar para poder realizar la tabla final, el 'length' de los títulos
  * debido en esta ocasión cómo los estoy sacando desde la bbdd, no me viene con el tamaño
@@ -10,18 +10,13 @@ import { descartarServicio } from '../../http/api';
  * 
  * De ahí en esta ocasión, que se realize de esta manera.
  */
-import {useEffect} from 'react';
+
 export default function ComentariosLista(props){
     
     const listaConversaciones = props?.valores;
-    let titulo;
-    useEffect(()=>{
-        const pongoaCeroSinVer = async ()=>{
-           await descartarServicio("/avisos",'POST');
-        }
-        pongoaCeroSinVer();
-    },[]);
-    console.log('Lista de conversaciones ',listaConversaciones)
+   
+    
+    /*console.log('Lista de conversaciones ',listaConversaciones)
     for (const interno of Object.values(listaConversaciones)){
         console.log('Esto es interno: ', interno)
         titulo=Object.getOwnPropertyNames(interno).sort();
@@ -30,7 +25,7 @@ export default function ComentariosLista(props){
         }
     }
     console.log('Esto es titulo: ', titulo)
-    /*let vectorDatos = Object.values(listaComentarios);
+    let vectorDatos = Object.values(listaComentarios);
     console.log('vector de datos: ',vectorDatos)
 
     for(const interno of Object.values(listaComentarios)){
