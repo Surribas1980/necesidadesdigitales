@@ -5,6 +5,7 @@ const listUsers = require("./listUsers");
 const loginUser = require("./loginUser");
 const newUser = require("./newUser");
 const validateUser = require("./validateUser");
+const avisosUser = require("./avisosUser");
 
 module.exports = {
   adminUser,
@@ -13,5 +14,6 @@ module.exports = {
   listUsers,
   loginUser,
   newUser,
-  validateUser
+  validateUser,
+  avisosUser
 };

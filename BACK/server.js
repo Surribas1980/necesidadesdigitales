@@ -37,7 +37,8 @@ const {
   listUsers,
   loginUser,
   newUser,
-  validateUser
+  validateUser,
+  avisosUser
 } = require("./controllers/users");
 
 
@@ -54,7 +55,7 @@ const {
   userExists,
   comentarioExists
 } = require("./middlewares");
-const { url } = require("inspector");
+
 
 const urls = {
   serviciosid: "/servicios/:id",
@@ -81,6 +82,7 @@ const urlsusers = {
   insertcomentarios: "/users/insert/comentario/",
   comentarAdmin: "/comentar/admin",
   votar: "/servicios/votar/:id_servicio/:id_solucionador",
+  avisos:"/avisos/:id_ser"
 };
 
 //Esto es un comentario de prueba antes del nuevo push
@@ -156,6 +158,9 @@ app.get(urls.users, isUser, listUsers);
 //Post - /comentar
 //Añade un comentario al servicio
 app.post(urlsusers.insertcomentarios, isUser, newComentar);
+
+//Post - /avisos
+app.post(urlsusers.avisos,isUser,avisosUser);
 
 //Post - /comentar/admin
 //Añade un comentario realizado por el admin
