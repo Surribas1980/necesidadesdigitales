@@ -82,7 +82,7 @@ const urlsusers = {
   insertcomentarios: "/users/insert/comentario/",
   comentarAdmin: "/comentar/admin",
   votar: "/servicios/votar/:id_servicio/:id_solucionador",
-  avisos:"/avisos/:id_ser"
+  avisos:"/avisos/:acomentarios/:id_ser"
 };
 
 //Esto es un comentario de prueba antes del nuevo push

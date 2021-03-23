@@ -10,6 +10,7 @@ const listComentar = async (req, res, next) => {
   let numservicios;
   let connection;
   let servicios;
+  let comentariosRecibidos;
   
   const {ids} = req.body;
   
@@ -24,11 +25,14 @@ const listComentar = async (req, res, next) => {
          results = await listar();
          myconversaciones = await misConversaciones(req.userAuth.id);
          mycomentarios = await misComentarios(req.userAuth.id);
+         comentariosRecibidos = await connection.query(`call comentariosRecibidos(?)`,[req.userAuth.id]);
+
       }
      
   
       //Devuelto un json con los servicios
     res.send({
+      comentariosRecibidos:comentariosRecibidos,
       servicios:servicios,
       numservicios:numservicios,
       datoscomentariosServicios: comentariosdelServicio,
