@@ -15,6 +15,9 @@ import '../css/UserAdmin.css'
 import DeleteService from '../Pages/DeleteService';
 import DeleteMyService from '../components/User/DeleteMyService';
 import TitleUserAdmin from '../components/User/TitleUserAdmin';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
+
 function UserAdmin(){
     const { userData, logOut } = useAuth();
     const [ranking, setRanking] = useState([]);
@@ -98,29 +101,35 @@ function UserAdmin(){
                     <div >
                         <div className="cajanumericos">
                             
-				                    <div className="datosnumericos">
-	    				             
+				                    <div className="datosnumericos">                                    
                                 	        Comentarios sin ver:
-                                            
-
-                                        {numComentariosSinver}
-                                       
-                                        
                                         <div className="caja1">
                                             {numComentariosSinver}
                                         </div>
+                                            <div className="mensaje">
+                                            <FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon>
+                                            </div>
 	    				            </div>
                                     
 				                    <div className="datosnumericos">	
-                                    Comentarios sin leer: {numComentariosSinLer}
+                                    Comentarios sin leer:
+                                        <div className="caja1">
+                                        {numComentariosSinLer}
+                                        </div> 
                                     </div>
 
 				                    <div className="datosnumericos">	
-                                    Cantidad de servicios que solucioné: {numMisSolucionados}
+                                    Cantidad de servicios que solucioné: 
+                                        <div className="caja1">
+                                        {numMisSolucionados}
+                                        </div>
                                     </div>
 
 				                    <div className="datosnumericos">            
-	    			                Cantidad de mis servicios solicitados: {numMisSolicitados}
+	    			                    Cantidad de mis servicios solicitados: 
+                                        <div className="caja1">
+                                        {numMisSolicitados}
+                                        </div>                                        
                            	        </div> 
 	    			        
                         </div>
