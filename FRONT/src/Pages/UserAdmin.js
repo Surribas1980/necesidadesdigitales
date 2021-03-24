@@ -69,6 +69,7 @@ function UserAdmin(){
                 <FontAwesomeIcon onClick={()=>{setMenuLateral(!menuLateral);}} icon={faBars}></FontAwesomeIcon>
             </div>
             <TitleUserAdmin datosusuario={datosUsuario}></TitleUserAdmin> 
+        <button onClick={()=>{setShowMenu(!showMenu);}}>Actualizar</button>
             </nav>
             <Route path="/comentario">
                 <Comentarios />
@@ -98,15 +99,13 @@ function UserAdmin(){
             </Router>
     
     
-        <button onClick={()=>{setShowMenu(!showMenu);}
-            }>Actualizar UserAdmin</button>
             
         <main>
             <div className="box">
                 {menuLateral && <div className="lateral">Eso es otro div</div>}
                 {!menuLateral && <div>Este es el otro menú</div>}
                 <div className="principal">
-                        <div >
+                        
                             <div className="cajanumericos">
                                 
                                         <div className="datosnumericos">                                    
@@ -141,45 +140,35 @@ function UserAdmin(){
                                         </div> 
                                 
                             </div>
-                            <section className="secciones">
-                                
+
+                            <section className="secciones">                                
                                 <GraficaRanking valores={ranking}></GraficaRanking>
                             </section>
-
-                        </div>
-                        <div>
-                            <section className="secciones">
+                        
+                            <section className="tabla1">
                                 <h1>Servicios solucionados</h1>
                                 <ServiciosSolucionados solucionados={servesSolucionados}></ServiciosSolucionados>
                             </section>
-                        </div>
-                        <div>
+                        
                             <section className="tabla1">
                                 <h1>Servicios no solucionados</h1>
                                 <ServiciosSolucionados solucionados={serviciosNoSolucionados}></ServiciosSolucionados>
                             </section>
-                        </div>
-                        <div>
-                            <section className="secciones">
+                        
+                            <section className="tabla1">
                                 <h1>Servicios Usuario</h1>
                                 <ServiciosSolucionados solucionados={misSolicitados}></ServiciosSolucionados>
-                            </section>
-                        </div>
-                        <div>
-                            <section className="secciones">
+                           
                                 <h1>Mis servicios no solucionados</h1>
                                 <ServiciosSolucionados solucionados={misSerNoSolucionados}></ServiciosSolucionados>
                             </section>
-                        </div>
-                        <div>
-                            <section className="secciones">
+                        
+                        
+                            <section className="tabla1">
                                 <h1>Mis servicios solucionados</h1>
                                 <ServiciosSolucionados solucionados={misSerSolucionados}></ServiciosSolucionados>
-                            </section>
-                        </div>
-                    
-
-                </div>
+                            </section>                    
+                    </div>
             </div>
 
 

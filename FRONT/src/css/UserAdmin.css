@@ -28,7 +28,7 @@ nav {
   background-color: white;
 }
 .principal {
-  width: 70%;
+  width: auto;
   height: auto;
   background-color: #d8dcc5;
 }
@@ -53,10 +53,9 @@ nav {
   border-width: 5px;
 }
 .tabla1 {
-  border: 1px solid #ddd;
-  width: 70%;
+  overflow: scroll;
   height: auto;
-  background-color: #d8dcc5;
+  width: auto;
 }
 body {
   font-family: Helvetica;
@@ -84,7 +83,7 @@ body {
   width: 1500px;
   height: 250px;
   padding: 5px;
-  background: green;
+  background: rgb(200, 230, 220);
 }
 .caja1 {
   border-radius: 5px;

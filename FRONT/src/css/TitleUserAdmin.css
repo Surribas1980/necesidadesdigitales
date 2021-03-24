@@ -1,7 +1,7 @@
 nav {
   display: flex;
   flex-direction: row;
-  background-color: #1b8751;
+  background-color: lightgray;
 }
 
 .header-item {
@@ -9,6 +9,10 @@ nav {
   padding: 5px 10px;
   text-decoration: none;
   color: white;
+  border-right: 1px solid coral;
+}
+.header-item:hover {
+  background-color: lightseagreen;
 }
 
 .header-item a {
