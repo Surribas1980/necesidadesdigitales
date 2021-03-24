@@ -41,7 +41,7 @@ let titulo;
         {
            
 
-                <table className="fl-table">
+                <table >
                     
                     <thead>
                     </thead>

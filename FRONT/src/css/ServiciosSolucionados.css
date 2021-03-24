@@ -1,5 +1,5 @@
 /* Table Styles */
-
+/*
 .table-wrapper {
   margin: 10px 70px 70px;
   box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
@@ -11,8 +11,8 @@
   font-weight: normal;
   border: none;
   border-collapse: collapse;
-  width: 50%;
-  max-width: 100%;
+  width: auto;
+
   white-space: nowrap;
   background-color: rgb(79, 202, 206);
   position: relative;
@@ -44,3 +44,4 @@
 .fl-table tr:nth-child(even) {
   background: #f8f8f8;
 }
+*/
