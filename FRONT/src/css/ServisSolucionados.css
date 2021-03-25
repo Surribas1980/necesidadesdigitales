@@ -6,3 +6,7 @@
   margin: 0%;
   text-align: center;
 }
+th {
+  color: white;
+  background-color: black;
+}

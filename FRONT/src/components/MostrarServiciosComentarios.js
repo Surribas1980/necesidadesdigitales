@@ -52,6 +52,7 @@ export default function MostrarServiciosComentarios(props){
                     }
                 </tbody>
             </table>
+            <hr></hr>
             <div className="miscajas" onClick={()=>{
             if(numpaginamin > 0){
                const menosuno = numpaginamin - 1;

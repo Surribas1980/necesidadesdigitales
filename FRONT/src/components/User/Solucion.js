@@ -17,12 +17,12 @@ export default function Solucion(props){
         <tbody>
 
             <tr>
-                <td>Nº de servicio</td>
-                <td>Puntos de quien solicita</td>                
-                <td>AVATAR</td>
-                <td>Alias</td>
-                <td>Titulo servicio</td>
-                <td>Última puntuacion recibida</td>
+                <th>Nº de servicio</th>
+                <th>Puntos de quien solicita</th>                
+                <th>AVATAR</th>
+                <th>Alias</th>
+                <th>Titulo servicio</th>
+                <th>Última puntuacion recibida</th>
             </tr>
 
         {
