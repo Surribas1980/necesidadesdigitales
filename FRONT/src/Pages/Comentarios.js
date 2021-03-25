@@ -14,6 +14,7 @@ import ConversacionesParticipo from '../components/User/ConversacionesParticipo'
 export default function Comentarios(){
     const [numServiciosSinSolucion,setnumServiciosSinSolucion]=useState(0);
     const [showMenu, setShowMenu]=useState(false);
+    const [showSiguiente, setShowSiguiente]=useState(false);
     const [comentarios,setComentarios] = useState([]);
     const [misconversaciones, setMisConversaciones] = useState([]);
     const [miscomentarios,setMisComentarios] = useState([]);
@@ -43,15 +44,11 @@ export default function Comentarios(){
         
     },[showMenu]);
    
-     paginacion = PagGinar(numServiciosSinSolucion);
+  
      
      
      
-    const traerServicios = (valor)=>{
-
-        console.log('eso es el valor:',valor)
-
-    }
+  
     
     //<ComentariosLista valores={comentarios}></ComentariosLista>
     return (<>
@@ -61,7 +58,7 @@ export default function Comentarios(){
                 <nav>
                     <div className="header-item">
 
-                        <Link to="/iniciarconversacion">Iniciar conversacion</Link>
+                        <Link onClick={()=>{setShowSiguiente(!showSiguiente)}} to="/iniciarconversacion">Iniciar conversacion</Link>
                     </div>
                         <div className="header-item">
 
@@ -92,54 +89,12 @@ export default function Comentarios(){
                 </Route>
                 <Route path="/iniciarconversacion">                 
                     <div className="separacion">
-                        <MostrarServiciosComentarios servicios={servicios} paginamax={numpaginamax} paginamin={numpaginamin} ></MostrarServiciosComentarios>
+                        <MostrarServiciosComentarios numservicios={numServiciosSinSolucion} servicios={servicios} paginamax={numpaginamax} paginamin={numpaginamin} ></MostrarServiciosComentarios>
                     </div>
                 </Route>
                 
             </Router>
 
-
-
- 		<div className="miscajas" onClick={()=>{
-             if(numpaginamin > 0){
-                const menosuno = numpaginamin - 1;
-                const menosunoenmax = numpaginamax - 1;
-                setNumPaginaMin(menosuno);
-                setNumPaginaMax(menosunoenmax);
-                
-            }
-            console.log('En menos uno', numpaginamax,numpaginamin)
-
-        }}>{'<'}</div>       
-            {
-		    
-                paginacion?.map((item)=>{
-                    
-
-                    if((item <= numpaginamax) && (item >= numpaginamin)){
-
-                        return (<>
-                            
-
-                            <div className="miscajas" onClick={()=>{
-                                traerServicios(item)
-                            }}>{item}</div>
-                        </>)
-                    }
-				
-			
-                })
-		    
-            }
-		<div className="miscajas" onClick={()=>{
-            if(numpaginamax < paginacion.length){
-                const menosuno = numpaginamin + 1;
-                const menosunoenmax = numpaginamax + 1;
-                setNumPaginaMin(menosuno);
-                setNumPaginaMax(menosunoenmax);
-                
-            }
-            console.log('En mas uno', numpaginamax,numpaginamin)
-        }}>{'>'}</div>
+   
         </>);
 }

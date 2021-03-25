@@ -1,10 +1,13 @@
 import InsertComentarios from "../Pages/InsertComentarios";
 import { useState} from 'react';
+import PagGinar from '../shared/utils/helpers';
 export default function MostrarServiciosComentarios(props){
 
     const servicios= props?.servicios;
-    const numpaginamax=props?.paginamax;
-    const numpaginamin = props?.paginamin;
+    const cantidad = props?.numservicios;
+    const paginacion = PagGinar(cantidad);
+    const [numpaginamax,setNumPaginaMax]= useState(2);
+    const [numpaginamin,setNumPaginaMin]= useState(1);
     const [id,setId]=useState(0);
 
     console.log('Servicios en Mostrar servicios',servicios,'Nummax:',numpaginamax,'Numin',numpaginamin);
@@ -49,6 +52,37 @@ export default function MostrarServiciosComentarios(props){
                     }
                 </tbody>
             </table>
+            <div className="miscajas" onClick={()=>{
+            if(numpaginamin > 0){
+               const menosuno = numpaginamin - 1;
+               const menosunoenmax = numpaginamax - 1;
+               setNumPaginaMin(menosuno);
+               setNumPaginaMax(menosunoenmax);
+               
+           }
+           console.log('En menos uno', numpaginamax,numpaginamin)
+
+       }}>{'<'}</div>{  
+        paginacion?.map((item)=>{
+            
+
+            if((item <= numpaginamax) && (item >= numpaginamin)){
+
+                return (<><div className="miscajas">{item}</div></>)
+            }
+        
+    
+        })
+    }<div className="miscajas" onClick={()=>{
+        if(numpaginamax < paginacion.length){
+            const menosuno = numpaginamin + 1;
+            const menosunoenmax = numpaginamax + 1;
+            setNumPaginaMin(menosuno);
+            setNumPaginaMax(menosunoenmax);
+            
+        }
+        console.log('En mas uno', numpaginamax,numpaginamin)
+    }}>{'>'}</div>
             {id && <InsertComentarios id_ser={id}/> ? <InsertComentarios id_ser={id}/> : ''}
     </>);
 }
