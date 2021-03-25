@@ -25,16 +25,21 @@ nav {
 .lateral {
   width: 25%;
   height: auto;
-  background-color: white;
+  background-color: rgb(161, 236, 224);
 }
 .principal {
   width: auto;
   height: auto;
-  background-color: #d8dcc5;
+  background-color: #ffffff;
+  text-align: center;
 }
 .box {
   display: flex;
   justify-content: space-between;
+}
+.anc {
+  width: auto;
+  height: 500px;
 }
 .imagenAvatar {
   border: 1px solid #ddd;
@@ -65,7 +70,7 @@ nav {
 body {
   font-family: Helvetica;
   -webkit-font-smoothing: antialiased;
-  background: rgb(190, 199, 198);
+  background: rgb(255, 255, 255);
 }
 .datosnumericos {
   border-radius: 10px;
@@ -88,7 +93,7 @@ body {
   width: 1500px;
   height: 250px;
   padding: 5px;
-  background: rgb(200, 230, 220);
+  background: rgb(255, 255, 255);
 }
 .caja1 {
   border-radius: 5px;

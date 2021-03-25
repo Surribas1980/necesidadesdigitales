@@ -66,50 +66,54 @@ function UserAdmin(){
             
         <main>
             <Router>
-                                            <nav>
-                                                <div className="botonmenulateral">                
-                                                    <FontAwesomeIcon onClick={()=>{setMenuLateral(!menuLateral);}} icon={faBars}></FontAwesomeIcon>
-                                                </div>
-                                                <TitleUserAdmin datosusuario={datosUsuario}></TitleUserAdmin> 
-                                                <button onClick={()=>{setShowMenu(!showMenu);}}>Actualizar</button>
-                                            </nav>
+                <nav>
+                    <div className="botonmenulateral">                
+                        <FontAwesomeIcon onClick={()=>{setMenuLateral(!menuLateral);}} icon={faBars}></FontAwesomeIcon>
+                    </div>
+                    <TitleUserAdmin datosusuario={datosUsuario}></TitleUserAdmin> 
+                    <button onClick={()=>{setShowMenu(!showMenu);}}>Actualizar</button>
+                </nav>
+                
+                                            
                 <div className="box">
                             {menuLateral && <div className="lateral">Eso es otro div</div>}
                             {!menuLateral && <div>Este es el otro menú</div>}
-                            <div className="principal">
-                                        
-                                    
-
-                                            <div className="lassecciones">
-
-                                                <Route path="/comentario">
-                                                    <Comentarios />
+                            <div className="principal">                                 
+                            <Route path="/comentario">
+                                                    <div className="lassecciones">
+                                                        <Comentarios />
+                                                    </div>
                                                 </Route>            
                                                 <Route path="/datospersonales">
                                                     <ModificacionDatos datos={datosUsuario}/>
                                                 </Route>
                                                 <Route path="/darpuntuacion">
-                                                    <DarPuntuacion solucionados={misSerSolucionados}></DarPuntuacion>
+                                                    <div className="lassecciones">
+                                                        <DarPuntuacion solucionados={misSerSolucionados}></DarPuntuacion>
+                                                    </div>
                                                 </Route>
                                                 <Route path="/darsolucion">
-                                                    <Solucion nosolucionados={serviciosNoSolucionados}/>
+                                                    <div className="lassecciones">
+                                                        <Solucion nosolucionados={serviciosNoSolucionados}/>
+                                                    </div>
                                                 </Route>
                                                 <Route path="/solucionados">
                                                     <ServisSolucionados servissolucionados={servesSolucionados}></ServisSolucionados>
                                                 </Route>
-                                                <Route path="/delete/servicios">                 
-                                                        <DeleteService />                  
+                                                <Route path="/delete/servicios">
+                                                                    
+                                                        <DeleteService />  
+                                                                   
                                                 </Route>
                                                 <Route path="/insert/servicios">
                                                         <InsertServices />
                                                 </Route>
 
-                                                <Route path="/borrar/misservicios">                 
+                                                <Route path="/borrar/misservicios">
+                                                   
                                                         <DeleteMyService />                  
+                                                                    
                                                 </Route>
-                                            </div>
-                                    
-                                        
                                         <div className="cajanumericos">
                                             
                                                     <div className="datosnumericos">                                    
