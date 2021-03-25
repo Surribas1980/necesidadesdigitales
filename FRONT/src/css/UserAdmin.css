@@ -16,7 +16,7 @@ nav {
   color: white;
 }
 .mensaje {
-  font-size: 10em;
+  font-size: 2.5em;
   height: auto;
   margin: 0%;
   text-align: center;
@@ -81,11 +81,11 @@ body {
 .datosnumericos {
   border-radius: 10px;
   width: 300px;
-  height: 200px;
-  margin: 10px;
+  height: 100px;
+  margin: 1px;
   padding: 5px;
   color: white;
-  background: blue;
+  background: rgb(182, 206, 216);
   display: inline-flex;
 }
 .texto {

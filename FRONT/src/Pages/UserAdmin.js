@@ -152,8 +152,8 @@ function UserAdmin(){
                                                         <DeleteMyService />                  
                                                                     
                                                 </Route>
-                                                <hr></hr>
-                                                <hr></hr> 
+                            <hr></hr>
+                            <hr></hr> 
                                         
 
                                         <section className="lassecciones">                                

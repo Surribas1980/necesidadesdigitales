@@ -20,7 +20,7 @@ export default function GraficaRanking(props){
 
     /*const colores = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'];
     const puntos = [12, 19, 3, 5, 2, 3];*/
-    return (<><h1>Estoy en Graficas</h1>
+    return (<><h1>Ranking</h1>
         <Bar 
             data={{
                     labels: nombres,
