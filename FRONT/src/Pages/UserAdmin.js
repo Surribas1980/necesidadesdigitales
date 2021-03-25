@@ -62,116 +62,120 @@ function UserAdmin(){
 
 
 
-    return (<>
-        <Router>
-            <nav>
-            <div className="botonmenulateral">                
-                <FontAwesomeIcon onClick={()=>{setMenuLateral(!menuLateral);}} icon={faBars}></FontAwesomeIcon>
-            </div>
-            <TitleUserAdmin datosusuario={datosUsuario}></TitleUserAdmin> 
-        <button onClick={()=>{setShowMenu(!showMenu);}}>Actualizar</button>
-            </nav>
-            <Route path="/comentario">
-                <Comentarios />
-            </Route>            
-            <Route path="/datospersonales">
-                <ModificacionDatos datos={datosUsuario}/>
-            </Route>
-            <Route path="/darpuntuacion">
-                <DarPuntuacion solucionados={misSerSolucionados}></DarPuntuacion>
-            </Route>
-            <Route path="/darsolucion">
-                <Solucion nosolucionados={serviciosNoSolucionados}/>
-            </Route>
-            <Route path="/solucionados">
-                <ServisSolucionados servissolucionados={servesSolucionados}></ServisSolucionados>
-            </Route>
-            <Route path="/delete/servicios">                 
-                    <DeleteService />                  
-            </Route>
-            <Route path="/insert/servicios">
-                    <InsertServices />
-            </Route>
-
-            <Route path="/borrar/misservicios">                 
-                    <DeleteMyService />                  
-            </Route>
-            </Router>
-    
-    
+    return (<>    
             
         <main>
-            <div className="box">
-                {menuLateral && <div className="lateral">Eso es otro div</div>}
-                {!menuLateral && <div>Este es el otro menú</div>}
-                <div className="principal">
-                        
-                            <div className="cajanumericos">
-                                
-                                        <div className="datosnumericos">                                    
-                                                Comentarios sin ver:
-                                            <div className="caja1">
-                                                {numComentariosSinver}
-                                            </div>
-                                                <div className="mensaje">
-                                                <FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon>
+            <Router>
+                                            <nav>
+                                                <div className="botonmenulateral">                
+                                                    <FontAwesomeIcon onClick={()=>{setMenuLateral(!menuLateral);}} icon={faBars}></FontAwesomeIcon>
                                                 </div>
-                                        </div>
+                                                <TitleUserAdmin datosusuario={datosUsuario}></TitleUserAdmin> 
+                                                <button onClick={()=>{setShowMenu(!showMenu);}}>Actualizar</button>
+                                            </nav>
+                <div className="box">
+                            {menuLateral && <div className="lateral">Eso es otro div</div>}
+                            {!menuLateral && <div>Este es el otro menú</div>}
+                            <div className="principal">
                                         
-                                        <div className="datosnumericos">	
-                                        Comentarios sin leer:
-                                            <div className="caja1">
-                                            {numComentariosSinLer}
-                                            </div> 
-                                        </div>
+                                    
 
-                                        <div className="datosnumericos">	
-                                        Cantidad de servicios que solucioné: 
-                                            <div className="caja1">
-                                            {numMisSolucionados}
+                                            <div className="lassecciones">
+
+                                                <Route path="/comentario">
+                                                    <Comentarios />
+                                                </Route>            
+                                                <Route path="/datospersonales">
+                                                    <ModificacionDatos datos={datosUsuario}/>
+                                                </Route>
+                                                <Route path="/darpuntuacion">
+                                                    <DarPuntuacion solucionados={misSerSolucionados}></DarPuntuacion>
+                                                </Route>
+                                                <Route path="/darsolucion">
+                                                    <Solucion nosolucionados={serviciosNoSolucionados}/>
+                                                </Route>
+                                                <Route path="/solucionados">
+                                                    <ServisSolucionados servissolucionados={servesSolucionados}></ServisSolucionados>
+                                                </Route>
+                                                <Route path="/delete/servicios">                 
+                                                        <DeleteService />                  
+                                                </Route>
+                                                <Route path="/insert/servicios">
+                                                        <InsertServices />
+                                                </Route>
+
+                                                <Route path="/borrar/misservicios">                 
+                                                        <DeleteMyService />                  
+                                                </Route>
                                             </div>
+                                    
+                                        
+                                        <div className="cajanumericos">
+                                            
+                                                    <div className="datosnumericos">                                    
+                                                            Comentarios sin ver:
+                                                        <div className="caja1">
+                                                            {numComentariosSinver}
+                                                        </div>
+                                                            <div className="mensaje">
+                                                            <FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon>
+                                                            </div>
+                                                    </div>
+                                                    
+                                                    <div className="datosnumericos">	
+                                                    Comentarios sin leer:
+                                                        <div className="caja1">
+                                                        {numComentariosSinLer}
+                                                        </div> 
+                                                    </div>
+
+                                                    <div className="datosnumericos">	
+                                                    Cantidad de servicios que solucioné: 
+                                                        <div className="caja1">
+                                                        {numMisSolucionados}
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="datosnumericos">            
+                                                        Cantidad de mis servicios solicitados: 
+                                                        <div className="caja1">
+                                                        {numMisSolicitados}
+                                                        </div>                                        
+                                                    </div> 
+                                            
                                         </div>
 
-                                        <div className="datosnumericos">            
-                                            Cantidad de mis servicios solicitados: 
-                                            <div className="caja1">
-                                            {numMisSolicitados}
-                                            </div>                                        
-                                        </div> 
-                                
+                                        <section className="secciones">                                
+                                            <GraficaRanking valores={ranking}></GraficaRanking>
+                                        </section>
+                                    
+                                        <section className="tabla1">
+                                            <h1>Servicios solucionados</h1>
+                                            <ServiciosSolucionados solucionados={servesSolucionados}></ServiciosSolucionados>
+                                        </section>
+                                    
+                                        <section className="tabla1">
+                                            <h1>Servicios no solucionados</h1>
+                                            <ServiciosSolucionados solucionados={serviciosNoSolucionados}></ServiciosSolucionados>
+                                        </section>
+                                    
+                                        <section className="tabla1">
+                                            <h1>Servicios Usuario</h1>
+                                            <ServiciosSolucionados solucionados={misSolicitados}></ServiciosSolucionados>
+                                    
+                                            <h1>Mis servicios no solucionados</h1>
+                                            <ServiciosSolucionados solucionados={misSerNoSolucionados}></ServiciosSolucionados>
+                                        </section>
+                                    
+                                    
+                                        <section className="tabla1">
+                                            <h1>Mis servicios solucionados</h1>
+                                            <ServiciosSolucionados solucionados={misSerSolucionados}></ServiciosSolucionados>
+                                        </section>                    
                             </div>
+                </div>
 
-                            <section className="secciones">                                
-                                <GraficaRanking valores={ranking}></GraficaRanking>
-                            </section>
-                        
-                            <section className="tabla1">
-                                <h1>Servicios solucionados</h1>
-                                <ServiciosSolucionados solucionados={servesSolucionados}></ServiciosSolucionados>
-                            </section>
-                        
-                            <section className="tabla1">
-                                <h1>Servicios no solucionados</h1>
-                                <ServiciosSolucionados solucionados={serviciosNoSolucionados}></ServiciosSolucionados>
-                            </section>
-                        
-                            <section className="tabla1">
-                                <h1>Servicios Usuario</h1>
-                                <ServiciosSolucionados solucionados={misSolicitados}></ServiciosSolucionados>
-                           
-                                <h1>Mis servicios no solucionados</h1>
-                                <ServiciosSolucionados solucionados={misSerNoSolucionados}></ServiciosSolucionados>
-                            </section>
-                        
-                        
-                            <section className="tabla1">
-                                <h1>Mis servicios solucionados</h1>
-                                <ServiciosSolucionados solucionados={misSerSolucionados}></ServiciosSolucionados>
-                            </section>                    
-                    </div>
-            </div>
-
-
+            </Router>
 
         </main>
         
