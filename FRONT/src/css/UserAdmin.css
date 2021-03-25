@@ -69,8 +69,8 @@ hr {
   width: auto;
 }
 .lassecciones {
-  overflow: scroll;
-  height: 500px;
+  overflow: auto;
+  height: auto;
   width: 1000px;
 }
 body {

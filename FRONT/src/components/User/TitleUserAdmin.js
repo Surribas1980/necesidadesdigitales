@@ -25,15 +25,15 @@ const salida =<><nav>
                 </div>
                 <div className="header-item">
 
-                <Link to= "/darsolucion">Dar posible solucion</Link>
-                </div>
-                <div className="header-item">
-
                 <Link to= "/darpuntuacion">Mis servicios</Link>
                 </div>
                 <div className="header-item">
 
                 <Link to= "/solucionados">Servicios Solucionados</Link>
+                </div>
+                <div className="header-item">
+
+                <Link to= "/darsolucion">Servicios no solucionados</Link>
                 </div>
                 <div className="header-item">
                     <Link to="/delete/servicios">Borrar servicios</Link>

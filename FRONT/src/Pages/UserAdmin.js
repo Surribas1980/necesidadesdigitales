@@ -74,48 +74,12 @@ function UserAdmin(){
                     <button onClick={()=>{setShowMenu(!showMenu);}}>Actualizar</button>
                 </nav>
                 
-                                            
+                                        
                 <div className="box">
                             {menuLateral && <div className="lateral">Eso es otro div</div>}
                             {!menuLateral && <div>Este es el otro menú</div>}
-                            <div className="principal">                                 
-                            <Route path="/comentario">
-                                                    <div className="lassecciones">
-                                                        <Comentarios />
-                                                    </div>
-                                                </Route>            
-                                                <Route path="/datospersonales">
-                                                    <ModificacionDatos datos={datosUsuario}/>
-                                                </Route>
-                                                <Route path="/darpuntuacion">
-                                                    <div className="lassecciones">
-                                                        <DarPuntuacion solucionados={misSerSolucionados}></DarPuntuacion>
-                                                    </div>
-                                                </Route>
-                                                <Route path="/darsolucion">
-                                                    <div className="lassecciones">
-                                                        <Solucion nosolucionados={serviciosNoSolucionados}/>
-                                                    </div>
-                                                </Route>
-                                                <Route path="/solucionados">
-                                                    <ServisSolucionados servissolucionados={servesSolucionados}></ServisSolucionados>
-                                                </Route>
-                                                <Route path="/delete/servicios">
-                                                                    
-                                                        <DeleteService />  
-                                                                   
-                                                </Route>
-                                                <Route path="/insert/servicios">
-                                                        <InsertServices />
-                                                </Route>
-
-                                                <Route path="/borrar/misservicios">
-                                                   
-                                                        <DeleteMyService />                  
-                                                                    
-                                                </Route>
-                                                <hr></hr>
-                                        <div className="cajanumericos">
+                            <div className="principal"> 
+                            <div className="cajanumericos">
                                             
                                                     <div className="datosnumericos">                                    
                                                             Comentarios sin ver:
@@ -148,32 +112,64 @@ function UserAdmin(){
                                                         </div>                                        
                                                     </div> 
                                             
-                                        </div>
+                                        </div> 
+                            <hr></hr>  
+                            <hr></hr>                              
+                                                <Route path="/comentario">
+                                                    <div className="lassecciones">
+                                                        <Comentarios />
+                                                    </div>
+                                                </Route>            
+                                                <Route path="/datospersonales">
+                                                    <ModificacionDatos datos={datosUsuario}/>
+                                                </Route>
+                                                <Route path="/darpuntuacion">
+                                                    <div className="lassecciones">
+                                                        <DarPuntuacion solucionados={misSerSolucionados}></DarPuntuacion>
+                                                    </div>
+                                                </Route>
+                                                <Route path="/darsolucion">
+                                                    <div className="lassecciones">
+                                                        <Solucion nosolucionados={serviciosNoSolucionados}/>
+                                                    </div>
+                                                </Route>
+                                                <Route path="/solucionados">
+                                                    <div className="lassecciones">
+                                                    <ServisSolucionados servissolucionados={servesSolucionados}></ServisSolucionados>
+                                                    </div>
+                                                </Route>
+                                                <Route path="/delete/servicios">
+                                                           
+                                                        <DeleteService />  
+                                                                  
+                                                </Route>
+                                                <Route path="/insert/servicios">
+                                                        <InsertServices />
+                                                </Route>
 
-                                        <section className="secciones">                                
+                                                <Route path="/borrar/misservicios">
+                                                   
+                                                        <DeleteMyService />                  
+                                                                    
+                                                </Route>
+                                                <hr></hr>
+                                                <hr></hr> 
+                                        
+
+                                        <section className="lassecciones">                                
                                             <GraficaRanking valores={ranking}></GraficaRanking>
                                         </section>
-                                    
-                                        <section className="tabla1">
-                                            <h1>Servicios solucionados</h1>
-                                            <ServiciosSolucionados solucionados={servesSolucionados}></ServiciosSolucionados>
-                                        </section>
-                                    
-                                        <section className="tabla1">
-                                            <h1>Servicios no solucionados</h1>
-                                            <ServiciosSolucionados solucionados={serviciosNoSolucionados}></ServiciosSolucionados>
-                                        </section>
-                                    
-                                        <section className="tabla1">
-                                            <h1>Servicios Usuario</h1>
+                                        <secction  className="lassecciones">
+                                            <h1>Mis servicios solicitados</h1>
                                             <ServiciosSolucionados solucionados={misSolicitados}></ServiciosSolucionados>
-                                    
+                                        </secction>
+                                        <section className="lassecciones">
                                             <h1>Mis servicios no solucionados</h1>
                                             <ServiciosSolucionados solucionados={misSerNoSolucionados}></ServiciosSolucionados>
                                         </section>
                                     
                                     
-                                        <section className="tabla1">
+                                        <section className="lassecciones">
                                             <h1>Mis servicios solucionados</h1>
                                             <ServiciosSolucionados solucionados={misSerSolucionados}></ServiciosSolucionados>
                                         </section>                    

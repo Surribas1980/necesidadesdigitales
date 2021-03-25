@@ -12,7 +12,7 @@ export default function Solucion(props){
         setIdservicio(valor);
     }
    
-    return (<><h1>Dar solucion</h1>
+    return (<>
     <table>
         <tbody>
 

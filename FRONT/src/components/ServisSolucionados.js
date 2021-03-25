@@ -39,9 +39,7 @@ function ServisSolucionados(props){
           
     }
 
-    return (<>
-
-    <h2>Estoy en servicios solucionados</h2>
+    return (<>    
     {
 
         
