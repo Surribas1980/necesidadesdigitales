@@ -114,6 +114,7 @@ function UserAdmin(){
                                                         <DeleteMyService />                  
                                                                     
                                                 </Route>
+                                                <hr></hr>
                                         <div className="cajanumericos">
                                             
                                                     <div className="datosnumericos">                                    
