@@ -53,7 +53,14 @@ export default function ListaServicios(props){
         return (
             <fieldset name={fieldName} key={item.id_ser}>
                 <label>
-                    Titulo: {item.titulo_ser}<br></br>Explicación:{item.expli_ser}
+                <div className="fuerafrom">
+
+                Titulo:<input value={item.titulo_ser} readOnly />
+                </div>
+                <div className="fuerafrom">
+                    Explicación<textarea value={item.expli_ser} readOnly />
+                </div>
+                    
                     <input type="checkbox" value={item.id_ser} name={`${fieldName}.expli_ser`} ref={register} />
                 </label>
             </fieldset>

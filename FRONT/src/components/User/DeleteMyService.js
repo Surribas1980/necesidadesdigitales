@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import {useForm} from 'react-hook-form';
 import ListaServicios from '../ListaServicios';
 import {enviarDatos} from '../../http/api';
-
+import '../../css/DeleteMyService.css'
 
 function DeleteMyService(){
     const { register, handleSubmit } = useForm();
@@ -13,7 +13,7 @@ function DeleteMyService(){
     const [inicioLista, setInicioLista] = useState(0);
     const [alante, setAlante] = useState(1);
     const [valoresform, setValoresForm] = useState();
-    
+    const [numMisServicios,setnumMisServicios] = useState(0)
    
     const text1 = 'idMinServiciosTemporal()';
     const text2 = 'idMaxServiciosTemporal()';
@@ -27,6 +27,7 @@ function DeleteMyService(){
         const listarServicios = async () => {
             //const numServicios = await deleteService('/servicios','GET',0,null); 
             const numServicios = await enviarDatos(limite,inicioLista,alante,search1,search2,1);
+            setnumMisServicios(numServicios['numservicios'][0]['count(*)'])
             if(search2 || search1){
               setServices(numServicios['resultbbdd'][0]);
               console.log('Estoy en mis servicios Trae datos: ',numServicios['resultbbdd'][0])  
@@ -34,7 +35,9 @@ function DeleteMyService(){
               setServices(numServicios['resultbbdd']);  
             }
             
-            console.log(numServicios);
+            console.log('Isto é o que entra en deletemyservices',numServicios);
+            console.log('objeto numero',numServicios['numservicios'][0]);
+            console.log('numero ',numServicios['numservicios'][0]['count(*)']);
             //console.log('La tabla: ',numServicios['resultbbdd']);
             for(const i1 in numServicios){
                // console.log(`Estoy en el primer nivel ${i1} = ${numServicios[i1]}`);
@@ -73,22 +76,31 @@ function DeleteMyService(){
     
     return (<>
              
-          <h1>Estoy en deletemyservices</h1>
-        <button onClick={()=>{setInicioLista(idMax);
-            console.log('El idMax que entra en setInicioLista: ',idMax)
+          <h1>Lista de servicios. Cantidad que tengo {numMisServicios}</h1>
+        <button onClick={()=>{setInicioLista(idMax);          
             setAlante(1)}}>Adelante</button>
         <button onClick={
             ()=>{setInicioLista(idMin);
-        console.log('El idMin que entra en setInicioLista: ',idMin)
+        
              setAlante(0)}}>Atrás</button>   
 
-        <form onSubmit={handleSubmit(submitForm)}>
-            <label htmlFor='titulo'>Titulo</label>
-            <input id="titulo" ref={register({ required: false})} name="titulo" ></input>
-            <label htmlFor='explicacion'>Explicacion</label>
-            <input id="explicacion" ref={register({ required: false})} name="explicacion"></input>
-            <button>Buscar</button>
-        </form>    	
+        <div className="fuerafrom">
+            <form onSubmit={handleSubmit(submitForm)}>
+                <div className="formulario">
+                    <div className="dentrofrom">
+                        <label htmlFor='titulo'>Titulo</label>
+                        <input id="titulo" ref={register({ required: false})} name="titulo" ></input>
+                    </div>
+                </div>
+                <div className="explicacion">
+                    <div className="dentrofrom">
+                        <label htmlFor='explicacion'>Explicacion</label>
+                        <input id="explicacion" ref={register({ required: false})} name="explicacion"></input>
+                    </div>
+                </div>
+                    <button>Buscar</button>
+            </form>    	
+        </div>
         
         <ListaServicios valores={servicios}></ListaServicios>
         </>);
