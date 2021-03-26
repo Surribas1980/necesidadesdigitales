@@ -24,6 +24,7 @@ const listServicios = async (req, res, next) => {
            [results] = await connection.query(`select * from servicioslimitada;`);
             
     }
+          const [numServicios] = await connection.query(`select count(*) from servicios join solicitar on id_ser = id_ser_soli where id_usu_soli = ? `,[req.userAuth.id]);
           const [idMaxTemporal] = await connection.query(`select idMaxServiciosTemporal();`);
           const [idMinTemporal] = await connection.query(`select idMinServiciosTemporal();`);
           await connection.query(`call borrarTemporalServicios();`);
@@ -31,6 +32,7 @@ const listServicios = async (req, res, next) => {
     //Devuelto un json con los servicios
     res.send({
       status: "ok",
+      numservicios:numServicios,
       data: limite,
       inicioLista,
       resultbbdd: results,
