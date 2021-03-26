@@ -22,6 +22,7 @@ export default function Solucion(props){
                 <th>AVATAR</th>
                 <th>Alias</th>
                 <th>Titulo servicio</th>
+                <th>Explicación del servicio</th>
                 <th>Última puntuacion recibida</th>
             </tr>
 
@@ -36,6 +37,7 @@ export default function Solucion(props){
                                     </td>
                                     <td>{item.Solicitador}</td>
                                     <td>{item.titulo_ser}</td>
+                                    <td>{item.expli_ser}</td>
                                     <td>{item.puntuacion}</td>
                                     <td><button onClick={()=>{aSolucionar(item.id_ser)}}>Dar solucion</button></td>
                             </tr>

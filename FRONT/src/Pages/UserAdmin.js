@@ -17,6 +17,9 @@ import DeleteMyService from '../components/User/DeleteMyService';
 import TitleUserAdmin from '../components/User/TitleUserAdmin';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEnvelope,faBars,faHandPointUp} from '@fortawesome/free-solid-svg-icons';
+import MisServiSoliUserAdmin from '../components/User/MisServiSoliUserAdim';
+import MisServiNoSoluUserAdmin from '../components/User/MisServiNoSoluUserAdim';
+import MisServiSoluUserAdmin from '../components/User/MisServiSoluUserAdim';
 
 function UserAdmin(){
     const { userData, logOut } = useAuth();
@@ -160,18 +163,18 @@ function UserAdmin(){
                                             <GraficaRanking valores={ranking}></GraficaRanking>
                                         </section>
                                         <secction  className="lassecciones">
-                                            <h1>Mis servicios solicitados</h1>
-                                            <ServiciosSolucionados solucionados={misSolicitados}></ServiciosSolucionados>
+                                            <h1>Mis servicios solicitados</h1>                                            
+                                            <MisServiSoliUserAdmin misservis={misSolicitados}></MisServiSoliUserAdmin>
                                         </secction>
                                         <section className="lassecciones">
                                             <h1>Mis servicios no solucionados</h1>
-                                            <ServiciosSolucionados solucionados={misSerNoSolucionados}></ServiciosSolucionados>
+                                            <MisServiNoSoluUserAdmin misnosolucionados={misSerNoSolucionados} ></MisServiNoSoluUserAdmin>
                                         </section>
                                     
                                     
                                         <section className="lassecciones">
                                             <h1>Mis servicios solucionados</h1>
-                                            <ServiciosSolucionados solucionados={misSerSolucionados}></ServiciosSolucionados>
+                                            <MisServiSoluUserAdmin missolucionados={misSerSolucionados}></MisServiSoluUserAdmin>
                                         </section>                    
                             </div>
                 </div>
