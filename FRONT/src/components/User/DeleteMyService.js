@@ -13,8 +13,8 @@ function DeleteMyService(){
     const [inicioLista, setInicioLista] = useState(0);
     const [alante, setAlante] = useState(1);
     const [valoresform, setValoresForm] = useState();
-    const [numMisServicios,setnumMisServicios] = useState(0)
-   
+    const [idMaximoServicio,setidMaximoServicio] = useState(0)
+    const [idMinimoServicio,setidMinimoServicio] = useState(0)
     const text1 = 'idMinServiciosTemporal()';
     const text2 = 'idMaxServiciosTemporal()';
     const [idMin,setIdMin]=useState(0);
@@ -27,7 +27,8 @@ function DeleteMyService(){
         const listarServicios = async () => {
             //const numServicios = await deleteService('/servicios','GET',0,null); 
             const numServicios = await enviarDatos(limite,inicioLista,alante,search1,search2,1);
-            setnumMisServicios(numServicios['numservicios'][0]['count(*)'])
+            setidMaximoServicio(numServicios['idMax'][0]['max(id_ser)'])
+            setidMinimoServicio(numServicios['idMin'][0]['min(id_ser)'])
             if(search2 || search1){
               setServices(numServicios['resultbbdd'][0]);
               console.log('Estoy en mis servicios Trae datos: ',numServicios['resultbbdd'][0])  
@@ -36,8 +37,8 @@ function DeleteMyService(){
             }
             
             console.log('Isto é o que entra en deletemyservices',numServicios);
-            console.log('objeto numero',numServicios['numservicios'][0]);
-            console.log('numero ',numServicios['numservicios'][0]['count(*)']);
+            
+           
             //console.log('La tabla: ',numServicios['resultbbdd']);
             for(const i1 in numServicios){
                // console.log(`Estoy en el primer nivel ${i1} = ${numServicios[i1]}`);
@@ -76,24 +77,34 @@ function DeleteMyService(){
     
     return (<>
              
-          <h1>Lista de servicios. Cantidad que tengo {numMisServicios}</h1>
-        <button onClick={()=>{setInicioLista(idMax);          
-            setAlante(1)}}>Adelante</button>
+          <h1>Lista de servicios. IdMaximo {idMaximoServicio}</h1>
+        <button onClick={()=>{
+            if(idMax < idMaximoServicio)
+            {
+                setInicioLista(idMax);          
+                setAlante(1) 
+            }
+            }}>Adelante</button>
         <button onClick={
-            ()=>{setInicioLista(idMin);
+            ()=>{
+                if(idMin > idMinimoServicio){
+                    setInicioLista(idMin);
+                    setAlante(0);
+                }
+                
         
-             setAlante(0)}}>Atrás</button>   
+             }}>Atrás</button>   
 
-        <div className="fuerafrom">
+        <div className="fuerafromdelete">
             <form onSubmit={handleSubmit(submitForm)}>
                 <div className="formulario">
-                    <div className="dentrofrom">
+                    <div className="dentrofromdelete">
                         <label htmlFor='titulo'>Titulo</label>
                         <input id="titulo" ref={register({ required: false})} name="titulo" ></input>
                     </div>
                 </div>
                 <div className="explicacion">
-                    <div className="dentrofrom">
+                    <div className="dentrofromdelete">
                         <label htmlFor='explicacion'>Explicacion</label>
                         <input id="explicacion" ref={register({ required: false})} name="explicacion"></input>
                     </div>

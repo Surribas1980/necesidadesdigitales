@@ -15,17 +15,38 @@ label {
   width: 100px;
 }
 
-.dentrofrom {
-  display: inline-flex;
+.dentrofromlista {
+  border-radius: 5px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  margin: 10px;
+  padding: 10px;
+  background-color: rgb(95, 118, 160);
+}
+.fuerafromlista {
+  display: flex;
+  align-items: start;
+
+  border: 1px solid black;
+  width: 500px;
   border-radius: 5px;
   margin: 10px;
   padding: 10px;
-  background-color: cadetblue;
+  background-color: rgb(231, 141, 119);
 }
-.fuerafrom {
+.dentrofromdelete {
+  border-radius: 5px;
+  display: flex;
+  align-items: flex-start;
+  margin: 10px;
+  padding: 10px;
+  background-color: rgb(150, 160, 95);
+}
+.fuerafromdelete {
   border: 1px solid black;
   border-radius: 5px;
   margin: 10px;
   padding: 10px;
-  background-color: rgb(119, 227, 231);
+  background-color: rgb(136, 231, 119);
 }

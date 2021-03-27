@@ -4,7 +4,7 @@
  */
 import {useForm} from 'react-hook-form';
 import { deleteService } from '../http/api';
-
+import '../css/ListaServicios.css';
 
 
 export default function ListaServicios(props){
@@ -52,17 +52,32 @@ export default function ListaServicios(props){
         const fieldName = `servicio[${item}]`;
         return (
             <fieldset name={fieldName} key={item.id_ser}>
-                <label>
-                <div className="fuerafrom">
+                    <div className="fora">
 
-                Titulo:<input value={item.titulo_ser} readOnly />
-                </div>
-                <div className="fuerafrom">
-                    Explicación<textarea value={item.expli_ser} readOnly />
-                </div>
+                        <div className="dentro">
+                            <div className="paratitulo">
+
+                            <label className="titulo" >Titulo</label>
+                            </div>
+                            <input value={item.titulo_ser} readOnly />                        
+                        </div>
+                        <div className="dentro">
+                            <div className="paratitulo">
+
+                                <label className="titulo">Explicación</label> 
+                                <textarea value={item.expli_ser} readOnly />                                                 
+                            </div>
+                        </div>    
+                        <div className="dentro">
+                            <div className="paratitulo">
+                                <label className="titulo">Borrar</label> 
+                                <input type="checkbox" value={item.id_ser} name={`${fieldName}.expli_ser`} ref={register} />
+                            </div>
+                        </div>
+                    </div>
                     
-                    <input type="checkbox" value={item.id_ser} name={`${fieldName}.expli_ser`} ref={register} />
-                </label>
+                
+               
             </fieldset>
         );
     })
