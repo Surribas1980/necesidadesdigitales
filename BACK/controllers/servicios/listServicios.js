@@ -16,13 +16,14 @@ const listServicios = async (req, res, next) => {
         [results]= await connection.query(`call buscarValor(?,?);`,[search1,search2]);
     }else{
             if(uno === alante){
-              await connection.query(`call tablaLimitadaServicios(?, ?, ?, ?, ?);`,[mi,req.userAuth.id,limite,inicioLista,alante]);
+              [results] = await connection.query(`call tablaLimitadaServicios(?, ?, ?, ?, ?);`,[mi,req.userAuth.id,limite,inicioLista,alante]);
             }else{
-              console.log('Vou para atrás')
-              await connection.query(`call miBucle(?, ?);`,[limite,inicioLista]);
+              console.log('Vou para atrás');
+              [results] =  await connection.query(`call tablaLimitadaServicios(?, ?, ?, ?, ?);`,[mi,req.userAuth.id,limite,inicioLista,alante]);
+              //await connection.query(`call miBucle(?, ?);`,[limite,inicioLista]);
             }
             
-           [results] = await connection.query(`select * from servicioslimitada;`);
+          // [results] = await connection.query(`select * from servicioslimitada;`);
             
     }
           const [idMax] = await connection.query(`select max(id_ser) from servicios join solicitar on id_ser = id_ser_soli where id_usu_soli = ? `,[req.userAuth.id]);
@@ -32,7 +33,7 @@ const listServicios = async (req, res, next) => {
           const [misServicios] = await connection.query(`select * from servicios join solicitar on id_ser = id_ser_soli where id_usu_soli = ? `,[req.userAuth.id]);
        
           await connection.query(`call borrarTemporalServicios();`);
-          
+          console.log('Esto é results:',results)
     //Devuelto un json con los servicios
     res.send({
       status: "ok",
