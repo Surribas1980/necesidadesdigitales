@@ -15,8 +15,8 @@ export default function ListaServicios(props){
     
     let creado = {"numero":456,"segundo":"789"};
     console.log(`Estoy en lista de servicios`)
-    console.log(props);
-
+    console.log('Datos en Lista servicios',props);
+    console.log('valores:',props.valores[0])
     const onSubmit = (data)=>{
        
         console.log('Esto es data',data);
@@ -46,9 +46,8 @@ export default function ListaServicios(props){
 
     //<>{props.servicios.map((servicio)=>{return <p>servicio.titulo_ser</p>})}</>
     return (<><h1>Lista de servicios</h1> 
-    
-<form onSubmit={handleSubmit(onSubmit)}>
-    {props.valores.map((item) => {
+    <form onSubmit={handleSubmit(onSubmit)}>
+    {props.valores[0].map((item) => {
         const fieldName = `servicio[${item}]`;
         return (
             <fieldset name={fieldName} key={item.id_ser}>
@@ -85,6 +84,7 @@ export default function ListaServicios(props){
     }
     <button>Borrar</button>
 </form>
+
       
         </>
     
