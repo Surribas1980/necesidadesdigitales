@@ -47,7 +47,7 @@ export default function ListaServicios(props){
     //<>{props.servicios.map((servicio)=>{return <p>servicio.titulo_ser</p>})}</>
     return (<><h1>Lista de servicios</h1> 
     <form onSubmit={handleSubmit(onSubmit)}>
-    {props.valores[0].map((item) => {
+    {props.valores[0]?.map((item) => {
         const fieldName = `servicio[${item}]`;
         return (
             <fieldset name={fieldName} key={item.id_ser}>
@@ -57,19 +57,22 @@ export default function ListaServicios(props){
                             <div className="paratitulo">
 
                             <label className="titulo" >Titulo</label>
-                            </div>
+                            <hr></hr>
                             <input value={item.titulo_ser} readOnly />                        
+                            </div>
                         </div>
                         <div className="dentro">
                             <div className="paratitulo">
 
                                 <label className="titulo">Explicación</label> 
+                                <hr></hr>
                                 <textarea value={item.expli_ser} readOnly />                                                 
                             </div>
                         </div>    
                         <div className="dentro">
                             <div className="paratitulo">
                                 <label className="titulo">Borrar</label> 
+                                <hr></hr>
                                 <input type="checkbox" value={item.id_ser} name={`${fieldName}.expli_ser`} ref={register} />
                             </div>
                         </div>

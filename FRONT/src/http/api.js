@@ -83,8 +83,15 @@ export async function newEntry(data,servicio) {
 
 export async function enviarDatos(limite,inicioLista,alante,search1,search2,mi){
   console.log('Estoy en api ',search1,search2);
-  return (await fetchTravelApi(`${endpoints.servicios}?limite=${limite}&inicioLista=${inicioLista}&alante=${alante}&search1=${search1}&search2=${search2}&mi=${mi}`,{method: requestMethods.get}));
-   
+
+  if(search1 || search2){
+    return (await fetchTravelApi(`${endpoints.servicios}?limite=${limite}&inicioLista=${inicioLista}&alante=${alante}&search1=${search1}&search2=${search2}&mi=${mi}`,{method: requestMethods.get}));
+    //let datos = await devuelto.json();
+    //return ;
+  }
+  else{
+    return(await fetchTravelApi(`${endpoints.servicios}?limite=${limite}&inicioLista=${inicioLista}&alante=${alante}&search1=${search1}&search2=${search2}&mi=${mi}`,{method: requestMethods.get}));
+  }
 }
 export async function modificacionDatos(metodo,uri,campo,id){
   const formularioDato = new FormData();

@@ -62,14 +62,44 @@ function DeleteService(){
         listarServicios();
     },[limite,inicioLista,alante,search1,search2]);
 
-    const submitForm = (data) => {
+    const submitForm = async (data) => {
         
         //console.log('Enviamos',data.titulo,data.explicacion);
         let valor = data.titulo + data.explicacion;
         setSearch1(data.titulo);
         setSearch2(data.explicacion);
         console.log('Valor que envío: ',valor);
+        const numServicios = await enviarDatos(limite,inicioLista,alante,search1,search2,0);
         //setSearch(initialSearch);
+        console.log('con datos buscados:', numServicios);
+        if(search2 || search1){
+            setServices(numServicios['resultbbdd'][0]);
+            console.log('Trae datos: ',numServicios['resultbbdd'][0])  
+          }else{
+            setServices(numServicios['resultbbdd']);  
+          }
+          
+          console.log(numServicios);
+          //console.log('La tabla: ',numServicios['resultbbdd']);
+          for(const i1 in numServicios){
+             // console.log(`Estoy en el primer nivel ${i1} = ${numServicios[i1]}`);
+              for(const i2 in numServicios[i1]){
+                 // console.log(`Estoy en el segundo nivel ${i2} = ${numServicios[i1][i2]}`);
+                  for(const i3 in numServicios[i1][i2]){
+                      //console.log(`Estoy en el tercer nivel ${i3}=${numServicios[i1][i2][i3]}`);
+                      if(i3 === text1){
+                         // console.log('lo detectó')
+                          setIdMin(numServicios[i1][i2][i3]);
+                          console.log('IdMin: ',idMin);
+                      }
+                      if(i3 === text2){
+                          setIdMax(numServicios[i1][i2][i3]);
+                          console.log('IdMax: ',idMax)
+                      }
+
+                  }
+              }
+          }
     }
     
     return (<>
