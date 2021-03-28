@@ -14,6 +14,7 @@ const listServicios = async (req, res, next) => {
       //correcta
       await connection.query(`call tablaLimitadaServicios(?, ?, ?, ?, ?);`,[mi,req.userAuth.id,limite,inicioLista,alante]);
         [results]= await connection.query(`call buscarValor(?,?);`,[search1,search2]);
+        console.log('resultado da busqueda:',results)
     }else{
             if(uno === alante){
               [results] = await connection.query(`call tablaLimitadaServicios(?, ?, ?, ?, ?);`,[mi,req.userAuth.id,limite,inicioLista,alante]);
