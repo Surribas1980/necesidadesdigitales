@@ -57,47 +57,50 @@ export default function ListaServicios(props){
 
     //<>{props.servicios.map((servicio)=>{return <p>servicio.titulo_ser</p>})}</>
     return (<><h1>Lista de servicios</h1> 
-        <form onSubmit={handleSubmit(onSubmit)}>
-    {props.valores?.map((item) => {
-        const fieldName = `servicio[${item}]`;
-        return (
-            <fieldset name={fieldName} key={item.id_ser}>
-                    <div className="fora">
+    
 
-                        <div className="dentro">
-                            <div className="paratitulo">
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                {props.valores?.map((item) => {
+                    const fieldName = `servicio[${item}]`;
+                    return (
+                        <fieldset name={fieldName} key={item.id_ser}>
+                                <div className="fora">
 
-                            <label className="titulo" >Titulo</label>
-                            <hr></hr>
-                            <input value={item.titulo_ser} readOnly />                        
-                            </div>
-                        </div>
-                        <div className="dentro">
-                            <div className="paratitulo">
+                                    <div className="dentro">
+                                        <div className="paratitulo">
 
-                                <label className="titulo">Explicación</label> 
-                                <hr></hr>
-                                <textarea value={item.expli_ser} readOnly />                                                 
-                            </div>
-                        </div>    
-                        <div className="dentro">
-                            <div className="paratitulo">
-                                <label className="titulo">Borrar</label> 
-                                <hr></hr>
-                                <input type="checkbox" value={item.id_ser} name={`${fieldName}.expli_ser`} ref={register} />
-                            </div>
-                        </div>
-                    </div>
-                    
-                
-               
-            </fieldset>
-        );
-    })
+                                        <label className="titulo" >Titulo</label>
+                                        <hr></hr>
+                                        <input value={item.titulo_ser} readOnly />                        
+                                        </div>
+                                    </div>
+                                    <div className="dentro">
+                                        <div className="paratitulo">
 
-    }
-    <button>Borrar</button>
-</form>
+                                            <label className="titulo">Explicación</label> 
+                                            <hr></hr>
+                                            <textarea value={item.expli_ser} readOnly />                                                 
+                                        </div>
+                                    </div>    
+                                    <div className="dentro">
+                                        <div className="paratitulo">
+                                            <label className="titulo">Borrar</label> 
+                                            <hr></hr>
+                                            <input type="checkbox" value={item.id_ser} name={`${fieldName}.expli_ser`} ref={register} />
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            
+                        
+                        </fieldset>
+                    );
+                })
+
+                }
+                <button>Borrar</button>
+            </form>
+    
         </>
     
     

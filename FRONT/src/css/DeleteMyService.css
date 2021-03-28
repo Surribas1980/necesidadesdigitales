@@ -14,7 +14,19 @@ label {
   margin: 2px;
   width: 100px;
 }
-
+.listaservicios {
+  background-color: rgba(207, 203, 203, 0.787);
+  border-radius: 10px;
+  width: 800px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.adianteatras {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
 .dentrofromlista {
   border-radius: 5px;
   display: flex;

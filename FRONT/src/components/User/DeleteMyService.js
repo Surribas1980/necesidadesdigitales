@@ -119,22 +119,9 @@ console.log('inicio lista',inicioLista);
     return (<>
 
         <h1>Lista de servicios. IdMaximo {idMaximoServicio}</h1>
-        <button onClick={() => {
-            if (idMax < idMaximoServicio) {
-                setInicioLista(idMax);
-                setAlante(1)
-            }
-        }}>Adelante</button>
-        <button onClick={
-            () => {
-                if (idMin > idMinimoServicio) {
-                    setInicioLista(idMin);
-                    setAlante(0);
-                }
 
-
-            }}>Atrás</button>
-            <button onClick={()=>{setActualiza(!actualiza)}}>Actualiza</button>
+        <div className="listaservicios">
+        
         <div className="fuerafromdelete">
             <form onSubmit={handleSubmit(submitForm)}>
                 <div className="formulario">
@@ -152,8 +139,27 @@ console.log('inicio lista',inicioLista);
                 <button>Buscar</button>
             </form>
         </div>
-
+        
             <ListaServicios valores={servicios}></ListaServicios>
+            <div className="adianteatras">
+                <button onClick={() => {
+                    if (idMax < idMaximoServicio) {
+                        setInicioLista(idMax);
+                        setAlante(1)
+                    }
+                }}>Adelante</button>
+                <button onClick={
+                () => {
+                    if (idMin > idMinimoServicio) {
+                        setInicioLista(idMin);
+                        setAlante(0);
+                    }
+
+
+                }}>Atrás</button>
+                <button onClick={()=>{setActualiza(!actualiza)}}>Actualiza</button>
+            </div>
+        </div>
     </>);
 }
 
