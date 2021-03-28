@@ -11,12 +11,23 @@ export default function ListaServicios(props){
     const { register, handleSubmit } = useForm();
     const numIdSer = [];
     let numIdser = {};
+    const datos = props.valores[0];
     let numIdSerBis;
     
     let creado = {"numero":456,"segundo":"789"};
     console.log(`Estoy en lista de servicios`)
     console.log('Datos en Lista servicios',props);
-    console.log('valores:',props.valores[0])
+    console.log('valores:',datos);
+    if (typeof datos === typeof {}){
+        const convertir = Object.values(datos);
+        console.log('Convirtiendo',convertir);
+    }
+
+    props.valores?.map((item) => {
+
+        console.log('el valor pasado:', item);
+
+    })
     const onSubmit = (data)=>{
        
         console.log('Esto es data',data);
@@ -46,8 +57,8 @@ export default function ListaServicios(props){
 
     //<>{props.servicios.map((servicio)=>{return <p>servicio.titulo_ser</p>})}</>
     return (<><h1>Lista de servicios</h1> 
-    <form onSubmit={handleSubmit(onSubmit)}>
-    {props.valores[0]?.map((item) => {
+        <form onSubmit={handleSubmit(onSubmit)}>
+    {props.valores?.map((item) => {
         const fieldName = `servicio[${item}]`;
         return (
             <fieldset name={fieldName} key={item.id_ser}>
@@ -87,8 +98,6 @@ export default function ListaServicios(props){
     }
     <button>Borrar</button>
 </form>
-
-      
         </>
     
     
