@@ -12,6 +12,7 @@ const listServicios = async (req, res, next) => {
     if(search1 || search2){
       //ojo, esto puede dar lugar a error si desde el front no se hace la búsquda de manera
       //correcta
+      console.log('Estoy buscando',search1,search2)
       await connection.query(`call tablaLimitadaServicios(?, ?, ?, ?, ?);`,[mi,req.userAuth.id,limite,inicioLista,alante]);
         [results]= await connection.query(`call buscarValor(?,?);`,[search1,search2]);
         console.log('resultado da busqueda:',results)
@@ -19,7 +20,7 @@ const listServicios = async (req, res, next) => {
             if(uno === alante){
               [results] = await connection.query(`call tablaLimitadaServicios(?, ?, ?, ?, ?);`,[mi,req.userAuth.id,limite,inicioLista,alante]);
             }else{
-              console.log('Vou para atrás');
+              
               [results] =  await connection.query(`call tablaLimitadaServicios(?, ?, ?, ?, ?);`,[mi,req.userAuth.id,limite,inicioLista,alante]);
               //await connection.query(`call miBucle(?, ?);`,[limite,inicioLista]);
             }
@@ -34,7 +35,7 @@ const listServicios = async (req, res, next) => {
           const [misServicios] = await connection.query(`select * from servicios join solicitar on id_ser = id_ser_soli where id_usu_soli = ? `,[req.userAuth.id]);
        
           await connection.query(`call borrarTemporalServicios();`);
-          console.log('Esto é results:',results)
+          
     //Devuelto un json con los servicios
     res.send({
       status: "ok",
