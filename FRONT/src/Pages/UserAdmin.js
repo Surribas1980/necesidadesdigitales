@@ -15,6 +15,7 @@ import '../css/UserAdmin.css'
 import DeleteService from '../Pages/DeleteService';
 import DeleteMyService from '../components/User/DeleteMyService';
 import TitleUserAdmin from '../components/User/TitleUserAdmin';
+import TitleUserAdminVertical from '../components/User/TitleUserAdminVertical';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEnvelope,faBars,faHandPointUp} from '@fortawesome/free-solid-svg-icons';
 import MisServiSoliUserAdmin from '../components/User/MisServiSoliUserAdim';
@@ -70,16 +71,24 @@ function UserAdmin(){
         <main>
             <Router>
                 <nav>
-                    <div className="botonmenulateral">                
-                        <FontAwesomeIcon onClick={()=>{setMenuLateral(!menuLateral);}} icon={faBars}></FontAwesomeIcon>
-                    </div>
-                    <TitleUserAdmin datosusuario={datosUsuario}></TitleUserAdmin> 
-                    <button onClick={()=>{setShowMenu(!showMenu);}}>Actualizar</button>
+                    
+
+                            <div className="botonmenulateral">                
+                                <FontAwesomeIcon onClick={()=>{setMenuLateral(!menuLateral);}} icon={faBars}></FontAwesomeIcon>
+                            </div>
+                            <div className="esconder">
+
+                            <TitleUserAdmin datosusuario={datosUsuario}></TitleUserAdmin> 
+                            </div>
+                            <button onClick={()=>{setShowMenu(!showMenu);}}>Actualizar</button>
+                    
                 </nav>
                 
                                         
                 <div className="box">
-                            {menuLateral && <div className="lateral">Eso es otro div</div>}
+                            {menuLateral && <div className="lateral">
+                                <TitleUserAdminVertical datosusuario={datosUsuario}></TitleUserAdminVertical>
+                                </div>}
                             {!menuLateral && <div className="lateral2">Este es el otro menú</div>}
                             <div className="principal">
                                 <div className="englobanumericos">
@@ -184,7 +193,7 @@ function UserAdmin(){
         </main>
         
         
-
+        <footer>Design by me</footer>
 
     </>);
 }

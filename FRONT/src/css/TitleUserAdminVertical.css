@@ -10,7 +10,7 @@ nav {
   padding: 5px 10px;
   text-decoration: none;
   color: white;
-  border-right: 1px solid coral;
+  border-top: 1px solid coral;
 }
 .header-item:hover {
   background-color: lightseagreen;
@@ -22,10 +22,10 @@ nav {
 }
 @media (max-width: 800px) {
 }
-img {
+.imagen {
   border: 1px solid #ddd;
   border-radius: 5px;
-  max-width: 3%;
+  max-width: 15%;
   height: auto;
   margin: 0%;
   text-align: center;
