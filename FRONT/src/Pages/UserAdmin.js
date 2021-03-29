@@ -81,43 +81,46 @@ function UserAdmin(){
                 <div className="box">
                             {menuLateral && <div className="lateral">Eso es otro div</div>}
                             {!menuLateral && <div>Este es el otro menú</div>}
-                            <div className="principal"> 
-                            <div className="cajanumericos">
-                                            
-                                                    <div className="datosnumericos">                                    
-                                                            Comentarios sin ver:
-                                                        <div className="caja1">
-                                                            {numComentariosSinver}
-                                                        </div>
-                                                            <div className="mensaje">
-                                                            <FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon>
+                            <div className="principal">
+                                <div className="englobanumericos">
+                                    <div className="cajanumericos">
+                                                
+                                                        <div className="datosnumericos">                                    
+                                                                Comentarios sin ver:
+                                                            <div className="caja1">
+                                                                {numComentariosSinver}
                                                             </div>
-                                                    </div>
-                                                    
-                                                    <div className="datosnumericos">	
-                                                    Comentarios sin leer:
-                                                        <div className="caja1">
-                                                        {numComentariosSinLer}
-                                                        </div> 
-                                                    </div>
-
-                                                    <div className="datosnumericos">	
-                                                    Cantidad de servicios que solucioné: 
-                                                        <div className="caja1">
-                                                        {numMisSolucionados}
+                                                                <div className="mensaje">
+                                                                <FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon>
+                                                                </div>
                                                         </div>
-                                                    </div>
+                                                        
+                                                        <div className="datosnumericos">	
+                                                            Comentarios sin leer:
+                                                            <div className="caja1">
+                                                            {numComentariosSinLer}
+                                                            </div> 
+                                                        </div>
+                                    </div>
+                                    <div className="cajanumericos">
+                                                        <div className="datosnumericos">	
+                                                            Cantidad de servicios que solucioné: 
+                                                            <div className="caja1">
+                                                            {numMisSolucionados}
+                                                            </div>
+                                                        </div>
 
-                                                    <div className="datosnumericos">            
-                                                        Cantidad de mis servicios solicitados: 
-                                                        <div className="caja1">
-                                                        {numMisSolicitados}
-                                                        </div>                                        
-                                                    </div> 
-                                            
-                                        </div> 
-                            <hr></hr>  
-                            <hr></hr>                              
+                                                        <div className="datosnumericos">            
+                                                            Cantidad de mis servicios solicitados: 
+                                                            <div className="caja1">
+                                                            {numMisSolicitados}
+                                                            </div>                                        
+                                                        </div> 
+                                                
+                                    </div> 
+                                </div> 
+                                <hr></hr>  
+                                <hr></hr>                              
                                                 <Route path="/comentario">
                                                     <div className="lassecciones">
                                                         <Comentarios />
@@ -155,8 +158,8 @@ function UserAdmin(){
                                                         <DeleteMyService />                  
                                                                     
                                                 </Route>
-                            <hr></hr>
-                            <hr></hr> 
+                                <hr></hr>
+                                <hr></hr> 
                                         
 
                                         <section className="lassecciones">                                

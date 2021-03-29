@@ -64,7 +64,7 @@ function App() {
                
                 <Route path="/useradmin">
                   <PrivateRoute>
-                 <UserAdmin />  
+                      <UserAdmin />  
                   </PrivateRoute>
                  
                 </Route>
