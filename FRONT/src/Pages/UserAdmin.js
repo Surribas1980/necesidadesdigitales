@@ -144,11 +144,7 @@ function UserAdmin(){
                                                     <ServisSolucionados servissolucionados={servesSolucionados}></ServisSolucionados>
                                                     </div>
                                                 </Route>
-                                                <Route path="/delete/servicios">
-                                                           
-                                                        <DeleteService />  
-                                                                  
-                                                </Route>
+                                                
                                                 <Route path="/insert/servicios">
                                                         <InsertServices />
                                                 </Route>
@@ -161,7 +157,7 @@ function UserAdmin(){
                                 <hr></hr>
                                 <hr></hr> 
                                         
-
+                                    
                                         <section className="lassecciones">                                
                                             <GraficaRanking valores={ranking}></GraficaRanking>
                                         </section>
@@ -179,6 +175,7 @@ function UserAdmin(){
                                             <h1>Mis servicios solucionados</h1>
                                             <MisServiSoluUserAdmin missolucionados={misSerSolucionados}></MisServiSoluUserAdmin>
                                         </section>                    
+                                    
                             </div>
                 </div>
 

@@ -35,9 +35,7 @@ const salida =<><nav>
 
                 <Link to= "/darsolucion">Servicios no solucionados</Link>
                 </div>
-                <div className="header-item">
-                    <Link to="/delete/servicios">Borrar servicios</Link>
-                </div>
+                
                 <div className="header-item">
                     <Link to="/borrar/misservicios">Borrar mis servicios</Link>
                 </div>
