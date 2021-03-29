@@ -10,6 +10,12 @@ nav {
   background-color: #214588;
 }
 @media (max-width: 700px) {
+  .englobanumericos {
+    width: auto;
+    height: auto;
+    margin: 20px;
+    background-color: darkblue;
+  }
   .principal {
     display: flex;
     flex-direction: column;
@@ -27,20 +33,14 @@ nav {
     width: auto;
     height: auto;
   }
-  .lateral {
-    width: 40%;
-    height: auto;
-    background-color: rgb(255, 255, 255);
-    border-right: 1px solid black;
-  }
-  .lateral2 {
-    width: 20%;
-    height: auto;
-    background-color: rgb(255, 255, 255);
-    border-right: 1px solid black;
-  }
+
   .esconder {
     display: none;
+  }
+  .esconderlateral {
+    display: block;
+    width: 300px;
+    background-color: blue;
   }
   .botonmenulateral {
     display: block;
@@ -71,8 +71,10 @@ nav {
 hr {
   width: 75%;
 }
+.esconderlateral {
+  display: none;
+}
 .lateral {
-  display: block;
   width: 25%;
   height: auto;
   background-color: rgb(255, 255, 255);
@@ -166,7 +168,7 @@ footer {
   padding: 1px;
 }
 .englobanumericos {
-  width: auto;
+  width: 700px;
   height: auto;
   margin: 20px;
   background-color: darkblue;
@@ -174,6 +176,7 @@ footer {
 .cajanumericos {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: stretch;
   border-radius: 5px;

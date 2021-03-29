@@ -86,9 +86,12 @@ function UserAdmin(){
                 
                                         
                 <div className="box">
+                                
                             {menuLateral && <div className="lateral">
-                                <TitleUserAdminVertical datosusuario={datosUsuario}></TitleUserAdminVertical>
+                                    <TitleUserAdminVertical datosusuario={datosUsuario}></TitleUserAdminVertical>
+                                
                                 </div>}
+                               
                             {!menuLateral && <div className="lateral2">Este es el otro menú</div>}
                             <div className="principal">
                                 <div className="englobanumericos">
@@ -110,8 +113,7 @@ function UserAdmin(){
                                                             {numComentariosSinLer}
                                                             </div> 
                                                         </div>
-                                    </div>
-                                    <div className="cajanumericos">
+                                   
                                                         <div className="datosnumericos">	
                                                             Cantidad de servicios que solucioné: 
                                                             <div className="caja1">
