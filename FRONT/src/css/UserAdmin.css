@@ -28,22 +28,29 @@ hr {
 .lateral {
   width: 25%;
   height: auto;
-  background-color: rgb(161, 236, 224);
+  background-color: rgb(255, 255, 255);
+  border-right: 1px solid black;
+}
+.lateral2 {
+  width: 10%;
+  height: auto;
+  background-color: rgb(255, 255, 255);
+  border-right: 1px solid black;
 }
 .principal {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 65%;
+  width: auto;
   height: auto;
-  background-color: #bb5858;
+  background-color: #ffffff;
   text-align: center;
-  margin: 100px;
+  margin: 50px;
 }
 .box {
   display: flex;
   justify-content: space-between;
-  background-color: chartreuse;
+  background-color: rgb(201, 207, 194);
   width: auto;
   height: auto;
 }

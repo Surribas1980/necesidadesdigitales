@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import {modificacionDatos} from '../../http/api';
 import useAuth from '../../shared/hooks/useAuth';
-
+import '../../css/ModificacionDatos.css';
 export default function ModificacionDatosForm(props){
   const { userData } = useAuth();
   const { register, handleSubmit } = useForm();
@@ -23,33 +23,53 @@ export default function ModificacionDatosForm(props){
 
   return (
     <>
+    <div className="modificaciondatos">
+
     {
       camposUsuario?.map((item,index)=>{
         return(<>        
-        <img key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu}/${item.nomFoto_usu}`} alt="imagen"></img>
+        <img className="imagen" key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu}/${item.nomFoto_usu}`} alt="imagen"></img>
         </>);
       })
     }
         
         <form onSubmit={handleSubmit(onSubmit)}>
-            <label htmlFor="nomUsuario_usu" >Nombre de usuario</label>
+          <div className="labelinput">
+            <label htmlFor="nomUsuario_usu" >Nombre</label>
             <input id="nomUsuario_usu" ref={register({ required: false})} name="nomUsuario_usu"/>
+          </div>
+          <div className="labelinput">
             <label htmlFor="nom_usu" >Alias</label>
             <input id="nom_usu" ref={register({ required: false})} name="nom_usu"></input>
+          </div>
+          <div className="labelinput">
+
             <label htmlFor="ape1_usu" >Apellido 1</label>
             <input id="ape1_usu" ref={register({ required: false})} name="ape1_usu"></input>
+          </div>
+          <div className="labelinput">
             <label htmlFor="ape2_usu" >Apellido 2</label>
             <input id="ape2_usu" ref={register({ required: false})} name="ape2_usu"></input>
+          </div>
+          <div className="labelinput">
             <label htmlFor="biografia_usu" >Biografia</label>
             <input id="biografia_usu" ref={register({ required: false})} name="biografia_usu"></input>
+          </div>
+          <div className="labelinput">
             <label htmlFor="mail">Mail</label>
             <input id="mail" ref={register({ required: false})} name="mail"></input>
+          </div>
+          <div className="labelinput">
             <label htmlFor="pwd" >Password</label>
             <input id="pwd" ref={register({ required: false})} name="pwd"></input>
+          </div>
+          <div className="labelinput">
+          </div>
             <label htmlFor="nomFoto_usu" >Imagen</label>
             <input id="nomFoto_usu" ref={register({ required: false})} name="nomFoto_usu" multiple type="file"></input>
             <button>Enviar Datos</button>
         </form>
+    </div>
     </>
   );
 

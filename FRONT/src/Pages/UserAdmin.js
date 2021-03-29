@@ -80,7 +80,7 @@ function UserAdmin(){
                                         
                 <div className="box">
                             {menuLateral && <div className="lateral">Eso es otro div</div>}
-                            {!menuLateral && <div>Este es el otro menú</div>}
+                            {!menuLateral && <div className="lateral2">Este es el otro menú</div>}
                             <div className="principal">
                                 <div className="englobanumericos">
                                     <div className="cajanumericos">

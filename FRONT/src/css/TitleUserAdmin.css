@@ -1,7 +1,8 @@
 nav {
   display: flex;
   flex-direction: row;
-  background-color: lightgray;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 2px solid red;
 }
 
 .header-item {
@@ -17,7 +18,7 @@ nav {
 
 .header-item a {
   text-decoration: none;
-  color: white;
+  color: black;
 }
 
 img {

@@ -1,8 +1,26 @@
-img {
+.imagen {
   border: 1px solid #ddd;
   border-radius: 5px;
-  max-width: 50%;
+  max-width: 15%;
   height: auto;
-  margin: 0%;
-  text-align: center;
+  margin: 3%;
+}
+.modificaciondatos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: gray;
+  width: auto;
+  height: auto;
+  margin: 3%;
+}
+.labelinput {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: center;
+}
+.paraform {
+  display: flex;
+  flex-direction: column;
 }
