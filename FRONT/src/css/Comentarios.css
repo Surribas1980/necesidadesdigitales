@@ -27,3 +27,8 @@ nav {
 .separacion {
   padding: 15px;
 }
+.encollemos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

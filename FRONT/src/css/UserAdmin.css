@@ -78,6 +78,11 @@ h2 {
     font-size: 1.5em;
     margin: 0%;
   }
+  .girar {
+    display: flex;
+    flex-direction: column;
+    transform: rotate(90deg);
+  }
 }
 
 @media (min-width: 700px) {

@@ -175,23 +175,26 @@ function UserAdmin(){
                                 <hr></hr> 
                                         
                                     
-                                        <section className="lassecciones">                                
-                                            <GraficaRanking valores={ranking}></GraficaRanking>
-                                        </section>
-                                        <secction  className="lassecciones">
-                                            <h1>Mis servicios solicitados</h1>                                            
-                                            <MisServiSoliUserAdmin misservis={misSolicitados}></MisServiSoliUserAdmin>
-                                        </secction>
-                                        <section className="lassecciones">
-                                            <h1>Mis servicios no solucionados</h1>
-                                            <MisServiNoSoluUserAdmin misnosolucionados={misSerNoSolucionados} ></MisServiNoSoluUserAdmin>
-                                        </section>
+                                        <div className="girar">
+                                            <section className="lassecciones">                                
+                                                <GraficaRanking valores={ranking}></GraficaRanking>
+                                            </section>
+                                        
+                                            <secction  className="lassecciones">
+                                                <h1>Mis servicios solicitados</h1>                                            
+                                                <MisServiSoliUserAdmin misservis={misSolicitados}></MisServiSoliUserAdmin>
+                                            </secction>
+                                            <section className="lassecciones">
+                                                <h1>Mis servicios no solucionados</h1>
+                                                <MisServiNoSoluUserAdmin misnosolucionados={misSerNoSolucionados} ></MisServiNoSoluUserAdmin>
+                                            </section>
+                                            <section className="lassecciones">
+                                                <h1>Mis servicios solucionados</h1>
+                                                <MisServiSoluUserAdmin missolucionados={misSerSolucionados}></MisServiSoluUserAdmin>
+                                            </section>                    
+                                        </div>
                                     
                                     
-                                        <section className="lassecciones">
-                                            <h1>Mis servicios solucionados</h1>
-                                            <MisServiSoluUserAdmin missolucionados={misSerSolucionados}></MisServiSoluUserAdmin>
-                                        </section>                    
                                     
                             </div>
                 </div>

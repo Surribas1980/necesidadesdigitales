@@ -56,24 +56,26 @@ export default function Comentarios(){
             
             { 
                 <nav>
-                    <div className="header-item">
+                    <div className="encollemos">
 
-                        <Link onClick={()=>{setShowSiguiente(!showSiguiente)}} to="/iniciarconversacion">Iniciar conversacion</Link>
-                    </div>
                         <div className="header-item">
 
-                        <Link to="/insertarcomentario">Conversaciones</Link>
+                            <Link onClick={()=>{setShowSiguiente(!showSiguiente)}} to="/iniciarconversacion">Iniciar conversacion</Link>
+                        </div>
+                        <div className="header-item">
+
+                            <Link to="/insertarcomentario">Conversaciones</Link>
                         </div>
                         <div className="header-item">
                             <Link to="/comentariosrecibidos">Conversaciones en las que participo</Link>
                         </div>
                 
                         <div className="header-item">
-
                             <Link to="/misconversaciones">Conversaciones sobre mis servicios</Link>
                         </div>
             
                         <button onClick={()=>{setShowMenu(!showMenu)}}>Actualizar sección de comentarios</button>
+                    </div>
                 </nav>
             }                
 
