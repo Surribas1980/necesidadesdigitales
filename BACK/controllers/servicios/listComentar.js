@@ -11,6 +11,7 @@ const listComentar = async (req, res, next) => {
   let connection;
   let servicios;
   let comentariosRecibidos;
+  let comentarConJoin;
   
   const {ids} = req.body;
   
@@ -18,6 +19,7 @@ const listComentar = async (req, res, next) => {
     connection = await getDB();
     if(ids){
       comentariosdelServicio = await comentariosServicio(ids);
+      comentarConJoin = await connection.query(`call comentarConJoin(?)`,[ids]);
     }
     else{
         servicios = await connection.query(`select if(id_ser=id_ser_co,'Tiene conversacion','No tiene conversacion') as 'Nota', id_ser,titulo_ser,expli_ser from servicios left join comentar on id_ser = id_ser_co group by id_ser`);
@@ -32,6 +34,7 @@ const listComentar = async (req, res, next) => {
   
       //Devuelto un json con los servicios
     res.send({
+      comentarConJoin:comentarConJoin,
       comentariosRecibidos:comentariosRecibidos,
       servicios:servicios,
       numservicios:numservicios,
@@ -42,7 +45,9 @@ const listComentar = async (req, res, next) => {
     });
   } catch (error) {
     next(error);
-  } 
+  } finally {
+    if (connection) connection.release();
+  }
 };
 
 module.exports = listComentar;
