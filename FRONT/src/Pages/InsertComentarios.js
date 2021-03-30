@@ -21,5 +21,6 @@ export default function InsertComentarios (props){
         <button>Enviar comentario</button>
         
     </form>
+    
     </>);
 }

@@ -4,6 +4,7 @@ import {deleteService} from '../http/api';
 import ComentarioListaTd from './User/ComentarioListaTd';
 function Conversaciones(props){
     const [datoscomentariosServicios,setdatoscomentariosServicios] = useState("");
+    const [comentarConJoin,setcomentarConJoin] = useState("");
     const conversacion = props.convergeneral;
 
     const irA = async (id_ser)=>{    
@@ -11,10 +12,12 @@ function Conversaciones(props){
         const data = await deleteService("/comentar",'POST',1,id_ser);
         console.log ('datos que entran',data)
         setdatoscomentariosServicios(data['datoscomentariosServicios']);
+        setcomentarConJoin(data['comentarConJoin']);
+        
     }
 
 
-    return (<>
+    return (<><hr></hr>
         <table>
             <thead>
                 <tr>
@@ -43,6 +46,7 @@ function Conversaciones(props){
                 }
             </tbody>
         </table>
+        <hr></hr>
         {datoscomentariosServicios && <ComentarioListaTd elementos={datoscomentariosServicios}></ComentarioListaTd>}
     
     </>)
