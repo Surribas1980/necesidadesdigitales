@@ -5,7 +5,14 @@ import '../../css/ComentariosListaTd.css';
 function ComentarioListaTd(props){
   
     let comentarios = props?.elementos[0];
-    
+    let conjoin = props?.conjoin;
+    console.log('en comentarios lista', conjoin)
+    /*conjoin?.map((item)=>{
+        console.log('con join', item);
+    })*/
+    comentarios?.map((item)=>{
+        console.log('cometarios: ',comentarios)
+    })
     const enviarRespuesta = ()=>{
         let inputs = document.getElementsByTagName("input");
        
@@ -36,12 +43,18 @@ function ComentarioListaTd(props){
             <table>
                 <thead>
                             <tr>
-                                <th>Nº de comentario</th>
+                                {/*<th>Nº de comentario</th>
                                 <th>Nº de usuario</th>
                                 <th>AVATAR</th>
                                 <th>Nº de servicio</th>
                                 <th>Comentario</th>
                                 <th>Respuesta al comentario Nº</th>
+                                <th>Selección</th>
+                                <th>Responder</th>*/}
+                                <th>Avatar</th>
+                                <th>Comentario</th>
+                                <th>Respuesta</th>
+                                <th>Avatar</th>
                                 <th>Selección</th>
                                 <th>Responder</th>
                             </tr>
@@ -49,13 +62,27 @@ function ComentarioListaTd(props){
             <tbody>
                 
                 {                   
-                    comentarios?.map(
+                    conjoin?.map(
                         (item,index)=>
                         {
                             return(<>
                                         
                                         <tr>
-                                            <td>{item.id_co}</td>
+                                            <td><img className="miAvatar" key={index} src={`http://localhost:4000/imagenes/fotousuario${item.usuario}/${item['foto']}`} alt="imagen"/></td>
+                                            <td>{item.uncomentario}</td>
+                                            <td>{item.comentario}</td>
+                                            <td><img className="miAvatar" key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_co}/${item['T1_foto']}`} alt="imagen"/></td>
+                                            <td><input  type="checkbox" id="eleccion" name="eleccion"></input></td>
+                                            <td>
+                                                <div>
+                                                    <input id="respuesta" type="text" name="respuesta" autoComplete="off" />
+                                                    <input id="idConversacion" type="hidden" name="idConversacion" value={item.id_co} />
+                                                    <input id="id_ser" type="hidden" name="id_ser" value={item.id_ser_co} />
+                                                </div>
+                                                
+                                            </td>
+                                            {/*
+                                             <td>{item.id_co}</td>
                                             <td>{item.id_usu_co}</td>
                                             <td>
                                                 <img className="miAvatar" key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_co}/${item.nomFoto_usu}`} alt="imagen"/>
@@ -72,7 +99,7 @@ function ComentarioListaTd(props){
                                                 </div>
                                                 
                                             </td>
-                                           
+                                            */}
                                 
                                         </tr>
                                         

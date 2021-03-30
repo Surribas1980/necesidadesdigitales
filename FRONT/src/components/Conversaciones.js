@@ -12,8 +12,9 @@ function Conversaciones(props){
         const data = await deleteService("/comentar",'POST',1,id_ser);
         console.log ('datos que entran',data)
         setdatoscomentariosServicios(data['datoscomentariosServicios']);
-        setcomentarConJoin(data['comentarConJoin']);
-        
+        setcomentarConJoin(data['comentarConJoin'][0][0]);
+        console.log('datos con join en conversaciones',data['comentarConJoin'][0][0])
+
     }
 
 
@@ -47,7 +48,7 @@ function Conversaciones(props){
             </tbody>
         </table>
         <hr></hr>
-        {datoscomentariosServicios && <ComentarioListaTd elementos={datoscomentariosServicios}></ComentarioListaTd>}
+        {datoscomentariosServicios && <ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}></ComentarioListaTd>}
     
     </>)
 }
