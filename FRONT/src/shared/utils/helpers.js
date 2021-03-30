@@ -1,7 +1,6 @@
 export default function PagGinar(valor){
     const paginacion = [];
-    let num = 2;
-    let i = 1;
+    
    
 	let resto = valor % 2;
 	let numPaginacion = valor / 2;

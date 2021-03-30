@@ -9,7 +9,14 @@ nav {
   text-decoration: none;
   color: white;
 }
-
+.mensaje {
+  font-size: 1.5em;
+  height: auto;
+  border: 1px solid gray;
+  margin: 0%;
+  text-align: center;
+  color: rgb(0, 204, 255);
+}
 .header-item a {
   text-decoration: none;
   color: white;

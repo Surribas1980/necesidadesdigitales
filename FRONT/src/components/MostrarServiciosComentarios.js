@@ -18,7 +18,7 @@ export default function MostrarServiciosComentarios(props){
             }
             console.log('Tiene conversacion')
         }
-
+        console.log('La url es la pulsada estoy en MostrarServiciosComentarios y el path es:',window.document.location.pathname);
     //servicios?.map((item)=>{return console.log('En servicios mostrar valores: ',item)});
     return(<>
     <table>
@@ -35,7 +35,7 @@ export default function MostrarServiciosComentarios(props){
                     {
                         servicios?.map((item,index)=>{
 
-                            if((index <= numpaginamax) && (index >= numpaginamin))
+                            if((index <= (numpaginamax+1)) && (index >= numpaginamin))
                             {
                                 return(<>
                                         <tr>
@@ -54,9 +54,10 @@ export default function MostrarServiciosComentarios(props){
             </table>
             <hr></hr>
             <div className="miscajas" onClick={()=>{
-            if(numpaginamin > 0){
-               const menosuno = numpaginamin - 1;
-               const menosunoenmax = numpaginamax - 1;
+
+                const menosuno = numpaginamin - 1;
+                const menosunoenmax = numpaginamax - 1;
+            if(menosuno > 0){
                setNumPaginaMin(menosuno);
                setNumPaginaMax(menosunoenmax);
                
@@ -64,26 +65,50 @@ export default function MostrarServiciosComentarios(props){
            console.log('En menos uno', numpaginamax,numpaginamin)
 
        }}>{'<'}</div>{  
-        paginacion?.map((item)=>{
+        paginacion?.map((item,index)=>{
             
 
-            if((item <= numpaginamax) && (item >= numpaginamin)){
+            if((item <= (numpaginamax+1)) && (item >= numpaginamin)){
 
-                return (<><div className="miscajas">{item}</div></>)
+                return (<><div
+                    onClick={()=>{
+                        if(item === numpaginamax){
+                            const menosuno = numpaginamax;
+                            const menosunoenmax = numpaginamax + 1;
+                            if(menosunoenmax < paginacion.length){
+                                setNumPaginaMin(menosuno);
+                                setNumPaginaMax(menosunoenmax);
+                            }
+                            
+                        }
+                        if(item === (numpaginamax+1)){
+                            const menosuno = numpaginamax+1;
+                            const menosunoenmax = numpaginamax + 2;
+                            if(menosunoenmax > 0 && menosunoenmax < paginacion.length){
+                                setNumPaginaMin(menosuno);
+                                setNumPaginaMax(menosunoenmax);
+                            }
+                            
+                        }
+                        
+                    }}
+                    className="miscajas">{item}</div></>)
             }
         
     
         })
     }<div className="miscajas" onClick={()=>{
-        if(numpaginamax < paginacion.length){
-            const menosuno = numpaginamin + 1;
-            const menosunoenmax = numpaginamax + 1;
+
+        const menosuno = numpaginamin + 1;
+        const menosunoenmax = numpaginamax + 1;
+        if(menosunoenmax < paginacion.length){
             setNumPaginaMin(menosuno);
             setNumPaginaMax(menosunoenmax);
             
         }
-        console.log('En mas uno', numpaginamax,numpaginamin)
+        
     }}>{'>'}</div>
+    <h3>Hay {paginacion.length} servicios</h3>
             {id && <InsertComentarios id_ser={id}/> ? <InsertComentarios id_ser={id}/> : ''}
     </>);
 }

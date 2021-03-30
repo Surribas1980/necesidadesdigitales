@@ -81,7 +81,11 @@ h2 {
   .girar {
     display: flex;
     flex-direction: column;
+    height: 400px;
+    width: 400px;
+    margin: 2px;
     transform: rotate(90deg);
+    overflow: scroll;
   }
 }
 

@@ -64,6 +64,7 @@ function UserAdmin(){
         datosUser();
     },[showMenu]);
 
+    console.log('La url es la pulsada:',window.document.location.href);
 
 
     return (<>    

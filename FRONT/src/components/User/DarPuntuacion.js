@@ -1,11 +1,14 @@
 import { useState,useEffect} from 'react';
 import {deleteService} from '../../http/api';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link,useHistory } from 'react-router-dom';
 import '../../css/DarPuntuacion.css';
 import MisServNoSol from './MisServNoSol';
 import MisSolDesc from './MisSolDesc';
 import MisServSol from './MisServSol';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faArrowAltCircleLeft} from '@fortawesome/free-solid-svg-icons';
 export default function DarPuntuacion(props){ 
+    let atras = useHistory();
     const servsolucionados = props.solucionados;
     const [misServNoSol,setmisSerNoSol] = useState([]);
     const [misSolDesc, setmisSolDesc] = useState([]);
@@ -24,6 +27,9 @@ export default function DarPuntuacion(props){
     }
     ,[]);
     
+    function atrasClick(){
+        atras.push("/darpuntuacion");
+    }
 
     return(<>
     <Router>
@@ -35,6 +41,7 @@ export default function DarPuntuacion(props){
                 <div className="header-item1">
                     <Link to ="/misservisnosol">Elección de las soluciones</Link>
                 </div>
+                <Link to = "/darpuntuacion"><FontAwesomeIcon onClick={()=>{atrasClick()}} icon={faArrowAltCircleLeft}></FontAwesomeIcon></Link>
                
             </nav>
     

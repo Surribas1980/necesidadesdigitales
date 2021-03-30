@@ -1,17 +1,17 @@
 import { useState,useEffect} from 'react';
 import ComentariosLista from '../components/User/ComentariosLista';
-
 import { deleteService } from '../http/api';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
+import { BrowserRouter as Router, Route, Link,useHistory } from 'react-router-dom';
 import Conversaciones from '../components/Conversaciones';
-
 import '../css/Comentarios.css'
 import PagGinar from '../shared/utils/helpers';
 import MostrarServiciosComentarios from '../components/MostrarServiciosComentarios';
 import ConversacionesParticipo from '../components/User/ConversacionesParticipo';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faArrowAltCircleLeft,faUndo} from '@fortawesome/free-solid-svg-icons';
 
 export default function Comentarios(){
+    let atras = useHistory();
     const [numServiciosSinSolucion,setnumServiciosSinSolucion]=useState(0);
     const [showMenu, setShowMenu]=useState(false);
     const [showSiguiente, setShowSiguiente]=useState(false);
@@ -45,6 +45,9 @@ export default function Comentarios(){
     },[showMenu]);
    
   
+    function atrasClick(){
+        atras.push("/comentario");
+    }
      
      
      
@@ -73,8 +76,15 @@ export default function Comentarios(){
                         <div className="header-item">
                             <Link to="/misconversaciones">Conversaciones sobre mis servicios</Link>
                         </div>
-            
-                        <button onClick={()=>{setShowMenu(!showMenu)}}>Actualizar sección de comentarios</button>
+                                    <Link to="/comentario">
+                                        <div className="mensaje">
+                                            <FontAwesomeIcon onClick={()=>{atrasClick()}} icon={faArrowAltCircleLeft}></FontAwesomeIcon>
+                                        </div>
+                                    </Link>
+                                    <div className="mensaje">
+                                        <FontAwesomeIcon onClick={()=>{setShowMenu(!showMenu)}} icon={faUndo}></FontAwesomeIcon>
+                                    </div>
+                        
                     </div>
                 </nav>
             }                
