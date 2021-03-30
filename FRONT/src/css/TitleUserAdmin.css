@@ -4,6 +4,11 @@ nav {
   background-color: rgb(255, 255, 255);
   border-bottom: 2px solid red;
 }
+.encoller {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
 .header-item {
   font-family: sans-serif;

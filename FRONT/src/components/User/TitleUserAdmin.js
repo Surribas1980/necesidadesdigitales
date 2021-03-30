@@ -10,6 +10,8 @@ function TitleUserAdmin(props){
     console.log('la foto:',datos);
 
 const salida =<><nav>
+    <div className="encoller">
+
                 <div className="header-item">
                 
                 <Link to="/useradmin">Recoger</Link>
@@ -29,19 +31,20 @@ const salida =<><nav>
                 </div>
                 <div className="header-item">
 
-                <Link to= "/solucionados">Servicios Solucionados</Link>
+                <Link to= "/solucionados">Solucionados</Link>
                 </div>
                 <div className="header-item">
 
-                <Link to= "/darsolucion">Servicios no solucionados</Link>
+                <Link to= "/darsolucion">No solucionados</Link>
                 </div>
                 
                 <div className="header-item">
-                    <Link to="/borrar/misservicios">Borrar mis servicios</Link>
+                    <Link to="/borrar/misservicios">Borrar</Link>
                 </div>
                 <div className="header-item">
-                <Link to="/insert/servicios">Insertar servicios</Link>
+                <Link to="/insert/servicios">Insertar</Link>
                 </div>
+    </div>
                 <button onClick={logOut}>LOG OUT!</button>
                 {
                     datos?.map((item,index)=>{
