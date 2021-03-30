@@ -138,7 +138,8 @@ function UserAdmin(){
                                     </div> 
                                 </div> 
                                 <hr></hr>  
-                                <hr></hr>                              
+                                <hr></hr>
+                                    <div className="girar">                              
                                                 <Route path="/comentario">
                                                     <div className="lassecciones">
                                                         <Comentarios />
@@ -172,6 +173,7 @@ function UserAdmin(){
                                                         <DeleteMyService />                  
                                                                     
                                                 </Route>
+                                    </div>
                                 <hr></hr>
                                 <hr></hr> 
                                         

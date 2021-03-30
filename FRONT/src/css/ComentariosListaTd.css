@@ -2,7 +2,7 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 1px;
-  max-width: 25%;
+  max-width: 75%;
   height: auto;
   margin: 0;
   text-align: center;
@@ -15,4 +15,27 @@ th {
   text-align: center;
   border: 1px solid white;
   border-radius: 10px;
+}
+
+@media (min-witdh: 700px) {
+  .miAvatar {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 1px;
+    max-width: 75%;
+    height: auto;
+    margin: 0;
+    text-align: center;
+  }
+}
+@media (max-witdh: 700px) {
+  .miAvatar {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 1px;
+    max-width: 75%;
+    height: auto;
+    margin: 0;
+    text-align: center;
+  }
 }

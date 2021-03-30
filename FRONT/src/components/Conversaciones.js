@@ -48,7 +48,7 @@ function Conversaciones(props){
             </tbody>
         </table>
         <hr></hr>
-        {datoscomentariosServicios && <ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}></ComentarioListaTd>}
+        {comentarConJoin && <ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}></ComentarioListaTd>}
     
     </>)
 }
