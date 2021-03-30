@@ -9,6 +9,32 @@ nav {
   flex-direction: row;
   background-color: #214588;
 }
+hr {
+  width: 75%;
+}
+body {
+  font-family: Helvetica;
+  -webkit-font-smoothing: antialiased;
+  background: rgb(255, 255, 255);
+}
+footer {
+  background-color: black;
+  border-top: 1px solid red;
+  color: white;
+  text-align: center;
+  width: auto;
+}
+
+h1,
+h2 {
+  text-align: center;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: black;
+  padding: 30px 0;
+}
+
 @media (max-width: 700px) {
   .englobanumericos {
     width: auto;
@@ -53,168 +79,144 @@ nav {
     margin: 0%;
   }
 }
-.esconder {
-}
-.header-item {
-  font-family: sans-serif;
-  padding: 5px 10px;
-  text-decoration: none;
-  color: white;
-}
-.mensaje {
-  font-size: 2.5em;
-  height: auto;
-  margin: 0%;
-  text-align: center;
-  color: rgb(115, 255, 0);
-}
-hr {
-  width: 75%;
-}
-.esconderlateral {
-  display: none;
-}
-.lateral {
-  width: 25%;
-  height: auto;
-  background-color: rgb(255, 255, 255);
-  border-right: 1px solid black;
-}
-.lateral2 {
-  display: block;
-  width: 10%;
-  height: auto;
-  background-color: rgb(255, 255, 255);
-  border-right: 1px solid black;
-}
-.principal {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: auto;
-  height: auto;
-  background-color: #ffffff;
-  text-align: center;
-  margin: 50px;
-}
-.box {
-  display: flex;
-  justify-content: space-between;
-  background-color: rgb(201, 207, 194);
-  width: auto;
-  height: auto;
-}
 
-.imagenAvatar {
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  max-width: 25%;
-  height: auto;
-  margin: 0%;
-  text-align: center;
-}
-.header-item a {
-  text-decoration: none;
-  color: white;
-}
-.secciones {
-  border-style: solid;
-  border-width: 5px;
-}
-.tabla1 {
-  overflow: scroll;
-  height: auto;
-  width: auto;
-}
-.titulo {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.lassecciones {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: auto;
-  height: auto;
-  width: 1000px;
-}
-body {
-  font-family: Helvetica;
-  -webkit-font-smoothing: antialiased;
-  background: rgb(255, 255, 255);
-}
-footer {
-  background-color: black;
-  border-top: 1px solid red;
-  color: white;
-  text-align: center;
-  width: auto;
-}
-.datosnumericos {
-  border-radius: 10px;
-  width: 300px;
-  height: 100px;
-  margin: 1px;
-  padding: 5px;
-  color: white;
-  background: rgb(182, 206, 216);
-  display: inline-flex;
-}
-.texto {
-  border: 1px solid black;
-  width: 175px;
-  height: 10px;
-  padding: 1px;
-}
-.englobanumericos {
-  width: 700px;
-  height: auto;
-  margin: 20px;
-  background-color: darkblue;
-}
-.cajanumericos {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: stretch;
-  border-radius: 5px;
-  padding: 5px;
-  background: rgb(177, 101, 173);
-  margin: 20px;
-}
-.caja1 {
-  border-radius: 5px;
-  width: 160px;
-  height: 20px;
-  margin: 1px;
-  padding: 5px;
-  background: rgb(228, 214, 25);
-  text-align: center;
-}
-.botonmenulateral {
-  display: block;
-  border-radius: 5px;
-  height: auto;
-  padding: 5px;
-  background: linear-gradient(70deg, black, white);
-  text-align: center;
-  font-size: 1.5em;
-  margin: 0%;
-}
-.totalsecciones {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+@media (min-width: 700px) {
+  .header-item {
+    font-family: sans-serif;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: white;
+  }
+  .mensaje {
+    font-size: 2.5em;
+    height: auto;
+    margin: 0%;
+    text-align: center;
+    color: rgb(115, 255, 0);
+  }
+  .esconderlateral {
+    display: none;
+  }
+  .lateral {
+    width: 25%;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    border-right: 1px solid black;
+  }
+  .lateral2 {
+    display: block;
+    width: 10%;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    border-right: 1px solid black;
+  }
+  .principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    height: auto;
+    background-color: #ffffff;
+    text-align: center;
+    margin: 50px;
+  }
+  .box {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(201, 207, 194);
+    width: auto;
+    height: auto;
+  }
 
-h1,
-h2 {
-  text-align: center;
-  font-size: 18px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: black;
-  padding: 30px 0;
+  .imagenAvatar {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: 25%;
+    height: auto;
+    margin: 0%;
+    text-align: center;
+  }
+  .header-item a {
+    text-decoration: none;
+    color: white;
+  }
+  .secciones {
+    border-style: solid;
+    border-width: 5px;
+  }
+  .tabla1 {
+    overflow: scroll;
+    height: auto;
+    width: auto;
+  }
+  .titulo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .lassecciones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+    height: auto;
+    width: 1000px;
+  }
+  .datosnumericos {
+    border-radius: 10px;
+    width: 300px;
+    height: 100px;
+    margin: 1px;
+    padding: 5px;
+    color: white;
+    background: rgb(182, 206, 216);
+    display: inline-flex;
+  }
+  .texto {
+    border: 1px solid black;
+    width: 175px;
+    height: 10px;
+    padding: 1px;
+  }
+  .englobanumericos {
+    width: 700px;
+    height: auto;
+    margin: 20px;
+    background-color: darkblue;
+  }
+  .cajanumericos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    border-radius: 5px;
+    padding: 5px;
+    background: rgb(177, 101, 173);
+    margin: 20px;
+  }
+  .caja1 {
+    border-radius: 5px;
+    width: 160px;
+    height: 20px;
+    margin: 1px;
+    padding: 5px;
+    background: rgb(228, 214, 25);
+    text-align: center;
+  }
+  .botonmenulateral {
+    display: block;
+    border-radius: 5px;
+    height: auto;
+    padding: 5px;
+    background: linear-gradient(70deg, black, white);
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0%;
+  }
+  .totalsecciones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

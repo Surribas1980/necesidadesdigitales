@@ -20,12 +20,11 @@ nav {
   text-decoration: none;
   color: black;
 }
-@media (max-width: 800px) {
-}
+
 .imagen {
   border: 1px solid #ddd;
   border-radius: 5px;
-  max-width: 15%;
+  max-width: 35%;
   height: auto;
   margin: 0%;
   text-align: center;

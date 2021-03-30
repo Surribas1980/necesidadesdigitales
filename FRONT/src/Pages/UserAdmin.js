@@ -72,14 +72,17 @@ function UserAdmin(){
             <Router>
                 <nav>
                     
-
+                         <div className="esconderlateral">
                             <div className="botonmenulateral">                
                                 <FontAwesomeIcon onClick={()=>{setMenuLateral(!menuLateral);}} icon={faBars}></FontAwesomeIcon>
                             </div>
+                         </div>
+                            
                             <div className="esconder">
 
-                            <TitleUserAdmin datosusuario={datosUsuario}></TitleUserAdmin> 
+                                <TitleUserAdmin datosusuario={datosUsuario}></TitleUserAdmin> 
                             </div>
+                        
                             <button onClick={()=>{setShowMenu(!showMenu);}}>Actualizar</button>
                     
                 </nav>
@@ -87,12 +90,15 @@ function UserAdmin(){
                                         
                 <div className="box">
                                 
-                            {menuLateral && <div className="lateral">
-                                    <TitleUserAdminVertical datosusuario={datosUsuario}></TitleUserAdminVertical>
-                                
+                            {menuLateral &&
+                                    <div className="esconderlateral">
+                                <div className="lateral">
+                                        
+                                        <TitleUserAdminVertical datosusuario={datosUsuario}></TitleUserAdminVertical>
+                                    </div>                                
                                 </div>}
                                
-                            {!menuLateral && <div className="lateral2">Este es el otro menú</div>}
+                            
                             <div className="principal">
                                 <div className="englobanumericos">
                                     <div className="cajanumericos">
