@@ -1,6 +1,7 @@
 import {useEffect,useState} from 'react';
 import {deleteService, descartarServicio } from '../../http/api';
 import ComentarioListaTd from './ComentarioListaTd';
+import ComentariosListaParticipo from './ComentariosListaParticipo';
 function ConversacionesParticipo(props){
     const [datoscomentariosServicios,setdatoscomentariosServicios] = useState("");
     const misconversaciones = props?.misconvergenericas;
@@ -47,7 +48,7 @@ function ConversacionesParticipo(props){
             }
         </tbody>
     </table>
-    {datoscomentariosServicios && <ComentarioListaTd elementos={datoscomentariosServicios}></ComentarioListaTd>}
+    {datoscomentariosServicios && <ComentariosListaParticipo elementos={datoscomentariosServicios}></ComentariosListaParticipo>}
     
     </>);
 }

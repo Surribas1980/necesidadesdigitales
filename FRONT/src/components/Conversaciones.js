@@ -2,6 +2,7 @@
 import { useState,useEffect} from 'react';
 import {deleteService} from '../http/api';
 import ComentarioListaTd from './User/ComentarioListaTd';
+import '../css/ComentariosListaTd.css';
 function Conversaciones(props){
     const [datoscomentariosServicios,setdatoscomentariosServicios] = useState("");
     const [comentarConJoin,setcomentarConJoin] = useState("");
@@ -48,7 +49,9 @@ function Conversaciones(props){
             </tbody>
         </table>
         <hr></hr>
-        {comentarConJoin && <ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}></ComentarioListaTd>}
+        <div className="tabla">
+            {comentarConJoin && <ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}></ComentarioListaTd>}
+        </div>
     
     </>)
 }

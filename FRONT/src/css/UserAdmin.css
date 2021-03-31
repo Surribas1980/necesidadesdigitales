@@ -37,10 +37,12 @@ h2 {
 
 @media (max-width: 700px) {
   .englobanumericos {
+    border-radius: 5px;
     width: auto;
     height: auto;
     margin: 20px;
     background-color: darkblue;
+    color: white;
   }
   .principal {
     display: flex;
@@ -87,6 +89,25 @@ h2 {
     transform: rotate(90deg);
     overflow: scroll;
   }
+  .mensaje {
+    font-size: 1.5em;
+    height: auto;
+    margin: 0%;
+    text-align: center;
+    color: rgb(15, 177, 169);
+  }
+  .cajanumericos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    border-radius: 5px;
+    padding: 5px;
+    background: rgb(255, 255, 255);
+    margin: 20px;
+    color: black;
+  }
 }
 
 @media (min-width: 700px) {
@@ -101,7 +122,7 @@ h2 {
     height: auto;
     margin: 0%;
     text-align: center;
-    color: rgb(115, 255, 0);
+    color: rgb(15, 177, 169);
   }
   .esconderlateral {
     display: none;
@@ -188,6 +209,7 @@ h2 {
     padding: 1px;
   }
   .englobanumericos {
+    border-radius: 5px;
     width: 700px;
     height: auto;
     margin: 20px;
@@ -201,7 +223,7 @@ h2 {
     align-items: stretch;
     border-radius: 5px;
     padding: 5px;
-    background: rgb(177, 101, 173);
+    background: rgb(255, 255, 255);
     margin: 20px;
   }
   .caja1 {

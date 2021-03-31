@@ -2,11 +2,12 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 1px;
-  max-width: 75%;
+  max-width: 50%;
   height: auto;
   margin: 0;
   text-align: center;
 }
+
 td {
   text-align: center;
   border: 1px solid chartreuse;
@@ -16,8 +17,11 @@ th {
   border: 1px solid white;
   border-radius: 10px;
 }
-
-@media (min-witdh: 700px) {
+.tabla {
+  overflow: scroll;
+  height: 300px;
+}
+/* @media (min-witdh: 700px) {
   .miAvatar {
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -26,6 +30,11 @@ th {
     height: auto;
     margin: 0;
     text-align: center;
+  }
+
+  .tabla {
+    overflow: scroll;
+    height: 300px;
   }
 }
 @media (max-witdh: 700px) {
@@ -38,4 +47,9 @@ th {
     margin: 0;
     text-align: center;
   }
+  .tabla {
+    overflow: scroll;
+    height: 500px;
+  }
 }
+ */

@@ -1,23 +1,20 @@
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import useAuth from '../shared/hooks/useAuth';
 import { useState,useEffect} from 'react';
 import { deleteService } from '../http/api';
 import GraficaRanking from '../components/GraficaRanking';
 import InsertServices from './InsertServices';
 import ServisSolucionados from '../components/ServisSolucionados';
-import ServiciosSolucionados from '../components/User/ServiciosSolucionados';
-import InsertComentarios from './InsertComentarios';
 import Comentarios from './Comentarios';
 import ModificacionDatos from '../components/User/ModificacionDatos';
 import Solucion from '../components/User/Solucion';
 import DarPuntuacion from '../components/User/DarPuntuacion';
-import '../css/UserAdmin.css'
-import DeleteService from '../Pages/DeleteService';
+import '../css/UserAdmin.css';
 import DeleteMyService from '../components/User/DeleteMyService';
 import TitleUserAdmin from '../components/User/TitleUserAdmin';
 import TitleUserAdminVertical from '../components/User/TitleUserAdminVertical';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faEnvelope,faBars,faHandPointUp} from '@fortawesome/free-solid-svg-icons';
+import {faEnvelope,faBars,faEye,faEyeSlash,faBookOpen,faBook} from '@fortawesome/free-solid-svg-icons';
 import MisServiSoliUserAdmin from '../components/User/MisServiSoliUserAdim';
 import MisServiNoSoluUserAdmin from '../components/User/MisServiNoSoluUserAdim';
 import MisServiSoluUserAdmin from '../components/User/MisServiSoluUserAdim';
@@ -105,31 +102,36 @@ function UserAdmin(){
                                     <div className="cajanumericos">
                                                 
                                                         <div className="datosnumericos">                                    
-                                                                Comentarios sin ver:
+                                                                Comentarios sin ver
                                                             <div className="caja1">
                                                                 {numComentariosSinver}
                                                             </div>
                                                                 <div className="mensaje">
                                                                 <FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon>
+                                                                {numComentariosSinver > 0 ? <FontAwesomeIcon icon={faEyeSlash}></FontAwesomeIcon> : <FontAwesomeIcon icon={faEye}></FontAwesomeIcon>}
                                                                 </div>
                                                         </div>
                                                         
                                                         <div className="datosnumericos">	
-                                                            Comentarios sin leer:
+                                                            Comentarios sin leer
                                                             <div className="caja1">
                                                             {numComentariosSinLer}
                                                             </div> 
+                                                            <div className="mensaje">
+                                                                <FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon>
+                                                                {numComentariosSinver > 0 ? <FontAwesomeIcon icon={faBookOpen}></FontAwesomeIcon> : <FontAwesomeIcon icon={faBook}></FontAwesomeIcon>}
+                                                                </div>
                                                         </div>
                                    
                                                         <div className="datosnumericos">	
-                                                            Cantidad de servicios que solucioné: 
+                                                            Cantidad de servicios que solucioné 
                                                             <div className="caja1">
                                                             {numMisSolucionados}
                                                             </div>
                                                         </div>
 
                                                         <div className="datosnumericos">            
-                                                            Cantidad de mis servicios solicitados: 
+                                                            Cantidad de mis servicios solicitados 
                                                             <div className="caja1">
                                                             {numMisSolicitados}
                                                             </div>                                        

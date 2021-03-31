@@ -1,5 +1,4 @@
 import {useForm} from 'react-hook-form';
-import useAuth from '../shared/hooks/useAuth';
 import { newEntry } from '../http/api';
 
 export default function InsertComentarios (props){

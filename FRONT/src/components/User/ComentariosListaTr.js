@@ -1,4 +1,5 @@
 import ComentarioListaTd from "./ComentarioListaTd";
+import ComentariosListaParticipo from "./ComentariosListaParticipo";
 import { deleteService,descartarServicio } from '../../http/api';
 import {useState} from 'react';
 function ComentarioListaTr(props){
@@ -20,7 +21,7 @@ function ComentarioListaTr(props){
       
       
     return (<> 
-                
+                <hr></hr>
                 <table className="table">
                     <thead>
                         <tr>
@@ -48,8 +49,8 @@ function ComentarioListaTr(props){
                             })}
                     </tbody>
                 </table>
-    
-         {datoscomentariosServicios && <ComentarioListaTd elementos={datoscomentariosServicios}></ComentarioListaTd>}
+                            <hr></hr>
+         {datoscomentariosServicios && <ComentariosListaParticipo elementos={datoscomentariosServicios}></ComentariosListaParticipo>}
     
     </>)
 
