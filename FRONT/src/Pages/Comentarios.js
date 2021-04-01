@@ -10,7 +10,7 @@ import ConversacionesParticipo from '../components/User/ConversacionesParticipo'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowAltCircleLeft,faUndo} from '@fortawesome/free-solid-svg-icons';
 
-export default function Comentarios(){
+export default function Comentarios(props){
     let atras = useHistory();
     const [numServiciosSinSolucion,setnumServiciosSinSolucion]=useState(0);
     const [showMenu, setShowMenu]=useState(false);
@@ -24,6 +24,10 @@ export default function Comentarios(){
     const [servicios,setServicios] = useState("");
     const [comentariosRecibidos,setcomentariosRecibidos] = useState([]);
     let paginacion;
+    const valores = props.numero;
+    const donde = props.donde;
+    const even = props.evento;
+    console.log('numero valores:',valores,'donde:',donde,'evento',even);
     useEffect(()=>{
         const comentServicios = async () => {
             const data = await deleteService("/comentar",'GET',0,0);
@@ -48,65 +52,66 @@ export default function Comentarios(){
     function atrasClick(){
         atras.push("/comentario");
     }
+    
+let salida1 = <><Router>
+            
+{ 
+    <nav>
+        <div className="encollemos">
+
+            <div className="header-item">
+
+                <Link onClick={()=>{setShowSiguiente(!showSiguiente)}} to="/iniciarconversacion">Iniciar conversacion</Link>
+            </div>
+            <div className="header-item">
+
+                <Link to="/insertarcomentario">Conversaciones</Link>
+            </div>
+            <div className="header-item">
+              <Link to="/comentariosrecibidos">Comentarios sin ver</Link>
+            </div>
+    
+            <div className="header-item">
+                <Link to="/misconversaciones">Conversaciones sobre mis servicios</Link>
+            </div>
+                        <Link to="/comentario">
+                            <div className="mensaje">
+                                <FontAwesomeIcon onClick={()=>{atrasClick()}} icon={faArrowAltCircleLeft}></FontAwesomeIcon>
+                            </div>
+                        </Link>
+                        <div className="mensaje">
+                            <FontAwesomeIcon onClick={()=>{setShowMenu(!showMenu)}} icon={faUndo}></FontAwesomeIcon>
+                        </div>
+            
+        </div>
+    </nav>
+}                
+
+    <Route path="/insertarcomentario">
+        <Conversaciones convergeneral={comentarios}></Conversaciones>                    
+    </Route>
+    
+    <Route path="/misconversaciones">
+        <ComentariosLista valores={misconversaciones}></ComentariosLista>
+    </Route>
+    <Route path="/comentariosrecibidos">
+     <ConversacionesParticipo misconvergenericas={comentariosRecibidos} ></ConversacionesParticipo> 
+    </Route>
+    <Route path="/iniciarconversacion">                 
+        <div className="separacion">
+            <MostrarServiciosComentarios numservicios={numServiciosSinSolucion} servicios={servicios} paginamax={numpaginamax} paginamin={numpaginamin} ></MostrarServiciosComentarios>
+        </div>
+    </Route>
+    
+</Router></>;    
      
-     
-     
-  
+let salida2 = <><ConversacionesParticipo misconvergenericas={comentariosRecibidos} ></ConversacionesParticipo></>;  
     
     //<ComentariosLista valores={comentarios}></ComentariosLista>
     return (<>
-            <Router>
-            
-            { 
-                <nav>
-                    <div className="encollemos">
-
-                        <div className="header-item">
-
-                            <Link onClick={()=>{setShowSiguiente(!showSiguiente)}} to="/iniciarconversacion">Iniciar conversacion</Link>
-                        </div>
-                        <div className="header-item">
-
-                            <Link to="/insertarcomentario">Conversaciones</Link>
-                        </div>
-                        <div className="header-item">
-                            <Link to="/comentariosrecibidos">Conversaciones en las que participo</Link>
-                        </div>
-                
-                        <div className="header-item">
-                            <Link to="/misconversaciones">Conversaciones sobre mis servicios</Link>
-                        </div>
-                                    <Link to="/comentario">
-                                        <div className="mensaje">
-                                            <FontAwesomeIcon onClick={()=>{atrasClick()}} icon={faArrowAltCircleLeft}></FontAwesomeIcon>
-                                        </div>
-                                    </Link>
-                                    <div className="mensaje">
-                                        <FontAwesomeIcon onClick={()=>{setShowMenu(!showMenu)}} icon={faUndo}></FontAwesomeIcon>
-                                    </div>
-                        
-                    </div>
-                </nav>
-            }                
-
-                <Route path="/insertarcomentario">
-                    <Conversaciones convergeneral={comentarios}></Conversaciones>                    
-                </Route>
-                
-                <Route path="/misconversaciones">
-                    <ComentariosLista valores={misconversaciones}></ComentariosLista>
-                </Route>
-                <Route path="/comentariosrecibidos">
-                    <ConversacionesParticipo misconvergenericas={comentariosRecibidos} ></ConversacionesParticipo>
-                </Route>
-                <Route path="/iniciarconversacion">                 
-                    <div className="separacion">
-                        <MostrarServiciosComentarios numservicios={numServiciosSinSolucion} servicios={servicios} paginamax={numpaginamax} paginamin={numpaginamin} ></MostrarServiciosComentarios>
-                    </div>
-                </Route>
-                
-            </Router>
-
+            {!even && salida1}
+            {even && salida2}
+           
    
         </>);
 }

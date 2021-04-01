@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route,Link } from 'react-router-dom';
 import useAuth from '../shared/hooks/useAuth';
 import { useState,useEffect} from 'react';
 import { deleteService } from '../http/api';
@@ -36,7 +36,11 @@ function UserAdmin(){
     const [showMenu, setShowMenu]=useState(false);
     const [mostrar, setMostrar] = useState(false);
     const [menuLateral, setMenuLateral] = useState(false);
-    
+    const [proba,setProba]= useState(0);
+    const [donde, setDonde] = useState("");
+    const [num, setNum] = useState(0);
+ 
+    const [evento,setEvento] = useState(0);
     useEffect(()=>{
         const datosUser = async ()=>{
             const data = await deleteService("/users/userLogin/",'GET',0,0);
@@ -59,11 +63,29 @@ function UserAdmin(){
             console.log('Esto es data...',data)
         }
         datosUser();
+        setEvento(0);
     },[showMenu]);
 
     console.log('La url es la pulsada:',window.document.location.href);
+    const urlpathname = window.document.location.pathname;
+   
 
-
+    
+    const escuchar = e =>{
+            const item = e.target;
+            console.log('hola,item:',item)
+            console.log('item.parentElement',item.parentElement);
+            const valorpasado=item.nearestViewportElement.dataset.valor;
+            const lugar=item.nearestViewportElement.dataset.donde;
+            setNum(valorpasado);
+            setDonde(lugar);
+            setEvento(1);
+            console.log('item.nearestViewportElement.dataset.valor',item.nearestViewportElement.dataset.valor);
+            console.log('item.nearestViewportElement.dataset.valor',item.nearestViewportElement.dataset.donde);
+            }
+            
+    const enlace = <><Link to="/comentario"><FontAwesomeIcon onClick={escuchar} icon={faEnvelope}></FontAwesomeIcon></Link></>;
+        
     return (<>    
             
         <main>
@@ -77,8 +99,10 @@ function UserAdmin(){
                          </div>
                             
                             <div className="esconder">
+                                <div onClick={()=>{setShowMenu(!showMenu)}}>
 
-                                <TitleUserAdmin datosusuario={datosUsuario}></TitleUserAdmin> 
+                                    <TitleUserAdmin  datosusuario={datosUsuario}></TitleUserAdmin> 
+                                </div>
                             </div>
                         
                             <button onClick={()=>{setShowMenu(!showMenu);}}>Actualizar</button>
@@ -90,35 +114,44 @@ function UserAdmin(){
                                 
                             {menuLateral &&
                                     <div className="esconderlateral">
-                                <div className="lateral">
-                                        
-                                        <TitleUserAdminVertical datosusuario={datosUsuario}></TitleUserAdminVertical>
-                                    </div>                                
-                                </div>}
+                                        <div className="lateral">                                        
+                                            <TitleUserAdminVertical datosusuario={datosUsuario}></TitleUserAdminVertical>
+                                        </div>                                
+                                    </div>
+                            }
                                
                             
                             <div className="principal">
                                 <div className="englobanumericos">
                                     <div className="cajanumericos">
                                                 
-                                                        <div className="datosnumericos">                                    
-                                                                Comentarios sin ver
+                                                        <div className="datosnumericos">   
+                                                            <div id="sinver" className="sinver" name="sinver" onClick={escuchar} value={numComentariosSinver} >
+                                                            
+                                                            Comentarios sin ver
+                                                            </div>                                 
+                                                               
+                                                                
+                                                               
                                                             <div className="caja1">
                                                                 {numComentariosSinver}
                                                             </div>
-                                                                <div className="mensaje">
-                                                                <FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon>
+                                                                <div  className="mensaje">
+                                                                <Link to="/comentario"><FontAwesomeIcon data-donde="sinver" data-valor={numComentariosSinver} onClick={escuchar} icon={faEnvelope}></FontAwesomeIcon></Link>
                                                                 {numComentariosSinver > 0 ? <FontAwesomeIcon icon={faEyeSlash}></FontAwesomeIcon> : <FontAwesomeIcon icon={faEye}></FontAwesomeIcon>}
                                                                 </div>
                                                         </div>
                                                         
-                                                        <div className="datosnumericos">	
+                                                        <div className="datosnumericos">
+                                                            <div id="sin" className="sinler" name="sinler" onClick={escuchar} value={numComentariosSinLer}>
                                                             Comentarios sin leer
+                                                            </div>	
+                                                            
                                                             <div className="caja1">
                                                             {numComentariosSinLer}
                                                             </div> 
-                                                            <div className="mensaje">
-                                                                <FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon>
+                                                            <div alt="mensaje" className="mensaje">
+                                                                <Link to="/comentario"><FontAwesomeIcon data-donde="sinler" data-valor={numComentariosSinLer} onClick={escuchar} alt="mensaje" icon={faEnvelope}></FontAwesomeIcon></Link>
                                                                 {numComentariosSinver > 0 ? <FontAwesomeIcon icon={faBookOpen}></FontAwesomeIcon> : <FontAwesomeIcon icon={faBook}></FontAwesomeIcon>}
                                                                 </div>
                                                         </div>
@@ -141,10 +174,12 @@ function UserAdmin(){
                                 </div> 
                                 <hr></hr>  
                                 <hr></hr>
-                                    <div className="girar">                              
+                                                                  
                                                 <Route path="/comentario">
                                                     <div className="lassecciones">
-                                                        <Comentarios />
+                                                        
+                                                        <Comentarios evento={evento} donde={donde} numero={num}/> 
+                                                        
                                                     </div>
                                                 </Route>            
                                                 <Route path="/datospersonales">
@@ -175,12 +210,12 @@ function UserAdmin(){
                                                         <DeleteMyService />                  
                                                                     
                                                 </Route>
-                                    </div>
+                                
                                 <hr></hr>
                                 <hr></hr> 
                                         
                                     
-                                        <div className="girar">
+                                        
                                             <section className="lassecciones">                                
                                                 <GraficaRanking valores={ranking}></GraficaRanking>
                                             </section>
@@ -197,7 +232,7 @@ function UserAdmin(){
                                                 <h1>Mis servicios solucionados</h1>
                                                 <MisServiSoluUserAdmin missolucionados={misSerSolucionados}></MisServiSoluUserAdmin>
                                             </section>                    
-                                        </div>
+                                        
                                     
                                     
                                     

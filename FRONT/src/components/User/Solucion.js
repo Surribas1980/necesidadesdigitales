@@ -48,7 +48,7 @@ export default function Solucion(props){
         </tbody>
 
     </table>
-       {idServicio && <AportarSolucion id={idServicio}></AportarSolucion>}
+       {idServicio && <AportarSolucion id={idServicio}></AportarSolucion> ? <AportarSolucion id={idServicio}></AportarSolucion> : " "}
 
     </>);
 }
