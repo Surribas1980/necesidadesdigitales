@@ -1,0 +1,17 @@
+.comienzo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.caja2 {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: auto;
+  height: 2rem;
+  margin: 1px;
+  padding: 5px;
+  background: rgb(70, 151, 138);
+  text-align: center;
+}
