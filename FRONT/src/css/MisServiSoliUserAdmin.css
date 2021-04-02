@@ -3,7 +3,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  align-items: flex-end;
+  align-items: flex-start;
+  margin: 5px;
 }
 .caja2 {
   border: 1px solid black;
@@ -12,6 +13,24 @@
   height: 2rem;
   margin: 1px;
   padding: 5px;
-  background: rgb(70, 151, 138);
+  background: rgb(152, 220, 241);
+  text-align: center;
+}
+
+.caja {
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 1px;
+}
+.caja3 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  align-items: center;
+  margin: 5px;
+}
+.entrada {
+  width: auto;
   text-align: center;
 }

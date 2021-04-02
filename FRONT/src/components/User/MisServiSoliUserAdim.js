@@ -47,25 +47,26 @@ const irA = async (id)=>{
             </tbody>
     
         </table>
-        {
-                misservicios?.map((item,index)=>{
-                    return(<>
-                    <div className="comienzo">
+        <div className="caja">
 
-                                
-                                    <div className="caja1">
-                                        <Link><FontAwesomeIcon onClick={()=>{irA(item.id_ser)}} icon={faComments}></FontAwesomeIcon></Link> 
+            {
+                    misservicios?.map((item,index)=>{
+                        return(<>
+                            <div className="caja">
+                                    <div className="comienzo">                                   
+                                                    <div className="caja1">
+                                                        <Link><FontAwesomeIcon onClick={()=>{irA(item.id_ser)}} icon={faComments}></FontAwesomeIcon></Link> 
+                                                    </div>
+                                                    <div className="caja3"><div className="caja2">Id</div><input className="entrada" value={item.id_ser} readOnly></input> </div>
+                                                    <div className="caja3"><div className="caja2">Titulo</div><input className="entrada" value={item.titulo_ser} readOnly></input></div>
+                                                    <div className="caja3"><div className="caja2">Explicacion</div><textarea className="entrada"  value={item.expli_ser} readOnly></textarea></div>
+
                                     </div>
-                                    <div className="caja2">Id:</div>{item.id_ser}                                         
-                                    <div className="caja2">Titulo:</div>{item.titulo_ser}
-                                    <div className="caja2">Explicacion:</div>{item.expli_ser}
-                                        
-                                
-                    </div>
-    
-                    </>);
-                })
-            }
+                            </div>
+                        </>);
+                    })
+                }
+        </div>
         <hr></hr>
         <hr></hr>
         {comentarConJoin.length !== 0 ? <ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}></ComentarioListaTd> : <p>{'No tiene conversaciones'}</p> }
