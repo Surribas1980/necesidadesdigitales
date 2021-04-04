@@ -9,6 +9,7 @@ import MostrarServiciosComentarios from '../components/MostrarServiciosComentari
 import ConversacionesParticipo from '../components/User/ConversacionesParticipo';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowAltCircleLeft,faUndo} from '@fortawesome/free-solid-svg-icons';
+import ComentariosMenuVertical from '../components/ComentariosMenuVertical';
 
 export default function Comentarios(props){
     let atras = useHistory();
@@ -84,9 +85,9 @@ let salida1 = <><Router>
                         </div>
             
         </div>
+        
     </nav>
 }                
-
     <Route path="/insertarcomentario">
         <Conversaciones convergeneral={comentarios}></Conversaciones>                    
     </Route>

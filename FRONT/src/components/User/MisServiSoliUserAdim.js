@@ -9,6 +9,8 @@ import '../../css/MisServiSoliUserAdmin.css';
 export default function MisServiSoliUserAdmin(props){
     const [datoscomentariosServicios,setdatoscomentariosServicios] = useState("");
     const [comentarConJoin,setcomentarConJoin] = useState("");
+    let servicio;
+    let v;
     const misservicios = props?.misservis;
 const irA = async (id)=>{
     console.log('pasado',id);
@@ -20,7 +22,7 @@ const irA = async (id)=>{
 
 }
     return (<>
-    <Router>
+    
 
         <table>
             <tbody>
@@ -35,9 +37,11 @@ const irA = async (id)=>{
             {
                 misservicios?.map((item,index)=>{
                     return(<>
+                                {servicio = item.id_ser}
+                                {v=`/servicio/${servicio}`}
                                 <tr>
                                         <td>{item.id_ser}</td>                                       
-                                        <td><Link onClick={()=>{irA(item.id_ser)}} >{item.titulo_ser}</Link></td>
+                                        <td><Link to={v} onClick={()=>{irA(item.id_ser)}} >{item.titulo_ser}</Link></td>
                                         <td>{item.expli_ser}</td>
                                 </tr>
     
@@ -52,10 +56,13 @@ const irA = async (id)=>{
             {
                     misservicios?.map((item,index)=>{
                         return(<>
+                        
+                        <div className="oculto">{servicio = item.id_ser}{v=`/servicio/${servicio}`}</div>
+                                
                             <div className="caja">
                                     <div className="comienzo">                                   
                                                     <div className="caja1">
-                                                        <Link><FontAwesomeIcon onClick={()=>{irA(item.id_ser)}} icon={faComments}></FontAwesomeIcon></Link> 
+                                                        <Link to={v}><FontAwesomeIcon onClick={()=>{irA(item.id_ser)}} icon={faComments}></FontAwesomeIcon></Link> 
                                                     </div>
                                                     <div className="caja3"><div className="caja2">Id</div><input className="entrada" value={item.id_ser} readOnly></input> </div>
                                                     <div className="caja3"><div className="caja2">Titulo</div><input className="entrada" value={item.titulo_ser} readOnly></input></div>
@@ -70,7 +77,7 @@ const irA = async (id)=>{
         <hr></hr>
         <hr></hr>
         {comentarConJoin.length !== 0 ? <ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}></ComentarioListaTd> : <p>{'No tiene conversaciones'}</p> }
-    </Router>
+    
         </>);
 
 }

@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import useAuth from '../../shared/hooks/useAuth';
+import TitleUserAdminVertical from './TitleUserAdminVertical';
 import '../../css/TitleUserAdmin.css'
-
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faUserEdit,faCommentDots} from '@fortawesome/free-solid-svg-icons';
+import ComentariosMenuVertical from '../ComentariosMenuVertical';
 
 function TitleUserAdmin(props){
     const { isUserLogged, logOut } = useAuth(false);
@@ -18,12 +21,29 @@ const salida =<><nav>
                 </div>
 
                 <div className="header-item">
-
-                <Link to = "/comentario" >Comentarios</Link>
+                    <div className="user">
+                        <Link to = "/comentario"><FontAwesomeIcon icon={faCommentDots} /></Link>
+                        <div>Comentarios</div>
+                        
+                        <div className="externo">
+                            <div className="interno">
+                                <div className="externo">
+                                    <div className="interno">
+                                        <ComentariosMenuVertical></ComentariosMenuVertical>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                
                 <div className="header-item">
 
-                <Link to = "/datospersonales">Modificacion de datos personales</Link>
+                    <div className="user">
+                        <Link to = "/datospersonales"><FontAwesomeIcon icon={faUserEdit} /></Link>
+                        <div>Editar</div>
+                    </div>
                 </div>
                 <div className="header-item">
 
