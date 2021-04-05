@@ -39,6 +39,7 @@ function UserAdmin(){
     const [proba,setProba]= useState(0);
     const [donde, setDonde] = useState("");
     const [num, setNum] = useState(0);
+    const [selecMisServi,setselecMisServi] = useState(0);
     
     
     const [evento,setEvento] = useState(0);
@@ -65,10 +66,12 @@ function UserAdmin(){
         }
         datosUser();
         setEvento(0);
+        let path = window.location.pathname;
         let lendourl = window.location.search.substring(1);
         let lendoparams = new URLSearchParams(lendourl);
         let valor = lendoparams.get("valor");
         console.log('valor leido',valor);
+        setselecMisServi(0);
         switch (valor){
             case '1':setEvento(1);break;
             case '2':setEvento(2);break;
@@ -76,14 +79,13 @@ function UserAdmin(){
             case '4':setEvento(4);break;
             default:setEvento(0);
         }
+        if(path === '/darpuntuacion'){
+            setselecMisServi(1);
+            console.log('pulsa darpuntuacion')
+        }
        
     },[showMenu]);
-
-    console.log('La url es la pulsada:',window.document.location.href);
-    const urlpathname = window.document.location.pathname;
-   
-
-    
+     
     const escuchar = (e,v) =>{
             const item = e.target;
             console.log('hola,item:',item)
@@ -115,7 +117,7 @@ function UserAdmin(){
                             <div className="esconder">
                                 <div onClick={()=>{setShowMenu(!showMenu)}}>
 
-                                    <TitleUserAdmin elvento={escuchar} datosusuario={datosUsuario}></TitleUserAdmin> 
+                                    <TitleUserAdmin datosusuario={datosUsuario}></TitleUserAdmin> 
                                 </div>
                             </div>
                         
@@ -133,7 +135,22 @@ function UserAdmin(){
                                         </div>                                
                                     </div>
                             }
-                               
+                            {selecMisServi && 
+                                                <div className="mismenuslaterais">
+                                                    <div className="misservicios">
+                                                    <Link  to = "/missolucionados">Mis servicios solucionados</Link>
+                                                     </div>
+                                             
+                                                    <div className="misservicios">
+                                                    <Link to ="/misservisnosol">Elección de las soluciones</Link>
+                                                    </div>
+                                                </div>
+                                                       
+                                       
+                  
+                                    
+                                
+                            }   
                             
                             <div className="principal">
                                 <div className="englobanumericos">
@@ -247,11 +264,7 @@ function UserAdmin(){
                                             <section className="lassecciones">
                                                 <h1>Mis servicios solucionados</h1>
                                                 <MisServiSoluUserAdmin missolucionados={misSerSolucionados}></MisServiSoluUserAdmin>
-                                            </section>                    
-                                        
-                                    
-                                    
-                                    
+                                            </section>                      
                             </div>
                 </div>
 

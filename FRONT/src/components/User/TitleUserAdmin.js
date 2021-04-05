@@ -10,7 +10,7 @@ function TitleUserAdmin(props){
     const { isUserLogged, logOut } = useAuth(false);
     
     const datos = props?.datosusuario;
-    const evento = props?.fun;
+    
     console.log('la foto:',datos);
 
 const salida =<><nav>
@@ -30,7 +30,7 @@ const salida =<><nav>
                             <div className="interno">
                                 <div className="externo">
                                     <div className="interno">
-                                        <ComentariosMenuVertical funcion={props?.fun}></ComentariosMenuVertical>
+                                        <ComentariosMenuVertical />
                                         
                                     </div>
                                 </div>

@@ -150,6 +150,37 @@ h2 {
     text-align: center;
     margin: 50px;
   }
+  .misservicios {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: start;
+    width: 100px;
+    height: auto;
+    background-color: #ffffff;
+    text-align: center;
+    border-radius: 10px;
+    margin: 1px;
+  }
+  .mismenuslaterais {
+    font-family: sans-serif;
+
+    text-decoration: none;
+    color: rgb(2, 2, 2);
+    border-radius: 5px solid coral;
+    height: 30vh;
+    margin-top: 90px;
+    margin-left: 10px;
+  }
+  .mismenuslaterais:hover {
+    background-color: lightseagreen;
+    border-radius: 5px solid coral;
+  }
+
+  .mismenuslaterais a {
+    text-decoration: none;
+    color: black;
+  }
   .box {
     display: flex;
     justify-content: space-between;
