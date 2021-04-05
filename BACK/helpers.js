@@ -7,7 +7,7 @@ const fs1 = require("fs");
 const getDB = require("./db");
 const uuid = require('uuid');
 const sharp = require('sharp');
-sgMail.setApiKey('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');
+sgMail.setApiKey('');
 
 
 async function buscarDentro(dir){
