@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route,Link } from 'react-router-dom';
+import { BrowserRouter as Router,Switch, Route,Link,useRouteMatch,useParams } from 'react-router-dom';
 import useAuth from '../shared/hooks/useAuth';
 import { useState,useEffect} from 'react';
 import { deleteService } from '../http/api';
@@ -39,7 +39,8 @@ function UserAdmin(){
     const [proba,setProba]= useState(0);
     const [donde, setDonde] = useState("");
     const [num, setNum] = useState(0);
- 
+    
+    
     const [evento,setEvento] = useState(0);
     useEffect(()=>{
         const datosUser = async ()=>{
@@ -64,6 +65,18 @@ function UserAdmin(){
         }
         datosUser();
         setEvento(0);
+        let lendourl = window.location.search.substring(1);
+        let lendoparams = new URLSearchParams(lendourl);
+        let valor = lendoparams.get("valor");
+        console.log('valor leido',valor);
+        switch (valor){
+            case '1':setEvento(1);break;
+            case '2':setEvento(2);break;
+            case '3':setEvento(3);break;
+            case '4':setEvento(4);break;
+            default:setEvento(0);
+        }
+       
     },[showMenu]);
 
     console.log('La url es la pulsada:',window.document.location.href);
@@ -71,12 +84,13 @@ function UserAdmin(){
    
 
     
-    const escuchar = e =>{
+    const escuchar = (e,v) =>{
             const item = e.target;
             console.log('hola,item:',item)
             console.log('item.parentElement',item.parentElement);
             const valorpasado=item.nearestViewportElement.dataset.valor;
             const lugar=item.nearestViewportElement.dataset.donde;
+            console.log('v:',v)
             setNum(valorpasado);
             setDonde(lugar);
             setEvento(1);
@@ -101,7 +115,7 @@ function UserAdmin(){
                             <div className="esconder">
                                 <div onClick={()=>{setShowMenu(!showMenu)}}>
 
-                                    <TitleUserAdmin  datosusuario={datosUsuario}></TitleUserAdmin> 
+                                    <TitleUserAdmin elvento={escuchar} datosusuario={datosUsuario}></TitleUserAdmin> 
                                 </div>
                             </div>
                         
@@ -115,7 +129,7 @@ function UserAdmin(){
                             {menuLateral &&
                                     <div className="esconderlateral">
                                         <div className="lateral">                                        
-                                            <TitleUserAdminVertical datosusuario={datosUsuario}></TitleUserAdminVertical>
+                                            <TitleUserAdminVertical fun={escuchar} datosusuario={datosUsuario}></TitleUserAdminVertical>
                                         </div>                                
                                     </div>
                             }
@@ -174,7 +188,8 @@ function UserAdmin(){
                                 </div> 
                                 <hr></hr>  
                                 <hr></hr>
-                                                                  
+                                            <Switch>
+
                                                 <Route path="/comentario">
                                                     <div className="lassecciones">
                                                         
@@ -210,6 +225,7 @@ function UserAdmin(){
                                                         <DeleteMyService />                  
                                                                     
                                                 </Route>
+                                            </Switch>                    
                                 
                                 <hr></hr>
                                 <hr></hr> 

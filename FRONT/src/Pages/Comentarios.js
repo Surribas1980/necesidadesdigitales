@@ -53,66 +53,19 @@ export default function Comentarios(props){
     function atrasClick(){
         atras.push("/comentario");
     }
-    
-let salida1 = <><Router>
-            
-{ 
-    <nav>
-        <div className="encollemos">
-
-            <div className="header-item">
-
-                <Link onClick={()=>{setShowSiguiente(!showSiguiente)}} to="/iniciarconversacion">Iniciar conversacion</Link>
-            </div>
-            <div className="header-item">
-
-                <Link to="/insertarcomentario">Conversaciones</Link>
-            </div>
-            <div className="header-item">
-              <Link to="/comentariosrecibidos">Comentarios sin ver</Link>
-            </div>
-    
-            <div className="header-item">
-                <Link to="/misconversaciones">Conversaciones sobre mis servicios</Link>
-            </div>
-                        <Link to="/comentario">
-                            <div className="mensaje">
-                                <FontAwesomeIcon onClick={()=>{atrasClick()}} icon={faArrowAltCircleLeft}></FontAwesomeIcon>
-                            </div>
-                        </Link>
-                        <div className="mensaje">
-                            <FontAwesomeIcon onClick={()=>{setShowMenu(!showMenu)}} icon={faUndo}></FontAwesomeIcon>
-                        </div>
-            
-        </div>
-        
-    </nav>
-}                
-    <Route path="/insertarcomentario">
-        <Conversaciones convergeneral={comentarios}></Conversaciones>                    
-    </Route>
-    
-    <Route path="/misconversaciones">
-        <ComentariosLista valores={misconversaciones}></ComentariosLista>
-    </Route>
-    <Route path="/comentariosrecibidos">
-     <ConversacionesParticipo misconvergenericas={comentariosRecibidos} ></ConversacionesParticipo> 
-    </Route>
-    <Route path="/iniciarconversacion">                 
-        <div className="separacion">
-            <MostrarServiciosComentarios numservicios={numServiciosSinSolucion} servicios={servicios} paginamax={numpaginamax} paginamin={numpaginamin} ></MostrarServiciosComentarios>
-        </div>
-    </Route>
-    
-</Router></>;    
+let actualiza = <><div className="mensaje">
+<FontAwesomeIcon onClick={()=>{setShowMenu(!showMenu)}} icon={faUndo}></FontAwesomeIcon>
+</div></>;
+let salida2 = <><Conversaciones convergeneral={comentarios}></Conversaciones></>;    
      
-let salida2 = <><ConversacionesParticipo misconvergenericas={comentariosRecibidos} ></ConversacionesParticipo></>;  
-    
+let salida3 = <><ConversacionesParticipo misconvergenericas={comentariosRecibidos} ></ConversacionesParticipo></>;  
+let salida4 = <><ComentariosLista valores={misconversaciones}></ComentariosLista></>;   
+let salida1 = <><div className="separacion"><MostrarServiciosComentarios numservicios={numServiciosSinSolucion} servicios={servicios} paginamax={numpaginamax} paginamin={numpaginamin} ></MostrarServiciosComentarios></div></>; 
     //<ComentariosLista valores={comentarios}></ComentariosLista>
-    return (<>
-            {!even && salida1}
-            {even && salida2}
-           
-   
+    return (<>{actualiza}
+            {even === 1 && salida1}
+            {even === 2 && salida2}
+            {even === 3 && salida3}
+            {even === 4 && salida4}   
         </>);
 }

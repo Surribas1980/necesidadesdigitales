@@ -23,34 +23,6 @@ const irA = async (id)=>{
 }
     return (<>
     
-
-        <table>
-            <tbody>
-    
-                <tr>
-                    <th>Nº de servicio</th>
-                    <th>Titulo servicio</th>
-                    <th>Explicación del servicio</th>
-                    
-                </tr>
-    
-            {
-                misservicios?.map((item,index)=>{
-                    return(<>
-                                {servicio = item.id_ser}
-                                {v=`/servicio/${servicio}`}
-                                <tr>
-                                        <td>{item.id_ser}</td>                                       
-                                        <td><Link to={v} onClick={()=>{irA(item.id_ser)}} >{item.titulo_ser}</Link></td>
-                                        <td>{item.expli_ser}</td>
-                                </tr>
-    
-                    </>);
-                })
-            }
-            </tbody>
-    
-        </table>
         <div className="caja">
 
             {

@@ -3,13 +3,14 @@ import useAuth from '../../shared/hooks/useAuth';
 import TitleUserAdminVertical from './TitleUserAdminVertical';
 import '../../css/TitleUserAdmin.css'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faUserEdit,faCommentDots} from '@fortawesome/free-solid-svg-icons';
+import {faUserEdit,faCommentDots,faTasks} from '@fortawesome/free-solid-svg-icons';
 import ComentariosMenuVertical from '../ComentariosMenuVertical';
 
 function TitleUserAdmin(props){
     const { isUserLogged, logOut } = useAuth(false);
     
     const datos = props?.datosusuario;
+    const evento = props?.fun;
     console.log('la foto:',datos);
 
 const salida =<><nav>
@@ -29,7 +30,7 @@ const salida =<><nav>
                             <div className="interno">
                                 <div className="externo">
                                     <div className="interno">
-                                        <ComentariosMenuVertical></ComentariosMenuVertical>
+                                        <ComentariosMenuVertical funcion={props?.fun}></ComentariosMenuVertical>
                                         
                                     </div>
                                 </div>
@@ -46,8 +47,10 @@ const salida =<><nav>
                     </div>
                 </div>
                 <div className="header-item">
-
-                <Link to= "/darpuntuacion">Mis servicios</Link>
+                    <div className="user">
+                        <Link to= "/darpuntuacion"><FontAwesomeIcon icon={faTasks}/></Link>
+                        <div>Mis servicios</div>
+                    </div>
                 </div>
                 <div className="header-item">
 

@@ -1,7 +1,7 @@
 import { useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useParams } from 'react-router-dom';
 import useAuth from '../shared/hooks/useAuth';
-function ComentariosMenuVertical(){
+function ComentariosMenuVertical(props){
     const [showSiguiente, setShowSiguiente]=useState(false);
     const { isUserLogged } = useAuth(false);
     
@@ -12,21 +12,21 @@ function ComentariosMenuVertical(){
                     <div className="header-item">
                        
 
-                        <Link onClick={()=>{setShowSiguiente(!showSiguiente)}} to="/iniciarconversacion">Iniciar conversacion</Link>
+                        <Link to="/comentario/?valor=1">Iniciar conversacion</Link>
                         
                     </div>
                 
                    <div className="header-item">
                        
 
-                    <Link to="/insertarcomentario">Conversaciones</Link>
+                    <Link to="/comentario/?valor=2">Conversaciones</Link>
                       
                     </div> 
                 
                   <div className="header-item">
                      
 
-                    <Link to="/comentariosrecibidos">Comentarios sin ver</Link>
+                    <Link to="/comentario/?valor=3">Comentarios sin ver</Link>
                       
                     </div>  
                 
@@ -34,7 +34,7 @@ function ComentariosMenuVertical(){
                     <div className="header-item">
                         
 
-                        <Link to="/misconversaciones">Conversaciones sobre mis servicios</Link>
+                        <Link to="/comentario/?valor=4">Conversaciones sobre mis servicios</Link>
                         
 
                     </div>
