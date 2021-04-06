@@ -1,0 +1,42 @@
+.redondeo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: chocolate;
+  box-sizing: border-box;
+  width: 10vw;
+  height: 15vh;
+  border-radius: 10px solid black;
+  margin-top: 90px;
+  margin-left: 100px;
+}
+.misservicios {
+  flex: 1 1 auto;
+  background-color: #ffffff;
+  text-align: center;
+  border-radius: 10px;
+  margin: 1px;
+}
+
+.mismenuslaterais {
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: rgb(2, 2, 2);
+  border-radius: 5px solid coral;
+  height: 20vh;
+  margin: 10px;
+  /*margin-top: 90px;
+    margin-left: 1px;*/
+}
+.mismenuslaterais a {
+  text-decoration: none;
+  color: black;
+}
+
+/*.mismenuslaterais:hover {
+    background-color: lightseagreen;
+    border-radius: 5px solid coral;
+    height: 10vh;
+  }*/

@@ -3,7 +3,7 @@ import { useState} from 'react';
 import {deleteService} from '../../http/api';
 import ComentarioListaTd from './ComentarioListaTd';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faAlignJustify, faComments} from '@fortawesome/free-solid-svg-icons';
+import {faAlignJustify, faComments,faTimesCircle,faCheckCircle,faCheck} from '@fortawesome/free-solid-svg-icons';
 import '../../css/MisServiSoliUserAdmin.css';
 
 export default function MisServiSoliUserAdmin(props){
@@ -33,10 +33,17 @@ const irA = async (id)=>{
                                 
                             <div className="caja">
                                     <div className="comienzo">                                   
-                                                    <div className="caja1">
-                                                        <Link to={v}><FontAwesomeIcon onClick={()=>{irA(item.id_ser)}} icon={faComments}></FontAwesomeIcon></Link> 
-                                                    </div>
-                                                    <div className="caja3"><div className="caja2">Id</div><input className="entrada" value={item.id_ser} readOnly></input> </div>
+                                                    <div className="caja1"><Link to={v}><FontAwesomeIcon onClick={()=>{irA(item.id_ser)}} icon={faComments}></FontAwesomeIcon></Link></div>
+                                                    <div className="caja3">
+                                                        <div className="caja2">Solucionado</div>
+                                                        {item.puntuacion >= 2.5 ? 
+                                                        <div className="solucionado">
+                                                            <FontAwesomeIcon icon={faCheck} />
+                                                        </div> : 
+                                                        <div className="nosolucionado">
+                                                            <FontAwesomeIcon icon={faTimesCircle}/>
+                                                        </div>}</div>
+                                                    <div className="caja3"><div className="caja2">Id</div><input className="entrada" value={item.id_ser} readOnly></input></div>
                                                     <div className="caja3"><div className="caja2">Titulo</div><input className="entrada" value={item.titulo_ser} readOnly></input></div>
                                                     <div className="caja3"><div className="caja2">Explicacion</div><textarea className="entrada"  value={item.expli_ser} readOnly></textarea></div>
 

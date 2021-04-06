@@ -46,7 +46,9 @@ h2 {
   }
   .principal {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
     width: auto;
     height: auto;
@@ -90,7 +92,7 @@ h2 {
     overflow: scroll;
   }
   .mensaje {
-    font-size: 1.5em;
+    font-size: 2.5em;
     height: auto;
     margin: 0%;
     text-align: center;
@@ -150,40 +152,10 @@ h2 {
     text-align: center;
     margin: 50px;
   }
-  .misservicios {
-    display: flex;
-    flex-direction: column;
 
-    justify-content: start;
-    width: 100px;
-    height: auto;
-    background-color: #ffffff;
-    text-align: center;
-    border-radius: 10px;
-    margin: 1px;
-  }
-  .mismenuslaterais {
-    font-family: sans-serif;
-
-    text-decoration: none;
-    color: rgb(2, 2, 2);
-    border-radius: 5px solid coral;
-    height: 30vh;
-    margin-top: 90px;
-    margin-left: 10px;
-  }
-  .mismenuslaterais:hover {
-    background-color: lightseagreen;
-    border-radius: 5px solid coral;
-  }
-
-  .mismenuslaterais a {
-    text-decoration: none;
-    color: black;
-  }
   .box {
     display: flex;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
     background-color: rgb(201, 207, 194);
     width: auto;
     height: auto;

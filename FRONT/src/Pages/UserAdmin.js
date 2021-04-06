@@ -18,6 +18,7 @@ import {faEnvelope,faBars,faEye,faEyeSlash,faBookOpen,faBook} from '@fortawesome
 import MisServiSoliUserAdmin from '../components/User/MisServiSoliUserAdim';
 import MisServiNoSoluUserAdmin from '../components/User/MisServiNoSoluUserAdim';
 import MisServiSoluUserAdmin from '../components/User/MisServiSoluUserAdim';
+import TitleMisServicios from '../components/User/TitleMisServicios';
 
 function UserAdmin(){
     const { userData, logOut } = useAuth();
@@ -105,6 +106,7 @@ function UserAdmin(){
     return (<>    
             
         <main>
+            <body>
             <Router>
                 <nav>
                     
@@ -135,24 +137,10 @@ function UserAdmin(){
                                         </div>                                
                                     </div>
                             }
-                            {selecMisServi && 
-                                                <div className="mismenuslaterais">
-                                                    <div className="misservicios">
-                                                    <Link  to = "/missolucionados">Mis servicios solucionados</Link>
-                                                     </div>
-                                             
-                                                    <div className="misservicios">
-                                                    <Link to ="/misservisnosol">Elección de las soluciones</Link>
-                                                    </div>
-                                                </div>
-                                                       
-                                       
-                  
-                                    
-                                
-                            }   
+                             {/*selecMisServi && <TitleMisServicios /> ? <TitleMisServicios /> : ''*/}
                             
                             <div className="principal">
+                              
                                 <div className="englobanumericos">
                                     <div className="cajanumericos">
                                                 
@@ -219,11 +207,13 @@ function UserAdmin(){
                                                 </Route>
                                                 <Route path="/darpuntuacion">
                                                     <div className="lassecciones">
+                                                        
                                                         <DarPuntuacion solucionados={misSerSolucionados}></DarPuntuacion>
                                                     </div>
                                                 </Route>
                                                 <Route path="/darsolucion">
                                                     <div className="lassecciones">
+
                                                         <Solucion nosolucionados={serviciosNoSolucionados}/>
                                                     </div>
                                                 </Route>
@@ -232,7 +222,9 @@ function UserAdmin(){
                                                     <ServisSolucionados servissolucionados={servesSolucionados}></ServisSolucionados>
                                                     </div>
                                                 </Route>
-                                                
+                                                <Route path="/ranking">
+                                                    <GraficaRanking valores={ranking}></GraficaRanking>
+                                                </Route>
                                                 <Route path="/insert/servicios">
                                                         <InsertServices />
                                                 </Route>
@@ -244,32 +236,20 @@ function UserAdmin(){
                                                 </Route>
                                             </Switch>                    
                                 
-                                <hr></hr>
-                                <hr></hr> 
-                                        
-                                    
-                                        
-                                            <section className="lassecciones">                                
-                                                <GraficaRanking valores={ranking}></GraficaRanking>
-                                            </section>
+                                
                                         
                                             <secction  className="lassecciones">
-                                                <h1>Mis servicios solicitados</h1>                                            
-                                                <MisServiSoliUserAdmin misservis={misSolicitados}></MisServiSoliUserAdmin>
+                                                {selecMisServi && <h1>Mis servicios solicitados</h1> }                                           
+                                                {selecMisServi && <MisServiSoliUserAdmin misservis={misSolicitados}/> ? <MisServiSoliUserAdmin misservis={misSolicitados}/> : '' } 
                                             </secction>
-                                            <section className="lassecciones">
-                                                <h1>Mis servicios no solucionados</h1>
-                                                <MisServiNoSoluUserAdmin misnosolucionados={misSerNoSolucionados} ></MisServiNoSoluUserAdmin>
-                                            </section>
-                                            <section className="lassecciones">
-                                                <h1>Mis servicios solucionados</h1>
-                                                <MisServiSoluUserAdmin missolucionados={misSerSolucionados}></MisServiSoluUserAdmin>
-                                            </section>                      
+                                                                  
                             </div>
                 </div>
 
             </Router>
 
+            </body>
+            
         </main>
         
         

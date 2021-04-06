@@ -3,7 +3,7 @@ import useAuth from '../../shared/hooks/useAuth';
 import TitleUserAdminVertical from './TitleUserAdminVertical';
 import '../../css/TitleUserAdmin.css'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faUserEdit,faCommentDots,faTasks} from '@fortawesome/free-solid-svg-icons';
+import {faUserEdit,faCommentDots,faTasks,faMedal,faSchool,faUpload,faTrashAlt} from '@fortawesome/free-solid-svg-icons';
 import ComentariosMenuVertical from '../ComentariosMenuVertical';
 
 function TitleUserAdmin(props){
@@ -52,20 +52,41 @@ const salida =<><nav>
                         <div>Mis servicios</div>
                     </div>
                 </div>
-                <div className="header-item">
 
-                <Link to= "/solucionados">Solucionados</Link>
+                <div className="header-item">
+                    <div className="user">
+                        <Link to="/ranking"><FontAwesomeIcon icon={faMedal}></FontAwesomeIcon></Link>
+                        <div>Ranking</div>
+                    </div>
+                </div>
+
+
+                <div className="header-item">
+                    <div className="user">
+                        <Link to= "/solucionados"><FontAwesomeIcon icon={faSchool}></FontAwesomeIcon></Link>
+                        <div>Servicios Solucionados</div>
+                    </div>
                 </div>
                 <div className="header-item">
-
-                <Link to= "/darsolucion">No solucionados</Link>
+                    <div className="user">
+                        <Link to= "/darsolucion"><FontAwesomeIcon icon={faSchool}></FontAwesomeIcon></Link>
+                        <div>Servicios No Solucionados</div>
+                    </div>
                 </div>
                 
                 <div className="header-item">
-                    <Link to="/borrar/misservicios">Borrar</Link>
+                    <div className="user">
+                        <Link to= "/borrar/misservicios"><FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon></Link>
+                        <div>Borrar mis Servicios</div>
+                    </div>
+                    
                 </div>
                 <div className="header-item">
-                <Link to="/insert/servicios">Insertar</Link>
+                    <div className="user">
+                        <Link to= "/insert/servicios"><FontAwesomeIcon icon={faUpload}></FontAwesomeIcon></Link>
+                        <div>Subir mi servicio a solucionar</div>
+                    </div>
+                
                 </div>
     </div>
                 <button onClick={logOut}>LOG OUT!</button>

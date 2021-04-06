@@ -1,6 +1,7 @@
 import VerArchivos from '../VerArchivos';
 import {useState} from 'react';
 import {deleteService,descartarServicio} from '../../http/api';
+import '../../css/MisServiSoliUserAdmin.css';
 export default function MisServSol(props){
     const misservissolucionados = props.missolucionados;
     const [archivos,setArchivos] = useState();
@@ -36,50 +37,57 @@ export default function MisServSol(props){
         }
     }
     return (<>
+    
     {
-        <table>
-            <thead>
-                <th>Avatar</th>
-                <th>Solucionador</th>
-                <th>Titulo del servicio</th>
-                <th>Explicacion del servicio</th>
-                <th>Ver solución</th>
-                <th>Solucion a descartar</th>
-            </thead>
-            <tbody>
-                {
-                    misservissolucionados?.map((item,index) =>{
-                        return(<>
+     misservissolucionados.length > 0 &&   <div className="caja">
 
-                                    <tr>
-                                        <td>
-                                            <img key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_sol}/${item['buscarFoto(id_usu_sol)']}`} alt="" />
-                                            
+            <div className="caja">
+
+                    {
+                        misservissolucionados?.map((item,index) =>{
+                            return(<>
                                             <input id="id_ser" type="hidden" name="id_ser" value={item.id_ser} />
                                             <input id="id_usu_sol" type="hidden" name="id_usu_sol" value={item.id_usu_sol} />
                                             <input id="id_usu_soli" type="hidden" name="id_usu_soli" value={item.id_usu_soli} />
-                                       
-                                        </td>
-                                        <td>
-                                            {item.Solucionador}
-                                        </td>
-                                        <td>
-                                        {item.titulo_ser}
-                                        </td>
-                                        <td>
-                                            {item.expli_ser}
-                                        </td>
-                                        <th><button onClick={()=>{irA(item.id_ser,item.id_usu_sol,item.Solucionador)}}>ver</button></th>
-                                        <td><input type="radio" id="eleccion" name="eleccion"></input></td>
+                                    <div className="comienzo">
+                                        <div className="caja3">
+                                            <div className="caja2">Avatar</div>
+                                            <div>
+                                                <img className="imgagen" key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_sol}/${item['buscarFoto(id_usu_sol)']}`} alt="" />         
+                                            </div>
+                                            
+                                        </div>
+                                        <div className="caja3">
+                                            <div className="caja2">Solucionador</div>
+                                            <div className="bordear">{item.Solucionador}</div>
+                                        </div>
+                                        <div className="caja3">
+                                            <div className="caja2">Titulo</div>
+                                            <div className="bordear">{item.titulo_ser}</div>
+                                        </div>
+                                        <div className="caja3">
+                                            <div className="caja2">Explicacion</div>
+                                            <div className="bordear">{item.expli_ser}</div>
+                                        </div>
+                                        <div className="caja3">
+                                            <div className="caja2">Solución</div>
+                                            <button onClick={()=>{irA(item.id_ser,item.id_usu_sol,item.Solucionador)}}>ver</button>
+                                        </div>
+                                        <div className="caja3">
+                                            <div className="caja2">Descartar</div>
+                                            <input type="radio" id="eleccion" name="eleccion"></input>
+                                        </div>
+                                    </div>
+                            </>);}
+                    )}
+
+
                         
-                                    </tr>
-                        </>)
-                    })
-                }
-            </tbody>
-        </table>
+                
+            </div>
+        </div>
     }
-    {archivos && <VerArchivos ficheros={archivos} user={usuario} server={servicio} nombre={nombreSolucionador}></VerArchivos>}
-    {<button onClick={()=>{descartar()}}>Descartar</button>}
+    {misservissolucionados.length > 0 &&  archivos && <VerArchivos ficheros={archivos} user={usuario} server={servicio} nombre={nombreSolucionador}></VerArchivos>}
+    {misservissolucionados.length > 0 &&  <button onClick={()=>{descartar()}}>Descartar</button>}
     </>)
 }

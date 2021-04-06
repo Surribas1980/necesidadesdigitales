@@ -56,11 +56,10 @@ export default function Comentarios(props){
 let actualiza = <><div className="mensaje">
 <FontAwesomeIcon onClick={()=>{setShowMenu(!showMenu)}} icon={faUndo}></FontAwesomeIcon>
 </div></>;
+let salida1 = <><div className="separacion"><MostrarServiciosComentarios numservicios={numServiciosSinSolucion} servicios={servicios} paginamax={numpaginamax} paginamin={numpaginamin} ></MostrarServiciosComentarios></div></>; 
 let salida2 = <><Conversaciones convergeneral={comentarios}></Conversaciones></>;    
-     
 let salida3 = <><ConversacionesParticipo misconvergenericas={comentariosRecibidos} ></ConversacionesParticipo></>;  
 let salida4 = <><ComentariosLista valores={misconversaciones}></ComentariosLista></>;   
-let salida1 = <><div className="separacion"><MostrarServiciosComentarios numservicios={numServiciosSinSolucion} servicios={servicios} paginamax={numpaginamax} paginamin={numpaginamin} ></MostrarServiciosComentarios></div></>; 
     //<ComentariosLista valores={comentarios}></ComentariosLista>
     return (<>{actualiza}
             {even === 1 && salida1}

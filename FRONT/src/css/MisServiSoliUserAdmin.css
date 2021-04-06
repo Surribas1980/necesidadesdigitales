@@ -28,7 +28,7 @@ textarea {
     border: 1px solid black;
     border-radius: 5px;
     width: auto;
-    margin: 1px;
+    margin: 5px;
   }
   .caja3 {
     display: flex;
@@ -40,6 +40,27 @@ textarea {
   }
   .entrada {
     width: auto;
+    text-align: center;
+  }
+  .bordear {
+    border: 1px solid black;
+    /*border-radius: 5px solid black;*/
+  }
+  .solucionado {
+    font-size: 1.5em;
+    color: rgb(174, 221, 87);
+    text-align: center;
+  }
+  .nosolucionado {
+    font-size: 1.5em;
+    color: rgb(200, 57, 57);
+    text-align: center;
+  }
+  .imgagen {
+    border: 1px solid #ddd;
+    max-width: 75%;
+    height: auto;
+    margin: 0%;
     text-align: center;
   }
 }
@@ -64,6 +85,16 @@ textarea {
     background: rgb(152, 220, 241);
     text-align: center;
   }
+  .solucionado {
+    font-size: 1.5em;
+    color: rgb(174, 221, 87);
+    text-align: center;
+  }
+  .nosolucionado {
+    font-size: 1.5em;
+    color: rgb(200, 57, 57);
+    text-align: center;
+  }
 
   .caja {
     border: 1px solid black;
@@ -81,6 +112,14 @@ textarea {
   }
   .entrada {
     width: auto;
+    text-align: center;
+  }
+  .imgagen {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: 75%;
+    height: auto;
+    margin: 0%;
     text-align: center;
   }
 }

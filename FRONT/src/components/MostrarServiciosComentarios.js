@@ -1,6 +1,7 @@
 import InsertComentarios from "../Pages/InsertComentarios";
 import { useState} from 'react';
 import PagGinar from '../shared/utils/helpers';
+import '../css/Solucion.css';
 export default function MostrarServiciosComentarios(props){
 
     const servicios= props?.servicios;
@@ -21,37 +22,52 @@ export default function MostrarServiciosComentarios(props){
         console.log('La url es la pulsada estoy en MostrarServiciosComentarios y el path es:',window.document.location.pathname);
     //servicios?.map((item)=>{return console.log('En servicios mostrar valores: ',item)});
     return(<>
-    <table>
-                <thead>
-                    <tr>
-                        <th>Observación</th>
-                        <th>Id del servicio</th>
-                        <th>Título del servicio</th>
-                        <th>Explicación del servicio</th>
-                        <th>Iniciar conversacion</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
+    
+            <div className="caja">
+                <div className="caja">
+                {
                         servicios?.map((item,index)=>{
 
                             if((index <= (numpaginamax+1)) && (index >= numpaginamin))
                             {
                                 return(<>
-                                        <tr>
-                                            <td>{item.Nota}</td>
-                                            <td>{item.id_ser}</td>
-                                            <td>{item.expli_ser}</td>
-                                            <td>{item.titulo_ser}</td>
-                                            <td><button onClick={()=>{irA(item.id_ser,item.Nota)}}>Iniciar conversación</button></td>
-                                        </tr>
+                                        <div className="comienzo">
+                                            <div className="caja3">
+                                                <div className="caja2">Observación</div>
+                                                <div className="bordear">{item.Nota}</div>
+                                            </div>
+                                            <div className="caja3">
+                                                <div className="caja2">Id</div>
+                                                <div className="bordear">{item.id_ser}</div>
+                                            </div>
+                                            <div className="caja3">
+                                                <div className="caja2">Explicación</div>
+                                                <div className="bordear">{item.expli_ser}</div>
+                                            </div>
+                                            <div className="caja3">
+                                                <div className="caja2">Titulo</div>
+                                                <div className="bordear">{item.titulo_ser}</div>
+                                            </div>
+                                            <div className="caja3">
+                                                
+                                                <button onClick={()=>{irA(item.id_ser,item.Nota)}}>Iniciar conversación</button>
+                                                
+                                            </div>
+                                        </div>
+                                            
+                                            
+                                            
+                                            
+                                        
                                      </>)
                             }
                             
                         })
                     }
-                </tbody>
-            </table>
+                </div>
+            </div>
+
+
             <hr></hr>
             <div className="miscajas" onClick={()=>{
 

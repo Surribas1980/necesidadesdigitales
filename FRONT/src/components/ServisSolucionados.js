@@ -40,61 +40,49 @@ function ServisSolucionados(props){
     }
 
     return (<>    
-    {
-
+    
+    <div className="caja">
+            <div className="caja">
+                {
         
-            <table>
-                <thead>
-                    <tr>
-                        <th>Lo solicita</th>
-                        <th>Lo soluciona</th>
-                        <th>Avatar quien lo solicita</th>
-                        <th>Avatar quien lo soluciona</th>
-                        <th>Titulo del servicio</th>
-                        <th>Puntución dada</th>
-                        <th>Ver archivos</th>
-        
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        lista?.map((item,index)=>{
-                            return (<>
-                            <tr>
-                                
-                                <td>
+        lista?.map((item,index)=>{
+            return(<>
                                     <input id="id_ser" type="hidden" name="id_ser" value={item.id_ser} />
                                     <input id="id_usu_sol" type="hidden" name="id_usu_sol" value={item.id_usu_sol} />
                                     <input id="id_usu_soli" type="hidden" name="id_usu_soli" value={item.id_usu_soli} />
                             
-                                    {item.Solicitador}
-                                </td>
-                                <td>
-                                    {item.Solucionador}
-                                </td>
-                                <td>
-                                    
-                                <img className="avatar" key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_soli}/${item.nomFoto_usu}`} alt=""/>
-                                </td>
-                                <td>
-                                <img className="avatar" key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_sol}/${item['buscarFoto(id_usu_sol)']}`} alt="" />
-                                
-                                </td>
-                                <td>
-                                    {item.titulo_ser}
-                                </td>
-                                <td>
-                                    {item.puntuacion}
-                                </td>                                
-                                <th><button onClick={()=>{irA(item.id_ser,item.id_usu_sol,item.Solucionador)}}>ver</button></th>
-                                
-                            </tr>
-                            </>)
-                        })
-                    }
-                </tbody>
-            </table>
+                    <div className="caja">
+                        <div className="comienzo">
+                            <div className="caja3">
+                                <div className="caja2">Solicita</div>
+                                <div className="bordear"><img className="avatar" key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_soli}/${item.nomFoto_usu}`} alt=""/></div>
+                                <div className="bordear">{item.Solicitador}</div>
+                            </div>
+                            <div className="caja3">
+                                <div className="caja2">Soluciona</div>
+                                <div className="bordear"><img className="avatar" key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_sol}/${item['buscarFoto(id_usu_sol)']}`} alt="" /></div>
+                                <div className="bordear">{item.Solucionador}</div>
+                            </div>
+                            
+                            <div className="caja3">
+                                <div className="caja2">Titulo</div>
+                                <div className="bordear">{item.titulo_ser}</div>
+                            </div>
+                            <div className="caja3">
+                                <div className="caja2">Puntuación obtenida</div>
+                                <div className="bordear">{item.puntuacion}</div>
+                            </div>
+                            <div className="caja3">
+                                <div className="caja2">Solución</div>
+                                <div className="bordear"><button onClick={()=>{irA(item.id_ser,item.id_usu_sol,item.Solucionador)}}>ver</button></div>
+                            </div>
+                        </div>
+                    </div>
+            </>)
+        })
     }
+            </div>
+        </div>
     
     {archivos && <VerArchivos ficheros={archivos} user={usuario} server={servicio} nombre={nombreSolucionador}></VerArchivos>}
     </>)
