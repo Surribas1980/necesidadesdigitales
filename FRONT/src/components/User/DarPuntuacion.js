@@ -33,17 +33,22 @@ export default function DarPuntuacion(props){
 
     return(<>
     <Router>
-
-            <nav>
-                <div className="header-item1">
+        
+        <h4 className="mititulo">Mis servicios</h4>
+    <div className="cajaprincipal">
+        
+                <div className="cajita1">
                     <Link  to = "/missolucionados">Mis servicios solucionados</Link>
                 </div>
-                <div className="header-item1">
+                <div className="cajita2">
                     <Link to ="/misservisnosol">Elección de las soluciones</Link>
                 </div>
+                <div className="cajita3">
+
                 <Link to = "/darpuntuacion"><FontAwesomeIcon onClick={()=>{atrasClick()}} icon={faArrowAltCircleLeft}></FontAwesomeIcon></Link>
-               
-            </nav>
+                </div>
+    </div>           
+           
     
         <Route path="/misservisnosol">
             <MisSolDesc nosolucionados={misSolDesc}></MisSolDesc>

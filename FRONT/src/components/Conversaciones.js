@@ -60,7 +60,7 @@ function Conversaciones(props){
                 }
             </div>
         </div>
-            {comentarConJoin && comentarConJoin.length > 0 && <ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}/> ? <div className="tabla"><ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}/></div> : comentarConJoin.length === 0 ? <h1>No tiene conversaciones</h1> : ''}
+            {comentarConJoin && <ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}/> ? <ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}/> : ''}
        
     
     </>)

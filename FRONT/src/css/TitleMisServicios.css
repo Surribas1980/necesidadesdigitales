@@ -1,3 +1,19 @@
+.cajaprincipal {
+  display: flex;
+  justify-content: space-between;
+}
+.cajita {
+  padding: 10vh;
+  font-size: 10px;
+}
+.cajita1 {
+  background-color: blueviolet;
+  color: white;
+}
+.cajita2 {
+  background-color: white;
+  color: black;
+}
 .redondeo {
   display: flex;
   flex-direction: column;
@@ -35,8 +51,8 @@
   color: black;
 }
 
-/*.mismenuslaterais:hover {
-    background-color: lightseagreen;
-    border-radius: 5px solid coral;
-    height: 10vh;
-  }*/
+.mismenuslaterais:hover {
+  background-color: lightseagreen;
+  border-radius: 5px solid coral;
+  height: 10vh;
+}

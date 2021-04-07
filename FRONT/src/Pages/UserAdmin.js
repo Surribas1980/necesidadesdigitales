@@ -207,10 +207,10 @@ function UserAdmin(){
                                                             <ModificacionDatos datos={datosUsuario}/>
                                                         </Route>
                                                         <Route path="/darpuntuacion">
-                                                            <div className="lassecciones">
+                                                            
                                                                 
                                                                 <DarPuntuacion solucionados={misSerSolucionados}></DarPuntuacion>
-                                                            </div>
+                                                           
                                                         </Route>
                                                         <Route path="/darsolucion">
                                                             <div className="lassecciones">
@@ -239,11 +239,11 @@ function UserAdmin(){
                                         
                                         
                                                 
-                                                    <secction  className="lassecciones">
+                                                    <secction  className="servis">
                                                         
 
                                                         {selecMisServi && <h1>Mis servicios solicitados</h1> ? <h1>Mis servicios solicitados</h1> : '' }                                           
-                                                        {selecMisServi && <MisServiSoliUserAdmin misservis={misSolicitados}/> ? <div className="tabla1"><MisServiSoliUserAdmin misservis={misSolicitados}/></div> : '' } 
+                                                        {selecMisServi && <MisServiSoliUserAdmin misservis={misSolicitados}/> ? <MisServiSoliUserAdmin misservis={misSolicitados}/> : '' } 
                                                         
                                                     </secction>
                                                                         

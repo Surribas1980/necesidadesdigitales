@@ -14,3 +14,39 @@
     text-decoration: none;
     color: rgb(211, 132, 30);
   } */
+@media (min-width: 700px) {
+  .cajaprincipal {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 15px;
+    background-color: rgba(57, 102, 185, 0.781);
+    width: auto;
+    height: auto;
+    border-radius: 5px;
+  }
+  .cajita1 {
+    border-radius: 5px;
+    flex-grow: 1;
+    flex-basis: 25px;
+    color: black;
+  }
+  .cajita2 {
+    border-radius: 5px;
+    flex-grow: 1;
+    flex-basis: 25px;
+    color: black;
+    width: 25px;
+    margin: 5px;
+  }
+  .cajita3 {
+    border-radius: 5px;
+
+    flex-basis: 5px;
+    color: white;
+  }
+  .mititulo {
+    text-align: center;
+  }
+}

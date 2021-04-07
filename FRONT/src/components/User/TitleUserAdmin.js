@@ -69,7 +69,7 @@ const salida =<><nav>
                 </div>
                 <div className="header-item">
                     <div className="user">
-                        <Link to= "/darsolucion"><FontAwesomeIcon icon={faSchool}></FontAwesomeIcon></Link>
+                        <Link to= "/darsolucion"><FontAwesomeIcon  icon={faSchool}></FontAwesomeIcon></Link>
                         <div>Servicios No Solucionados</div>
                     </div>
                 </div>

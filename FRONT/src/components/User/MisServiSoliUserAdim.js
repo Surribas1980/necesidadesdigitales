@@ -23,7 +23,7 @@ const irA = async (id)=>{
 }
     return (<>
     
-        <div className="caja">
+        
 
             {
                     misservicios?.map((item,index)=>{
@@ -31,7 +31,7 @@ const irA = async (id)=>{
                         
                         <div className="oculto">{servicio = item.id_ser}{v=`/servicio/${servicio}`}</div>
                                 
-                            <div className="caja">
+                            
                                     <div className="comienzo">                                   
                                                     <div className="caja1"><Link to={v}><FontAwesomeIcon onClick={()=>{irA(item.id_ser)}} icon={faComments}></FontAwesomeIcon></Link></div>
                                                     <div className="caja3">
@@ -48,11 +48,11 @@ const irA = async (id)=>{
                                                     <div className="caja3"><div className="caja2">Explicacion</div><textarea className="entrada"  value={item.expli_ser} readOnly></textarea></div>
 
                                     </div>
-                            </div>
+                           
                         </>);
                     })
                 }
-        </div>
+       
         <hr></hr>
         <hr></hr>
         {comentarConJoin.length !== 0 ? <ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}></ComentarioListaTd> : <p>{'No tiene conversaciones'}</p> }

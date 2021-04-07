@@ -6,8 +6,7 @@ nav {
 }
 .encoller {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .header-item {
@@ -26,8 +25,6 @@ nav {
   color: black;
 }
 
-@media (max-width: 800px) {
-}
 img {
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -37,7 +34,7 @@ img {
   text-align: center;
 }
 .user {
-  color: black;
+  color: rgb(117, 207, 42);
   font-size: 3vh;
   text-align: center;
 }
