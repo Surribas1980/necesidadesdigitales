@@ -64,7 +64,7 @@ let salida4 = <><ComentariosLista valores={misconversaciones}></ComentariosLista
     return (<>{actualiza}
             {even === 1 && salida1}
             {even === 2 && salida2}
-            {even === 3 && salida3}
+            {even === 3 && comentariosRecibidos.length > 0 ? salida3 : <h4>No tiene comentarios sin leer</h4>}
             {even === 4 && salida4}   
         </>);
 }

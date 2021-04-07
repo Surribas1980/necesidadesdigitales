@@ -39,82 +39,48 @@ function ComentarioListaTd(props){
    
     return (<>
        
-        {
-            <div className="tabla">
-                
-                <table className="tabla">
-                    <thead>
-                                <tr>
-                                    {/*<th>Nº de comentario</th>
-                                    <th>Nº de usuario</th>
-                                    <th>AVATAR</th>
-                                    <th>Nº de servicio</th>
-                                    <th>Comentario</th>
-                                    <th>Respuesta al comentario Nº</th>
-                                    <th>Selección</th>
-                                    <th>Responder</th>*/}
-                                    <th>Avatar</th>
-                                    <th>Comentario</th>
-                                    <th>Respuesta</th>
-                                    <th>Avatar</th>
-                                    <th>Selección</th>
-                                    <th>Responder</th>
-                                </tr>
-                </thead>
-                <tbody>
-                    
-                    {                   
-                        conjoin?.map(
-                            (item,index)=>
-                            {
-                                return(<>
-                                            
-                                            <tr>
-                                                <td><img className="miAvatar" key={index} src={`http://localhost:4000/imagenes/fotousuario${item.usuario}/${item['foto']}`} alt="imagen"/></td>
-                                                <td>{item.uncomentario}</td>
-                                                <td>{item.comentario}</td>
-                                                <td><img className="miAvatar" key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_co}/${item['T1_foto']}`} alt="imagen"/></td>
-                                                <td><input  type="checkbox" id="eleccion" name="eleccion"></input></td>
-                                                <td>
-                                                    <div>
-                                                        <input id="respuesta" type="text" name="respuesta" autoComplete="off" />
-                                                        <input id="idConversacion" type="hidden" name="idConversacion" value={item.id_co} />
-                                                        <input id="id_ser" type="hidden" name="id_ser" value={item.id_ser_co} />
-                                                    </div>
-                                                    
-                                                </td>
-                                                
-                                               {/*  <td>{item.id_co}</td>
-                                                <td>{item.id_usu_co}</td>
-                                                <td>
-                                                    <img className="miAvatar" key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_co}/${item.nomFoto_usu}`} alt="imagen"/>
-                                                </td>
-                                                <td>{item.id_ser_co}</td>
-                                                <td>{item.comentario}</td>
-                                                <td>{item.id_co_num}</td>
-                                                <td><input  type="checkbox" id="eleccion" name="eleccion"></input></td>
-                                                <td>
-                                                    <div>
-                                                        <input id="respuesta" type="text" name="respuesta" autoComplete="off" />
-                                                        <input id="idConversacion" type="hidden" name="idConversacion" value={item.id_co} />
-                                                        <input id="id_ser" type="hidden" name="id_ser" value={item.id_ser_co} />
-                                                    </div>
-                                                    
-                                                </td>
-                                                */}
-                                    
-                                            </tr>
-                                            
-                                </>)
-                            })
-                     }
-                </tbody>
-                </table>
-                
-                
+        { conjoin.length > 0 && <div className="caja">
+          <div className="caja">
+                {
+                    conjoin?.map((item,index)=>{
+                        return (<>
+                                <div className="caja">
+                                    <div className="comienzo">
+                                        <div className="caja3">
+                                            <div className="caja2">Avatar</div>
+                                            <div className="bordear"><img className="imgagen" key={index} src={`http://localhost:4000/imagenes/fotousuario${item.usuario}/${item['foto']}`} alt="imagen"/></div>
+                                        </div>
+                                        <div className="caja3">
+                                            <div className="caja2">Comentario</div>
+                                            <div className="bordear">{item.uncomentario}</div>
+                                        </div>
+                                        <div className="caja3">
+                                            <div className="caja2">Comentario</div>
+                                            <div className="bordear">{item.comentario}</div>
+                                        </div>
+                                        <div className="caja3">
+                                            <div className="caja2">Avatar</div>
+                                            <div className="bordear"><img className="imgagen" key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_co}/${item['T1_foto']}`} alt="imagen"/></div>
+                                        </div>
+                                        <div className="caja3">
+                                            <div className="caja2">Selección</div>
+                                            <input  type="checkbox" id="eleccion" name="eleccion"></input>
+                                        </div>
+                                        <div className="caja3">
+                                            <div className="caja2">Respuesta</div>
+                                            <div className="bordear">
+                                                <input id="respuesta" type="text" name="respuesta" autoComplete="off" />
+                                                <input id="idConversacion" type="hidden" name="idConversacion" value={item.id_co} />
+                                                <input id="id_ser" type="hidden" name="id_ser" value={item.id_ser_co} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </>)
+                    })
+                }
             </div>
-        }
-
+        </div> }
         <BotonEnvioComentarios funcion={enviarRespuesta}></BotonEnvioComentarios>
     </>);
     

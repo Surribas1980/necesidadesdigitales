@@ -2,6 +2,7 @@ import ComentarioListaTd from "./ComentarioListaTd";
 import ComentariosListaParticipo from "./ComentariosListaParticipo";
 import { deleteService,descartarServicio } from '../../http/api';
 import {useState} from 'react';
+import '../../css/ComentariosListaTd.css';
 function ComentarioListaTr(props){
  
     const [datoscomentariosServicios,setdatoscomentariosServicios] = useState("");
@@ -22,34 +23,44 @@ function ComentarioListaTr(props){
       
     return (<> 
                 <hr></hr>
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th>Nº de servicio</th>
-                            <th>Nº de conversacion</th>
-                            <th>Usuario</th>
-                            <th>Último comentario realizado</th>
-                        </tr>
-
-                    </thead>
-                    <tbody>
-
-                            {lista?.map((item,index)=>{
-                                return (<>
-                                            
-                                            <tr>
-                                                <td  key={index+1}>{item.id_ser}</td>
-                                                <td  key={index+2}>{item.id_co}</td>                        
-                                                <td  key={index+3}>{item['buscarUsu(id_usu_co)']}</td>
-                                                <td  key={index+4}>{item.comentario}</td>                       
-                                                <td  key={index+5}><button onClick={()=>{irA(item.id_ser)}}>Ir a conversacion</button></td>
-                                            </tr>
-                                            
-                                </>)
-                            })}
-                    </tbody>
-                </table>
+                      
                             <hr></hr>
+        <div className="caja"><h4>Últimos comentarios realizados</h4>
+            <div className="caja">
+                {
+                   lista?.map((item,index)=>{
+                    return (<>
+                                <div className="caja">
+                                    <div className="comienzo">
+                                        <div className="caja3">
+                                                <div className="caja2">Id</div>
+                                                <div className="bordear">{item.id_ser}</div>
+                                        </div>
+                                        
+                                        <div className="caja3">
+                                                <div className="caja2">Usuario</div>
+                                                <div className="bordear">{item['buscarUsu(id_usu_co)']}</div>
+                                        </div>
+                                        <div className="caja3">
+                                                <div className="caja2">Comentario</div>
+                                                <div className="bordear">{item.comentario}</div>
+                                        </div>
+                                        <div className="caja3">
+                                                <div className="caja2">Ver</div>
+                                                <button onClick={()=>{irA(item.id_ser)}}>Ir</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                    </>)
+                })
+                }
+            </div>
+        </div>
+
+        
+
          {datoscomentariosServicios && <ComentariosListaParticipo elementos={datoscomentariosServicios}></ComentariosListaParticipo>}
     
     </>)

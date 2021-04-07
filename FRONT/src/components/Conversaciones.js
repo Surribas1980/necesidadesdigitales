@@ -20,38 +20,48 @@ function Conversaciones(props){
 
 
     return (<><hr></hr>
-        <table>
-            <thead>
-                <tr>
-                    <th>Id del servicio</th>
-                    <th>Usuario</th>
-                    <th>Avatar</th>
-                    <th>Último comentario</th>
-                    <th>Fecha</th>
-                    <th>Ir a conversacion</th>
-                </tr>
-            </thead>
-            <tbody>
-                {
+       
+        <hr></hr>
+        <div className="caja">
+            <div className="caja">
+            {
                     conversacion?.map((item,index)=>{
                         return (<>
-                            <tr>
-                                <td>{item.id_ser}</td>
-                                <td>{item.nom_usu}</td>
-                                <td><img className="imagenAvatar" key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_co}/${item.nomFoto_usu}`} alt="imagen"/></td>
-                                <td>{item.comentario}</td>
-                                <td>{item.fecha}</td>
-                                <td><button onClick={()=>{irA(item.id_ser)}}>Ver conversacion</button></td>
-                            </tr>
+                        <div className="caja">
+
+                            <div className="comienzo">
+                                <div className="caja3">
+                                    <div className="caja2">Id</div>
+                                    <div className="bordear">{item.id_ser}</div>
+                                </div>
+                                <div className="caja3">
+                                    <div className="caja2">Alias</div>
+                                    <div className="bordear"><img className="imgagen" key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_co}/${item.nomFoto_usu}`} alt="imagen"/></div>
+                                    <div className="bordear">{item.nom_usu}</div>
+                                </div>
+                            
+                                <div className="caja3">
+                                    <div className="caja2">Comentario</div>
+                                    <div className="bordear">{item.comentario}</div>
+                                </div>
+                                <div className="caja3">
+                                    <div className="caja2">Fecha</div>
+                                    <div className="bordear">{item.fecha}</div>
+                                </div>
+                                <div className="caja3">
+                                    <div className="caja2">Conversación</div>
+                                    <button onClick={()=>{irA(item.id_ser)}}>Ver</button>
+                                </div>
+                            </div>
+                        </div>
+                            
                         </>)
                     })
                 }
-            </tbody>
-        </table>
-        <hr></hr>
-        <div className="tabla">
-            {comentarConJoin && <ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}></ComentarioListaTd>}
+            </div>
         </div>
+            {comentarConJoin && comentarConJoin.length > 0 && <ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}/> ? <div className="tabla"><ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}/></div> : comentarConJoin.length === 0 ? <h1>No tiene conversaciones</h1> : ''}
+       
     
     </>)
 }

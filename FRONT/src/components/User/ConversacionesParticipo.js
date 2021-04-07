@@ -2,6 +2,7 @@ import {useEffect,useState} from 'react';
 import {deleteService, descartarServicio } from '../../http/api';
 import ComentarioListaTd from './ComentarioListaTd';
 import ComentariosListaParticipo from './ComentariosListaParticipo';
+import '../../css/ComentariosListaTd.css';
 function ConversacionesParticipo(props){
     const [datoscomentariosServicios,setdatoscomentariosServicios] = useState("");
     const misconversaciones = props?.misconvergenericas;
@@ -27,27 +28,37 @@ function ConversacionesParticipo(props){
     }
 
     return (<>
-    <table className="table">
-        <thead>
-            <tr>
-                <th>Id del servicio</th>
-                <th>Último comentario</th>
-            </tr>
-        </thead>
-        <tbody>
-            {
-                misconversaciones?.map((item)=>{
-                    return (<>
-                        <tr>
-                            <td>{item.id_ser_co}</td>
-                            <td>{item.comentario}</td>
-                            <td><button onClick={()=>{irA(item.id_ser_co)}}>Ir a la conversación</button></td>
-                        </tr>
-                    </>)
-                })
-            }
-        </tbody>
-    </table>
+    
+    <div className="caja">
+        <div className="caja">
+            
+                {
+                    misconversaciones?.map((item)=>{
+                        return (<>
+                        <div className="caja">
+                            <div className="comienzo">
+                                <div className="caja3">
+                                    <div className="caja2">Id</div>
+                                    <div className="bordear">{item.id_ser_co}</div>
+                                </div>
+                                <div className="caja3">
+                                    <div className="caja2">Comentario</div>
+                                    <div className="bordear">{item.comentario}</div>
+                                </div>
+                                <div className="caja3">
+                                    <div className="caja2">Ir</div>
+                                    <button onClick={()=>{irA(item.id_ser_co)}}>Ir a la conversación</button>
+                                </div>
+                            </div>
+                        </div>
+                            
+                        </>)
+                    })
+                }
+            
+        </div>
+    </div>
+
     {datoscomentariosServicios && <ComentariosListaParticipo elementos={datoscomentariosServicios}></ComentariosListaParticipo>}
     
     </>);

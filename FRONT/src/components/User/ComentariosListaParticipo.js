@@ -38,61 +38,60 @@ function ComentarioListaParticipo(props){
         {
             <div className="tabla">
                 
-                <table className="tabla">
-                    <thead>
-                                <tr>
-                                    <th>Nº de comentario</th>
-                                    <th>Nº de usuario</th>
-                                    <th>AVATAR</th>
-                                    <th>Nº de servicio</th>
-                                    <th>Comentario</th>
-                                    <th>Respuesta al comentario Nº</th>
-                                    <th>Selección</th>
-                                    <th>Responder</th>
-                                    
-                                </tr>
-                </thead>
-                <tbody>
-                    
-                    {                   
-                        comentarios?.map(
-                            (item,index)=>
-                            {
-                                return(<>
-                                            
-                                            <tr>
+                
+                <div className="caja">
+                    <div className="caja">
+                        {
+                            comentarios?.map((item,index)=>{
+                                return (<>
+                                        <div className="caja">
+                                            <div className="comienzo">
+                                                <div className="caja3">
+                                                    <div className="caja2">Nºdecomentario</div>
+                                                    <div className="bordear">{item.id_co}</div>
+                                                </div>
+                                                <div className="caja3">
+                                                    <div className="caja2">AVATAR</div>
+                                                    <div className="bordear"><img className="imgagen" key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_co}/${item.nomFoto_usu}`} alt="imagen"/></div>
+                                                </div>
+                                                <div className="caja3">
+                                                    <div className="caja2">Comentario</div>
+                                                    <div className="bordear">{item.comentario}</div>
+                                                </div>
                                                 
-                                                
-                                                <td>{item.id_co}</td>
-                                                <td>{item.id_usu_co}</td>
-                                                <td>
-                                                    <img className="miAvatar" key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_co}/${item.nomFoto_usu}`} alt="imagen"/>
-                                                </td>
-                                                <td>{item.id_ser_co}</td>
-                                                <td>{item.comentario}</td>
-                                                <td>{item.id_co_num}</td>
-                                                <td><input  type="checkbox" id="eleccion" name="eleccion"></input></td>
-                                                <td>
-                                                    <div>
+
+                                                <div className="caja3">
+                                                    <div className="caja2">RespuestaNºcomentario</div>
+                                                    <div className="bordear">{item.id_co_num}</div>
+                                                </div>
+                                                <div className="caja3">
+                                                    <div className="caja2">Selección</div>
+                                                    <input  type="checkbox" id="eleccion" name="eleccion"></input>
+                                                </div>
+                                                <div className="caja3">
+                                                    <div className="caja2">Responder</div>
+                                                    <div className="bordear"> 
                                                         <input id="respuesta" type="text" name="respuesta" autoComplete="off" />
                                                         <input id="idConversacion" type="hidden" name="idConversacion" value={item.id_co} />
                                                         <input id="id_ser" type="hidden" name="id_ser" value={item.id_ser_co} />
                                                     </div>
-                                                    
-                                                </td>
-                                               
+                                                </div>
+                                            </div>
+                                        </div>
                                     
-                                            </tr>
-                                            
+
                                 </>)
                             })
-                     }
-                </tbody>
-                </table>
-                
+                        }
+                    </div>
+                </div>
                 
             </div>
         }
+
+
+
+
 
         <BotonEnvioComentarios funcion={enviarRespuesta}></BotonEnvioComentarios>
     </>);

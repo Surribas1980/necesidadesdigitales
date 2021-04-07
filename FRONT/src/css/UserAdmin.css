@@ -16,8 +16,10 @@ body {
   font-family: Helvetica;
   -webkit-font-smoothing: antialiased;
   background: rgb(255, 255, 255);
+  height: auto;
 }
 footer {
+  box-sizing: border-box;
   background-color: black;
   border-top: 1px solid red;
   color: white;
@@ -151,14 +153,20 @@ h2 {
     background-color: #ffffff;
     text-align: center;
     margin: 50px;
+    border: 1px solid black;
   }
-
+  .centrar {
+    text-align: center;
+  }
   .box {
     display: flex;
+    box-sizing: border-box;
+    align-items: center;
     /*justify-content: space-between;*/
-    background-color: rgb(201, 207, 194);
+    background-color: rgb(112, 163, 54);
+    width: 100%;
+    text-align: center;
     width: auto;
-    height: auto;
   }
 
   .imagenAvatar {
@@ -179,7 +187,7 @@ h2 {
   }
   .tabla1 {
     overflow: scroll;
-    height: auto;
+    height: 300px;
     width: auto;
   }
   .titulo {

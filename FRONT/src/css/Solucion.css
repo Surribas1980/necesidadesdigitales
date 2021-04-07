@@ -95,4 +95,9 @@ td {
     margin: 0%;
     text-align: center;
   }
+  .tabla1 {
+    overflow: scroll;
+    height: 300px;
+    width: auto;
+  }
 }
