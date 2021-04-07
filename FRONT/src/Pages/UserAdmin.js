@@ -19,6 +19,7 @@ import MisServiSoliUserAdmin from '../components/User/MisServiSoliUserAdim';
 import MisServiNoSoluUserAdmin from '../components/User/MisServiNoSoluUserAdim';
 import MisServiSoluUserAdmin from '../components/User/MisServiSoluUserAdim';
 import TitleMisServicios from '../components/User/TitleMisServicios';
+import ComentariosMenuVertical from '../components/ComentariosMenuVertical';
 
 function UserAdmin(){
     const { userData, logOut } = useAuth();
@@ -41,6 +42,7 @@ function UserAdmin(){
     const [donde, setDonde] = useState("");
     const [num, setNum] = useState(0);
     const [selecMisServi,setselecMisServi] = useState(0);
+    const [setComen,setMenuComentario] = useState(0);
     
     
     const [evento,setEvento] = useState(0);
@@ -67,6 +69,7 @@ function UserAdmin(){
         }
         datosUser();
         setEvento(0);
+        setMenuComentario(0);
         let path = window.location.pathname;
         let lendourl = window.location.search.substring(1);
         let lendoparams = new URLSearchParams(lendourl);
@@ -84,7 +87,12 @@ function UserAdmin(){
             setselecMisServi(1);
             console.log('pulsa darpuntuacion')
         }
-       
+        let verpath = path.slice(1,11);
+        console.log('el path es',verpath);
+       if(path === '/comentario' || verpath =='comentario'){
+        setMenuComentario(1);
+        console.log('Entra en Comentario')
+       }
     },[showMenu]);
      
     const escuchar = (e,v) =>{
@@ -138,6 +146,12 @@ function UserAdmin(){
                                     </div>
                             }
                              {/*selecMisServi && <TitleMisServicios /> ? <TitleMisServicios /> : ''*/}
+                             {setComen && <ComentariosMenuVertical /> ? 
+                             
+                             <div onClick={()=>{setShowMenu(!showMenu)}}><ComentariosMenuVertical/></div>
+                              : ''
+                             
+                             }
                             <div className="centrar">
 
                                     <div className="principal">
