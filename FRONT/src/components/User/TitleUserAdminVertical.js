@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import useAuth from '../../shared/hooks/useAuth';
 import '../../css/TitleUserAdminVertical.css'
-
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faUserEdit,faCommentDots,faTasks,faMedal,faSchool,faUpload,faTrashAlt,faHome,faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
 
 function TitleUserAdminVertical(props){
     const { isUserLogged, logOut } = useAuth(false);
@@ -21,7 +22,8 @@ const salida =<><nav>
                             })
                         }
                     <div className="header-item">
-                        <Link to="/useradmin">Recoger</Link>
+                    <Link to = "/useradmin"><FontAwesomeIcon icon={faHome} /></Link>
+                        
                     </div>
                     <div className="header-item">
                         <Link to = "/comentario">Comentarios</Link>
@@ -50,11 +52,10 @@ const salida =<><nav>
 
                     <Link to="/insert/servicios">Insertar servicios</Link>
                     </div>
-                    <div className="header-item">
-
-                    <button onClick={logOut}>LOG OUT!</button>
-                        
                     
+                    <div className="salir">
+
+                    <FontAwesomeIcon onClick={logOut} icon={faSignOutAlt}></FontAwesomeIcon>
                     </div>
                    
                 </ul>

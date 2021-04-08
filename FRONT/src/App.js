@@ -54,11 +54,13 @@ function App() {
                 </Route> 
                                        
                 <Route path="/register">
-                  <Register />
+                <div className="general"><Register /></div>
                 </Route>
                 <Route path="/login">  
                   <PublicRoute>
-                    <Login />                                
+
+                      <div className="general"><Login /></div>                              
+                    
                   </PublicRoute>       
                 </Route>
                

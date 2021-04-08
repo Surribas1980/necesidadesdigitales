@@ -4,7 +4,13 @@ nav {
   background-color: rgb(255, 255, 255);
   border-bottom: 2px solid red;
 }
-
+.salir {
+  color: black;
+  font-size: 7vh;
+  text-align: center;
+  margin: 2px;
+  border-top: blue;
+}
 .header-item {
   font-family: sans-serif;
   padding: 5px 10px;

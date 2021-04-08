@@ -13,12 +13,18 @@ export default function Login() {
 //un comentario
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="labelinput">
+
       <label htmlFor="mail">Email</label>
       <input id="mail" ref={register({ required: true})} name="mail" />
  
-      <label htmlFor="pwd">Password</label>
-      <input id="pwd" ref={register({ required: true})} name="pwd" type="password"/>
+      </div>
+      <div className="labelinput">
+
+        <label htmlFor="pwd">Password</label>
+        <input id="pwd" ref={register({ required: true})} name="pwd" type="password"/>
+      </div>
       
       <button>Enviar</button>
     </form>

@@ -3,7 +3,7 @@ import useAuth from '../../shared/hooks/useAuth';
 import TitleUserAdminVertical from './TitleUserAdminVertical';
 import '../../css/TitleUserAdmin.css'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faUserEdit,faCommentDots,faTasks,faMedal,faSchool,faUpload,faTrashAlt} from '@fortawesome/free-solid-svg-icons';
+import {faUserEdit,faCommentDots,faTasks,faMedal,faSchool,faUpload,faTrashAlt,faHome,faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
 import ComentariosMenuVertical from '../ComentariosMenuVertical';
 
 function TitleUserAdmin(props){
@@ -17,8 +17,11 @@ const salida =<><nav>
     <div className="encoller">
 
                 <div className="header-item">
+                    <div className="user">
+                        <Link to = "/useradmin"><FontAwesomeIcon icon={faHome} /></Link>
+                        <div>Inicio</div>
+                    </div>
                 
-                <Link to="/useradmin">Recoger</Link>
                 </div>
 
                 <div className="header-item">
@@ -26,7 +29,7 @@ const salida =<><nav>
                         <Link to = "/comentario"><FontAwesomeIcon icon={faCommentDots} /></Link>
                         <div>Comentarios</div>
                         
-                        <div className="externo">
+                        {/*<div className="externo">
                             <div className="interno">
                                 <div className="externo">
                                     <div className="interno">
@@ -35,7 +38,7 @@ const salida =<><nav>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>*/}
                     </div>
                 </div>
                 
@@ -88,8 +91,13 @@ const salida =<><nav>
                     </div>
                 
                 </div>
+                 <div className="salir">
+
+                    <FontAwesomeIcon onClick={logOut} icon={faSignOutAlt}></FontAwesomeIcon>
+                </div>
     </div>
-                <button onClick={logOut}>LOG OUT!</button>
+                {/*<button onClick={logOut}>LOG OUT!</button>*/}
+               
                 {
                     datos?.map((item,index)=>{
                         return(<>

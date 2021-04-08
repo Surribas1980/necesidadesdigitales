@@ -2,7 +2,7 @@ import { useState,useEffect} from 'react';
 import {deleteService} from '../../http/api';
 import { BrowserRouter as Router, Route, Link,useHistory } from 'react-router-dom';
 import '../../css/DarPuntuacion.css';
-import MisServNoSol from './MisServNoSol';
+import MisServiSoliUserAdmin from './MisServiSoliUserAdim';
 import MisSolDesc from './MisSolDesc';
 import MisServSol from './MisServSol';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -10,6 +10,7 @@ import {faArrowAltCircleLeft} from '@fortawesome/free-solid-svg-icons';
 export default function DarPuntuacion(props){ 
     let atras = useHistory();
     const servsolucionados = props.solucionados;
+    
     const [misServNoSol,setmisSerNoSol] = useState([]);
     const [misSolDesc, setmisSolDesc] = useState([]);
     
@@ -57,6 +58,7 @@ export default function DarPuntuacion(props){
         <Route path="/missolucionados">
             <MisServSol missolucionados={servsolucionados}></MisServSol>
         </Route>
+        <MisServiSoliUserAdmin misservis={props.misservis}></MisServiSoliUserAdmin>
     </Router>
     </>);
 }

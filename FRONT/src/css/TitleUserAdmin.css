@@ -41,7 +41,12 @@ img {
 .user > div {
   font-size: 1.5vh;
 }
-
+.salir {
+  color: rgb(85, 243, 196);
+  font-size: 7vh;
+  text-align: center;
+  margin: 2px;
+}
 .ocultar > .titulovertical {
   display: none;
 }

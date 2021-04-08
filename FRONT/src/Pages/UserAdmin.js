@@ -34,14 +34,14 @@ function UserAdmin(){
     const [misSerNoSolucionados,setmisSerNoSolucionados]=useState([]);
     const [misSolicitados, setmisSolicitados] = useState([]);
     const [misSerSolucionados,setmisSerSolucionados]=useState([]);
-    const [valor, setValor] = useState(0);
+   
     const [showMenu, setShowMenu]=useState(false);
     const [mostrar, setMostrar] = useState(false);
     const [menuLateral, setMenuLateral] = useState(false);
     const [proba,setProba]= useState(0);
     const [donde, setDonde] = useState("");
     const [num, setNum] = useState(0);
-    const [selecMisServi,setselecMisServi] = useState(0);
+   
     const [setComen,setMenuComentario] = useState(0);
     
     
@@ -75,7 +75,7 @@ function UserAdmin(){
         let lendoparams = new URLSearchParams(lendourl);
         let valor = lendoparams.get("valor");
         console.log('valor leido',valor);
-        setselecMisServi(0);
+        
         switch (valor){
             case '1':setEvento(1);break;
             case '2':setEvento(2);break;
@@ -83,10 +83,7 @@ function UserAdmin(){
             case '4':setEvento(4);break;
             default:setEvento(0);
         }
-        if(path === '/darpuntuacion'){
-            setselecMisServi(1);
-            console.log('pulsa darpuntuacion')
-        }
+        
         let verpath = path.slice(1,11);
         console.log('el path es',verpath);
        if(path === '/comentario' || verpath =='comentario'){
@@ -116,163 +113,159 @@ function UserAdmin(){
         <main>
             <body>
             <Router>
-                <nav>
-                    
-                         <div className="esconderlateral">
-                            <div className="botonmenulateral">                
-                                <FontAwesomeIcon onClick={()=>{setMenuLateral(!menuLateral);}} icon={faBars}></FontAwesomeIcon>
-                            </div>
-                         </div>
-                            
-                            <div className="esconder">
-                                <div onClick={()=>{setShowMenu(!showMenu)}}>
-
-                                    <TitleUserAdmin datosusuario={datosUsuario}></TitleUserAdmin> 
+                
+                    <nav>
+                        
+                            <div className="esconderlateral">
+                                <div className="botonmenulateral">                
+                                    <FontAwesomeIcon onClick={()=>{setMenuLateral(!menuLateral);}} icon={faBars}></FontAwesomeIcon>
                                 </div>
                             </div>
-                        
-                            <button onClick={()=>{setShowMenu(!showMenu);}}>Actualizar</button>
-                    
-                </nav>
-                
-                                        
-                <div className="box">
                                 
-                            {menuLateral &&
-                                    <div className="esconderlateral">
-                                        <div className="lateral">                                        
-                                            <TitleUserAdminVertical fun={escuchar} datosusuario={datosUsuario}></TitleUserAdminVertical>
-                                        </div>                                
-                                    </div>
-                            }
-                             {/*selecMisServi && <TitleMisServicios /> ? <TitleMisServicios /> : ''*/}
-                             {setComen && <ComentariosMenuVertical /> ? 
-                             
-                             <div onClick={()=>{setShowMenu(!showMenu)}}><ComentariosMenuVertical/></div>
-                              : ''
-                             
-                             }
-                            <div className="centrar">
+                                <div className="esconder">
+                                    <div onClick={()=>{setShowMenu(!showMenu)}}>
 
-                                    <div className="principal">
+                                        <TitleUserAdmin datosusuario={datosUsuario}></TitleUserAdmin> 
+                                    </div>
+                                </div>
+                            
+                                <button onClick={()=>{setShowMenu(!showMenu);}}>Actualizar</button>
+                        
+                    </nav>
+                <div className="centrar">
+
+                    <div className="box">
                                     
-                                        <div className="englobanumericos">
-                                            <div className="cajanumericos">
-                                                        
-                                                                <div className="datosnumericos">   
-                                                                    <div id="sinver" className="sinver" name="sinver" onClick={escuchar} value={numComentariosSinver} >
-                                                                    
-                                                                    Comentarios sin ver
-                                                                    </div>                                 
-                                                                    
-                                                                        
-                                                                    
-                                                                    <div className="caja1">
-                                                                        {numComentariosSinver}
-                                                                    </div>
-                                                                        <div  className="mensaje">
-                                                                        <Link to="/comentario"><FontAwesomeIcon data-donde="sinver" data-valor={numComentariosSinver} onClick={escuchar} icon={faEnvelope}></FontAwesomeIcon></Link>
-                                                                        {numComentariosSinver > 0 ? <FontAwesomeIcon icon={faEyeSlash}></FontAwesomeIcon> : <FontAwesomeIcon icon={faEye}></FontAwesomeIcon>}
-                                                                        </div>
-                                                                </div>
-                                                                
-                                                                <div className="datosnumericos">
-                                                                    <div id="sin" className="sinler" name="sinler" onClick={escuchar} value={numComentariosSinLer}>
-                                                                    Comentarios sin leer
-                                                                    </div>	
-                                                                    
-                                                                    <div className="caja1">
-                                                                    {numComentariosSinLer}
-                                                                    </div> 
-                                                                    <div alt="mensaje" className="mensaje">
-                                                                        <Link to="/comentario"><FontAwesomeIcon data-donde="sinler" data-valor={numComentariosSinLer} onClick={escuchar} alt="mensaje" icon={faEnvelope}></FontAwesomeIcon></Link>
-                                                                        {numComentariosSinver > 0 ? <FontAwesomeIcon icon={faBookOpen}></FontAwesomeIcon> : <FontAwesomeIcon icon={faBook}></FontAwesomeIcon>}
-                                                                        </div>
-                                                                </div>
+                                {menuLateral &&
+                                        <div className="esconderlateral">
+                                            <div className="lateral">                                        
+                                                <TitleUserAdminVertical fun={escuchar} datosusuario={datosUsuario}></TitleUserAdminVertical>
+                                            </div>                                
+                                        </div>
+                                }
+                                {/*selecMisServi && <TitleMisServicios /> ? <TitleMisServicios /> : ''*/}
+                                {setComen && <ComentariosMenuVertical /> ? 
+                                
+                                <div onClick={()=>{setShowMenu(!showMenu)}}><ComentariosMenuVertical/></div>
+                                : ''
+                                
+                                }
+                                <div className="centrar">
+
+                                        <div className="principal">
                                         
-                                                                <div className="datosnumericos">	
-                                                                    Cantidad de servicios que solucioné 
-                                                                    <div className="caja1">
-                                                                    {numMisSolucionados}
-                                                                    </div>
-                                                                </div>
-
-                                                                <div className="datosnumericos">            
-                                                                    Cantidad de mis servicios solicitados 
-                                                                    <div className="caja1">
-                                                                    {numMisSolicitados}
-                                                                    </div>                                        
-                                                                </div> 
-                                                        
-                                            </div> 
-                                        </div> 
-                                        <hr></hr>  
-                                        <hr></hr>
-                                                    <Switch>
-
-                                                        <Route path="/comentario">
-                                                            <div className="lassecciones">
-                                                                
-                                                                <Comentarios evento={evento} donde={donde} numero={num}/> 
-                                                                
-                                                            </div>
-                                                        </Route>            
-                                                        <Route path="/datospersonales">
-                                                            <ModificacionDatos datos={datosUsuario}/>
-                                                        </Route>
-                                                        <Route path="/darpuntuacion">
+                                            <div className="englobanumericos">
+                                                <div className="cajanumericos">
                                                             
-                                                                
-                                                                <DarPuntuacion solucionados={misSerSolucionados}></DarPuntuacion>
-                                                           
-                                                        </Route>
-                                                        <Route path="/darsolucion">
-                                                            <div className="lassecciones">
-
-                                                                <Solucion nosolucionados={serviciosNoSolucionados}/>
-                                                            </div>
-                                                        </Route>
-                                                        <Route path="/solucionados">
-                                                            <div className="lassecciones">
-                                                            <ServisSolucionados servissolucionados={servesSolucionados}></ServisSolucionados>
-                                                            </div>
-                                                        </Route>
-                                                        <Route path="/ranking">
-                                                            <GraficaRanking valores={ranking}></GraficaRanking>
-                                                        </Route>
-                                                        <Route path="/insert/servicios">
-                                                                <InsertServices />
-                                                        </Route>
-
-                                                        <Route path="/borrar/misservicios">
-                                                        
-                                                                <DeleteMyService />                  
-                                                                            
-                                                        </Route>
-                                                    </Switch>                    
-                                        
-                                        
-                                                
-                                                    <secction  className="servis">
-                                                        
-
-                                                        {selecMisServi && <h1>Mis servicios solicitados</h1> ? <h1>Mis servicios solicitados</h1> : '' }                                           
-                                                        {selecMisServi && <MisServiSoliUserAdmin misservis={misSolicitados}/> ? <MisServiSoliUserAdmin misservis={misSolicitados}/> : '' } 
-                                                        
-                                                    </secction>
+                                                                    <div className="datosnumericos">   
+                                                                        <div id="sinver" className="sinver" name="sinver" onClick={escuchar} value={numComentariosSinver} >
                                                                         
-                                    </div>
-                            </div>
-                </div>
+                                                                        Comentarios sin ver
+                                                                        </div>                                 
+                                                                        
+                                                                            
+                                                                        
+                                                                        <div className="caja1">
+                                                                            {numComentariosSinver}
+                                                                        </div>
+                                                                            <div  className="mensaje">
+                                                                            <Link to="/comentario"><FontAwesomeIcon data-donde="sinver" data-valor={numComentariosSinver} onClick={escuchar} icon={faEnvelope}></FontAwesomeIcon></Link>
+                                                                            {numComentariosSinver > 0 ? <FontAwesomeIcon icon={faEyeSlash}></FontAwesomeIcon> : <FontAwesomeIcon icon={faEye}></FontAwesomeIcon>}
+                                                                            </div>
+                                                                    </div>
+                                                                    
+                                                                    <div className="datosnumericos">
+                                                                        <div id="sin" className="sinler" name="sinler" onClick={escuchar} value={numComentariosSinLer}>
+                                                                        Comentarios sin leer
+                                                                        </div>	
+                                                                        
+                                                                        <div className="caja1">
+                                                                        {numComentariosSinLer}
+                                                                        </div> 
+                                                                        <div alt="mensaje" className="mensaje">
+                                                                            <Link to="/comentario"><FontAwesomeIcon data-donde="sinler" data-valor={numComentariosSinLer} onClick={escuchar} alt="mensaje" icon={faEnvelope}></FontAwesomeIcon></Link>
+                                                                            {numComentariosSinver > 0 ? <FontAwesomeIcon icon={faBookOpen}></FontAwesomeIcon> : <FontAwesomeIcon icon={faBook}></FontAwesomeIcon>}
+                                                                            </div>
+                                                                    </div>
+                                            
+                                                                    <div className="datosnumericos">	
+                                                                        Cantidad de servicios que solucioné 
+                                                                        <div className="caja1">
+                                                                        {numMisSolucionados}
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="datosnumericos">            
+                                                                        Cantidad de mis servicios solicitados 
+                                                                        <div className="caja1">
+                                                                        {numMisSolicitados}
+                                                                        </div>                                        
+                                                                    </div> 
+                                                            
+                                                </div> 
+                                            </div> 
+                                            <hr></hr>  
+                                            <hr></hr>
+                                                        <Switch>
+
+                                                            <Route path="/comentario">
+                                                                <div className="lassecciones">
+                                                                    
+                                                                    <Comentarios evento={evento} donde={donde} numero={num}/> 
+                                                                    
+                                                                </div>
+                                                            </Route>            
+                                                            <Route path="/datospersonales">
+                                                                <ModificacionDatos datos={datosUsuario}/>
+                                                            </Route>
+                                                            <Route path="/darpuntuacion">
+                                                                
+                                                                    
+                                                                    <DarPuntuacion misservis={misSolicitados} solucionados={misSerSolucionados}></DarPuntuacion>
+                                                            
+                                                            </Route>
+                                                            <Route path="/darsolucion">
+                                                                <div className="lassecciones">
+
+                                                                    <Solucion nosolucionados={serviciosNoSolucionados}/>
+                                                                </div>
+                                                            </Route>
+                                                            <Route path="/solucionados">
+                                                                <div className="lassecciones">
+                                                                <ServisSolucionados servissolucionados={servesSolucionados}></ServisSolucionados>
+                                                                </div>
+                                                            </Route>
+                                                            <Route path="/ranking">
+                                                                <GraficaRanking valores={ranking}></GraficaRanking>
+                                                            </Route>
+                                                            <Route path="/insert/servicios">
+                                                                    <InsertServices />
+                                                            </Route>
+
+                                                            <Route path="/borrar/misservicios">
+                                                            
+                                                                    <DeleteMyService />                  
+                                                                                
+                                                            </Route>
+                                                        </Switch>                    
+                                            
+                                            
+                                                    
+                                                        
+                                                                            
+                                        </div>
+                                </div>
+                    </div>
+                </div>                        
 
             </Router>
 
             </body>
             
+        
         </main>
         
         
-        <footer>Design by me</footer>
 
     </>);
 }
