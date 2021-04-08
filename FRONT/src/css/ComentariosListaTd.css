@@ -90,6 +90,11 @@ th {
     border: 1px solid black;
     /*border-radius: 5px solid black;*/
   }
+  .botones {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }
 @media (min-width: 700px) {
   .caja {
@@ -127,5 +132,10 @@ th {
   .bordear {
     border: 1px solid black;
     /*border-radius: 5px solid black;*/
+  }
+  .botones {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }

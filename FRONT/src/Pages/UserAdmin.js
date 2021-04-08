@@ -209,11 +209,11 @@ function UserAdmin(){
                                                         <Switch>
 
                                                             <Route path="/comentario">
-                                                                <div className="lassecciones">
+                                                                
                                                                     
                                                                     <Comentarios evento={evento} donde={donde} numero={num}/> 
                                                                     
-                                                                </div>
+                                                                
                                                             </Route>            
                                                             <Route path="/datospersonales">
                                                                 <ModificacionDatos datos={datosUsuario}/>

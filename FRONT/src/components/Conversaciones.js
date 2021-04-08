@@ -6,6 +6,7 @@ import '../css/ComentariosListaTd.css';
 function Conversaciones(props){
     const [datoscomentariosServicios,setdatoscomentariosServicios] = useState("");
     const [comentarConJoin,setcomentarConJoin] = useState("");
+    const [numConversacion,setConversacion] = useState(0);
     const conversacion = props.convergeneral;
 
     const irA = async (id_ser)=>{    
@@ -26,36 +27,53 @@ function Conversaciones(props){
             <div className="caja">
             {
                     conversacion?.map((item,index)=>{
-                        return (<>
-                        <div className="caja">
+                        if(index === numConversacion){
 
-                            <div className="comienzo">
-                                <div className="caja3">
-                                    <div className="caja2">Id</div>
-                                    <div className="bordear">{item.id_ser}</div>
-                                </div>
-                                <div className="caja3">
-                                    <div className="caja2">Alias</div>
-                                    <div className="bordear"><img className="imgagen" key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_co}/${item.nomFoto_usu}`} alt="imagen"/></div>
-                                    <div className="bordear">{item.nom_usu}</div>
+                            return (<><h3>Esta es la conversación {index + 1}ª de {conversacion.length}</h3>
+                            <div className="caja">
+                                
+                                <div className="comienzo">
+                                    <div className="caja3">
+                                        <div className="caja2">Id</div>
+                                        <div className="bordear">{item.id_ser}</div>
+                                    </div>
+                                    <div className="caja3">
+                                        <div className="caja2">Alias</div>
+                                        <div className="bordear"><img className="imgagen" key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu_co}/${item.nomFoto_usu}`} alt="imagen"/></div>
+                                        <div className="bordear">{item.nom_usu}</div>
+                                    </div>
+                                
+                                    <div className="caja3">
+                                        <div className="caja2">Comentario</div>
+                                        <div className="bordear">{item.comentario}</div>
+                                    </div>
+                                    <div className="caja3">
+                                        <div className="caja2">Fecha</div>
+                                        <div className="bordear">{item.fecha}</div>
+                                    </div>
+                                    <div className="caja3">
+                                        <div className="caja2">Conversación</div>
+                                        <button onClick={()=>{irA(item.id_ser)}}>Ver</button>
+                                    </div>
                                 </div>
                             
-                                <div className="caja3">
-                                    <div className="caja2">Comentario</div>
-                                    <div className="bordear">{item.comentario}</div>
-                                </div>
-                                <div className="caja3">
-                                    <div className="caja2">Fecha</div>
-                                    <div className="bordear">{item.fecha}</div>
-                                </div>
-                                <div className="caja3">
-                                    <div className="caja2">Conversación</div>
-                                    <button onClick={()=>{irA(item.id_ser)}}>Ver</button>
-                                </div>
                             </div>
-                        </div>
-                            
-                        </>)
+                            <div className="botones">
+                                <button onClick={()=>{
+                                    if(numConversacion > 0){
+                                        const valor = numConversacion -1;
+                                        setConversacion(valor);
+                                    }
+                                }}>{'<'}</button>
+                                <button onClick={()=>{
+                                    if(numConversacion < conversacion.length - 1){
+                                        const valor = numConversacion + 1;
+                                        setConversacion(valor);
+                                    }
+                                }}>{'>'}</button>
+                            </div>   
+                            </>)
+                        }
                     })
                 }
             </div>
