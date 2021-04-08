@@ -9,6 +9,8 @@ import '../../css/MisServiSoliUserAdmin.css';
 export default function MisServiSoliUserAdmin(props){
     const [datoscomentariosServicios,setdatoscomentariosServicios] = useState("");
     const [comentarConJoin,setcomentarConJoin] = useState("");
+    const [numServicio,setServicio]=useState(0);
+    
     let servicio;
     let v;
     const misservicios = props?.misservis;
@@ -25,13 +27,12 @@ const irA = async (id)=>{
     
         
 
-            {
+            {       
                     misservicios?.map((item,index)=>{
-                        return(<>
+                        if(index === numServicio){
+                        return(<>   <h3>Cantidad de servicios solicitados: {index + 1}º de {misservicios.length}  </h3>
                         
-                        <div className="oculto">{servicio = item.id_ser}{v=`/servicio/${servicio}`}</div>
-                                
-                            
+                                    <div className="oculto">{servicio = item.id_ser}{v=`/servicio/${servicio}`}</div>
                                     <div className="comienzo">                                   
                                                     <div className="caja1"><Link to={v}><FontAwesomeIcon onClick={()=>{irA(item.id_ser)}} icon={faComments}></FontAwesomeIcon></Link></div>
                                                     <div className="caja3">
@@ -48,8 +49,28 @@ const irA = async (id)=>{
                                                     <div className="caja3"><div className="caja2">Explicacion</div><textarea className="entrada"  value={item.expli_ser} readOnly></textarea></div>
 
                                     </div>
+                                    <div className="comienzo">
+                                        <button onClick={()=>{
+                                                if(numServicio > 0){
+                                                    const valor = numServicio - 1;
+                                                setServicio(valor);
+                                                }
+                                                
+                                            }}>{'<'}</button>
+                                        <button onClick={()=>{
+                                            if(numServicio < misservicios.length-1){
+                                                const valor = numServicio + 1;
+                                            setServicio(valor);
+                                            }
+                                            
+                                        }}>{'>'}</button>   
+                                    </div>
+                            
+                            
                            
                         </>);
+
+                        }
                     })
                 }
        

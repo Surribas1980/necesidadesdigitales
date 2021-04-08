@@ -7,8 +7,9 @@ export default function Login() {
   const { register, handleSubmit } = useForm();
   const {sigIn} = useAuth();
 
-  const onSubmit = (data) =>{
-     sigIn(data.mail,data.pwd);
+  const onSubmit =  (data) =>{
+     const dato = sigIn(data.mail,data.pwd);
+     console.log('recogido en login: ',dato);
   };
 //un comentario
   return (

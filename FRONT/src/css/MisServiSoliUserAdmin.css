@@ -1,7 +1,9 @@
 textarea {
   height: auto;
 }
-
+button {
+  display: inline;
+}
 @media (min-width: 700px) {
   .comienzo {
     display: flex;

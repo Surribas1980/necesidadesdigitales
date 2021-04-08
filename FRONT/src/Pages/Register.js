@@ -1,18 +1,20 @@
 import { useForm } from 'react-hook-form';
 import { userLogin } from '../http/api';
 import '../css/Login.css';
-
+import {useState} from 'react';
 function Register(){
     const { register, handleSubmit } = useForm();
+    const [res,setRes] = useState({});
 
 
     const  onSubmit = async (data) => {
 
       const respuesta =  await userLogin(data.mail,data.pwd, data.nomUsuario_usu, data.nom_usu, data.ape1_usu, data.ape2_usu, data.biografia_usu);
       console.log(respuesta);
+      setRes(respuesta);
     };
 
-    return (
+    return (<>
         <form onSubmit = {handleSubmit(onSubmit)}>
             <div className="labelinput">
 
@@ -51,8 +53,8 @@ function Register(){
             </div>
             <button>Enviar</button>
         </form>
-
-    );
+        {res && res.message ? <p>{res.message}</p>:''}
+    </>);
 }
 
 export default Register;
