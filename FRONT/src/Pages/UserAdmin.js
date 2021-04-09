@@ -15,10 +15,6 @@ import TitleUserAdmin from '../components/User/TitleUserAdmin';
 import TitleUserAdminVertical from '../components/User/TitleUserAdminVertical';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEnvelope,faBars,faEye,faEyeSlash,faBookOpen,faBook} from '@fortawesome/free-solid-svg-icons';
-import MisServiSoliUserAdmin from '../components/User/MisServiSoliUserAdim';
-import MisServiNoSoluUserAdmin from '../components/User/MisServiNoSoluUserAdim';
-import MisServiSoluUserAdmin from '../components/User/MisServiSoluUserAdim';
-import TitleMisServicios from '../components/User/TitleMisServicios';
 import ComentariosMenuVertical from '../components/ComentariosMenuVertical';
 
 function UserAdmin(){
@@ -93,22 +89,83 @@ function UserAdmin(){
     },[showMenu]);
      
     const escuchar = (e,v) =>{
+        /*let path = window.location.pathname;
+        let verpath = path.slice(1,11);
+        console.log('el path es',verpath);
+        setMenuComentario(0);
+       if(path === '/comentario' || verpath =='comentario'){
+        setMenuComentario(1);
+        console.log('Entra en Comentario')
+       }*/
+
             const item = e.target;
-            console.log('hola,item:',item)
-            console.log('item.parentElement',item.parentElement);
-            const valorpasado=item.nearestViewportElement.dataset.valor;
-            const lugar=item.nearestViewportElement.dataset.donde;
-            console.log('v:',v)
-            setNum(valorpasado);
-            setDonde(lugar);
-            setEvento(1);
-            console.log('item.nearestViewportElement.dataset.valor',item.nearestViewportElement.dataset.valor);
-            console.log('item.nearestViewportElement.dataset.valor',item.nearestViewportElement.dataset.donde);
-            }
             
-    const enlace = <><Link to="/comentario"><FontAwesomeIcon onClick={escuchar} icon={faEnvelope}></FontAwesomeIcon></Link></>;
-        
-    return (<>    
+            const valorpasado = item.parentElement.dataset.valor;
+            const lugar=item.parentElement.dataset.donde;
+            
+            if((valorpasado !== null) && (lugar !== null)){
+                
+                console.log('item.parentElement.dataset.valor',item.parentElement.dataset.valor);
+                console.log('item.parentElement.dataset.valor',item.parentElement.dataset.donde);
+                setNum(valorpasado);
+                setDonde(lugar);
+                setEvento(1);
+                //setComen(1);
+            }
+
+            /*console.log('item.nearestViewportElement.dataset.valor',item.nearestViewportElement.dataset.valor);
+            console.log('item.nearestViewportElement.dataset.valor',item.nearestViewportElement.dataset.donde);*/
+    }
+            
+let cajadentrocomentarios = <>
+<div className="datosnumericos">   
+    <div id="sinver" className="sinver" name="sinver" onClick={escuchar} value={numComentariosSinver} >
+        Comentarios sin ver
+    </div>                                 
+
+    
+
+<div className="caja1">
+    {numComentariosSinver}
+</div>
+    <div onClick={escuchar} className="mensaje">
+    <Link to="/comentario"><FontAwesomeIcon data-donde="sinver" data-valor={numComentariosSinver} icon={faEnvelope}></FontAwesomeIcon></Link>
+    {numComentariosSinver > 0 ? <FontAwesomeIcon icon={faEyeSlash}></FontAwesomeIcon> : <FontAwesomeIcon icon={faEye}></FontAwesomeIcon>}
+    </div>
+</div>
+
+<div className="datosnumericos">
+<div id="sin" className="sinler" name="sinler" onClick={escuchar} value={numComentariosSinLer}>
+Comentarios sin leer
+</div>	
+
+<div className="caja1">
+{numComentariosSinLer}
+</div> 
+<div alt="mensaje" className="mensaje">
+    <Link to="/comentario"><FontAwesomeIcon data-donde="sinler" data-valor={numComentariosSinLer} onClick={escuchar} alt="mensaje" icon={faEnvelope}></FontAwesomeIcon></Link>
+    {numComentariosSinver > 0 ? <FontAwesomeIcon icon={faBookOpen}></FontAwesomeIcon> : <FontAwesomeIcon icon={faBook}></FontAwesomeIcon>}
+    </div>
+</div>
+</>;       
+
+let cajadentroservicios =<>
+                                                                    <div className="datosnumericos">	
+                                                                        Cantidad de servicios que solucioné 
+                                                                        <div className="caja1">
+                                                                        {numMisSolucionados}
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="datosnumericos">            
+                                                                        Cantidad de mis servicios solicitados 
+                                                                        <div className="caja1">
+                                                                        {numMisSolicitados}
+                                                                        </div>                                        
+                                                                    </div>
+</>;
+
+return (<>    
             
         <main>
             <body>
@@ -128,7 +185,26 @@ function UserAdmin(){
                                         <TitleUserAdmin datosusuario={datosUsuario}></TitleUserAdmin> 
                                     </div>
                                 </div>
-                            
+                                <div>
+
+                                    <div className="mensaje">
+                                        <Link to="/comentario"><div onClick={escuchar} name="sinver" value={numComentariosSinver} className="caja1"><FontAwesomeIcon onClick={escuchar} name="sinler" value={numComentariosSinLer} data-donde="sinver" data-valor={numComentariosSinver} icon={faEnvelope}></FontAwesomeIcon></div> </Link>
+                                        {numComentariosSinver > 0 ? <FontAwesomeIcon icon={faEyeSlash}/> : <FontAwesomeIcon icon={faEye}/>}
+                                        <div className="caja1">
+                                        {numComentariosSinver}
+                                        </div> 
+                                    </div>
+                                </div>
+                                <div>
+                                    <div className="mensaje">
+                                        <Link to="/comentario"><div onClick={escuchar} name="sinler" value={numComentariosSinLer} className="caja1"><FontAwesomeIcon data-donde="sinler" data-valor={numComentariosSinLer} onClick={escuchar} alt="mensaje" icon={faEnvelope}></FontAwesomeIcon></div></Link>
+                                        {numComentariosSinver > 0 ? <FontAwesomeIcon icon={faBookOpen}/> : <FontAwesomeIcon icon={faBook}/>}
+                                        <div className="caja1">
+                                            {numComentariosSinLer}
+                                        </div> 
+                                    </div>
+                                    
+                                </div>
                                 <button onClick={()=>{setShowMenu(!showMenu);}}>Actualizar</button>
                         
                     </nav>
@@ -157,50 +233,10 @@ function UserAdmin(){
                                             <div className="englobanumericos">
                                                 <div className="cajanumericos">
                                                             
-                                                                    <div className="datosnumericos">   
-                                                                        <div id="sinver" className="sinver" name="sinver" onClick={escuchar} value={numComentariosSinver} >
-                                                                        
-                                                                        Comentarios sin ver
-                                                                        </div>                                 
-                                                                        
-                                                                            
-                                                                        
-                                                                        <div className="caja1">
-                                                                            {numComentariosSinver}
-                                                                        </div>
-                                                                            <div  className="mensaje">
-                                                                            <Link to="/comentario"><FontAwesomeIcon data-donde="sinver" data-valor={numComentariosSinver} onClick={escuchar} icon={faEnvelope}></FontAwesomeIcon></Link>
-                                                                            {numComentariosSinver > 0 ? <FontAwesomeIcon icon={faEyeSlash}></FontAwesomeIcon> : <FontAwesomeIcon icon={faEye}></FontAwesomeIcon>}
-                                                                            </div>
-                                                                    </div>
-                                                                    
-                                                                    <div className="datosnumericos">
-                                                                        <div id="sin" className="sinler" name="sinler" onClick={escuchar} value={numComentariosSinLer}>
-                                                                        Comentarios sin leer
-                                                                        </div>	
-                                                                        
-                                                                        <div className="caja1">
-                                                                        {numComentariosSinLer}
-                                                                        </div> 
-                                                                        <div alt="mensaje" className="mensaje">
-                                                                            <Link to="/comentario"><FontAwesomeIcon data-donde="sinler" data-valor={numComentariosSinLer} onClick={escuchar} alt="mensaje" icon={faEnvelope}></FontAwesomeIcon></Link>
-                                                                            {numComentariosSinver > 0 ? <FontAwesomeIcon icon={faBookOpen}></FontAwesomeIcon> : <FontAwesomeIcon icon={faBook}></FontAwesomeIcon>}
-                                                                            </div>
-                                                                    </div>
-                                            
-                                                                    <div className="datosnumericos">	
-                                                                        Cantidad de servicios que solucioné 
-                                                                        <div className="caja1">
-                                                                        {numMisSolucionados}
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div className="datosnumericos">            
-                                                                        Cantidad de mis servicios solicitados 
-                                                                        <div className="caja1">
-                                                                        {numMisSolicitados}
-                                                                        </div>                                        
-                                                                    </div> 
+                                                                {setComen && cajadentrocomentarios ? cajadentrocomentarios : ''}  
+                                                                {!setComen && cajadentroservicios ? cajadentroservicios : ''}
+                                                                
+                                                                     
                                                             
                                                 </div> 
                                             </div> 

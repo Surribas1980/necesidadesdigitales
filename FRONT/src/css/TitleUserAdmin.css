@@ -1,20 +1,32 @@
-nav {
+.menus {
   display: flex;
   flex-direction: row;
-  background-color: rgb(255, 255, 255);
-  border-bottom: 2px solid red;
+  justify-content: space-between;
+  /*background-color: rgb(228, 36, 36);*/
+  border: 2px solid rgb(51, 255, 0);
+  margin: 10px;
 }
 .encoller {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
+  margin: 10px;
 }
-
+.cadro {
+  padding: 5px;
+  width: auto;
+  border: 3px solid rgb(192, 170, 170);
+}
 .header-item {
   font-family: sans-serif;
   padding: 5px 10px;
-  text-decoration: none;
+  border-radius: 10px;
   color: rgb(2, 2, 2);
-  border-right: 1px solid coral;
+  background-color: rgb(206, 206, 219);
+  margin: 3px;
+  /*border: 1px solid black;
+  border-bottom: 1px solid coral;*/
 }
 .header-item:hover {
   background-color: lightseagreen;
@@ -34,11 +46,11 @@ img {
   text-align: center;
 }
 .user {
-  color: rgb(117, 207, 42);
+  color: rgba(14, 25, 187, 0.815);
   font-size: 3vh;
   text-align: center;
 }
-.user > div {
+.header-item > div {
   font-size: 1.5vh;
 }
 .salir {

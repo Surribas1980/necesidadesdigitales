@@ -26,7 +26,7 @@ export default function MostrarServiciosComentarios(props){
             <div className="caja">
                 <div className="caja">
                 {
-                        servicios?.map((item,index)=>{
+                  servicios &&  servicios?.map((item,index)=>{
 
                             if((index <= (numpaginamax+1)) && (index >= numpaginamin))
                             {

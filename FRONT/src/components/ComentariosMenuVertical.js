@@ -6,9 +6,10 @@ function ComentariosMenuVertical(props){
     const { isUserLogged } = useAuth(false);
     
     return (<> {isUserLogged &&
-        <nav>
+        
             <ul>
-                
+                <div className="cadro">
+
                     <div className="header-item">
                        
 
@@ -38,9 +39,10 @@ function ComentariosMenuVertical(props){
                         
 
                     </div>
+                </div>
                
             </ul>    
-        </nav>}
+        }
     </>);
 }
 
