@@ -10,7 +10,7 @@ function Home(){
 
 useEffect(() => {
   
-    console.log('This will run every second!');
+    
     if(valor < 3){
 
       setOtro(valor + 1);
@@ -44,9 +44,10 @@ useEffect(() => {
         </div>
         Main
         <Seccion1></Seccion1>
+        <div></div>
         <Seccion2></Seccion2>
         </main>
-        <footer>Este es el pié de fágina</footer>
+        <footer><b>Designed by me</b></footer>
       </body>
        
       </>

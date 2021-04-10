@@ -1,0 +1,32 @@
+.colorseccion2 {
+  border-radius: 5px;
+  background-color: white;
+  width: auto;
+  height: auto;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.seccion2 {
+  background-color: white;
+  width: 20vw;
+  height: auto;
+  margin: 5px;
+  padding: 5px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.imagenseccion2 {
+  transform: scale(1.25);
+  margin: 5px;
+}
+.titulo {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: white;
+  padding: 2px;
+}

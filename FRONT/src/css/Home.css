@@ -4,7 +4,7 @@
     text-align: center;
     width: auto;
     height: 500px;
-    background-color: blue;
+    /*background-color: blue;*/
     /*margin: 10px;*/
   }
   .imagen {
@@ -14,15 +14,33 @@
     padding: 5px;
   }
   main {
-    height: 100vh;
-    background-color: chartreuse;
+    height: auto;
+    padding: 5px;
+    background-color: black;
+  }
+  footer {
+    background-color: rgb(100, 100, 94);
+    color: white;
+    padding: 5px;
+    text-align: center;
   }
 }
 @media (max-width: 700px) {
   .imagenesvarias {
+    text-align: center;
     transform: scale(0.8);
     width: auto;
     height: auto;
-    background-color: blue;
+  }
+  main {
+    height: auto;
+    padding: 5px;
+    background-color: black;
+  }
+  footer {
+    background-color: rgb(100, 100, 94);
+    color: white;
+    padding: 5px;
+    text-align: center;
   }
 }
