@@ -1,0 +1,28 @@
+@media (min-width: 700px) {
+  .imagenesvarias {
+    transform: scale(1);
+    text-align: center;
+    width: auto;
+    height: 500px;
+    background-color: blue;
+    /*margin: 10px;*/
+  }
+  .imagen {
+    width: 1000vw;
+    height: 300px;
+    margin: 20px;
+    padding: 5px;
+  }
+  main {
+    height: 100vh;
+    background-color: chartreuse;
+  }
+}
+@media (max-width: 700px) {
+  .imagenesvarias {
+    transform: scale(0.8);
+    width: auto;
+    height: auto;
+    background-color: blue;
+  }
+}
