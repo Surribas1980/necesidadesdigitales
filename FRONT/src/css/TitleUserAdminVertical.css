@@ -40,3 +40,25 @@
   margin: 0%;
   text-align: center;
 }
+.interno {
+  display: block;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: rgb(90, 151, 54);
+  border: 1px solid rgb(100, 75, 160);
+}
+.interno:hover {
+  text-align: center;
+  border-radius: 10px;
+  background-color: rgb(212, 47, 47);
+  color: rgb(86, 151, 67);
+}
+.interno > .externo {
+  display: none;
+}
+.interno:hover > .externo {
+  display: block;
+  position: absolute;
+  top: 30px;
+  left: 0px;
+}

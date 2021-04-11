@@ -219,12 +219,15 @@ return (<>
                                         </div>
                                 }
                                 {/*selecMisServi && <TitleMisServicios /> ? <TitleMisServicios /> : ''*/}
-                                {setComen && <ComentariosMenuVertical /> ? 
-                                
-                                <div onClick={()=>{setShowMenu(!showMenu)}}><ComentariosMenuVertical/></div>
-                                : ''
-                                
-                                }
+                                <div className="esconder">
+
+                                    {setComen && <ComentariosMenuVertical /> ? 
+                                    
+                                    <div onClick={()=>{setShowMenu(!showMenu)}}><ComentariosMenuVertical/></div>
+                                    : ''
+                                    
+                                    }
+                                </div>
                                 <div className="centrar">
 
                                         <div className="principal">

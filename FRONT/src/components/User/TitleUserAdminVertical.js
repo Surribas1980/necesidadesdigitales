@@ -28,41 +28,9 @@ const salida =<><div className="navegacionvertical">
                     </div>
                     <div className="header-item">
                         <Link to = "/comentario">Comentarios</Link>
-                        <ul>
-                <div className="cadro">
-
-                    <div className="header-item">
-                       
-
-                        <Link to="/comentario/?valor=1">Iniciar conversacion</Link>
                         
-                    </div>
-                
-                   <div className="header-item">
-                       
-
-                    <Link to="/comentario/?valor=2">Conversaciones</Link>
-                      
-                    </div> 
-                
-                  <div className="header-item">
-                     
-
-                    <Link to="/comentario/?valor=3">Comentarios sin ver</Link>
-                      
-                    </div>  
-                
-               
-                    <div className="header-item">
-                        
-
-                        <Link to="/comentario/?valor=4">Conversaciones sobre mis servicios</Link>
-                        
-
-                    </div>
-                </div>
-               
-            </ul>    
+                                        <ComentariosMenuVertical></ComentariosMenuVertical>
+                                  
                     </div>
                     <div className="header-item">
 
