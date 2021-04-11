@@ -26,7 +26,10 @@ function App() {
     
         <Router>
           <AuthProvider>
-            <Title></Title>
+            
+
+            
+              <Title></Title>
             <nav>
   
               

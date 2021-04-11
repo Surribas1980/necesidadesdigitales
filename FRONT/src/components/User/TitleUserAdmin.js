@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import useAuth from '../../shared/hooks/useAuth';
-import TitleUserAdminVertical from './TitleUserAdminVertical';
+
 import '../../css/TitleUserAdmin.css'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faUserEdit,faCommentDots,faTasks,faMedal,faSchool,faUpload,faTrashAlt,faHome,faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
-import ComentariosMenuVertical from '../ComentariosMenuVertical';
+
 
 function TitleUserAdmin(props){
     const { isUserLogged, logOut } = useAuth(false);
@@ -13,8 +13,9 @@ function TitleUserAdmin(props){
     
     console.log('la foto:',datos);
 
-const salida =<><nav>
-    <div className="encoller">
+const salida =<>
+<div className="navegacionuseradmin">
+        <div className="encoller">
 
                 <div className="header-item">
                     
@@ -23,7 +24,6 @@ const salida =<><nav>
                     
                 
                 </div>
-
                 <div className="header-item">
                     
                         <Link to = "/comentario"><div className="user"><FontAwesomeIcon icon={faCommentDots} /></div></Link>
@@ -40,8 +40,7 @@ const salida =<><nav>
                             </div>
                         </div>*/}
                     
-                </div>
-                
+                </div>               
                 <div className="header-item">
 
                     
@@ -55,15 +54,12 @@ const salida =<><nav>
                         <div>Mis servicios</div>
                     
                 </div>
-
                 <div className="header-item">
                     
                         <Link to="/ranking"><div className="user"><FontAwesomeIcon icon={faMedal}></FontAwesomeIcon></div></Link>
                         <div>Ranking</div>
                     
                 </div>
-
-
                 <div className="header-item">
                     
                         <Link to= "/solucionados"><div className="user"><FontAwesomeIcon icon={faSchool}></FontAwesomeIcon></div></Link>
@@ -75,8 +71,7 @@ const salida =<><nav>
                         <Link to= "/darsolucion"><div className="user"><FontAwesomeIcon  icon={faSchool}></FontAwesomeIcon></div></Link>
                         <div>Servicios No Solucionados</div>
                     
-                </div>
-                
+                </div>               
                 <div className="header-item">
                     
                         <Link to= "/borrar/misservicios"><div className="user"><FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon></div></Link>
@@ -91,22 +86,22 @@ const salida =<><nav>
                     
                 
                 </div>
-                 
-
-                    <Link to="/"><div className="salir"><FontAwesomeIcon onClick={logOut} icon={faSignOutAlt}></FontAwesomeIcon></div></Link>
                 
-    </div>
+        </div>
                 {/*<button onClick={logOut}>LOG OUT!</button>*/}
-               
+        <div className="navegacionuseradmin">
                 {
-                    datos?.map((item,index)=>{
-                        return(<>
+                        datos?.map((item,index)=>{
+                                return(<>
                         
-                <img key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu}/${item.nomFoto_usu}`} alt="imagen"/>
+                                <img key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu}/${item.nomFoto_usu}`} alt="imagen"/>
                         </>)
                     })
                 }
-                </nav>
+                <Link to="/"><div className="salir"><FontAwesomeIcon onClick={logOut} icon={faSignOutAlt}></FontAwesomeIcon></div></Link>
+        
+        </div>       
+</div>
         </>;
 
     return (<>{isUserLogged && salida}</>)

@@ -164,14 +164,28 @@ let cajadentroservicios =<>
                                                                         </div>                                        
                                                                     </div>
 </>;
-
+let sinvermenu = <><div className="mensaje">
+<Link to="/comentario"><div onClick={escuchar} name="sinler" value={numComentariosSinLer} className="caja1"><FontAwesomeIcon data-donde="sinler" data-valor={numComentariosSinLer} onClick={escuchar} alt="mensaje" icon={faEnvelope}></FontAwesomeIcon></div></Link>
+        {numComentariosSinver > 0 ? <FontAwesomeIcon icon={faBookOpen}/> : <FontAwesomeIcon icon={faBook}/>}
+<div className="caja1">
+            {numComentariosSinLer}
+</div> 
+</div></>;
+let sinlermenu = <>
+<div className="mensaje">
+<Link to="/comentario"><div onClick={escuchar} name="sinver" value={numComentariosSinver} className="caja1"><FontAwesomeIcon onClick={escuchar} name="sinler" value={numComentariosSinLer} data-donde="sinver" data-valor={numComentariosSinver} icon={faEnvelope}></FontAwesomeIcon></div> </Link>
+        {numComentariosSinver > 0 ? <FontAwesomeIcon icon={faEyeSlash}/> : <FontAwesomeIcon icon={faEye}/>}
+<div className="caja1">
+        {numComentariosSinver}
+</div> 
+</div></>;
 return (<>    
             
         <main>
             <body>
             <Router>
                 
-                    <nav>
+                    <nav className="navegacion">
                         
                             <div className="esconderlateral">
                                 <div className="botonmenulateral">                
@@ -179,34 +193,19 @@ return (<>
                                 </div>
                             </div>
                                 
-                                <div className="esconder">
-                                    <div onClick={()=>{setShowMenu(!showMenu)}}>
+                            <div className="esconder">
+                                <div onClick={()=>{setShowMenu(!showMenu)}}>
 
                                         <TitleUserAdmin datosusuario={datosUsuario}></TitleUserAdmin> 
-                                    </div>
                                 </div>
-                                <div>
+                            </div>
+                            <div className="siempre">
 
-                                    <div className="mensaje">
-                                        <Link to="/comentario"><div onClick={escuchar} name="sinver" value={numComentariosSinver} className="caja1"><FontAwesomeIcon onClick={escuchar} name="sinler" value={numComentariosSinLer} data-donde="sinver" data-valor={numComentariosSinver} icon={faEnvelope}></FontAwesomeIcon></div> </Link>
-                                        {numComentariosSinver > 0 ? <FontAwesomeIcon icon={faEyeSlash}/> : <FontAwesomeIcon icon={faEye}/>}
-                                        <div className="caja1">
-                                        {numComentariosSinver}
-                                        </div> 
-                                    </div>
-                                </div>
-                                <div>
-                                    <div className="mensaje">
-                                        <Link to="/comentario"><div onClick={escuchar} name="sinler" value={numComentariosSinLer} className="caja1"><FontAwesomeIcon data-donde="sinler" data-valor={numComentariosSinLer} onClick={escuchar} alt="mensaje" icon={faEnvelope}></FontAwesomeIcon></div></Link>
-                                        {numComentariosSinver > 0 ? <FontAwesomeIcon icon={faBookOpen}/> : <FontAwesomeIcon icon={faBook}/>}
-                                        <div className="caja1">
-                                            {numComentariosSinLer}
-                                        </div> 
-                                    </div>
-                                    
-                                </div>
+                                {sinlermenu}
+                                {sinvermenu}
                                 <button onClick={()=>{setShowMenu(!showMenu);}}>Actualizar</button>
                         
+                            </div>
                     </nav>
                 <div className="centrar">
 
@@ -214,7 +213,7 @@ return (<>
                                     
                                 {menuLateral &&
                                         <div className="esconderlateral">
-                                            <div className="lateral">                                        
+                                            <div onClick={()=>{setShowMenu(!showMenu)}} className="lateral">                                        
                                                 <TitleUserAdminVertical fun={escuchar} datosusuario={datosUsuario}></TitleUserAdminVertical>
                                             </div>                                
                                         </div>
@@ -233,7 +232,7 @@ return (<>
                                             <div className="englobanumericos">
                                                 <div className="cajanumericos">
                                                             
-                                                                {setComen && cajadentrocomentarios ? cajadentrocomentarios : ''}  
+                                                                {/*setComen && cajadentrocomentarios ? cajadentrocomentarios : ''*/}  
                                                                 {!setComen && cajadentroservicios ? cajadentroservicios : ''}
                                                                 
                                                                      
@@ -272,7 +271,9 @@ return (<>
                                                                 </div>
                                                             </Route>
                                                             <Route path="/ranking">
+                                                            <div className="lassecciones">
                                                                 <GraficaRanking valores={ranking}></GraficaRanking>
+                                                            </div>
                                                             </Route>
                                                             <Route path="/insert/servicios">
                                                                     <InsertServices />

@@ -1,8 +1,13 @@
-nav {
+/*nav {
   display: flex;
   flex-direction: row;
   background-color: rgb(255, 255, 255);
-  border-bottom: 2px solid red;
+  /*border-bottom: 2px solid rgb(0, 0, 0);
+}*/
+.navegacionvertical {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(180, 67, 67);
 }
 .salir {
   color: black;

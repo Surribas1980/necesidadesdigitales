@@ -113,9 +113,40 @@ h2 {
     margin: 20px;
     color: black;
   }
+  .navegacion {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 2px solid rgb(0, 0, 0);
+    margin: 3px;
+  }
+  .siempre {
+    display: flex;
+    flex-direction: row;
+    background-color: blue;
+    border-radius: 10px;
+    justify-content: space-between;
+    margin: 3px;
+  }
 }
 
 @media (min-width: 700px) {
+  .navegacion {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 2px solid rgb(0, 0, 0);
+    margin: 3px;
+  }
+  .siempre {
+    display: flex;
+    flex-direction: row;
+    background-color: blue;
+    border-radius: 10px;
+    margin: 3px;
+  }
   .header-item {
     font-family: sans-serif;
     padding: 5px 10px;
@@ -252,8 +283,8 @@ h2 {
   }
   .caja1 {
     border-radius: 5px;
-    width: 2rem;
-    height: 2rem;
+    width: auto;
+    height: auto;
     margin: 1px;
     padding: 5px;
     background: rgb(228, 214, 25);

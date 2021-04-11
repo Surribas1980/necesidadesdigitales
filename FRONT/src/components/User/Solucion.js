@@ -28,7 +28,7 @@ export default function Solucion(props){
                                                 <div className="bordear">{item.id_ser}</div>
                                             </div>
                                             <div className="caja3">
-                                                <div className="caja2">Puntos usuario</div>
+                                                <div className="caja2">Puntos_User</div>
                                                 <div className="bordear">{item['puntos(id_usu_soli)']}</div>
                                             </div>
                                             <div className="caja3">

@@ -6,6 +6,15 @@
   border: 2px solid rgb(51, 255, 0);
   margin: 10px;
 }
+.navegacionuseradmin {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(111, 219, 219);
+  border-radius: 5px;
+  justify-content: space-between;
+  /*border-bottom: 2px solid rgb(0, 0, 0);*/
+  margin: 10px;
+}
 .encoller {
   display: flex;
   flex-direction: row;
@@ -38,10 +47,10 @@
 }
 
 img {
-  border: 1px solid #ddd;
+  /*border: 1px solid rgb(202, 121, 121);*/
   border-radius: 5px;
-  max-width: 3%;
-  height: auto;
+  max-width: auto;
+  height: 7vh;
   margin: 0%;
   text-align: center;
 }

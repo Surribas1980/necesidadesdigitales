@@ -35,7 +35,7 @@ export default function DarPuntuacion(props){
     return(<>
     <Router>
         
-        <h4 className="mititulo">Mis servicios solicitados son en total: {props.misservis.lenght}</h4>
+        
     <div className="cajaprincipal">
         
                 <div className="cajita1">

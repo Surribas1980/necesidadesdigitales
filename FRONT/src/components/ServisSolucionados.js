@@ -69,7 +69,7 @@ function ServisSolucionados(props){
                                 <div className="bordear">{item.titulo_ser}</div>
                             </div>
                             <div className="caja3">
-                                <div className="caja2">Puntuación obtenida</div>
+                                <div className="caja2">Puntuación</div>
                                 <div className="bordear">{item.puntuacion}</div>
                             </div>
                             <div className="caja3">

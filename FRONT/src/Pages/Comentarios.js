@@ -48,7 +48,13 @@ export default function Comentarios(props){
 
         
     },[showMenu]);
-   
+    let path = window.location.pathname;
+    let verpath = path.slice(1,11);
+        console.log('el path es',verpath);
+       if(path === '/comentario' || verpath =='comentario'){
+        
+        console.log('Entra en Comentario')
+       }
   
     function atrasClick(){
         atras.push("/comentario");

@@ -3,6 +3,7 @@ import useAuth from '../../shared/hooks/useAuth';
 import '../../css/TitleUserAdminVertical.css'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faUserEdit,faCommentDots,faTasks,faMedal,faSchool,faUpload,faTrashAlt,faHome,faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
+import ComentariosMenuVertical from '../ComentariosMenuVertical';
 
 function TitleUserAdminVertical(props){
     const { isUserLogged, logOut } = useAuth(false);
@@ -10,7 +11,7 @@ function TitleUserAdminVertical(props){
     const datos = props?.datosusuario;
     console.log('la foto:',datos);
 
-const salida =<><nav>
+const salida =<><div className="navegacionvertical">
 
                 <ul>
                 {
@@ -27,6 +28,41 @@ const salida =<><nav>
                     </div>
                     <div className="header-item">
                         <Link to = "/comentario">Comentarios</Link>
+                        <ul>
+                <div className="cadro">
+
+                    <div className="header-item">
+                       
+
+                        <Link to="/comentario/?valor=1">Iniciar conversacion</Link>
+                        
+                    </div>
+                
+                   <div className="header-item">
+                       
+
+                    <Link to="/comentario/?valor=2">Conversaciones</Link>
+                      
+                    </div> 
+                
+                  <div className="header-item">
+                     
+
+                    <Link to="/comentario/?valor=3">Comentarios sin ver</Link>
+                      
+                    </div>  
+                
+               
+                    <div className="header-item">
+                        
+
+                        <Link to="/comentario/?valor=4">Conversaciones sobre mis servicios</Link>
+                        
+
+                    </div>
+                </div>
+               
+            </ul>    
                     </div>
                     <div className="header-item">
 
@@ -66,7 +102,7 @@ const salida =<><nav>
 
                 
                 
-                </nav>
+                </div>
         </>;
 
     return (<>{isUserLogged && salida}</>)
