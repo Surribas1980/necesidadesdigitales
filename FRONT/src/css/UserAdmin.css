@@ -40,10 +40,13 @@ h2 {
 
 @media (max-width: 700px) {
   .englobanumericos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     border-radius: 5px;
     width: auto;
     height: auto;
-    margin: 20px;
+    margin: 3px;
     background-color: darkblue;
     color: white;
   }
@@ -57,7 +60,7 @@ h2 {
     height: auto;
     background-color: #ffffff;
     text-align: center;
-    margin: 50px;
+    margin: 10px;
   }
   .box {
     display: flex;
@@ -127,10 +130,30 @@ h2 {
   .siempre {
     display: flex;
     flex-direction: row;
-    background-color: blue;
+    /*background-color: blue;*/
     border-radius: 10px;
     justify-content: space-between;
     margin: 3px;
+  }
+  .datosnumericos {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    width: 300px;
+    height: 100px;
+    margin: 1px;
+    padding: 5px;
+    color: white;
+    background: rgb(182, 206, 216);
+  }
+  .caja1 {
+    border-radius: 5px;
+    width: auto;
+    height: auto;
+    margin: 1px;
+    padding: 5px;
+    background: rgb(228, 214, 25);
+    text-align: center;
   }
 }
 
@@ -146,9 +169,10 @@ h2 {
   .siempre {
     display: flex;
     flex-direction: row;
-    background-color: blue;
+    background-color: rgb(174, 190, 188);
     border-radius: 10px;
-    margin: 3px;
+    margin: 5px;
+    padding: 5px;
   }
   .header-item {
     font-family: sans-serif;
@@ -255,6 +279,8 @@ h2 {
     width: auto;
   }
   .datosnumericos {
+    display: flex;
+    flex-direction: column;
     border-radius: 10px;
     width: 300px;
     height: 100px;
@@ -262,7 +288,6 @@ h2 {
     padding: 5px;
     color: white;
     background: rgb(182, 206, 216);
-    display: inline-flex;
   }
   .texto {
     border: 1px solid black;

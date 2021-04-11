@@ -14,7 +14,7 @@ import DeleteMyService from '../components/User/DeleteMyService';
 import TitleUserAdmin from '../components/User/TitleUserAdmin';
 import TitleUserAdminVertical from '../components/User/TitleUserAdminVertical';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faEnvelope,faBars,faEye,faEyeSlash,faBookOpen,faBook} from '@fortawesome/free-solid-svg-icons';
+import {faRedo,faEnvelope,faBars,faEye,faEyeSlash,faBookOpen,faBook} from '@fortawesome/free-solid-svg-icons';
 import ComentariosMenuVertical from '../components/ComentariosMenuVertical';
 
 function UserAdmin(){
@@ -204,8 +204,10 @@ return (<>
 
                                 {sinlermenu}
                                 {sinvermenu}
-                                <button onClick={()=>{setShowMenu(!showMenu);}}>Actualizar</button>
-                        
+                                {/*<button onClick={()=>{setShowMenu(!showMenu);}}>Actualizar</button>*/}
+                                <div className="mensaje">
+                                    <FontAwesomeIcon onClick={()=>{setShowMenu(!showMenu);}} icon={faRedo}/>
+                                </div>
                             </div>
                     </nav>
                 <div className="centrar">
@@ -232,36 +234,21 @@ return (<>
                                 <div className="centrar">
 
                                         <div className="principal">
-                                        
-                                            
-                                                
-                                                            
                                                                 {/*setComen && cajadentrocomentarios ? cajadentrocomentarios : ''*/}  
                                                                 {!setComen && cajadentroservicios ? <div className="englobanumericos"><div className="cajanumericos">{cajadentroservicios}</div></div> : ''}
                                                                 
-                                                                     
-                                                            
-                                                 
-                                             
                                             <hr></hr>  
                                             <hr></hr>
                                                         <Switch>
 
                                                             <Route path="/comentario">
-                                                                
-                                                                    
                                                                     <Comentarios evento={evento} donde={donde} numero={num}/> 
-                                                                    
-                                                                
                                                             </Route>            
                                                             <Route path="/datospersonales">
                                                                 <ModificacionDatos datos={datosUsuario}/>
                                                             </Route>
                                                             <Route path="/darpuntuacion">
-                                                                
-                                                                    
                                                                     <DarPuntuacion misservis={misSolicitados} solucionados={misSerSolucionados}></DarPuntuacion>
-                                                            
                                                             </Route>
                                                             <Route path="/darsolucion">
                                                                 <div className="lassecciones">
