@@ -1,64 +1,90 @@
-.formulario {
-  display: flex;
-  align-items: flex-start;
+@media (min-width: 700px) {
+  .formulario {
+    display: flex;
+
+    align-items: flex-start;
+  }
+
+  .formulario input[name="titulo,explicacion"] {
+    flex: 1 1 auto;
+  }
+
+  label {
+    background-color: rgb(223, 220, 186);
+    border-radius: 5px;
+    padding: 3px;
+    margin: 2px;
+    width: 100px;
+  }
+  .listaservicios {
+    background-color: rgba(207, 203, 203, 0.787);
+    border-radius: 10px;
+    width: 800px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .adianteatras {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+  }
+  .dentrofromlista {
+    border-radius: 5px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(95, 118, 160);
+  }
+  .fuerafromlista {
+    display: flex;
+    align-items: start;
+
+    border: 1px solid black;
+    width: 500px;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(231, 141, 119);
+  }
+  .dentrofromdelete {
+    border-radius: 5px;
+    display: flex;
+    align-items: flex-start;
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(150, 160, 95);
+  }
+  .fuerafromdelete {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(136, 231, 119);
+  }
 }
 
-.formulario input[name="titulo,explicacion"] {
-  flex: 1 1 auto;
-}
-
-label {
-  background-color: rgb(223, 220, 186);
-  border-radius: 5px;
-  padding: 3px;
-  margin: 2px;
-  width: 100px;
-}
-.listaservicios {
-  background-color: rgba(207, 203, 203, 0.787);
-  border-radius: 10px;
-  width: 800px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-.adianteatras {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: row;
-}
-.dentrofromlista {
-  border-radius: 5px;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: row;
-  margin: 10px;
-  padding: 10px;
-  background-color: rgb(95, 118, 160);
-}
-.fuerafromlista {
-  display: flex;
-  align-items: start;
-
-  border: 1px solid black;
-  width: 500px;
-  border-radius: 5px;
-  margin: 10px;
-  padding: 10px;
-  background-color: rgb(231, 141, 119);
-}
-.dentrofromdelete {
-  border-radius: 5px;
-  display: flex;
-  align-items: flex-start;
-  margin: 10px;
-  padding: 10px;
-  background-color: rgb(150, 160, 95);
-}
-.fuerafromdelete {
-  border: 1px solid black;
-  border-radius: 5px;
-  margin: 10px;
-  padding: 10px;
-  background-color: rgb(136, 231, 119);
+@media (max-width: 700px) {
+  .dentrofromdelete {
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(150, 160, 95);
+  }
+  label {
+    background-color: rgb(223, 220, 186);
+    border-radius: 5px;
+    padding: 3px;
+    margin: 2px;
+  }
+  .fuerafromdelete {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

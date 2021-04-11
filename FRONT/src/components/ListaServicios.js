@@ -69,23 +69,21 @@ export default function ListaServicios(props){
                                     <div className="dentro">
                                         <div className="paratitulo">
 
-                                        <label className="titulo" >Titulo</label>
-                                        <hr></hr>
-                                        <input value={item.titulo_ser} readOnly />                        
+                                            <label className="titulo" >Titulo</label>
+                                            
+                                            <input value={item.titulo_ser} readOnly />                        
                                         </div>
-                                    </div>
-                                    <div className="dentro">
+                                        <hr></hr>
                                         <div className="paratitulo">
 
                                             <label className="titulo">Explicación</label> 
-                                            <hr></hr>
+                                            
                                             <textarea value={item.expli_ser} readOnly />                                                 
                                         </div>
-                                    </div>    
-                                    <div className="dentro">
+                                    <hr></hr>
                                         <div className="paratitulo">
                                             <label className="titulo">Borrar</label> 
-                                            <hr></hr>
+                                            
                                             <input type="checkbox" value={item.id_ser} name={`${fieldName}.expli_ser`} ref={register} />
                                         </div>
                                     </div>
