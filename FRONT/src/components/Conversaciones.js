@@ -7,6 +7,7 @@ function Conversaciones(props){
     const [datoscomentariosServicios,setdatoscomentariosServicios] = useState("");
     const [comentarConJoin,setcomentarConJoin] = useState("");
     const [numConversacion,setConversacion] = useState(0);
+    const [verConversaciones, setverConversaciones] = useState(false);
     const conversacion = props.convergeneral;
 
     const irA = async (id_ser)=>{    
@@ -53,7 +54,7 @@ function Conversaciones(props){
                                     </div>
                                     <div className="caja3">
                                         <div className="caja2">Conversación</div>
-                                        <button onClick={()=>{irA(item.id_ser)}}>Ver</button>
+                                        <button onClick={()=>{irA(item.id_ser);setverConversaciones(true);}}>Ver</button>
                                     </div>
                                 </div>
                             
@@ -64,12 +65,14 @@ function Conversaciones(props){
                                         const valor = numConversacion -1;
                                         setConversacion(valor);
                                     }
+                                    setverConversaciones(false);
                                 }}>{'<'}</button>
                                 <button onClick={()=>{
                                     if(numConversacion < conversacion.length - 1){
                                         const valor = numConversacion + 1;
                                         setConversacion(valor);
                                     }
+                                    setverConversaciones(false);
                                 }}>{'>'}</button>
                             </div>   
                             </>)
@@ -78,7 +81,7 @@ function Conversaciones(props){
                 }
             </div>
         </div>
-            {comentarConJoin && <ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}/> ? <ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}/> : ''}
+            {verConversaciones && comentarConJoin.length !==0 && <ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}/> ? <ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}/> : <p>{'Si pulsas en ver y no aparece conversación es que el usuario que ha solicitado el servicio no le respondió'}</p>}
        
     
     </>)

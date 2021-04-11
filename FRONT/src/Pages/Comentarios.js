@@ -48,13 +48,7 @@ export default function Comentarios(props){
 
         
     },[showMenu]);
-    let path = window.location.pathname;
-    let verpath = path.slice(1,11);
-        console.log('el path es',verpath);
-       if(path === '/comentario' || verpath =='comentario'){
-        
-        console.log('Entra en Comentario')
-       }
+    
   
     function atrasClick(){
         atras.push("/comentario");
@@ -64,13 +58,22 @@ let actualiza = <><div className="mensaje">
 </div></>;
 let salida1 = <><div className="separacion"><MostrarServiciosComentarios numservicios={numServiciosSinSolucion} servicios={servicios} paginamax={numpaginamax} paginamin={numpaginamin} ></MostrarServiciosComentarios></div></>; 
 let salida2 = <><Conversaciones convergeneral={comentarios}></Conversaciones></>;    
-let salida3 = <><ConversacionesParticipo misconvergenericas={comentariosRecibidos} ></ConversacionesParticipo></>;  
-let salida4 = <><ComentariosLista valores={misconversaciones}></ComentariosLista></>;   
+let salida3 = <><ConversacionesParticipo misconvergenericas={comentariosRecibidos}/></>;  
+let salida4 = <><ComentariosLista valores={misconversaciones}></ComentariosLista></>; 
+let salida;  
+switch(even){
+    case 1: salida = salida1;break;
+    case 2: salida = salida2;break;
+    case 3: if(comentariosRecibidos.length > 0){
+        salida = salida3;break;
+    }else{
+        salida = <h4>No tiene comentarios sin leer</h4>;break;
+    }
+    case 4: salida = salida4;break;
+    default: salida = '';
+}
     //<ComentariosLista valores={comentarios}></ComentariosLista>
-    return (<>{actualiza}
-            {even === 1 && salida1}
-            {even === 2 && salida2}
-            {even === 3 && comentariosRecibidos.length > 0 ? salida3 : <h4>No tiene comentarios sin leer</h4>}
-            {even === 4 && salida4}   
+    return (<>{actualiza}            
+            {salida}
         </>);
 }

@@ -10,6 +10,7 @@ export default function MisServiSoliUserAdmin(props){
     const [datoscomentariosServicios,setdatoscomentariosServicios] = useState("");
     const [comentarConJoin,setcomentarConJoin] = useState("");
     const [numServicio,setServicio]=useState(0);
+    const [verComentarios,setverComentarios]=useState(false);
     
     let servicio;
     let v;
@@ -34,7 +35,7 @@ const irA = async (id)=>{
                         
                                     <div className="oculto">{servicio = item.id_ser}{v=`/servicio/${servicio}`}</div>
                                     <div className="comienzo">                                   
-                                                    <div className="caja1"><Link to={v}><FontAwesomeIcon onClick={()=>{irA(item.id_ser)}} icon={faComments}></FontAwesomeIcon></Link></div>
+                                                    <div className="caja1"><Link to={v}><FontAwesomeIcon onClick={()=>{irA(item.id_ser);setverComentarios(true);}} icon={faComments}></FontAwesomeIcon></Link></div>
                                                     <div className="caja3">
                                                         <div className="caja2">Solucionado</div>
                                                         {item.puntuacion >= 2.5 ? 
@@ -55,14 +56,14 @@ const irA = async (id)=>{
                                                     const valor = numServicio - 1;
                                                 setServicio(valor);
                                                 }
-                                                
+                                                setverComentarios(false);
                                             }}>{'<'}</button>
                                         <button onClick={()=>{
                                             if(numServicio < misservicios.length-1){
                                                 const valor = numServicio + 1;
                                             setServicio(valor);
                                             }
-                                            
+                                            setverComentarios(false);
                                         }}>{'>'}</button>   
                                     </div>
                             
@@ -76,8 +77,8 @@ const irA = async (id)=>{
        
         <hr></hr>
         <hr></hr>
-        {comentarConJoin.length !== 0 ? <ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}></ComentarioListaTd> : <p>{'No tiene conversaciones'}</p> }
-    
+        {verComentarios && comentarConJoin.length !== 0 ? <ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}/> : 'Comprueba pulsando en comentarios si tiene, si no aparece nada, no tendrá comentarios' }
+        
         </>);
 
 }

@@ -166,7 +166,7 @@ let cajadentroservicios =<>
 </>;
 let sinvermenu = <>
 <div className="mensaje">
-        <Link to="/comentario"><div onClick={escuchar} name="sinler" value={numComentariosSinLer} className="caja1"><FontAwesomeIcon data-donde="sinler" data-valor={numComentariosSinLer} onClick={escuchar} alt="mensaje" icon={faEnvelope}></FontAwesomeIcon></div></Link>
+        <Link to="/comentario"><div onClick={(e)=>{escuchar(e); setShowMenu(!showMenu)}} name="sinler" value={numComentariosSinLer} className="caja1"><FontAwesomeIcon data-donde="sinler" data-valor={numComentariosSinLer} onClick={escuchar} alt="mensaje" icon={faEnvelope}></FontAwesomeIcon></div></Link>
         {numComentariosSinver > 0 ? <FontAwesomeIcon icon={faBookOpen}/> : <FontAwesomeIcon icon={faBook}/>}
         <div className="caja1">
                     {numComentariosSinLer}
@@ -174,7 +174,7 @@ let sinvermenu = <>
 </div></>;
 let sinlermenu = <>
 <div className="mensaje">
-<Link to="/comentario"><div onClick={escuchar} name="sinver" value={numComentariosSinver} className="caja1"><FontAwesomeIcon onClick={escuchar} name="sinler" value={numComentariosSinLer} data-donde="sinver" data-valor={numComentariosSinver} icon={faEnvelope}></FontAwesomeIcon></div> </Link>
+<Link to="/comentario"><div onClick={(e)=>{escuchar(e); setShowMenu(!showMenu)}} name="sinver" value={numComentariosSinver} className="caja1"><FontAwesomeIcon onClick={escuchar} name="sinler" value={numComentariosSinLer} data-donde="sinver" data-valor={numComentariosSinver} icon={faEnvelope}></FontAwesomeIcon></div> </Link>
         {numComentariosSinver > 0 ? <FontAwesomeIcon icon={faEyeSlash}/> : <FontAwesomeIcon icon={faEye}/>}
 <div className="caja1">
         {numComentariosSinver}
