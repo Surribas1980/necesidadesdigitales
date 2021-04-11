@@ -72,8 +72,7 @@ h2 {
   }
   .esconderlateral {
     display: block;
-    width: 300px;
-    background-color: blue;
+    width: auto;
   }
   .botonmenulateral {
     display: block;
@@ -95,6 +94,8 @@ h2 {
     overflow: scroll;
   }
   .mensaje {
+    padding: 5px;
+    border: none;
     font-size: 1em;
     height: auto;
     margin: 0%;
@@ -154,6 +155,8 @@ h2 {
     color: white;
   }
   .mensaje {
+    padding: 2px;
+    border: none;
     font-size: 1em;
     height: auto;
     text-align: center;

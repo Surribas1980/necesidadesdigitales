@@ -164,12 +164,13 @@ let cajadentroservicios =<>
                                                                         </div>                                        
                                                                     </div>
 </>;
-let sinvermenu = <><div className="mensaje">
-<Link to="/comentario"><div onClick={escuchar} name="sinler" value={numComentariosSinLer} className="caja1"><FontAwesomeIcon data-donde="sinler" data-valor={numComentariosSinLer} onClick={escuchar} alt="mensaje" icon={faEnvelope}></FontAwesomeIcon></div></Link>
+let sinvermenu = <>
+<div className="mensaje">
+        <Link to="/comentario"><div onClick={escuchar} name="sinler" value={numComentariosSinLer} className="caja1"><FontAwesomeIcon data-donde="sinler" data-valor={numComentariosSinLer} onClick={escuchar} alt="mensaje" icon={faEnvelope}></FontAwesomeIcon></div></Link>
         {numComentariosSinver > 0 ? <FontAwesomeIcon icon={faBookOpen}/> : <FontAwesomeIcon icon={faBook}/>}
-<div className="caja1">
-            {numComentariosSinLer}
-</div> 
+        <div className="caja1">
+                    {numComentariosSinLer}
+        </div> 
 </div></>;
 let sinlermenu = <>
 <div className="mensaje">
@@ -232,16 +233,16 @@ return (<>
 
                                         <div className="principal">
                                         
-                                            <div className="englobanumericos">
-                                                <div className="cajanumericos">
+                                            
+                                                
                                                             
                                                                 {/*setComen && cajadentrocomentarios ? cajadentrocomentarios : ''*/}  
-                                                                {!setComen && cajadentroservicios ? cajadentroservicios : ''}
+                                                                {!setComen && cajadentroservicios ? <div className="englobanumericos"><div className="cajanumericos">{cajadentroservicios}</div></div> : ''}
                                                                 
                                                                      
                                                             
-                                                </div> 
-                                            </div> 
+                                                 
+                                             
                                             <hr></hr>  
                                             <hr></hr>
                                                         <Switch>

@@ -57,6 +57,11 @@ td {
     border: 1px solid black;
     /*border-radius: 5px solid black;*/
   }
+  .comienzo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }
 @media (min-width: 700px) {
   .bordear {

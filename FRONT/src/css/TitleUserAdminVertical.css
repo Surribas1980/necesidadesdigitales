@@ -62,3 +62,8 @@
   top: 30px;
   left: 0px;
 }
+.paracomentarios {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
