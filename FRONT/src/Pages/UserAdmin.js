@@ -248,9 +248,9 @@ return (<>
                                                                 <ModificacionDatos datos={datosUsuario}/>
                                                             </Route>
                                                             <Route path="/darpuntuacion">
-                                                            <div className="lassecciones">
+                                                        
                                                                     <DarPuntuacion misservis={misSolicitados} solucionados={misSerSolucionados}></DarPuntuacion>
-                                                            </div>
+                                                        
                                                             </Route>
                                                             <Route path="/darsolucion">
                                                                 <div className="lassecciones">

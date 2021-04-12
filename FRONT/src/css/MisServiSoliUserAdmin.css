@@ -9,7 +9,8 @@ button {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-
+    background-color: gray;
+    border-radius: 5px;
     margin: 5px;
   }
   .oculto {
@@ -28,7 +29,7 @@ button {
 
   .caja {
     border: 1px solid black;
-    background-color: burlywood;
+    background-color: orange;
     border-radius: 5px;
     width: auto;
     margin: 5px;
@@ -73,7 +74,8 @@ button {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-
+    background-color: gray;
+    border-radius: 5px;
     margin: 5px;
   }
   .oculto {
@@ -105,6 +107,7 @@ button {
     border-radius: 5px;
     width: 200px;
     margin: 1px;
+    background-color: orange;
   }
   .caja3 {
     display: flex;

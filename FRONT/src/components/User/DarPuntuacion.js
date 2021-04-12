@@ -58,7 +58,7 @@ export default function DarPuntuacion(props){
         <Route path="/missolucionados">
             <MisServSol missolucionados={servsolucionados}></MisServSol>
         </Route>
-        {/*<MisServiSoliUserAdmin misservis={props.misservis}></MisServiSoliUserAdmin>*/}
+        <MisServiSoliUserAdmin misservis={props.misservis}></MisServiSoliUserAdmin>
     </Router>
     </>);
 }
