@@ -118,7 +118,7 @@ console.log('inicio lista',inicioLista);
 //console.log('lo que quiero:', numServicios.resultbbdd[0][0]);
     return (<>
 
-        <h1>Lista de servicios. IdMaximo {idMaximoServicio}</h1>
+        <h1>Lista de servicios</h1>
 
         <div className="listaservicios">
         

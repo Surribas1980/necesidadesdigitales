@@ -1,21 +1,37 @@
 import AportarSolucion from './AportarSolucion';
 import {useState} from 'react';
 import '../../css/Solucion.css';
+import { deleteService } from '../../http/api';
+import VerArchivos from '../VerArchivos';
 export default function Solucion(props){
     const [idServicio,setIdservicio] = useState(0);
-    const [irA,setirA]=useState(false);
+    
+    const [archivos,setArchivos] = useState();
+    const [servicio, setServicio] = useState(0);
+    const [verFicheros, setVerFicheros] = useState(false);
     const sinsolucionar = props?.nosolucionados;
     console.log('Estoy en solucion', props?.nosolucionados);
 
     const aSolucionar = (valor)=>{
         console.log('aSolucionar: ',valor)
         setIdservicio(valor);
+    };
+    const cojerFicheros = async (Servicio)=>{
+        console.log('irA',Servicio);
+        const url = `/showfiles/${Servicio}`;
+          const data = await deleteService(url,'GET',0,0);
+          setArchivos(data);
+          
+          setServicio(Servicio);
+          setVerFicheros(true);
+          console.log('Isto é o que recollo', data);
+          
     }
-   
     return (<>
     <div className="tabla1">
 
         <div className="caja">
+            <button onClick={()=>{setVerFicheros(false)}}>Ocultar Ficheros</button>
             <div className="caja">
                 {
                     sinsolucionar?.map((item,index)=>{
@@ -47,6 +63,11 @@ export default function Solucion(props){
                                                 <div className="caja2">Explicación</div>
                                                 <div className="bordear">{item.expli_ser}</div>
                                             </div>
+
+                                            <div className="caja3">
+                                                <div className="caja2">Ficheros</div>
+                                                <button onClick={()=>{cojerFicheros(item.id_ser)}}>Ver</button>
+                                            </div>
                                             <div className="caja3">
                                                 <div className="caja2">Solucionar</div>
                                                 <button onClick={()=>{aSolucionar(item.id_ser)}}>Dar solucion</button>
@@ -62,6 +83,6 @@ export default function Solucion(props){
     </div>
     
        {idServicio && <AportarSolucion id={idServicio}></AportarSolucion> ? <AportarSolucion id={idServicio}></AportarSolucion> : " "}
-
+       {verFicheros && <VerArchivos ficheros={archivos}  server={servicio} lugar={'verficheros'}/>}
     </>);
 }

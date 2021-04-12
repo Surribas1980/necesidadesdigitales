@@ -87,7 +87,8 @@ export default function MisServSol(props){
             </div>
         </div>
     }
-    {misservissolucionados.length > 0 &&  archivos && <VerArchivos ficheros={archivos} user={usuario} server={servicio} nombre={nombreSolucionador}></VerArchivos>}
+    {misservissolucionados.length > 0 && archivos && <VerArchivos lugar={'solucionados'} ficheros={archivos} user={usuario} server={servicio} nombre={nombreSolucionador}></VerArchivos>}
     {misservissolucionados.length > 0 &&  <button onClick={()=>{descartar()}}>Descartar</button>}
+    {misservissolucionados.length == 0 && misservissolucionados ? <p>No hay soluciones</p> : ''}
     </>)
 }

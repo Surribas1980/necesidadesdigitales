@@ -95,7 +95,7 @@ export default function MisSolDesc(props){
         </div>
     }
     {servicios.length > 0 && <button onClick={()=>{enviar()}}>Votar</button>}
-    {servicios.length > 0 && archivos && <VerArchivos ficheros={archivos} user={usuario} server={servicio} nombre={nombreSolucionador}></VerArchivos>}
+    {servicios.length > 0 && archivos && <VerArchivos lugar={'solucionados'} ficheros={archivos} user={usuario} server={servicio} nombre={nombreSolucionador}></VerArchivos>}
     
     </>);
 

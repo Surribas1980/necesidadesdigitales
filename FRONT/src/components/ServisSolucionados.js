@@ -39,6 +39,8 @@ function ServisSolucionados(props){
           
     }
 
+    
+
     return (<>    
     
     <div className="caja">
@@ -72,6 +74,7 @@ function ServisSolucionados(props){
                                 <div className="caja2">Puntuación</div>
                                 <div className="bordear">{item.puntuacion}</div>
                             </div>
+                            
                             <div className="caja3">
                                 <div className="caja2">Solución</div>
                                 <div className="bordear"><button onClick={()=>{irA(item.id_ser,item.id_usu_sol,item.Solucionador)}}>ver</button></div>
@@ -84,7 +87,7 @@ function ServisSolucionados(props){
             </div>
         </div>
     
-    {archivos && <VerArchivos ficheros={archivos} user={usuario} server={servicio} nombre={nombreSolucionador}></VerArchivos>}
+    {archivos && <VerArchivos lugar={'solucionados'} ficheros={archivos} user={usuario} server={servicio} nombre={nombreSolucionador}></VerArchivos>}
     </>)
 };
 
