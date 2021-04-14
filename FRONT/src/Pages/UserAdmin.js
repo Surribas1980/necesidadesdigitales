@@ -16,6 +16,7 @@ import TitleUserAdminVertical from '../components/User/TitleUserAdminVertical';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faRedo,faEnvelope,faBars,faEye,faEyeSlash,faBookOpen,faBook} from '@fortawesome/free-solid-svg-icons';
 import ComentariosMenuVertical from '../components/ComentariosMenuVertical';
+import Solucionado from '../components/Solucionado';
 
 function UserAdmin(){
     const { userData, logOut } = useAuth();
@@ -211,7 +212,7 @@ return (<>
                             </div>
                     </nav>
                 <div className="centrar">
-                    <div className="lateralizq">lateral izq</div>
+                    <div className="lateralizq">lateral izq<Solucionado solucionados={servesSolucionados}></Solucionado></div>
                     <div className="centro">
                                     
                                 {menuLateral &&
@@ -276,6 +277,9 @@ return (<>
                                                             
                                                                     <DeleteMyService />                  
                                                                                 
+                                                            </Route>
+                                                            <Route path="/solucionado">
+
                                                             </Route>
                                                         </Switch>                    
                                             

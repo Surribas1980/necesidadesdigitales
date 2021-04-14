@@ -2,13 +2,19 @@ import BotonEnvioComentarios from './BotonEnvioComentarios';
 import insertComent from '../../http/api';
 import '../../css/ComentariosListaTd.css';
 import {useState} from 'react';
+import { BrowserRouter as Router, Route, Link,useHistory } from 'react-router-dom';
 function ComentarioListaParticipo(props){
+    let volver = useHistory();
   const [ver,setVer] = useState(false);
     let comentarios = props?.elementos[0];
     
     comentarios?.map((item)=>{
         console.log('cometarios: ',comentarios)
     })
+
+    /*function volVer(){
+        volver.push('')
+    }*/
     const enviarRespuesta = ()=>{
         let inputs = document.getElementsByTagName("input");
        
