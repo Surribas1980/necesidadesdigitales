@@ -9,7 +9,7 @@
 .navegacionuseradmin {
   display: flex;
   flex-direction: row;
-  background-color: rgb(111, 219, 219);
+  background-color: rgb(115, 143, 111);
   border-radius: 5px;
   justify-content: space-between;
   /*border-bottom: 2px solid rgb(0, 0, 0);*/
@@ -38,12 +38,12 @@
   border-bottom: 1px solid coral;*/
 }
 .header-item:hover {
-  background-color: lightseagreen;
+  background-color: rgb(94, 82, 199);
 }
 
 .header-item a {
   text-decoration: none;
-  color: black;
+  color: rgb(253, 252, 252);
 }
 
 img {

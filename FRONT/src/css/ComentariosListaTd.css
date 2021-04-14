@@ -79,13 +79,15 @@ th {
     text-align: center;
   }
   .imgagen {
+    transform: scale(0.5);
     border: 1px solid #ddd;
     border-radius: 5px;
-    max-width: 75%;
+    max-width: 15%;
     height: auto;
     margin: 0%;
     text-align: center;
   }
+
   .bordear {
     border: 1px solid black;
     /*border-radius: 5px solid black;*/
@@ -121,10 +123,19 @@ th {
     background: rgb(152, 220, 241);
     text-align: center;
   }
+  .imgagen2 {
+    background-color: blue;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: 100px;
+    height: auto;
+    margin: 0%;
+    text-align: center;
+  }
   .imgagen {
     border: 1px solid #ddd;
     border-radius: 5px;
-    max-width: 75%;
+    max-width: 15%;
     height: auto;
     margin: 0%;
     text-align: center;

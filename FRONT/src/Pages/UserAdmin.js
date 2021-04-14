@@ -211,8 +211,8 @@ return (<>
                             </div>
                     </nav>
                 <div className="centrar">
-
-                    <div className="box">
+                    <div className="lateralizq">lateral izq</div>
+                    <div className="centro">
                                     
                                 {menuLateral &&
                                         <div className="esconderlateral">
@@ -223,7 +223,7 @@ return (<>
                                 }
                                 {/*selecMisServi && <TitleMisServicios /> ? <TitleMisServicios /> : ''*/}
                                 <div className="esconder">
-
+                                    
                                     {setComen && <ComentariosMenuVertical /> ? 
                                     
                                     <div onClick={()=>{setShowMenu(!showMenu)}}><ComentariosMenuVertical/></div>
@@ -231,7 +231,7 @@ return (<>
                                     
                                     }
                                 </div>
-                                <div className="centrar">
+                                <div className="centrar2">
 
                                         <div className="principal">
                                                                 {/*setComen && cajadentrocomentarios ? cajadentrocomentarios : ''*/}  
@@ -286,6 +286,7 @@ return (<>
                                         </div>
                                 </div>
                     </div>
+                    <div className="lateraldch">lateral dcho</div>
                 </div>                        
 
             </Router>

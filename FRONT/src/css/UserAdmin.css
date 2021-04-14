@@ -70,6 +70,7 @@ h2 {
     background-color: rgb(201, 207, 194);
     width: auto;
     height: auto;
+    align-items: center;
   }
 
   .esconder {
@@ -219,16 +220,51 @@ h2 {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     width: auto;
+    background-color: blueviolet;
   }
-  .box {
+  .centrar2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    /*width: auto;*/
+    flex: 1 1 auto;
+    background-color: rgb(195, 206, 50);
+  }
+  .centradonocentro {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    width: auto;
+    background-color: rgb(43, 226, 83);
+  }
+  .lateralizq {
+    background-color: brown;
+    margin: 5px;
+    width: 200px;
+    height: auto;
+    text-align: center;
+    /*flex: 1 1 auto;*/
+  }
+  .lateraldch {
+    background-color: coral;
+    margin: 5px;
+    width: 100px;
+    height: auto;
+    text-align: center;
+    /*flex: 1 1 auto;*/
+  }
+  .centro {
     display: flex;
     box-sizing: border-box;
     align-items: flex-start;
+    flex: 1 1 auto;
     /*justify-content: start;*/
-    background-color: rgb(255, 255, 255);
-    width: 100%;
+    background-color: rgb(189, 180, 180);
+
     text-align: center;
     width: auto;
     height: auto;

@@ -1,26 +1,66 @@
 .imagen {
   border: 1px solid #ddd;
   border-radius: 5px;
-  max-width: 15%;
+  width: 100%;
   height: auto;
   margin: 3%;
+  text-align: center;
 }
+.dentroform {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: 1px solid olive;
+}
+.botonimagen {
+  border: 1px solid blue;
+  width: auto;
+  height: auto;
+  background-color: white;
+}
+input[type="file"] {
+  display: none;
+}
+
+.fuera {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: chartreuse;
+}
+
 .modificaciondatos {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   background-color: gray;
-  width: auto;
+  width: 500px;
   height: auto;
   margin: 3%;
 }
 .labelinput {
   display: flex;
+  flex-direction: row;
 
-  align-items: flex-start;
+  border: 1px solid red;
+}
+.paraimagen {
+  margin: 2px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
+  border: 1px solid rgb(7, 7, 7);
 }
 .paraform {
   display: flex;
   flex-direction: column;
+}
+
+.imagenfoto {
+  border: 1px solid blue;
 }
