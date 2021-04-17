@@ -50,9 +50,7 @@ export default function Comentarios(props){
     },[showMenu]);
     
   
-    function atrasClick(){
-        atras.push("/comentario");
-    }
+    
 let actualiza = <><div className="mensaje">
 <FontAwesomeIcon onClick={()=>{setShowMenu(!showMenu)}} icon={faUndo}></FontAwesomeIcon>
 </div></>;

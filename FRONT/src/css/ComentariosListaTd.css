@@ -127,8 +127,8 @@ th {
     background-color: blue;
     border: 1px solid #ddd;
     border-radius: 5px;
-    max-width: 100px;
-    height: auto;
+    max-width: auto;
+    height: 100px;
     margin: 0%;
     text-align: center;
   }

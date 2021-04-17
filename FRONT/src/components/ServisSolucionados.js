@@ -1,4 +1,4 @@
-import { deleteService, descartarServicio } from '../http/api';
+import { deleteService } from '../http/api';
 import {useState} from 'react';
 import VerArchivos from './VerArchivos';
 import '../css/ServisSolucionados.css'
@@ -43,7 +43,7 @@ function ServisSolucionados(props){
 
     return (<>    
     
-    <div className="caja">
+    {<div className="caja">
             <div className="caja">
                 {
         
@@ -85,7 +85,7 @@ function ServisSolucionados(props){
         })
     }
             </div>
-        </div>
+    </div>}
     
     {archivos && <VerArchivos lugar={'solucionados'} ficheros={archivos} user={usuario} server={servicio} nombre={nombreSolucionador}></VerArchivos>}
     </>)

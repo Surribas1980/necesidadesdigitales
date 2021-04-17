@@ -7,9 +7,9 @@ function ComentarioListaParticipo(props){
     let volver = useHistory();
   const [ver,setVer] = useState(false);
     let comentarios = props?.elementos[0];
-    
+    //let comentarios = props?.dato;
     comentarios?.map((item)=>{
-        console.log('cometarios: ',comentarios)
+        console.log('cometarios lista participo: ',comentarios,'el item que recoje',item)
     })
 
     /*function volVer(){
@@ -17,9 +17,6 @@ function ComentarioListaParticipo(props){
     }*/
     const enviarRespuesta = ()=>{
         let inputs = document.getElementsByTagName("input");
-       
-
-
         
         for (let i = 0; i < inputs.length; i++) {
                
@@ -157,11 +154,6 @@ function ComentarioListaParticipo(props){
                 
             </div>
         }
-
-
-
-
-
         <BotonEnvioComentarios funcion={enviarRespuesta}></BotonEnvioComentarios>
     </>);
     

@@ -17,9 +17,13 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faRedo,faEnvelope,faBars,faEye,faEyeSlash,faBookOpen,faBook} from '@fortawesome/free-solid-svg-icons';
 import ComentariosMenuVertical from '../components/ComentariosMenuVertical';
 import Solucionado from '../components/Solucionado';
+import UnSolucionado from '../components/UnSolucionado';
+import ConversacionEleccion from '../components/ConversacionEleccion';
+import UnaConversacion from '../components/UnaConversacion';
 
 function UserAdmin(){
     const { userData, logOut } = useAuth();
+    const match = useRouteMatch();
     const [ranking, setRanking] = useState([]);
     const [datosUsuario, setDatosUsuario] = useState([]);
     const [servesSolucionados, setservisSolucionados] = useState([]);
@@ -31,18 +35,20 @@ function UserAdmin(){
     const [misSerNoSolucionados,setmisSerNoSolucionados]=useState([]);
     const [misSolicitados, setmisSolicitados] = useState([]);
     const [misSerSolucionados,setmisSerSolucionados]=useState([]);
-   
+    const [numServiciosSinSolucion,setnumServiciosSinSolucion]=useState(0);
     const [showMenu, setShowMenu]=useState(false);
     const [mostrar, setMostrar] = useState(false);
     const [menuLateral, setMenuLateral] = useState(false);
     const [proba,setProba]= useState(0);
     const [donde, setDonde] = useState("");
     const [num, setNum] = useState(0);
-   
+    const [servicios,setServicios] = useState("");
     const [setComen,setMenuComentario] = useState(0);
-    
-    
+    const [misconversaciones, setMisConversaciones] = useState([]);
+    const [miscomentarios,setMisComentarios] = useState([]);
+    const [comentariosRecibidos,setcomentariosRecibidos] = useState([]);
     const [evento,setEvento] = useState(0);
+    const [comentarios,setComentarios] = useState([]);
     useEffect(()=>{
         const datosUser = async ()=>{
             const data = await deleteService("/users/userLogin/",'GET',0,0);
@@ -88,7 +94,28 @@ function UserAdmin(){
         console.log('Entra en Comentario')
        }
     },[showMenu]);
-     
+    
+    useEffect(()=>{
+        const comentServicios = async () => {
+            const data = await deleteService("/comentar",'GET',0,0);
+            setServicios(data['servicios'][0]);
+            console.log('datos : ', data);
+            console.log('datos data : ', data['data'][0]);
+            console.log('mis conversaciones ',data['datosMisConversaciones'][0][0]);
+            console.log('mis comentarios ', data['datosMisComentarios'][0][0]);
+            console.log('Cantidad de servicios no solucionados',data['numservicios'][0][0]['count(id_ser)']);
+            setnumServiciosSinSolucion(data['numservicios'][0][0]['count(id_ser)']);
+            setMisConversaciones(data['datosMisConversaciones'][0][0]);
+            setMisComentarios(data['datosMisComentarios'][0][0]);
+            setcomentariosRecibidos(data['comentariosRecibidos'][0][0]);
+            setComentarios(data['data'][0]);
+        }
+        comentServicios();
+
+        
+    },[showMenu]);
+
+
     const escuchar = (e,v) =>{
         /*let path = window.location.pathname;
         let verpath = path.slice(1,11);
@@ -118,37 +145,7 @@ function UserAdmin(){
             console.log('item.nearestViewportElement.dataset.valor',item.nearestViewportElement.dataset.donde);*/
     }
             
-let cajadentrocomentarios = <>
-<div className="datosnumericos">   
-    <div id="sinver" className="sinver" name="sinver" onClick={escuchar} value={numComentariosSinver} >
-        Comentarios sin ver
-    </div>                                 
-
-    
-
-<div className="caja1">
-    {numComentariosSinver}
-</div>
-    <div onClick={escuchar} className="mensaje">
-    <Link to="/comentario"><FontAwesomeIcon data-donde="sinver" data-valor={numComentariosSinver} icon={faEnvelope}></FontAwesomeIcon></Link>
-    {numComentariosSinver > 0 ? <FontAwesomeIcon icon={faEyeSlash}></FontAwesomeIcon> : <FontAwesomeIcon icon={faEye}></FontAwesomeIcon>}
-    </div>
-</div>
-
-<div className="datosnumericos">
-<div id="sin" className="sinler" name="sinler" onClick={escuchar} value={numComentariosSinLer}>
-Comentarios sin leer
-</div>	
-
-<div className="caja1">
-{numComentariosSinLer}
-</div> 
-<div alt="mensaje" className="mensaje">
-    <Link to="/comentario"><FontAwesomeIcon data-donde="sinler" data-valor={numComentariosSinLer} onClick={escuchar} alt="mensaje" icon={faEnvelope}></FontAwesomeIcon></Link>
-    {numComentariosSinver > 0 ? <FontAwesomeIcon icon={faBookOpen}></FontAwesomeIcon> : <FontAwesomeIcon icon={faBook}></FontAwesomeIcon>}
-    </div>
-</div>
-</>;       
+      
 
 let cajadentroservicios =<>
                                                                     <div className="datosnumericos">	
@@ -278,8 +275,12 @@ return (<>
                                                                     <DeleteMyService />                  
                                                                                 
                                                             </Route>
-                                                            <Route path="/solucionado">
-
+                                                            <Route exact path={`${match.path}/unaconversacion/:id_ser`}>
+                                                                
+                                                                <UnaConversacion></UnaConversacion>
+                                                            </Route>
+                                                            <Route path={`${match.path}/:id`}>
+                                                                <UnSolucionado servissolucionados={servesSolucionados}></UnSolucionado>
                                                             </Route>
                                                         </Switch>                    
                                             
@@ -290,7 +291,7 @@ return (<>
                                         </div>
                                 </div>
                     </div>
-                    <div className="lateraldch">lateral dcho</div>
+                    <div className="lateraldch">lateral dcho <ConversacionEleccion convergeneral={comentarios}></ConversacionEleccion> {/*<Conversaciones convergeneral={comentarios}></Conversaciones>*/}</div>
                 </div>                        
 
             </Router>
