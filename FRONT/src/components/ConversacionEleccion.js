@@ -11,7 +11,7 @@ function Conversaciones(props){
     const [verConversaciones, setverConversaciones] = useState(false);
     const conversacion = props.convergeneral;
 
-    const irA = async (id_ser)=>{    
+    /*const irA = async (id_ser)=>{    
         console.log('esto es el id_ser',id_ser)    
         const data = await deleteService("/comentar",'POST',1,id_ser);
         console.log ('datos que entran',data)
@@ -19,7 +19,7 @@ function Conversaciones(props){
         setcomentarConJoin(data['comentarConJoin'][0][0]);
         console.log('datos con join en conversaciones',data['comentarConJoin'][0][0])
 
-    }
+    }*/
 
 
     return (<><hr></hr>
@@ -55,10 +55,10 @@ function Conversaciones(props){
                                         <div className="caja2">Fecha</div>
                                         <div className="bordear">{item.fecha}</div>
                                     </div>*/}
-                                    <div className="caja3">
+                                    {/*<div className="caja3">
                                         <div className="caja2">Conversación</div>
                                         <button onClick={()=>{irA(item.id_ser);setverConversaciones(true);}}>Ver</button>
-                                    </div>
+                                    </div>*/}
                                 </div>
                             
                             </div>
@@ -84,7 +84,7 @@ function Conversaciones(props){
                 }
             </div>
         </div>
-            {verConversaciones && comentarConJoin.length !==0 && <ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}/> ? <ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}/> : <p>{'Si pulsas en ver y no aparece conversación es que el usuario que ha solicitado el servicio no le respondió'}</p>}
+            {/*verConversaciones && comentarConJoin.length !==0 && <ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}/> ? <ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}/> : <p>{'Si pulsas en el comentario y no aparece conversación es que el usuario que ha solicitado el servicio no le respondió'}</p>*/}
        
     
     </>)

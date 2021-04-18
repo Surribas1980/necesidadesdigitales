@@ -5,6 +5,7 @@ import ComentarioListaTd from './ComentarioListaTd';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faAlignJustify, faComments,faTimesCircle,faCheckCircle,faCheck} from '@fortawesome/free-solid-svg-icons';
 import '../../css/MisServiSoliUserAdmin.css';
+import ComentarioListaParticipo from './ComentariosListaParticipo';
 
 export default function MisServiSoliUserAdmin(props){
     const [datoscomentariosServicios,setdatoscomentariosServicios] = useState("");
@@ -77,8 +78,8 @@ const irA = async (id)=>{
        
         <hr></hr>
         <hr></hr>
-        {verComentarios && comentarConJoin.length !== 0 ? <ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}/> : 'Comprueba pulsando en comentarios si tiene, si no aparece nada, no tendrá comentarios' }
-        
+        {/*verComentarios && comentarConJoin.length !== 0 ? <ComentarioListaTd conjoin={comentarConJoin} elementos={datoscomentariosServicios}/> : 'Comprueba pulsando en comentarios si tiene, si no aparece nada, no tendrá comentarios' */}
+        {verComentarios && datoscomentariosServicios && datoscomentariosServicios.length > 0 && <ComentarioListaParticipo elementos={datoscomentariosServicios}></ComentarioListaParticipo>}
         </>);
 
 }

@@ -20,6 +20,7 @@ import Solucionado from '../components/Solucionado';
 import UnSolucionado from '../components/UnSolucionado';
 import ConversacionEleccion from '../components/ConversacionEleccion';
 import UnaConversacion from '../components/UnaConversacion';
+import Contestaciones from '../components/User/Contestaciones';
 
 function UserAdmin(){
     const { userData, logOut } = useAuth();
@@ -237,6 +238,11 @@ return (<>
                                                                 
                                             <hr></hr>  
                                             <hr></hr>
+                                            {!setComen && 
+                                            <><DarPuntuacion misservis={misSolicitados} solucionados={misSerSolucionados}></DarPuntuacion>
+                                            <h1>Servicios Solucionados</h1>
+                                            <ServisSolucionados servissolucionados={servesSolucionados}></ServisSolucionados></>
+                                            }
                                                         <Switch>
 
                                                             <Route path="/comentario">
@@ -291,7 +297,10 @@ return (<>
                                         </div>
                                 </div>
                     </div>
-                    <div className="lateraldch">lateral dcho <ConversacionEleccion convergeneral={comentarios}></ConversacionEleccion> {/*<Conversaciones convergeneral={comentarios}></Conversaciones>*/}</div>
+                    <div className="lateraldch">lateral dcho  
+                        <Contestaciones valores={misconversaciones}></Contestaciones>
+                        <ConversacionEleccion convergeneral={comentarios}></ConversacionEleccion> {/*<Conversaciones convergeneral={comentarios}></Conversaciones>*/}
+                    </div>
                 </div>                        
 
             </Router>

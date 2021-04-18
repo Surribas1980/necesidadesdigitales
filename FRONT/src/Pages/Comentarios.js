@@ -68,7 +68,7 @@ switch(even){
         salida = <h4>No tiene comentarios sin leer</h4>;break;
     }
     case 4: salida = salida4;break;
-    default: salida = '';
+    default: salida = salida1;break;
 }
     //<ComentariosLista valores={comentarios}></ComentariosLista>
     return (<>{actualiza}            

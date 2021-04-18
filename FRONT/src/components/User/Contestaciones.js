@@ -1,12 +1,12 @@
-import ComentarioListaTd from "./ComentarioListaTd";
+import {Link,useRouteMatch} from 'react-router-dom';
 import ComentariosListaParticipo from "./ComentariosListaParticipo";
 import { deleteService,descartarServicio } from '../../http/api';
 import {useState} from 'react';
 import '../../css/ComentariosListaTd.css';
-function ComentarioListaTr(props){
- 
+function Contestaciones(props){
+    let match = useRouteMatch();
     const [datoscomentariosServicios,setdatoscomentariosServicios] = useState("");
-    const lista = props.dato;
+    const lista = props.valores;
     const [ver,setVer]=useState(true);
 
 
@@ -35,17 +35,18 @@ let salida = <>
                          </div>
                          
                          <div className="caja3">
+                                 <div className="caja2">Comentario</div>
+                                 <Link to={`/useradmin${match.url}unaconversacion/${item.id_ser}`}><div className="bordear">{item.comentario}</div></Link>
+                                 
                                  <div className="caja2">Usuario</div>
                                  <div className="bordear">{item['buscarUsu(id_usu_co)']}</div>
                          </div>
-                         <div className="caja3">
-                                 <div className="caja2">Comentario</div>
-                                 <div className="bordear">{item.comentario}</div>
-                         </div>
-                         <div className="caja3">
+                         {/*<div className="caja3">
+                         </div>*/}
+                         {/*<div className="caja3">
                                  <div className="caja2">Ver</div>
                                  <button onClick={()=>{irA(item.id_ser)}}>Ir</button>
-                         </div>
+                         </div>*/}
                      </div>
                  </div>
                  
@@ -56,11 +57,17 @@ let salida = <>
  </div></>;
       
     return (<> <button onClick={()=>{setVer(!ver)}}>Ver / No ver</button>
+                
+        
                 {ver && salida}
+            
+
+        
+
          {datoscomentariosServicios && <ComentariosListaParticipo elementos={datoscomentariosServicios}></ComentariosListaParticipo>}
     
     </>)
 
 };
 
-export default ComentarioListaTr;
+export default Contestaciones;
