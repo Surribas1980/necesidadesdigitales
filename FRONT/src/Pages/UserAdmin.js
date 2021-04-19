@@ -50,6 +50,10 @@ function UserAdmin(){
     const [comentariosRecibidos,setcomentariosRecibidos] = useState([]);
     const [evento,setEvento] = useState(0);
     const [comentarios,setComentarios] = useState([]);
+    const [datoscomentariosServicios,setdatoscomentariosServicios] = useState("");
+    
+
+
     useEffect(()=>{
         const datosUser = async ()=>{
             const data = await deleteService("/users/userLogin/",'GET',0,0);
@@ -95,7 +99,8 @@ function UserAdmin(){
         console.log('Entra en Comentario')
        }
     },[showMenu]);
-    
+    let path = window.location.pathname;
+    console.log('estoy en useradmin',path);
     useEffect(()=>{
         const comentServicios = async () => {
             const data = await deleteService("/comentar",'GET',0,0);
@@ -210,7 +215,8 @@ return (<>
                             </div>
                     </nav>
                 <div className="centrar">
-                    <div className="lateralizq">lateral izq<Solucionado solucionados={servesSolucionados}></Solucionado></div>
+                    <div className="lateralizq"><Solucionado solucionados={servesSolucionados}></Solucionado></div>
+                    
                     <div className="centro">
                                     
                                 {menuLateral &&
@@ -240,8 +246,8 @@ return (<>
                                             <hr></hr>
                                             {!setComen && 
                                             <><DarPuntuacion misservis={misSolicitados} solucionados={misSerSolucionados}></DarPuntuacion>
-                                            <h1>Servicios Solucionados</h1>
-                                            <ServisSolucionados servissolucionados={servesSolucionados}></ServisSolucionados></>
+                                            <h1>Servicios No Solucionados</h1>
+                                            <Solucion nosolucionados={serviciosNoSolucionados}/></>
                                             }
                                                         <Switch>
 
@@ -281,11 +287,11 @@ return (<>
                                                                     <DeleteMyService />                  
                                                                                 
                                                             </Route>
-                                                            <Route exact path={`${match.path}/unaconversacion/:id_ser`}>
+                                                            <Route  path={`${match.path}/unaconversacion/:id_ser`}>
                                                                 
                                                                 <UnaConversacion></UnaConversacion>
                                                             </Route>
-                                                            <Route path={`${match.path}/:id`}>
+                                                            <Route exact path={`${match.path}/:id`}>
                                                                 <UnSolucionado servissolucionados={servesSolucionados}></UnSolucionado>
                                                             </Route>
                                                         </Switch>                    
@@ -297,7 +303,7 @@ return (<>
                                         </div>
                                 </div>
                     </div>
-                    <div className="lateraldch">lateral dcho  
+                    <div className="lateraldch">  
                         <Contestaciones valores={misconversaciones}></Contestaciones>
                         <ConversacionEleccion convergeneral={comentarios}></ConversacionEleccion> {/*<Conversaciones convergeneral={comentarios}></Conversaciones>*/}
                     </div>

@@ -31,8 +31,8 @@ function UnSolucionado(props){
           console.log('Isto é o que recollo', data);
           
     }
-
-    return(<><div>estoy en un solucionado {id}</div>
+    console.log('entró en un solucionado')
+    return(<>
     {elsolucionado && 
         <div>
             <div>{elsolucionado.Solucionador}</div>
