@@ -17,6 +17,8 @@ function VerArchivos(props){
             <a href={`http://localhost:4000/mirarservicios/servicios/solucionados/ServicioNº${servicio}/Usuario_${usuario}/${item}`} target="_blank">
              {item}
             </a><br></br>
+            
+            
             </>)
         })
     }</>;
@@ -26,8 +28,14 @@ function VerArchivos(props){
     {
         arch?.map((item,index)=>{
             return (<>
-            <a href={`http://localhost:4000/mirarservicios/servicios/${servicio}`} target="_blank">
-             {item}
+            <a href={`http://localhost:4000/mirarservicios/servicios/${servicio}/${item}`} target="_blank">
+            {item && item.includes('png') ? <img src={`http://localhost:4000/mirarservicios/servicios/${servicio}/Usuario_${usuario}/${item}`}/> : ''}
+            {item && item.includes('pdf') ? <img src={`http://localhost:4000/mirarservicios/imagenes/pdf.svg`}/> : ''}
+            {item && item.includes('csv')  ? <img src={`http://localhost:4000/mirarservicios/imagenes/Excel.png`}/> : ''}
+            {item && item.includes('docx') ? <img src={`http://localhost:4000/mirarservicios/imagenes/Word.png`}/> : ''}
+            <br></br>
+            {item}
+
             </a><br></br>
             </>)
         })
