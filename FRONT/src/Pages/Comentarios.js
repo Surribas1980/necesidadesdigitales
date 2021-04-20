@@ -59,16 +59,21 @@ let salida2 = <><Conversaciones convergeneral={comentarios}></Conversaciones></>
 let salida3 = <><ConversacionesParticipo misconvergenericas={comentariosRecibidos}/></>;  
 let salida4 = <><ComentariosLista valores={misconversaciones}></ComentariosLista></>; 
 let salida;  
-switch(even){
-    case 1: salida = salida1;break;
-    case 2: salida = salida2;break;
-    case 3: if(comentariosRecibidos.length > 0){
-        salida = salida3;break;
-    }else{
-        salida = <h4>No tiene comentarios sin leer</h4>;break;
+if(donde){
+    salida = salida3;
+}else{
+
+    switch(even){
+        case 1: salida = salida1;break;
+        case 2: salida = salida2;break;
+        case 3: if(comentariosRecibidos.length > 0){
+            salida = salida3;break;
+        }else{
+            salida = <h4>No tiene comentarios sin leer</h4>;break;
+        }
+        case 4: salida = salida4;break;
+        default: salida = salida1;break;
     }
-    case 4: salida = salida4;break;
-    default: salida = salida1;break;
 }
     //<ComentariosLista valores={comentarios}></ComentariosLista>
     return (<>{actualiza}            

@@ -7,6 +7,12 @@ export default function ModificacionDatosForm(props){
   const { register, handleSubmit } = useForm();
   const camposUsuario = props?.datos;
  
+  let cambiarFoto = document.querySelector('img');
+  let foto;
+  cambiarFoto.addEventListener('change', (event)=>{
+
+     foto = event.target.value;
+  })
   
 
   console.log('campo id_usu : ',props?.datos['id_usu']);
@@ -19,7 +25,15 @@ export default function ModificacionDatosForm(props){
          console.log('Foto: ',datos.nomFoto_usu)
     };
 
-  
+  let salidaSinCargaFoto = <>{camposUsuario?.map((item,index)=>{
+    return(<> 
+    
+
+      <img key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu}/${item.nomFoto_usu}`} alt="imagen"></img>
+    
+          
+    </>);
+  })}</>;
 
   return (
     <>
@@ -63,15 +77,7 @@ export default function ModificacionDatosForm(props){
             
                 <div className="paraimagen">
                     {
-                      camposUsuario?.map((item,index)=>{
-                        return(<> 
-                        
-
-                          <img key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu}/${item.nomFoto_usu}`} alt="imagen"></img>
-                        
-                              
-                        </>);
-                      })
+                     !foto && salidaSinCargaFoto ? salidaSinCargaFoto : foto 
                     }
                     <label className="botonimagen" htmlFor="nomFoto_usu" >Sube la imagen</label>
                 <div>
