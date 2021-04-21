@@ -2,19 +2,26 @@ import { useForm } from 'react-hook-form';
 import {modificacionDatos} from '../../http/api';
 import useAuth from '../../shared/hooks/useAuth';
 import '../../css/ModificacionDatos.css';
+import { useState } from 'react';
 export default function ModificacionDatosForm(props){
   const { userData } = useAuth();
   const { register, handleSubmit } = useForm();
   const camposUsuario = props?.datos;
- 
-  let cambiarFoto = document.querySelector('img');
-  let foto;
-  cambiarFoto.addEventListener('change', (event)=>{
+  //https://dev.to/yosraskhiri/make-an-image-preview-in-react-js-301f
+  /**el enlace anterior me ayudó al tema de visualizar la imagen previamente */
+  const [{alt, src}, setImg] = useState({
+    src: '',
+    alt: 'Upload an Image'
+});
 
-     foto = event.target.value;
-  })
-  
-
+const handleImg = (e) => {
+    if(e.target.files[0]) {
+        setImg({
+            src: URL.createObjectURL(e.target.files[0]),
+            alt: e.target.files[0].name
+        });    
+    }   
+}
   console.log('campo id_usu : ',props?.datos['id_usu']);
 
    const onSubmit = (datos) => {
@@ -25,7 +32,7 @@ export default function ModificacionDatosForm(props){
          console.log('Foto: ',datos.nomFoto_usu)
     };
 
-  let salidaSinCargaFoto = <>{camposUsuario?.map((item,index)=>{
+  /*let salidaSinCargaFoto = <>{camposUsuario?.map((item,index)=>{
     return(<> 
     
 
@@ -33,7 +40,7 @@ export default function ModificacionDatosForm(props){
     
           
     </>);
-  })}</>;
+  })}</>;*/
 
   return (
     <>
@@ -76,14 +83,17 @@ export default function ModificacionDatosForm(props){
             </div>
             
                 <div className="paraimagen">
-                    {
-                     !foto && salidaSinCargaFoto ? salidaSinCargaFoto : foto 
-                    }
+                    {/*
+                     salidaSinCargaFoto 
+                    */}
+                     
+                      
                     <label className="botonimagen" htmlFor="nomFoto_usu" >Sube la imagen</label>
                 <div>
-
-                      <input id="nomFoto_usu" ref={register({ required: false})} name="nomFoto_usu" type="file"></input>
+                      
+                      <input onChange={handleImg} id="nomFoto_usu" ref={register({ required: false})} name="nomFoto_usu" type="file"></input>
                     </div>
+                    <img src={src} alt={alt} height="500" ></img>
                 </div>
             
 
