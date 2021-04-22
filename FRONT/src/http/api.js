@@ -33,7 +33,11 @@ async function fetchTravelApi(path, { body, method }) {
     headers.append('Authorization',token);
   }
   const request = await fetch(`${apiUrl}${path}`, { headers: headers, method: method, body: JSON.stringify(body) });
-  return await request.json();
+  const requestData = await request.json();
+  if (requestData.status === 'error') {
+    throw requestData.message;
+  }
+  return requestData;
 }
 
 export async function login(mail, pwd) {
