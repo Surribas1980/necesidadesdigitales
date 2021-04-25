@@ -21,6 +21,7 @@ import UnSolucionado from '../components/UnSolucionado';
 import ConversacionEleccion from '../components/ConversacionEleccion';
 import UnaConversacion from '../components/UnaConversacion';
 import Contestaciones from '../components/User/Contestaciones';
+import CargarDatos from '../components/CargarDatos';
 
 function UserAdmin(){
     const { userData, logOut } = useAuth();
@@ -51,7 +52,7 @@ function UserAdmin(){
     const [evento,setEvento] = useState(0);
     const [comentarios,setComentarios] = useState([]);
     const [datoscomentariosServicios,setdatoscomentariosServicios] = useState("");
-    
+    const [cargando,setCargando] = useState(false);
 
 
     useEffect(()=>{
@@ -98,6 +99,14 @@ function UserAdmin(){
         setMenuComentario(1);
         console.log('Entra en Comentario')
        }
+
+       const timeout = setTimeout(() => {
+        setCargando(true);
+      }, 3000);
+  
+     return () => clearTimeout(timeout);
+           
+        
     },[showMenu]);
     let path = window.location.pathname;
     console.log('estoy en useradmin',path);
@@ -184,6 +193,12 @@ let sinlermenu = <>
         {numComentariosSinver}
 </div> 
 </div></>;
+let salidacentral = <>
+<DarPuntuacion misservis={misSolicitados} solucionados={misSerSolucionados}></DarPuntuacion>
+
+{/*serviciosNoSolucionados && <Solucion nosolucionados={serviciosNoSolucionados}/> ? <Solucion nosolucionados={serviciosNoSolucionados}/> : 'Cargando datos'*/}
+{cargando && false ?  <CargarDatos /> : <Solucion nosolucionados={serviciosNoSolucionados}/>}</> ;
+
 return (<>    
             
         <main>
@@ -244,11 +259,7 @@ return (<>
                                                                 
                                             <hr></hr>  
                                             <hr></hr>
-                                            {!setComen && 
-                                            <><DarPuntuacion misservis={misSolicitados} solucionados={misSerSolucionados}></DarPuntuacion>
-                                            <h1>Servicios No Solucionados</h1>
-                                            <Solucion nosolucionados={serviciosNoSolucionados}/></>
-                                            }
+                                            {!setComen && cargando ? salidacentral : <CargarDatos></CargarDatos>}
                                                         <Switch>
 
                                                             <Route path="/comentario">
