@@ -105,4 +105,15 @@ td {
     height: 300px;
     width: auto;
   }
+  .encima {
+    border-radius: 10px;
+    border: 10px solid black;
+    position: absolute;
+    top: 700px;
+    left: center;
+    background-color: rgb(205, 219, 201);
+    height: auto;
+    width: auto;
+    /* opacity: 0.5;*/
+  }
 }

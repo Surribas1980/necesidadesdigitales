@@ -28,8 +28,12 @@ export default function Solucion(props){
           
     }
 
-    let salida = <>  <div className="tabla1">
 
+console.log('medida altura',window.outerHeight,'medida anchura',window.outerWidth)
+
+
+    let salida = <>  <div className="tabla1">
+        
     <div className="caja">
         {!sinsolucionar && 0 ? <h1>cargando ddatos</h1>: ''}
         <button onClick={()=>{setVerFicheros(false)}}>Ocultar Ficheros</button>
@@ -88,6 +92,6 @@ export default function Solucion(props){
     }
     
        {idServicio && <AportarSolucion id={idServicio}></AportarSolucion> ? <AportarSolucion id={idServicio}></AportarSolucion> : " "}
-       {verFicheros && <VerArchivos ficheros={archivos}  server={servicio} lugar={'verficheros'}/>}
+       {verFicheros && <div onClick={()=>{setVerFicheros(false)}} className="encima"><VerArchivos ficheros={archivos}  server={servicio} lugar={'verficheros'}/></div>}
     </>);
 }

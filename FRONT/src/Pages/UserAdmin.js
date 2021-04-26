@@ -259,7 +259,7 @@ return (<>
                                                                 
                                             <hr></hr>  
                                             <hr></hr>
-                                            {!setComen && cargando ? salidacentral : <CargarDatos></CargarDatos>}
+                                            {!setComen && cargando ? salidacentral : !cargando ? <CargarDatos></CargarDatos> : ''}
                                                         <Switch>
 
                                                             <Route path="/comentario">
