@@ -3,10 +3,12 @@ import {modificacionDatos} from '../../http/api';
 import useAuth from '../../shared/hooks/useAuth';
 import '../../css/ModificacionDatos.css';
 import { useState } from 'react';
+
 export default function ModificacionDatosForm(props){
   const { userData } = useAuth();
   const { register, handleSubmit } = useForm();
   const camposUsuario = props?.datos;
+  const [verFoto,setVerFoto] = useState(false);
   //https://dev.to/yosraskhiri/make-an-image-preview-in-react-js-301f
   /**el enlace anterior me ayudó al tema de visualizar la imagen previamente */
   const [{alt, src}, setImg] = useState({
@@ -16,11 +18,14 @@ export default function ModificacionDatosForm(props){
 
 const handleImg = (e) => {
     if(e.target.files[0]) {
+
         setImg({
             src: URL.createObjectURL(e.target.files[0]),
             alt: e.target.files[0].name
-        });    
-    }   
+        });   
+        setVerFoto(true); 
+    }
+       
 }
   console.log('campo id_usu : ',props?.datos['id_usu']);
 
@@ -32,15 +37,16 @@ const handleImg = (e) => {
          console.log('Foto: ',datos.nomFoto_usu)
     };
 
-  /*let salidaSinCargaFoto = <>{camposUsuario?.map((item,index)=>{
+  let salidaSinCargaFoto = <>{camposUsuario?.map((item,index)=>{
     return(<> 
-    
-
       <img key={index} src={`http://localhost:4000/imagenes/fotousuario${item.id_usu}/${item.nomFoto_usu}`} alt="imagen"></img>
-    
           
-    </>);
-  })}</>;*/
+        {/*setImg({
+            src: `http://localhost:4000/imagenes/fotousuario${item.id_usu}/${item.nomFoto_usu}`,
+            alt: 'Upload an Image'
+        })*/} 
+          </>);
+  })}</>;
 
   return (
     <>
@@ -83,9 +89,9 @@ const handleImg = (e) => {
             </div>
             
                 <div className="paraimagen">
-                    {/*
-                     salidaSinCargaFoto 
-                    */}
+                    {
+                     !verFoto && salidaSinCargaFoto ? salidaSinCargaFoto : <><img src={src} alt={alt} ></img></>
+                    }
                      
                       
                     <label className="botonimagen" htmlFor="nomFoto_usu" >Sube la imagen</label>
@@ -93,7 +99,7 @@ const handleImg = (e) => {
                       
                       <input onChange={handleImg} id="nomFoto_usu" ref={register({ required: false})} name="nomFoto_usu" type="file"></input>
                     </div>
-                    <img src={src} alt={alt} height="500" ></img>
+                    
                 </div>
             
 
