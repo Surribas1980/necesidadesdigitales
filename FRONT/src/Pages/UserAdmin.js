@@ -161,7 +161,7 @@ function UserAdmin(){
     }
             
       
-
+let componenteComentario = <><Comentarios evento={evento} donde={donde} numero={num}/> </>;
 let cajadentroservicios =<>
                                                                     <div className="datosnumericos">	
                                                                         Cantidad de servicios que solucioné 
@@ -200,134 +200,131 @@ let salidacentral = <>
 {cargando && false ?  <CargarDatos /> : <Solucion nosolucionados={serviciosNoSolucionados}/>}</> ;
 
 return (<>    
+
             
         <main>
             <body>
-            <Router>
-                
-                    <nav className="navegacion">
-                        
-                            <div className="esconderlateral">
-                                <div className="botonmenulateral">                
-                                    <FontAwesomeIcon onClick={()=>{setMenuLateral(!menuLateral);}} icon={faBars}></FontAwesomeIcon>
-                                </div>
-                            </div>
-                                
-                            <div className="esconder">
-                                <div onClick={()=>{setShowMenu(!showMenu)}}>
-
-                                        <TitleUserAdmin datosusuario={datosUsuario}></TitleUserAdmin> 
-                                </div>
-                            </div>
-                            <div className="siempre">
-
-                                {sinlermenu}
-                                {sinvermenu}
-                                {/*<button onClick={()=>{setShowMenu(!showMenu);}}>Actualizar</button>*/}
-                                <div className="mensaje">
-                                    <FontAwesomeIcon onClick={()=>{setShowMenu(!showMenu);}} icon={faRedo}/>
-                                </div>
-                            </div>
-                    </nav>
-                <div className="centrar">
-                    <div className="lateralizq"><Solucionado solucionados={servesSolucionados}></Solucionado></div>
+                <Router>
                     
-                    <div className="centro">
-                                    
-                                {menuLateral &&
-                                        <div className="esconderlateral">
-                                            <div onClick={()=>{setShowMenu(!showMenu)}} className="lateral">                                        
-                                                <TitleUserAdminVertical fun={escuchar} datosusuario={datosUsuario}></TitleUserAdminVertical>
-                                            </div>                                
-                                        </div>
-                                }
-                                {/*selecMisServi && <TitleMisServicios /> ? <TitleMisServicios /> : ''*/}
+                        <nav className="navegacion">                        
+                                <div className="esconderlateral">
+                                    <div className="botonmenulateral">                
+                                        <FontAwesomeIcon onClick={()=>{setMenuLateral(!menuLateral);}} icon={faBars}></FontAwesomeIcon>
+                                    </div>
+                                </div>
                                 <div className="esconder">
-                                    
-                                    {setComen && <ComentariosMenuVertical /> ? 
-                                    
-                                    <div onClick={()=>{setShowMenu(!showMenu)}}><ComentariosMenuVertical/></div>
-                                    : ''
-                                    
+                                    <div onClick={()=>{setShowMenu(!showMenu)}}>
+
+                                            <TitleUserAdmin datosusuario={datosUsuario}></TitleUserAdmin> 
+                                    </div>
+                                </div>
+                                <div className="siempre">
+
+                                    {sinlermenu}
+                                    {sinvermenu}
+                                    {/*<button onClick={()=>{setShowMenu(!showMenu);}}>Actualizar</button>*/}
+                                    <div className="mensaje">
+                                        <FontAwesomeIcon onClick={()=>{setShowMenu(!showMenu);}} icon={faRedo}/>
+                                    </div>
+                                </div>
+                        </nav>
+                    <div className="centrar">
+                        <div className="lateralizq"><Solucionado solucionados={servesSolucionados}></Solucionado></div>
+                        <div className="centro">
+                                        
+                                    {menuLateral &&
+                                            <div className="esconderlateral">
+                                                <div onClick={()=>{setShowMenu(!showMenu)}} className="lateral">                                        
+                                                    <TitleUserAdminVertical fun={escuchar} datosusuario={datosUsuario}></TitleUserAdminVertical>
+                                                </div>                                
+                                            </div>
                                     }
-                                </div>
-                                <div className="centrar2">
+                                    {/*selecMisServi && <TitleMisServicios /> ? <TitleMisServicios /> : ''*/}
+                                    <div className="esconder">
+                                        
+                                        {setComen && <ComentariosMenuVertical /> ? 
+                                        
+                                        <div onClick={()=>{setShowMenu(!showMenu)}}><ComentariosMenuVertical/></div>
+                                        : ''
+                                        
+                                        }
+                                    </div>
+                                    <div className="centrar2">
 
-                                        <div className="principal">
-                                                                {/*setComen && cajadentrocomentarios ? cajadentrocomentarios : ''*/}  
-                                                                {!setComen && cajadentroservicios ? <div className="englobanumericos"><div className="cajanumericos">{cajadentroservicios}</div></div> : ''}
-                                                                
-                                            <hr></hr>  
-                                            <hr></hr>
-                                            {!setComen && cargando ? salidacentral : !cargando ? <CargarDatos></CargarDatos> : ''}
-                                                        <Switch>
+                                            <div className="principal">
+                                                                    {/*setComen && cajadentrocomentarios ? cajadentrocomentarios : ''*/}  
+                                                                    {!setComen && cajadentroservicios ? <div className="englobanumericos"><div className="cajanumericos">{cajadentroservicios}</div></div> : ''}
+                                                                    
+                                                <hr></hr>  
+                                                <hr></hr>
+                                                {!setComen && cargando ? salidacentral : !cargando ? <CargarDatos></CargarDatos> : ''}
+                                                            <Switch>
 
-                                                            <Route path="/comentario">
-                                                                    <Comentarios evento={evento} donde={donde} numero={num}/> 
-                                                            </Route>            
-                                                            <Route path="/datospersonales">
-                                                                <ModificacionDatos datos={datosUsuario}/>
-                                                            </Route>
-                                                            <Route path="/darpuntuacion">
-                                                        
-                                                                    <DarPuntuacion misservis={misSolicitados} solucionados={misSerSolucionados}></DarPuntuacion>
-                                                        
-                                                            </Route>
-                                                            <Route path="/darsolucion">
-                                                                <div className="lassecciones">
-
-                                                                    <Solucion nosolucionados={serviciosNoSolucionados}/>
-                                                                </div>
-                                                            </Route>
-                                                            <Route path="/solucionados">
-                                                                <div className="lassecciones">
-                                                                <ServisSolucionados servissolucionados={servesSolucionados}></ServisSolucionados>
-                                                                </div>
-                                                            </Route>
-                                                            <Route path="/ranking">
-                                                            <div className="lassecciones">
-                                                                <GraficaRanking valores={ranking}></GraficaRanking>
-                                                            </div>
-                                                            </Route>
-                                                            <Route path="/insert/servicios">
-                                                                    <InsertServices />
-                                                            </Route>
-
-                                                            <Route path="/borrar/misservicios">
+                                                                <Route path="/comentario">
+                                                                        {componenteComentario}
+                                                                </Route>            
+                                                                <Route path="/datospersonales">
+                                                                    <ModificacionDatos datos={datosUsuario}/>
+                                                                </Route>
+                                                                <Route path="/darpuntuacion">
                                                             
-                                                                    <DeleteMyService />                  
-                                                                                
-                                                            </Route>
-                                                            <Route  path={`${match.path}/unaconversacion/:id_ser`}>
+                                                                        <DarPuntuacion misservis={misSolicitados} solucionados={misSerSolucionados}></DarPuntuacion>
+                                                            
+                                                                </Route>
+                                                                <Route path="/darsolucion">
+                                                                    <div className="lassecciones">
+
+                                                                        <Solucion nosolucionados={serviciosNoSolucionados}/>
+                                                                    </div>
+                                                                </Route>
+                                                                <Route path="/solucionados">
+                                                                    <div className="lassecciones">
+                                                                    <ServisSolucionados servissolucionados={servesSolucionados}></ServisSolucionados>
+                                                                    </div>
+                                                                </Route>
+                                                                <Route path="/ranking">
+                                                                <div className="lassecciones">
+                                                                    <GraficaRanking valores={ranking}></GraficaRanking>
+                                                                </div>
+                                                                </Route>
+                                                                <Route path="/insert/servicios">
+                                                                        <InsertServices />
+                                                                </Route>
+
+                                                                <Route path="/borrar/misservicios">
                                                                 
-                                                                <UnaConversacion></UnaConversacion>
-                                                            </Route>
-                                                            <Route exact path={`${match.path}/:id`}>
-                                                                <UnSolucionado servissolucionados={servesSolucionados}></UnSolucionado>
-                                                            </Route>
-                                                        </Switch>                    
-                                            
-                                            
-                                                    
+                                                                        <DeleteMyService />                  
+                                                                                    
+                                                                </Route>
+                                                                <Route  path={`${match.path}/unaconversacion/:id_ser`}>
+                                                                    
+                                                                    <UnaConversacion></UnaConversacion>
+                                                                </Route>
+                                                                <Route exact path={`${match.path}/:id`}>
+                                                                    <UnSolucionado servissolucionados={servesSolucionados}></UnSolucionado>
+                                                                </Route>
+                                                            </Switch>                    
+                                                
+                                                
                                                         
-                                                                            
-                                        </div>
-                                </div>
-                    </div>
-                    <div className="lateraldch">  
-                        <Contestaciones valores={misconversaciones}></Contestaciones>
-                        <ConversacionEleccion convergeneral={comentarios}></ConversacionEleccion> {/*<Conversaciones convergeneral={comentarios}></Conversaciones>*/}
-                    </div>
-                </div>                        
+                                                            
+                                                                                
+                                            </div>
+                                    </div>
+                        </div>
+                        <div className="lateraldch">  
+                            <Contestaciones valores={misconversaciones}></Contestaciones>
+                            <ConversacionEleccion convergeneral={comentarios}></ConversacionEleccion> {/*<Conversaciones convergeneral={comentarios}></Conversaciones>*/}
+                        </div>
+                    </div>                        
 
-            </Router>
-
+                </Router>
+                                        
             </body>
             
         
         </main>
-        
-        
+        <footer><TitleUserAdmin datosusuario={datosUsuario}></TitleUserAdmin></footer>
 
     </>);
 }
