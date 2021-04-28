@@ -207,16 +207,15 @@ return (<>
                 <Router>
                     
                         <nav className="navegacion">                        
-                                <div className="esconderlateral">
+                                {/*<div className="esconderlateral">
                                     <div className="botonmenulateral">                
                                         <FontAwesomeIcon onClick={()=>{setMenuLateral(!menuLateral);}} icon={faBars}></FontAwesomeIcon>
                                     </div>
-                                </div>
-                                <div className="esconder">
+                                </div>*/}
                                     <div onClick={()=>{setShowMenu(!showMenu)}}>
-
-                                            <TitleUserAdmin datosusuario={datosUsuario}></TitleUserAdmin> 
+                                            <TitleUserAdmin variable={menuLateral} funcion={setMenuLateral} datosusuario={datosUsuario}></TitleUserAdmin> 
                                     </div>
+                                <div className="esconder">
                                 </div>
                                 <div className="siempre">
 
@@ -324,7 +323,7 @@ return (<>
             
         
         </main>
-        <footer><TitleUserAdmin datosusuario={datosUsuario}></TitleUserAdmin></footer>
+        <footer><TitleUserAdmin variable={menuLateral} funcion={setMenuLateral} datosusuario={datosUsuario}></TitleUserAdmin></footer>
 
     </>);
 }

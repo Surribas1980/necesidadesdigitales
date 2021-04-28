@@ -3,7 +3,7 @@ import useAuth from '../../shared/hooks/useAuth';
 
 import '../../css/TitleUserAdmin.css'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faUserEdit,faCommentDots,faTasks,faMedal,faSchool,faUpload,faTrashAlt,faHome,faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
+import {faBars,faUserEdit,faCommentDots,faTasks,faMedal,faSchool,faUpload,faTrashAlt,faHome,faSignOutAlt} from '@fortawesome/free-solid-svg-icons';
 
 
 function TitleUserAdmin(props){
@@ -12,6 +12,7 @@ function TitleUserAdmin(props){
     const datos = props?.datosusuario;
     
     console.log('la foto:',datos);
+    console.log('estoy en titulo adminuser:',props.variable)
 
 const salida =<>
 <div className="navegacionuseradmin">
@@ -55,36 +56,29 @@ const salida =<>
                     
                 </div>
                 <div className="header-item">
-                    
-                        <Link to="/ranking"><div className="user"><FontAwesomeIcon icon={faMedal}></FontAwesomeIcon></div></Link>
-                        <div>Ranking</div>
-                    
+                <FontAwesomeIcon onClick={()=>{props.funcion(!props.variable)}} icon={faBars}></FontAwesomeIcon>
                 </div>
-                <div className="header-item">
-                    
-                        <Link to= "/solucionados"><div className="user"><FontAwesomeIcon icon={faSchool}></FontAwesomeIcon></div></Link>
-                        <div>Servicios Solucionados</div>
-                    
-                </div>
-                <div className="header-item">
-                    
-                        <Link to= "/darsolucion"><div className="user"><FontAwesomeIcon  icon={faSchool}></FontAwesomeIcon></div></Link>
-                        <div>Servicios No Solucionados</div>
-                    
-                </div>               
-                <div className="header-item">
-                    
-                        <Link to= "/borrar/misservicios"><div className="user"><FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon></div></Link>
-                        <div>Borrar mis Servicios</div>
-                    
-                    
-                </div>
-                <div className="header-item">
-                    
-                        <Link to= "/insert/servicios"><div className="user"><FontAwesomeIcon icon={faUpload}></FontAwesomeIcon></div></Link>
-                        <div>Subir mi servicio a solucionar</div>
-                    
-                
+                <div className="nover">
+                        <div className="header-item">
+                                <Link to="/ranking"><div className="user"><FontAwesomeIcon icon={faMedal}></FontAwesomeIcon></div></Link>
+                                <div>Ranking</div>
+                        </div>
+                        <div className="header-item">
+                                <Link to= "/solucionados"><div className="user"><FontAwesomeIcon icon={faSchool}></FontAwesomeIcon></div></Link>
+                                <div>Servicios Solucionados</div>
+                        </div>
+                        <div className="header-item">
+                                <Link to= "/darsolucion"><div className="user"><FontAwesomeIcon  icon={faSchool}></FontAwesomeIcon></div></Link>
+                                <div>Servicios No Solucionados</div>
+                        </div>               
+                        <div className="header-item">
+                                <Link to= "/borrar/misservicios"><div className="user"><FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon></div></Link>
+                                <div>Borrar mis Servicios</div>
+                        </div>
+                        <div className="header-item">
+                                <Link to= "/insert/servicios"><div className="user"><FontAwesomeIcon icon={faUpload}></FontAwesomeIcon></div></Link>
+                                <div>Subir mi servicio a solucionar</div>
+                        </div>
                 </div>
                 
         </div>

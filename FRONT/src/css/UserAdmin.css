@@ -127,7 +127,7 @@ h2 {
   }
   .navegacion {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     background-color: rgb(255, 255, 255);
     border-bottom: 2px solid rgb(0, 0, 0);
