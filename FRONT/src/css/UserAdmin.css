@@ -43,7 +43,22 @@ h2 {
     position: sticky;
     bottom: 0px;
   }
+  .centro {
+    display: flex;
+    flex-direction: column;
 
+    box-sizing: border-box;
+    align-items: center;
+    flex: 1 1 auto;
+    /*justify-content: start;*/
+    background-color: rgb(189, 180, 180);
+
+    text-align: center;
+    width: auto;
+    height: auto;
+    padding: 20px;
+    margin: auto;
+  }
   .englobanumericos {
     display: flex;
     flex-direction: row;
@@ -57,9 +72,8 @@ h2 {
   }
   .principal {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-direction: column;
+
     align-items: center;
     width: auto;
     height: auto;
@@ -160,6 +174,18 @@ h2 {
     padding: 5px;
     background: rgb(228, 214, 25);
     text-align: center;
+  }
+  .lateraldch {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: coral;
+    margin: 5px;
+    width: auto;
+    height: auto;
+    text-align: center;
+    /*flex: 1 1 auto;*/
   }
 }
 
