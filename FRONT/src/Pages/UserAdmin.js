@@ -159,7 +159,7 @@ function UserAdmin(){
             /*console.log('item.nearestViewportElement.dataset.valor',item.nearestViewportElement.dataset.valor);
             console.log('item.nearestViewportElement.dataset.valor',item.nearestViewportElement.dataset.donde);*/
     }
-            
+console.log('el scroll y:',window.scrollY)            
       
 let componenteComentario = <><Comentarios evento={evento} donde={donde} numero={num}/> </>;
 let cajadentroservicios =<>

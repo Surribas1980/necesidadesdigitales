@@ -43,8 +43,8 @@ useEffect(() => {
         
         </div>
         Main
-        <Seccion1></Seccion1>
-        <div></div>
+        
+        <div className="color1"><Seccion1></Seccion1></div>
         <Seccion2></Seccion2>
         </main>
         <footer><b>Designed by me</b></footer>

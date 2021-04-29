@@ -1,7 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&display=swap");
 .navegaciontitulo4 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   background-color: rgb(184, 184, 184);
   border-bottom: black;
+  position: sticky;
+  top: 0px;
+  justify-content: center;
+  height: 2vh;
+}
+.lateral {
+  display: flex;
+  border-right: 1px solid black;
+  border-bottom: 1px solid steelblue;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  font-family: "Asap", sans-serif;
 }

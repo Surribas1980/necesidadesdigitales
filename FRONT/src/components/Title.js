@@ -3,17 +3,17 @@ import '../css/Title.css';
 import useAuth from '../shared/hooks/useAuth';
 
 function Title(){
-    const { isUserLogged, logOut } = useAuth(false);
+    const { isUserLogged} = useAuth(false);
     const salida = <>
     
       <div className="navegaciontitulo4">
-              <div className="header-item">
+              <div className="lateral">
                               <Link to="/">Home</Link>
                 </div> 
-                <div className="header-item">
+                <div className="lateral">
                   <Link to="/login">Login</Link>
                 </div>
-                <div className="header-item">
+                <div className="lateral">
                   <Link to="/register">Register</Link>
                 </div>
                 
