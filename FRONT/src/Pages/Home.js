@@ -1,6 +1,7 @@
 import {useState,useEffect} from 'react';
 import Seccion1 from '../components/Seccion1';
 import Seccion2 from '../components/Seccion2';
+import Title from '../components/Title';
 import '../css/Home.css';
 function Home(){
   let [valor,setValor]= useState(1);
@@ -34,18 +35,25 @@ useEffect(() => {
     return (
       <>
       <body>
+        {/*<Title></Title>*/}
         <main>
        
-        <div className="imagenesvarias">
+        <div className="imagenesvarias" id="otros">
 
           <img className="imagen" src={`http://localhost:4000/imagenes/imagenes/${valor}1280.png`} alt="imagen"/>
           {/*<img className="imagen" src={`http://localhost:4000/imagenes/imagenes/${valor}640.png`} alt="imagen"/>*/}
         
         </div>
-        Main
+      
         
-        <div className="color1"><Seccion1></Seccion1></div>
+        <div className="color1" id="conocenos">
+
+        <Seccion1></Seccion1>
+        </div>
+        <div className="color2" id="contacta">
+
         <Seccion2></Seccion2>
+        </div>
         </main>
         <footer><b>Designed by me</b></footer>
       </body>

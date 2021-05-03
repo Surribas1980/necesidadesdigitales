@@ -27,10 +27,11 @@ function App() {
         <Router>
           <AuthProvider>
             
-
-            
+            <div className="mititulo">
               <Title></Title>
+            </div>
             <nav>
+
   
               
 

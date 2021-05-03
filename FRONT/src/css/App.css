@@ -8,3 +8,7 @@
   flex-direction: column;
   align-items: center;
 }
+.mititulo {
+  position: sticky;
+  top: 0px;
+}

@@ -3,16 +3,23 @@ body {
   font-family: "Asap", sans-serif;
   font-family: "Gentium Basic", serif;
 }
-.color1 {
-  background-color: white;
-}
 @media (min-width: 700px) {
+  .color1 {
+    height: 100vh;
+    background-color: rgb(106, 97, 192);
+    padding: 10px;
+  }
+  .color2 {
+    height: 100vh;
+    background-color: rgb(50, 45, 90);
+    padding: 10px;
+  }
   .imagenesvarias {
-    transform: scale(1);
+    /*transform: scale(1);*/
     text-align: center;
     width: auto;
     height: 500px;
-    /*background-color: blue;*/
+    background-color: blue;
     /*margin: 10px;*/
   }
   .imagen {
@@ -23,8 +30,8 @@ body {
   }
   main {
     height: auto;
-    padding: 5px;
-    background-color: black;
+    /*padding: 5px;*/
+    background-color: white;
   }
   footer {
     background-color: rgb(100, 100, 94);
