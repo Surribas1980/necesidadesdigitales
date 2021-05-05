@@ -57,6 +57,7 @@ useEffect(() => {
         <Seccion2></Seccion2>
         </div>
         </main>
+        <center>hola</center>
         <footer><b>Designed by me</b></footer>
       </body>
        

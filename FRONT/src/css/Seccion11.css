@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital@1&display=swap");
 @media (max-width: 700px) {
   .colorseccion1 {
     border-radius: 5px;
@@ -37,12 +38,15 @@
     order: 3;
   }
 }
+img {
+  border: none;
+}
 @media (min-width: 700px) {
   .colorseccion1 {
     border-radius: 5px;
     background-color: white;
     width: auto;
-    height: auto20vh;
+    height: auto;
     margin: 10px;
     padding: 10px;
     display: flex;
@@ -51,23 +55,30 @@
     align-items: stretch;
     text-align: center;
   }
-  .seccion1 {
+  .seccion11 {
     background-color: rgb(170, 190, 188);
-    width: auto;
+    width: 150px;
     padding: 5px;
     margin: 5px;
     flex: 1 1 auto;
     order: 2;
   }
-  .seccion2 {
+  .seccion22 {
     padding: 5px;
+    width: 200px;
+    height: auto;
     margin: 5px;
     background-color: rgb(199, 178, 84);
     flex: 2 1 auto;
     order: 3;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
   }
-  .seccion3 {
+  .seccion33 {
     padding: 5px;
+    width: 15px;
     margin: 5px;
     background-color: turquoise;
     flex: 3 1 auto;
@@ -75,5 +86,34 @@
   }
   .icono {
     font-size: 3.5em;
+    margin: 10px;
+    flex: 1 0 100%;
+    order: -1;
+  }
+  .titulos {
+    font-size: 1.5em;
+    flex: 1 0 100%;
+    order: -1;
+    font-family: "Source Sans Pro", sans-serif;
+    text-decoration: underline;
+  }
+  .eltex {
+    /*flex: 3 1 auto;
+    order: 3;*/
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+    width: 150px;
+    height: 150px;
+    overflow: auto;
+    background-color: cadetblue;
+  }
+  .laimg {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border: 1px solid black;
+    /*flex: 2 2 auto;
+    order: 2;*/
   }
 }
