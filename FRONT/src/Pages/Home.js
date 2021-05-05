@@ -1,5 +1,6 @@
 import {useState,useEffect} from 'react';
 import Seccion1 from '../components/Seccion1';
+import Seccion11 from '../components/Seccion11';
 import Seccion2 from '../components/Seccion2';
 import Title from '../components/Title';
 import '../css/Home.css';
@@ -47,8 +48,9 @@ useEffect(() => {
       
         
         <div className="color1" id="conocenos">
-
+        <div className="let">Conócenos</div>
         <Seccion1></Seccion1>
+        <Seccion11></Seccion11>
         </div>
         <div className="color2" id="contacta">
 

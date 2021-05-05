@@ -4,7 +4,15 @@ body {
   font-family: "Gentium Basic", serif;
 }
 @media (min-width: 700px) {
+  .let {
+    text-align: center;
+    font-size: xx-large;
+    font-family: "Gentium Basic", serif;
+  }
   .color1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 100vh;
     background-color: rgb(106, 97, 192);
     padding: 10px;

@@ -9,30 +9,48 @@ function Title(){
     <div className="total">
 
         <img className="loguito" src={ellogo} alt="imagen"></img>
-        <NuevoLink
-            activeClass="active"
-            to="conocenos"
-            spy={true}
-            smooth={true}
-            offset={-50}
-            duration={500}
-          >Conónocenos</NuevoLink>
-        <NuevoLink
-        activeClass="active"
-        to="contacta"
-        spy={true}
-        smooth={true}
-        offset={-50}
-        duration={500}
-        >Contacta</NuevoLink>
-        <NuevoLink
-            activeClass="active"
-            to="otros"
-            spy={true}
-            smooth={true}
-            offset={-50}
-            duration={500}
-        >Otros</NuevoLink>
+        <div className="empieza">
+          
+            <div className="conespacio">
+            <NuevoLink
+                        activeClass="active"
+                        to="conocenos"
+                        spy={true}
+                        smooth={true}
+                        offset={-50}
+                        duration={500}
+                      >Conónocenos</NuevoLink>
+            </div>
+          
+              <div className="conespacio">
+
+                <NuevoLink
+                activeClass="active"
+                to="contacta"
+                spy={true}
+                smooth={true}
+                offset={-50}
+                duration={500}
+                >Contacta</NuevoLink>
+              </div>
+
+              <div className="conespacio">
+
+                <NuevoLink
+                    activeClass="active"
+                    to="otros"
+                    spy={true}
+                    smooth={true}
+                    offset={-50}
+                    duration={500}
+                >Otros</NuevoLink>
+              </div>
+
+          
+
+        </div>
+
+
       <div className="otrocontenedor">
         <div className="navegaciontitulo4">
 
