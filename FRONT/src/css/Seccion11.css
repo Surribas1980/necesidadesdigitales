@@ -41,6 +41,22 @@
 img {
   border: none;
 }
+.despues {
+  padding: 2px;
+}
+.despues::before {
+  content: "❖  ";
+}
+section {
+  display: flex;
+}
+article {
+  text-align: left;
+}
+.centrado {
+  text-align: center;
+  font-style: italic;
+}
 @media (min-width: 700px) {
   .colorseccion1 {
     border-radius: 5px;
@@ -62,6 +78,10 @@ img {
     margin: 5px;
     flex: 1 1 auto;
     order: 2;
+    display: flex;
+    flex-direction: column;
+
+    text-align: left;
   }
   .seccion22 {
     padding: 5px;
@@ -72,9 +92,10 @@ img {
     flex: 2 1 auto;
     order: 3;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    /*flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-around;*/
   }
   .seccion33 {
     padding: 5px;
@@ -83,6 +104,10 @@ img {
     background-color: turquoise;
     flex: 3 1 auto;
     order: 1;
+    text-align: left;
+  }
+  .seccion33 > div {
+    padding: 5px;
   }
   .icono {
     font-size: 3.5em;
@@ -96,6 +121,13 @@ img {
     order: -1;
     font-family: "Source Sans Pro", sans-serif;
     text-decoration: underline;
+  }
+  .titu {
+    left: 0px;
+    font-size: 1.5em;
+    /*flex: 1 0 100%;
+    order: -1;*/
+    font-family: "Source Sans Pro", sans-serif;
   }
   .eltex {
     /*flex: 3 1 auto;
@@ -112,8 +144,8 @@ img {
     width: 100px;
     height: 100px;
     margin: 10px;
-    border: 1px solid black;
-    /*flex: 2 2 auto;
+    /*border: 1px solid black;
+    flex: 2 2 auto;
     order: 2;*/
   }
 }
