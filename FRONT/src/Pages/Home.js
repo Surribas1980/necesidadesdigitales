@@ -4,6 +4,10 @@ import Seccion11 from '../components/Seccion11';
 import Seccion2 from '../components/Seccion2';
 import Title from '../components/Title';
 import '../css/Home.css';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faArrowCircleUp} from '@fortawesome/free-solid-svg-icons';
+
+import {animateScroll as scroll} from 'react-scroll';
 function Home(){
   let [valor,setValor]= useState(1);
   let [otro,setOtro] = useState(1);
@@ -56,6 +60,7 @@ useEffect(() => {
 
         <Seccion2></Seccion2>
         </div>
+        <div className="arriba"><FontAwesomeIcon onClick={()=>scroll.scrollToTop()} icon={faArrowCircleUp}></FontAwesomeIcon></div>
         </main>
         <center>hola</center>
         <footer><b>Designed by me</b></footer>

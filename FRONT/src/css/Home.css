@@ -4,6 +4,14 @@ body {
   font-family: "Gentium Basic", serif;
 }
 @media (min-width: 700px) {
+  .arriba {
+    position: sticky;
+    bottom: 0px;
+    font-size: 1.5em;
+    /*background-color: chartreuse;*/
+    text-align: right;
+    opacity: 1;
+  }
   .let {
     text-align: center;
     font-size: xx-large;

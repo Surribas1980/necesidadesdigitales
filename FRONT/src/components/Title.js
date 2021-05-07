@@ -41,7 +41,7 @@ function Title(){
                     to="otros"
                     spy={true}
                     smooth={true}
-                    offset={-50}
+                    offset={-60}
                     duration={500}
                 >Otros</NuevoLink>
               </div>
