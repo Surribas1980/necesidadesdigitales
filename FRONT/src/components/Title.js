@@ -31,7 +31,7 @@ function Title(){
                 smooth={true}
                 offset={-50}
                 duration={500}
-                >Contacta</NuevoLink>
+                >Directivos</NuevoLink>
               </div>
 
               <div className="conespacio">

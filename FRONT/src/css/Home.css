@@ -21,29 +21,34 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
+    /*height: 100vh;*/
     background-color: rgb(106, 97, 192);
     padding: 10px;
   }
   .color2 {
-    height: 100vh;
-    background-color: rgb(50, 45, 90);
+    /*height: 100vh;*/
+    background-color: rgb(0, 0, 0);
     padding: 10px;
   }
   .imagenesvarias {
+    /*position: relative;
+    top: 0px;*/
     /*transform: scale(1);*/
-    text-align: center;
+    /*text-align: center;
     width: auto;
-    height: 500px;
-    background-color: blue;
+    /*max-width: 1000vw;
+    max-height: 1000vh;*/
+    /*height: 500px;*/
+
     border: none;
     /*margin: 10px;*/
   }
-  .imagen {
-    width: 1000vw;
-    height: 300px;
-    margin: 20px;
-    padding: 5px;
+  .imagen0 {
+    box-sizing: border-box;
+    width: 1349px;
+    height: 700px;
+    /*margin: 20px;*/
+    /*padding: 5px;*/
     border: none;
   }
   main {

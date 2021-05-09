@@ -8,7 +8,7 @@
 
   align-items: center;
 
-  background-color: cornflowerblue;
+  /*background-color: cornflowerblue;*/
   padding: 5px;
   /*box-sizing: border-box;*/
   height: 8vh; /*40px me gusta*/
@@ -21,7 +21,7 @@
 
   align-items: center;
 
-  background-color: cornflowerblue;
+  /*background-color: cornflowerblue;*/
   padding: 5px;
   /*box-sizing: border-box;*/
   height: 8vh; /*40px me gusta*/
@@ -47,8 +47,8 @@
 .conespacio .active {
   /*background-color: black;*/
   padding: 5px;
-  color: black;
-  text-decoration: white underline;
+  color: rgb(135, 240, 49);
+  text-decoration: rgb(233, 230, 60) underline;
 }
 .conespacio:hover {
   border-radius: 5px;
@@ -62,7 +62,7 @@
   justify-content: space-between;
   /*position: sticky;
   top: 0px;*/
-  background-color: cornflowerblue;
+  background-color: rgba(30, 80, 109, 0.897);
 }
 .navegaciontitulo4 {
   display: flex;
@@ -83,7 +83,7 @@
   flex: 1 1 auto;
   align-items: center;
   border-right: 1px solid black;
-  background-color: rgb(255, 255, 255);
+  /*background-color: rgb(255, 255, 255);*/
 
   font-family: "Yantramanav", "Asap", sans-serif;
 
