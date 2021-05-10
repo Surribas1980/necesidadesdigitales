@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap");
 .colorseccion2 {
   border-radius: 5px;
   background-color: white;
@@ -16,12 +17,12 @@ h2 {
   font-style: italic;
 }
 .seccion2 > div {
-  background-color: cadetblue;
+  background-color: #efefef;
   font-style: italic;
   text-align: center;
 }
 .seccion2 {
-  background-color: white;
+  background-color: #ffffff;
   width: 20vw;
   height: auto;
   margin: 5px;
@@ -40,4 +41,11 @@ h2 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: white;
   padding: 2px;
+}
+.bordeado {
+  border: 1px solid black;
+}
+.algun {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5em;
 }

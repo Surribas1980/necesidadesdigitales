@@ -9,6 +9,7 @@ import {faArrowCircleUp} from '@fortawesome/free-solid-svg-icons';
 
 import {animateScroll as scroll} from 'react-scroll';
 import Seccion21 from '../components/Seccion21';
+import ElFooter from '../components/ElFooter';
 function Home(){
   let [valor,setValor]= useState(1);
   let [otro,setOtro] = useState(1);
@@ -44,28 +45,34 @@ useEffect(() => {
         {/*<Title></Title>*/}
         <main>
        
-        <div className="imagenesvarias" id="otros">
+          <div className="imagenesvarias" id="otros">
 
-          <img className="imagen0" src={`http://localhost:4000/imagenes/imagenes/banner-bg${valor}.jpg`} alt="imagen"/>
-          {/*<img className="imagen" src={`http://localhost:4000/imagenes/imagenes/${valor}640.png`} alt="imagen"/>*/}
+            <img className="imagen0" src={`http://localhost:4000/imagenes/imagenes/banner-bg${valor}.jpg`} alt="imagen"/>
+            {/*<img className="imagen" src={`http://localhost:4000/imagenes/imagenes/${valor}640.png`} alt="imagen"/>*/}
+          
+          </div>
         
-        </div>
-      
-        
-        <div className="color1" id="conocenos">
-          <div className="let">Conócenos</div>
-          {/*<Seccion1></Seccion1>*/}
-          <Seccion11></Seccion11>
-        </div>
-        <div className="color2" id="contacta">
+          
+          <div className="color1" id="conocenos">
+            <div className="let">Conócenos</div>
+            {/*<Seccion1></Seccion1>*/}
+            <Seccion11></Seccion11>
+          </div>
+          <div className="color2" id="contacta">
 
-          <Seccion2></Seccion2>
-          <Seccion21></Seccion21>
-        </div>
-        <div className="arriba"><FontAwesomeIcon onClick={()=>scroll.scrollToTop()} icon={faArrowCircleUp}></FontAwesomeIcon></div>
+            <Seccion2></Seccion2>
+            <Seccion21></Seccion21>
+          </div>
+          
+            <div className="arriba">
+              <FontAwesomeIcon onClick={()=>scroll.scrollToTop()} icon={faArrowCircleUp}></FontAwesomeIcon>
+            </div>
+            <ElFooter></ElFooter>
+        
+          
         </main>
-        <center>hola</center>
         <footer><b>Designed by me</b></footer>
+        
       </body>
        
       </>
