@@ -13,6 +13,7 @@ function Title(){
           
             <div className="conespacio">
             <NuevoLink
+              data-cono="cono"
                         activeClass="active"
                         to="conocenos"
                         spy={true}
@@ -25,6 +26,7 @@ function Title(){
               <div className="conespacio">
 
                 <NuevoLink
+                data-dire="direc"
                 activeClass="active"
                 to="contacta"
                 spy={true}
@@ -37,6 +39,7 @@ function Title(){
               <div className="conespacio">
 
                 <NuevoLink
+                data-otro="otros"
                     activeClass="active"
                     to="otros"
                     spy={true}

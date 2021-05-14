@@ -6,14 +6,15 @@ function Seccion11() {
     return(<>
     
     <div className="colorseccion1">
-                    <div className="titulos">Interactuando</div>
+                    {/*<div className="titulos">Interactuando</div>*/}
         
            
             <div className="seccion11">
-                <h3>Titulo</h3>
+                {/*<h3>Titulo</h3>
                 <div className="despues">Lorem ipsum dolor sit amet, ea eum labitur scsstie percipitoleat fabulas complectitur deterruisset at pro. </div>
                 <div className="despues">Intellegebat has ut. Falli volumus efficiantur sed id, ad vel noster propriae. Ius ut etiam vivendo, graeci iudicabit constituto at mea. No soleat fabulas prodesset vel, ut quo solum dicunt. Nec et jority have suffered alteration.</div>
-                <div className="despues">Falli volumus efficiantur sed id, ad vel noster propriae. Ius ut etiam vivendo, graeci iudicabit constituto at mea. No soleat fabulas prodesset vel, ut quo solum dicunt. Nec et amet vidisse mentitumsstie percipitoleat fabulas. </div>
+                <div className="despues">
+                    Falli volumus efficiantur sed id, ad vel noster propriae. Ius ut etiam vivendo, graeci iudicabit constituto at mea. No soleat fabulas prodesset vel, ut quo solum dicunt. Nec et amet vidisse mentitumsstie percipitoleat fabulas. </div>*/}
                 
 
 

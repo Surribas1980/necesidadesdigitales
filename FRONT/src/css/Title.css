@@ -38,7 +38,7 @@
   justify-content: flex-start;
   margin-left: 300px;
   font-family: "Yantramanav", "Asap", sans-serif;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 .letras {
   font-size: 24pt;
@@ -47,12 +47,13 @@
 .conespacio .active {
   /*background-color: black;*/
   padding: 5px;
-  color: rgb(135, 240, 49);
-  text-decoration: rgb(233, 230, 60) underline;
+  color: rgb(76, 119, 158);
+  background-color: rgba(255, 255, 255, 0.609);
+  text-decoration: rgb(104, 104, 97) underline;
 }
 .conespacio:hover {
-  border-radius: 5px;
-  background-color: rgb(72, 34, 241);
+  /*border-radius: 5px;*/
+  background-color: rgba(255, 255, 255, 0.609);
   padding: 5px;
 }
 .total {
@@ -62,7 +63,7 @@
   justify-content: space-between;
   /*position: sticky;
   top: 0px;*/
-  background-color: rgba(30, 80, 109, 0.897);
+  background-color: rgb(199, 178, 84);
 }
 .navegaciontitulo4 {
   display: flex;

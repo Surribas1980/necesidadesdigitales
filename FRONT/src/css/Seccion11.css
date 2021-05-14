@@ -60,7 +60,7 @@ article {
 @media (min-width: 700px) {
   .colorseccion1 {
     border-radius: 5px;
-    background-color: white;
+    background-color: transparent;
     width: auto;
     height: auto;
     margin: 10px;
@@ -70,9 +70,10 @@ article {
     flex-wrap: wrap;
     align-items: stretch;
     text-align: center;
+    color: white;
   }
   .seccion11 {
-    background-color: rgb(170, 190, 188);
+    /* background-color: rgb(170, 190, 188);*/
     width: 150px;
     padding: 5px;
     margin: 5px;
@@ -88,7 +89,7 @@ article {
     width: 200px;
     height: auto;
     margin: 5px;
-    background-color: rgb(199, 178, 84);
+    background-color: rgba(199, 178, 84, 0.356);
     flex: 2 1 auto;
     order: 3;
     display: flex;
@@ -101,7 +102,8 @@ article {
     padding: 5px;
     width: 15px;
     margin: 5px;
-    background-color: turquoise;
+    background-color: rgba(199, 178, 84, 0.356);
+    /*background-color: rgba(64, 224, 208, 0.5);*/
     flex: 3 1 auto;
     order: 1;
     text-align: left;

@@ -6,8 +6,11 @@ import Title from '../components/Title';
 import '../css/Home.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowCircleUp} from '@fortawesome/free-solid-svg-icons';
-
-import {animateScroll as scroll} from 'react-scroll';
+import uno from '../shared/img/1.jpg';
+import dos from '../shared/img/2.jpg';
+import tres from '../shared/img/3.jpg';
+import cuatro from '../shared/img/4.jpg';
+import {animateScroll as scroll, Element} from 'react-scroll';
 import Seccion21 from '../components/Seccion21';
 import ElFooter from '../components/ElFooter';
 function Home(){
@@ -15,7 +18,39 @@ function Home(){
   let [otro,setOtro] = useState(1);
   const [seconds, setSeconds] = useState(0);
 
+let scroll_pos;
+useEffect(()=>{
+  var last_known_scroll_position = 0;
+var ticking = false;
 
+
+function doSomething(scroll_pos) {
+  //console.log('scroll_pos',scroll_pos);
+  
+}
+
+window.addEventListener('scroll', function(e) {
+  
+  /*document.querySelector(".color1").style.backgroundColor = "red";*/
+  /*const evn = e.target;
+  
+  console.log('evn:',evn)
+  const valor = document.getElementById('contacta');
+  let objetocontacta = valor.getBoundingClientRect();
+  console.log('objetocontacta',objetocontacta)
+  console.log('objetocontacta top',objetocontacta.top,'el bottom:',objetocontacta.bottom)*/
+  last_known_scroll_position = window.scrollY;
+  
+  if (!ticking) {
+    window.requestAnimationFrame(function() {
+      doSomething(last_known_scroll_position);
+      ticking = false;
+    });
+  }
+  ticking = true;
+});
+},[]);
+  
 useEffect(() => {
   
     

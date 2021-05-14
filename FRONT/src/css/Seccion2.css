@@ -22,7 +22,9 @@ h2 {
   text-align: center;
 }
 .seccion2 {
-  background-color: #ffffff;
+  background-image: url("../shared/img/1.jpg") left top no-repeat;
+  background-size: 70px;
+  /*background-color: #ffffff;*/
   width: 20vw;
   height: auto;
   margin: 5px;
@@ -32,6 +34,7 @@ h2 {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+  opacity: 1;
 }
 .imagenseccion2 {
   transform: scale(1.25);
@@ -43,6 +46,8 @@ h2 {
   padding: 2px;
 }
 .bordeado {
+  background-image: url("../shared/img/1.jpg") left top no-repeat;
+  background-size: 70px;
   border: 1px solid black;
 }
 .algun {
