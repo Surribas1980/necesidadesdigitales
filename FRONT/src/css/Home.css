@@ -8,6 +8,9 @@ body {
     max-width: 100%;
     height: auto;
   }*/
+  #op {
+    transition: all 3s;
+  }
   .arriba {
     position: fixed;
     bottom: 0px;

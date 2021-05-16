@@ -25,7 +25,7 @@ var ticking = false;
 
 
 function doSomething(scroll_pos) {
-  //console.log('scroll_pos',scroll_pos);
+  console.log('scroll_pos',scroll_pos);
   
 }
 
@@ -34,12 +34,15 @@ window.addEventListener('scroll', function(e) {
   /*document.querySelector(".color1").style.backgroundColor = "red";*/
   /*const evn = e.target;
   
-  console.log('evn:',evn)
+  console.log('evn:',evn)*/
   const valor = document.getElementById('contacta');
+  const otr2 = document.getElementById('op');
+  const tot = document.getElementsByTagName('body');
   let objetocontacta = valor.getBoundingClientRect();
   console.log('objetocontacta',objetocontacta)
-  console.log('objetocontacta top',objetocontacta.top,'el bottom:',objetocontacta.bottom)*/
+  console.log('objetocontacta top',objetocontacta.top,'el bottom:',objetocontacta.bottom)
   last_known_scroll_position = window.scrollY;
+  console.log('availHeight:',window.screen.availHeight,'height:',window.screen.height,'windowinnerhei',window.innerHeight,'body',document.body.scrollHeight,'docu',document.documentElement.scrollTop);
   
   if (!ticking) {
     window.requestAnimationFrame(function() {
@@ -48,7 +51,15 @@ window.addEventListener('scroll', function(e) {
     });
   }
   ticking = true;
+
+  if(( objetocontacta.top > 49) && (objetocontacta.bottom < 649)){
+    otr2.style.opacity = 1;
+  }else{
+    otr2.style.opacity = 0;
+  }
+
 });
+
 },[]);
   
 useEffect(() => {
@@ -94,8 +105,10 @@ useEffect(() => {
             <Seccion11></Seccion11>
           </div>
           <div className="color2" id="contacta">
+            <div id="op">
 
             <Seccion2></Seccion2>
+            </div>
             <Seccion21></Seccion21>
           </div>
           

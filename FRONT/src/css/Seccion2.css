@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap");
 .colorseccion2 {
-  border-radius: 5px;
+  /*border-radius: 5px;*/
   background-color: white;
   width: auto;
   height: auto;
@@ -22,7 +22,6 @@ h2 {
   text-align: center;
 }
 .seccion2 {
-  background-image: url("../shared/img/1.jpg") left top no-repeat;
   background-size: 70px;
   /*background-color: #ffffff;*/
   width: 20vw;
@@ -35,6 +34,13 @@ h2 {
   flex-wrap: wrap;
   justify-content: space-around;
   opacity: 1;
+}
+.primero {
+  background-color: transparent;
+  width: 20vw;
+  height: 30vh;
+  background-image: url("../shared/img/2.jpg");
+  background-size: 20vw 30vh;
 }
 .imagenseccion2 {
   transform: scale(1.25);
