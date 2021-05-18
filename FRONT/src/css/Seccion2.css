@@ -5,10 +5,20 @@
   width: auto;
   height: auto;
   margin: 10px;
-  padding: 10px;
+  /*padding: 10px;*/
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
+}
+.imagen01 {
+  width: 20vw;
+  height: 30vh;
+  margin-top: 5em;
+  margin-left: 1em;
+  margin-right: 1em;
+
+  box-shadow: 5px 10px goldenrod;
 }
 h2 {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -23,7 +33,7 @@ h2 {
 }
 .seccion2 {
   background-size: 70px;
-  /*background-color: #ffffff;*/
+  background-color: #eee385;
   width: 20vw;
   height: auto;
   margin: 5px;
@@ -33,7 +43,6 @@ h2 {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  opacity: 1;
 }
 .primero {
   background-color: transparent;
@@ -41,6 +50,7 @@ h2 {
   height: 30vh;
   background-image: url("../shared/img/2.jpg");
   background-size: 20vw 30vh;
+  margin: 0.5em;
 }
 .imagenseccion2 {
   transform: scale(1.25);
@@ -51,9 +61,14 @@ h2 {
   background-color: white;
   padding: 2px;
 }
+.subtitulo {
+  font-size: smaller;
+
+  /*background-color: black;
+  color: white;*/
+}
 .bordeado {
-  background-image: url("../shared/img/1.jpg") left top no-repeat;
-  background-size: 70px;
+  background-color: white;
   border: 1px solid black;
 }
 .algun {

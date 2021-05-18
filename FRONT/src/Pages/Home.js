@@ -13,6 +13,7 @@ import cuatro from '../shared/img/4.jpg';
 import {animateScroll as scroll, Element} from 'react-scroll';
 import Seccion21 from '../components/Seccion21';
 import ElFooter from '../components/ElFooter';
+import Graficas from '../Pages/Graficas';
 function Home(){
   let [valor,setValor]= useState(1);
   let [otro,setOtro] = useState(1);
@@ -52,7 +53,7 @@ window.addEventListener('scroll', function(e) {
   }
   ticking = true;
 
-  if(( objetocontacta.top > 49) && (objetocontacta.bottom < 649)){
+  if(( objetocontacta.top > 49) && (objetocontacta.bottom < 779)){
     otr2.style.opacity = 1;
   }else{
     otr2.style.opacity = 0;
@@ -111,7 +112,11 @@ useEffect(() => {
             </div>
             <Seccion21></Seccion21>
           </div>
-          
+          {/*<div className="graficas">
+            <div className="dentrograficas">
+              <Graficas></Graficas>
+            </div>
+          </div>*/}
             <div className="arriba">
               <FontAwesomeIcon onClick={()=>scroll.scrollToTop()} icon={faArrowCircleUp}></FontAwesomeIcon>
             </div>

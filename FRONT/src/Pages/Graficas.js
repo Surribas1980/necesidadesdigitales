@@ -1,9 +1,9 @@
 import {Bar, Line} from 'react-chartjs-2';
 
 function Graficas(){
-    const colores = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'];
+    const colores = ['Juan', 'Ramón', 'María', 'Laura', 'Iván', 'Fernando'];
     const puntos = [12, 19, 3, 5, 2, 3];
-    return (<><h1>Estoy en Graficas</h1>
+    return (<>
         <Bar 
             data={{
                     labels: colores,
@@ -37,8 +37,8 @@ function Graficas(){
                         }
                     ]
                    }}
-            height={100}
-            width={600} 
+            height={190}
+            width={500} 
             options={{
                 maintainAspectRatio: true,
                 scales: {
@@ -51,7 +51,7 @@ function Graficas(){
             }}
             
              />
-        <Line
+        {/*<Line
           data={{
             labels: colores,
             datasets: [
@@ -96,7 +96,7 @@ function Graficas(){
             }]
         }
     }}
-        />
+        />*/}
     </>);
 }
 
