@@ -107,7 +107,11 @@ body {
   .imagenesvarias {
     text-align: center;
     transform: scale(0.8);
-    width: auto;
+    width: 100%;
+    height: auto;
+  }
+  .imagen0 {
+    width: 100%;
     height: auto;
   }
 
