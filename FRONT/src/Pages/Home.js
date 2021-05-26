@@ -53,7 +53,7 @@ window.addEventListener('scroll', function(e) {
   }
   ticking = true;
 
-  if(( objetocontacta.top > 49) && (objetocontacta.bottom < 779)){
+  if(( objetocontacta.top > 49) && (objetocontacta.bottom < 783)){
     otr2.style.opacity = 1;
   }else{
     otr2.style.opacity = 0;
@@ -89,7 +89,7 @@ useEffect(() => {
     return (
       <>
       <body>
-        {/*<Title></Title>*/}
+      {/*<Title></Title>*/}
         <main>
        
           <div className="imagenesvarias" id="otros">
