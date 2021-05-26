@@ -95,7 +95,31 @@ function Title(){
 
 salida2 = <><div className="tituloMinimo">
       <div className="total">
-        
+      <input
+        class="boton1"
+        type="button"
+        onClick={() => {
+          CambiarEstilo("tipo4", "tipo3", "capa-variable2");
+        }}
+        value="Cambiar"
+      />
+   <div id="capa-variable2" class="tipo4">
+        {/*esto es una capa3
+        <div>es otra cosa</div>
+        <Link to="otro">enlazar</Link>
+        <div>
+        <Link to="otro">enlazar2</Link>
+        </div>*/}
+        <NuevoLink
+                  
+                  activeClass="active"
+                  to="contacta"
+                  spy={true}
+                  smooth={true}
+                  offset={-50}
+                  duration={500}
+                  >Directivos</NuevoLink>
+   </div>
       {/*<div className="dd">
         <div className="dd-btn">hover</div>
         <div className="dd-content">
@@ -171,7 +195,34 @@ salida2 = <><div className="tituloMinimo">
    
    return(<>  
     
-   {!isUserLogged && <div>{salida1}{salida2}</div>}
+   {!isUserLogged && <div>{salida1}{salida2}
+   {/*<input
+        class="boton1"
+        type="button"
+        onClick={() => {
+          CambiarEstilo("tipo4", "tipo3", "capa-variable2");
+        }}
+        value="Cambiar"
+      />
+   <div id="capa-variable2" class="tipo4">
+        esto es una capa3
+        <div>es otra cosa</div>
+        <Link to="otro">enlazar</Link>
+        <div>
+        <Link to="otro">enlazar2</Link>
+        </div>
+        <NuevoLink
+                  
+                  activeClass="active"
+                  to="contacta"
+                  spy={true}
+                  smooth={true}
+                  offset={-50}
+                  duration={500}
+                  >Directivos</NuevoLink>
+   </div>*/}
+   
+   </div>}
     </>)
 
 
