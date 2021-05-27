@@ -180,18 +180,22 @@
     overflow: hidden;
   }
   .tipo3 {
+    visibility: visible;
+    border-radius: 5px;
     position: absolute;
-    top: 5px;
-    right: 20px;
+    top: 35px;
+    left: 30px;
     background-color: green;
     font-size: 20px;
-    height: 100px;
+    height: 150px;
     margin: 10px;
-    text-align: center;
-    width: 70px;
+    padding: 3px;
+    text-align: left;
+    width: 100px;
     transition: all 1s;
     z-index: 1;
   }
+
   .tipo4 {
     color: transparent;
     font-size: 40px;
@@ -199,15 +203,27 @@
     margin: 10px;
     text-align: center;
     width: 500px;
+    top: -1000px;
+    visibility: hidden;
+  }
+  .tipo41 {
+    background-color: transparent;
+  }
+  .tipo41 .active {
+    background-color: blanchedalmond;
+    padding: 3px;
   }
   .boton1 {
-    /*border: none;*/
-    width: 100px;
+    border: 2px solid rgba(117, 109, 109, 0.726);
+    border-radius: 5px;
+
+    width: 25px;
     height: 30px;
     padding: 2px;
     background-color: blue;
-    color: white;
+    color: rgb(226, 134, 134);
   }
+
   .menu {
     visibility: visible;
     text-align: left;
@@ -257,7 +273,13 @@
     transition: width 2s;
   }
   .tituloMinimo {
-    display: block;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
   }
   .loguito {
     margin: 1vh;

@@ -17,6 +17,7 @@ function Title(){
       var elemento = document.getElementById(id);
       if (elemento.className === tipo) {
         elemento.className = cambioportipo;
+        
       }else {
         elemento.className = tipo;
       }
@@ -94,98 +95,73 @@ function Title(){
       </>;
 
 salida2 = <><div className="tituloMinimo">
-      <div className="total">
+  <img className="loguito" src={ellogo} alt="imagen"></img>
       <input
         class="boton1"
         type="button"
         onClick={() => {
           CambiarEstilo("tipo4", "tipo3", "capa-variable2");
         }}
-        value="Cambiar"
+        value="☰"
       />
-   <div id="capa-variable2" class="tipo4">
-        {/*esto es una capa3
-        <div>es otra cosa</div>
-        <Link to="otro">enlazar</Link>
-        <div>
-        <Link to="otro">enlazar2</Link>
-        </div>*/}
-        <NuevoLink
-                  
-                  activeClass="active"
-                  to="contacta"
-                  spy={true}
-                  smooth={true}
-                  offset={-50}
-                  duration={500}
-                  >Directivos</NuevoLink>
-   </div>
-      {/*<div className="dd">
-        <div className="dd-btn">hover</div>
-        <div className="dd-content">
-          <a href="#">hhh</a>
-          <a href="#">ññññ</a>
-          <a href="#">kkk</a>
-        </div>
-    </div>*/}
-          <img className="loguito" src={ellogo} alt="imagen"></img>
-          <div className="bb">
-            <FontAwesomeIcon onClick={()=>{CambiarEstilo("menu","menu-check","cambia")}} className="barras" icon={faBars}></FontAwesomeIcon> 
-          </div>
-          {<div id="cambia" className="menu">
-            <ul>
-              <li>
-              <NuevoLink className="linkado"
+          <div id="capa-variable2" class="tipo4">
+                {/*esto es una capa3
+                <div>es otra cosa</div>
+                <Link to="otro">enlazar</Link>
+                <div>
+                <Link to="otro">enlazar2</Link>
+                </div>*/}
+                <div className="tipo41">
+                  <NuevoLink
+                            
+                            activeClass="active"
+                            to="contacta"
+                            spy={true}
+                            smooth={true}
+                            offset={-50}
+                            duration={500}
+                            >Directivos
+                  </NuevoLink>
+
+                </div>
+                <div  className="tipo41">
+                                <NuevoLink 
+                                  
+                                  activeClass="active"
+                                  to="conocenos"
+                                  spy={true}
+                                  smooth={true}
+                                  offset={-50}
+                                  duration={500}
+                                >Conónocenos</NuevoLink>
+                </div>
+                <div  className="tipo41">
+                        <NuevoLink
                           
                           activeClass="active"
-                          to="conocenos"
+                          to="otros"
                           spy={true}
                           smooth={true}
-                          offset={-50}
+                          offset={-60}
                           duration={500}
-                        >Conónocenos</NuevoLink>
-              </li>
-              <li>
-              <NuevoLink
-                  
-                  activeClass="active"
-                  to="contacta"
-                  spy={true}
-                  smooth={true}
-                  offset={-50}
-                  duration={500}
-                  >Directivos</NuevoLink>
-              </li>
-              <li>
-              <NuevoLink
-                  
-                      activeClass="active"
-                      to="otros"
-                      spy={true}
-                      smooth={true}
-                      offset={-60}
-                      duration={500}
-                  >Otros</NuevoLink>
-              </li>
-              
-                      <div className="lateral">
-                        <div>
+                      >Otros</NuevoLink>
+                </div>
+                <div className="lateral">
+                                <div>
 
-                                    <Link  to="/">Home</Link>
-                        </div>
-                        <div>
+                                            <Link  to="/">Home</Link>
+                                </div>
+                                <div>
 
-                        <Link to="/login">Login</Link>
-                        </div>
-                        <div>
+                                <Link to="/login">Login</Link>
+                                </div>
+                                <div>
 
-                        <Link  to="/register">Register</Link>
-                        </div>
-                      </div>
-
-            </ul>
-            </div>}
-      </div>
+                                <Link  to="/register">Register</Link>
+                                </div>
+                </div>
+          </div>
+      
       </div>
       </>;
    
